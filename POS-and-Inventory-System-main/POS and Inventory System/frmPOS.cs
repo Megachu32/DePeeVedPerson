@@ -322,11 +322,11 @@ namespace POS_and_Inventory_System
         {
             double discount = double.Parse(lblDiscount.Text);
             double sales = double.Parse(lblSalesTotal.Text);
-            double vat = sales * dbconn.GetVal();
-            double vatable = sales - vat;
+            //double vat = sales * dbconn.GetVal();
+            //double vatable = sales - vat;
 
-            lblVat.Text = vat.ToString("#,##0.00");
-            lblVatable.Text = vatable.ToString("#,##0.00");
+            //lblVat.Text = vat.ToString("#,##0.00");
+            //lblVatable.Text = vatable.ToString("#,##0.00");
             lblDisplayTotal.Text = sales.ToString("#,##0.00");
         }
 

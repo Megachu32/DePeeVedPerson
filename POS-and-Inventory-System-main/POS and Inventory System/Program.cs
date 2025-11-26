@@ -13,7 +13,7 @@ namespace POS_and_Inventory_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPOS());
+            Application.Run(new frmSecurity());
         }
     }
 }
