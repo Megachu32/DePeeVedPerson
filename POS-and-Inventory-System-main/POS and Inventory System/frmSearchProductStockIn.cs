@@ -1,20 +1,47 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmSearchProductStockIn : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
-        SqlDataReader dr;
+        MySqlDataReader dr;
         frmStockIn fList;
+
+        /*
+         mega's note
+
+        ✅ What was changed
+        ✔ Switched namespaces
+
+        System.Data.SqlClient → MySql.Data.MySqlClient
+
+        ✔ Replaced classes
+
+        SqlConnection → MySqlConnection
+
+        SqlCommand → MySqlCommand
+
+        SqlDataReader → MySqlDataReader
+
+        ✔ Parameterized all queries
+
+        So you don't get SQL injection issues.
+
+        ✔ MySQL-friendly date handling
+
+        MySQL can accept a .NET DateTime directly because parameterized queries convert it safely.
+         
+         */
+
         public frmSearchProductStockIn(frmStockIn _fList)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             fList = _fList;
         }
 
@@ -25,13 +52,20 @@ namespace POS_and_Inventory_System
                 int i = 0;
                 dgvProductList.Rows.Clear();
                 conn.Open();
-                string sql = "SELECT pcode, pdesc, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearch.Text + "%' ORDER BY pdesc";
-                cmd = new SqlCommand(sql, conn);
+
+                string sql = "SELECT pcode, pdesc, qty FROM tblProduct WHERE pdesc LIKE @search ORDER BY pdesc";
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
+
                 dr = cmd.ExecuteReader();
+
                 while (dr.Read())
                 {
                     i++;
-                    dgvProductList.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
+                    dgvProductList.Rows.Add(i,
+                        dr["pcode"].ToString(),
+                        dr["pdesc"].ToString(),
+                        dr["qty"].ToString());
                 }
             }
             catch (Exception ex)
@@ -40,7 +74,7 @@ namespace POS_and_Inventory_System
             }
             finally
             {
-                dr.Close();
+                if (dr != null && !dr.IsClosed) dr.Close();
                 conn.Close();
             }
         }
@@ -48,26 +82,33 @@ namespace POS_and_Inventory_System
         private void DgvProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvProductList.Columns[e.ColumnIndex].Name;
+
             if (colName == "Select")
             {
-                if (fList.txtRefNo.Text == string.Empty)
+                if (string.IsNullOrEmpty(fList.txtRefNo.Text))
                 {
-                    MessageBox.Show("Please Enter Reference No", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter Reference No.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     fList.txtRefNo.Focus();
                     return;
                 }
-                if (fList.txtStockInBy.Text == string.Empty)
+
+                if (string.IsNullOrEmpty(fList.txtStockInBy.Text))
                 {
-                    MessageBox.Show("Please Enter Stock-In by", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter Stock-In By.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     fList.txtStockInBy.Focus();
                     return;
                 }
-                if (MessageBox.Show("Add this item?", "Add Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                if (MessageBox.Show("Add this item?", "Add Item",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
-                    string sql = "INSERT INTO tblStockIn (refno, pcode, sdate, qty, stockInBy, status, vendorId) VALUES " +
-                        "(@refno, @pcode, @sdate, @qty, @stockInBy, @status, @vendorId)";
-                    cmd = new SqlCommand(sql, conn);
+
+                    string sql = @"INSERT INTO tblStockIn
+                                   (refno, pcode, sdate, qty, stockInBy, status, vendorId)
+                                   VALUES (@refno, @pcode, @sdate, @qty, @stockInBy, @status, @vendorId)";
+
+                    cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@refno", fList.txtRefNo.Text);
                     cmd.Parameters.AddWithValue("@pcode", dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString());
                     cmd.Parameters.AddWithValue("@sdate", fList.dtStockInDate.Value);
@@ -75,16 +116,19 @@ namespace POS_and_Inventory_System
                     cmd.Parameters.AddWithValue("@stockInBy", fList.txtStockInBy.Text);
                     cmd.Parameters.AddWithValue("@status", "Pending");
                     cmd.Parameters.AddWithValue("@vendorId", fList.lblVendorId.Text);
+
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
-                    MessageBox.Show("Successfully added!", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    fList.LoadStockIn();                 
+                    MessageBox.Show("Successfully added!", "Add Item",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    fList.LoadStockIn();
                 }
             }
         }
 
-        private void TxtSearch_TextChanged(object sender, EventArgs e) 
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
             => LoadProduct();
 
         private void BtnClose_Click(object sender, EventArgs e)

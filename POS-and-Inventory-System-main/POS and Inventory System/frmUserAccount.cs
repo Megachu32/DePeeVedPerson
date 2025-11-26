@@ -1,20 +1,33 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient; // CHANGED: From System.Data.SqlClient
 
 namespace POS_and_Inventory_System
 {
     public partial class frmUserAccount : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        // CHANGED: Sql classes to MySql classes
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
-        SqlDataReader dr;
+        MySqlDataReader dr;
         frmDashboard frm;
+
+        /*
+         mega's note - 003: different AI
+
+        ⚠️ Crucial Change: Boolean vs. TinyInt
+        Microsoft SQL Server uses a BIT data type which behaves very much like a C# bool. MySQL often uses TINYINT(1) (where 0 is false and 1 is true).
+
+        Reading Data: I changed bool.Parse(dr["isactive"].ToString()) to Convert.ToBoolean(dr["isactive"]). bool.Parse fails on MySQL because it tries to parse the string "1" or "0" as a boolean, which throws an error.
+
+        Saving Data: I removed .ToString() from cbActive.Checked. MySQL handles the raw C# bool better than the string "True".
+         */
+
         public frmUserAccount(frmDashboard _frm)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             frm = _frm;
         }
 
@@ -50,7 +63,7 @@ namespace POS_and_Inventory_System
                 }
                 conn.Open();
                 string sql = "INSERT INTO tblUser (username, password, role, name) VALUES (@username, @password, @role, @name)";
-                cmd = new SqlCommand(sql, conn);
+                cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@username", txtUser.Text);
                 cmd.Parameters.AddWithValue("@password", txtPass.Text);
                 cmd.Parameters.AddWithValue("@role", cboRole.Text);
@@ -82,7 +95,7 @@ namespace POS_and_Inventory_System
                     return;
                 }
                 conn.Open();
-                cmd = new SqlCommand("UPDATE tblUser SET password=@password WHERE username=@username",conn);
+                cmd = new MySqlCommand("UPDATE tblUser SET password=@password WHERE username=@username", conn);
                 cmd.Parameters.AddWithValue("@password", txtNewPass2.Text);
                 cmd.Parameters.AddWithValue("@username", txtUser2.Text);
                 cmd.ExecuteNonQuery();
@@ -91,10 +104,11 @@ namespace POS_and_Inventory_System
                 MessageBox.Show("Password has been successfully changed!", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtConfirmPass2.Clear();
                 txtNewPass2.Clear();
-                txtOldPass2.Clear(); 
+                txtOldPass2.Clear();
             }
             catch (Exception ex)
             {
+                conn.Close();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -104,11 +118,21 @@ namespace POS_and_Inventory_System
             try
             {
                 conn.Open();
-                cmd = new SqlCommand("SELECT * FROM tblUser WHERE username=@username", conn);
+                cmd = new MySqlCommand("SELECT * FROM tblUser WHERE username=@username", conn);
                 cmd.Parameters.AddWithValue("@username", txtUser3.Text);
                 dr = cmd.ExecuteReader();
-                dr.Read();
-                cbActive.Checked = dr.HasRows && bool.Parse(dr["isactive"].ToString());
+
+                // CHANGED: Logic to handle reading boolean from MySQL safely
+                if (dr.Read())
+                {
+                    // Convert.ToBoolean handles 0/1 (TinyInt) correctly. bool.Parse does not.
+                    cbActive.Checked = Convert.ToBoolean(dr["isactive"]);
+                }
+                else
+                {
+                    cbActive.Checked = false;
+                }
+
                 dr.Close();
                 conn.Close();
             }
@@ -125,19 +149,30 @@ namespace POS_and_Inventory_System
             {
                 bool found = true;
                 conn.Open();
-                cmd = new SqlCommand("SELECT * FROM tblUser WHERE username=@username", conn);
+                cmd = new MySqlCommand("SELECT * FROM tblUser WHERE username=@username", conn);
                 cmd.Parameters.AddWithValue("@username", txtUser3.Text);
                 dr = cmd.ExecuteReader();
-                dr.Read();
-                found = dr.HasRows;
+                // Check if row exists
+                if (dr.Read())
+                {
+                    found = true;
+                }
+                else
+                {
+                    found = false;
+                }
                 dr.Close();
                 conn.Close();
 
                 if (found)
                 {
                     conn.Open();
-                    cmd = new SqlCommand("UPDATE tblUser SET isactive=@isactive WHERE username=@username", conn);
-                    cmd.Parameters.AddWithValue("@isactive", cbActive.Checked.ToString());
+                    cmd = new MySqlCommand("UPDATE tblUser SET isactive=@isactive WHERE username=@username", conn);
+
+                    // CHANGED: Removed .ToString(). Pass the boolean directly. 
+                    // MySQL Connector converts true/false to 1/0 automatically.
+                    cmd.Parameters.AddWithValue("@isactive", cbActive.Checked);
+
                     cmd.Parameters.AddWithValue("@username", txtUser3.Text);
                     cmd.ExecuteNonQuery();
                     conn.Close();

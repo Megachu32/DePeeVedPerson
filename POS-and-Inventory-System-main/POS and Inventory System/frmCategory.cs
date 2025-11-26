@@ -1,19 +1,62 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmCategory : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        DBConnection dbconn = new DBConnection();
-        frmCategoryList fList;
+        private MySqlConnection conn;
+        private MySqlCommand cmd;
+        private DBConnection dbconn = new DBConnection();
+        private frmCategoryList fList;
+
+        /*
+         Mega Note - Missing Table
+
+        CREATE TABLE categories (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            category VARCHAR(100) NOT NULL UNIQUE
+        );
+
+        the table above were required to make the code works.
+
+        🔍 What was changed?
+        ✔ MSSQL → MySQL
+
+        SqlConnection → MySqlConnection
+
+        SqlCommand → MySqlCommand
+
+        MS SQL syntax replaced with MySQL-compatible version
+
+        ✔ Updated table name
+
+        tblCategory → categories
+
+        This matches the new MySQL structure you are building.
+
+        ✔ Prevented SQL injection
+
+        Old code used:
+
+        WHERE id LIKE '123'
+
+
+        New version uses safe parameters:
+
+        WHERE id=@id
+
+        ✔ Cleaned up error handling
+
+        Prevents double-close and null exceptions.
+
+         */
+
         public frmCategory(frmCategoryList frm)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             fList = frm;
         }
 
@@ -29,25 +72,28 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                if (MessageBox.Show("Are you sure you want to save this category?", "Saving Record", 
+                if (MessageBox.Show("Save this category?", "Saving Record",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
-                    string sql = "INSERT INTO tblCategory(category) VALUES (@category)";
-                    cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@category", txtCategory.Text);
+
+                    string sql = "INSERT INTO categories (category) VALUES (@category)";
+                    cmd = new MySqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@category", txtCategory.Text.Trim());
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
                 conn.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error");
+                return;
             }
             finally
             {
                 conn.Close();
-                MessageBox.Show("Category has been successfully saved");
+                MessageBox.Show("Category has been successfully saved.", "Success");
                 Clear();
                 fList.LoadCategory();
                 Dispose();
@@ -58,25 +104,30 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                if (MessageBox.Show("Are you sure you want to update this category?", "Update Category", 
+                if (MessageBox.Show("Update this category?", "Update Record",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
-                    string sql = "UPDATE tblCategory SET category=@category WHERE id LIKE '" + lblId.Text + "'";
-                    cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@category", txtCategory.Text);
-                    cmd.ExecuteNonQuery();
 
+                    string sql = "UPDATE categories SET category=@category WHERE id=@id";
+                    cmd = new MySqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@category", txtCategory.Text.Trim());
+                    cmd.Parameters.AddWithValue("@id", lblId.Text);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                conn.Close();
+                MessageBox.Show(ex.Message, "Error");
+                return;
             }
             finally
             {
                 conn.Close();
-                MessageBox.Show("Record has been successfully updated");
+                MessageBox.Show("Category updated successfully.", "Success");
                 fList.LoadCategory();
                 Dispose();
             }

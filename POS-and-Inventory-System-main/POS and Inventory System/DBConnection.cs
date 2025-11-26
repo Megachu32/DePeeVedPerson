@@ -1,103 +1,156 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace POS_and_Inventory_System
 {
     class DBConnection
     {
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataReader dr;
+        private MySqlConnection conn;
+        private MySqlCommand cmd;
+        private MySqlDataReader dr;
+
         private double dailySales;
         private int productLine;
         private int stockOnHand;
         private int critical;
-        string connString;
+
+        // CHANGE THIS ONE VALUE TO CHANGE THE DATABASE
+        private string connString = "Server=localhost;Database=db_project;Uid=root;Pwd=;";
+
         public string MyConnection()
         {
-            //string conn = @"datasource = localhost; username = root; password = ; database = pos_inventory_db";
-            connString = @"Data Source=WALL-E;Initial Catalog=POS_DB;Integrated Security=True";
             return connString;
         }
 
+        // ----------------------------
+        // DAILY SALES
+        // ----------------------------
         public double DailySales()
         {
-            string sdate = DateTime.Now.ToShortDateString();
-            conn = new SqlConnection(MyConnection());
-            conn.Open();
-            string sql = "SELECT isnull(sum(total), 0) AS total FROM tblCart WHERE sdate BETWEEN '" + 
-                sdate + "' AND '" + sdate + "' AND status LIKE 'Sold'";
-            cmd = new SqlCommand(sql, conn);
-            dailySales = double.Parse(cmd.ExecuteScalar().ToString());
-            conn.Close();
+            string sdate = DateTime.Now.ToString("yyyy-MM-dd");
+
+            using (conn = new MySqlConnection(MyConnection()))
+            {
+                conn.Open();
+
+                string sql = "SELECT IFNULL(SUM(total), 0) AS total " +
+                             "FROM tblCart WHERE sdate = @date AND status = 'Sold'";
+
+                using (cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@date", sdate);
+                    dailySales = Convert.ToDouble(cmd.ExecuteScalar());
+                }
+            }
+
             return dailySales;
         }
 
+        // ----------------------------
+        // TOTAL PRODUCT LINES
+        // ----------------------------
         public int ProductLine()
         {
-            conn = new SqlConnection(MyConnection());
-            conn.Open();
-            cmd = new SqlCommand("SELECT count(*) FROM tblProduct", conn);
-            productLine = int.Parse(cmd.ExecuteScalar().ToString());
-            conn.Close();
+            using (conn = new MySqlConnection(MyConnection()))
+            {
+                conn.Open();
+
+                using (cmd = new MySqlCommand("SELECT COUNT(*) FROM tblProduct", conn))
+                {
+                    productLine = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
             return productLine;
         }
 
+        // ----------------------------
+        // STOCK ON HAND
+        // ----------------------------
         public int StockOnHand()
         {
-            conn = new SqlConnection(MyConnection());
-            conn.Open();
-            cmd = new SqlCommand("SELECT isnull(sum(qty),0) AS qty FROM tblProduct", conn);
-            stockOnHand = int.Parse(cmd.ExecuteScalar().ToString());
-            conn.Close();
+            using (conn = new MySqlConnection(MyConnection()))
+            {
+                conn.Open();
+
+                using (cmd = new MySqlCommand("SELECT IFNULL(SUM(qty), 0) FROM tblProduct", conn))
+                {
+                    stockOnHand = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
             return stockOnHand;
         }
 
+        // ----------------------------
+        // CRITICAL ITEMS
+        // ----------------------------
         public int CriticalItems()
         {
-            conn = new SqlConnection(MyConnection());
-            conn.Open();
-            cmd = new SqlCommand("SELECT count(*) FROM vwCriticalItems", conn);
-            critical = int.Parse(cmd.ExecuteScalar().ToString());
-            conn.Close();
+            using (conn = new MySqlConnection(MyConnection()))
+            {
+                conn.Open();
+
+                using (cmd = new MySqlCommand("SELECT COUNT(*) FROM vwCriticalItems", conn))
+                {
+                    critical = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
             return critical;
         }
 
+        // ----------------------------
+        // VAT VALUE
+        // ----------------------------
         public double GetVal()
         {
             double vat = 0;
-            conn = new SqlConnection(MyConnection());
-            //conn.ConnectionString = MyConnection();
-            conn.Open();
-            string sql = "SELECT * FROM tblVat";
-            cmd = new SqlCommand(sql, conn);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
+
+            using (conn = new MySqlConnection(MyConnection()))
             {
-                vat = double.Parse(dr["vat"].ToString());
+                conn.Open();
+
+                using (cmd = new MySqlCommand("SELECT vat FROM tblVat LIMIT 1", conn))
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        vat = Convert.ToDouble(dr["vat"]);
+                    }
+                    dr.Close();
+                }
             }
-            dr.Close();
-            conn.Close();
+
             return vat;
         }
 
+        // ----------------------------
+        // GET PASSWORD BY USERNAME
+        // ----------------------------
         public string GetPassword(string user)
         {
             string password = "";
-            conn = new SqlConnection(MyConnection());
-            //conn.ConnectionString = MyConnection();
-            conn.Open();
-            string sql = "SELECT * FROM tblUser WHERE username=@username";
-            cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@username", user);
-            dr = cmd.ExecuteReader();
-            dr.Read();
-            if (dr.HasRows)
+
+            using (conn = new MySqlConnection(MyConnection()))
             {
-                password = dr["password"].ToString();
+                conn.Open();
+
+                string sql = "SELECT password FROM tblUser WHERE username = @username LIMIT 1";
+
+                using (cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", user);
+
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        password = dr["password"].ToString();
+                    }
+                    dr.Close();
+                }
             }
-            dr.Close();
-            conn.Close();
+
             return password;
         }
     }

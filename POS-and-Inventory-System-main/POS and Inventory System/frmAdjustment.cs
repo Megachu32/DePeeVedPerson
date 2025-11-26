@@ -1,43 +1,88 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmAdjustment : Form
     {
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataReader dr;
-        DBConnection dbconn = new DBConnection();
+        private MySqlConnection conn;
+        private MySqlCommand cmd;
+        private MySqlDataReader dr;
 
-        frmDashboard frm;
-        int qty = 0;
+        private DBConnection dbconn = new DBConnection();
+        private frmDashboard frm;
+
+        private int currentStock = 0;   // Inventory qty
+
+        /*
+         Mega's Note -- 001 - logging feature
+
+        CREATE TABLE inventory_adjustments (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        reference_no VARCHAR(50),
+        product_id INT,
+        qty INT,
+        action VARCHAR(50),
+        remarks TEXT,
+        date DATE,
+        user VARCHAR(50)
+        );
+
+
+        the table above were missing from the current MySQL database.
+        for the current code to work, you'll need to either run the code above,
+        or remove the code related to logging features from this file.
+
+         */
         public frmAdjustment(frmDashboard _frm)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             frm = _frm;
+
             LoadRecords();
-            Random rnd = new Random();
-            txtRefNo.Text = rnd.Next().ToString();
+
+            // Generate reference number
+            txtRefNo.Text = new Random().Next().ToString();
         }
 
+        // ================================
+        // LOAD PRODUCT LIST
+        // ================================
         public void LoadRecords()
         {
             int i = 0;
             dgvProduct.Rows.Clear();
+
+            string sql =
+                @"SELECT p.id, p.barcode, p.product_name, p.brand, p.category, p.sale_price,
+                         COALESCE(inv.stock, 0) AS stock
+                  FROM products p
+                  LEFT JOIN inventory inv ON inv.product_id = p.id
+                  WHERE p.product_name LIKE @search
+                  ORDER BY p.product_name";
+
             conn.Open();
-            string sql = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct AS p INNER JOIN tblBrand " +
-                "AS b ON b.id=p.bid INNER JOIN tblCategory AS c ON c.id=p.cid WHERE p.pdesc LIKE '%" + txtSearch.Text + "%' order by p.pdesc";
-            cmd = new SqlCommand(sql, conn);
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
             dr = cmd.ExecuteReader();
+
             while (dr.Read())
             {
                 i++;
-                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(),
-                    dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dgvProduct.Rows.Add(
+                    i,
+                    dr["id"].ToString(),
+                    dr["barcode"].ToString(),
+                    dr["product_name"].ToString(),
+                    dr["brand"].ToString(),
+                    dr["category"].ToString(),
+                    dr["sale_price"].ToString(),
+                    dr["stock"].ToString()
+                );
             }
+
             dr.Close();
             conn.Close();
         }
@@ -45,78 +90,145 @@ namespace POS_and_Inventory_System
         private void TxtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
-            {
                 LoadRecords();
-            }
         }
 
+        // ================================
+        // SELECT ROW
+        // ================================
         private void DgvProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvProduct.Columns[e.ColumnIndex].Name;
+
             if (colName == "Select")
             {
-                txtPCode.Text = dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtDesc.Text = dgvProduct.Rows[e.RowIndex].Cells[3].Value.ToString() + " " + dgvProduct.Rows[e.RowIndex].Cells[4].Value.ToString() +
-                    " " + dgvProduct.Rows[e.RowIndex].Cells[5].Value.ToString();
-                qty = int.Parse(dgvProduct.Rows[e.RowIndex].Cells[7].Value.ToString());
+                txtPCode.Text = dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString(); // product_id
+                txtDesc.Text =
+                    dgvProduct.Rows[e.RowIndex].Cells[3].Value.ToString() + " " +
+                    dgvProduct.Rows[e.RowIndex].Cells[4].Value.ToString() + " " +
+                    dgvProduct.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                currentStock = int.Parse(dgvProduct.Rows[e.RowIndex].Cells[7].Value.ToString());
             }
         }
 
+        // ================================
+        // SAVE ADJUSTMENT
+        // ================================
         private void BtnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (int.Parse(txtQty.Text) > qty)
+                int qty = int.Parse(txtQty.Text);
+
+                if (cboCommand.Text == "")
                 {
-                    MessageBox.Show("Stock on Hand Quantity should be greater than from adjustment qty", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please select an action.", "WARNING",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
+                if (qty <= 0)
+                {
+                    MessageBox.Show("Quantity must be greater than 0.", "WARNING",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // REMOVE
                 if (cboCommand.Text == "REMOVE FROM INVENTORY")
                 {
-                    SqlStatement("UPDATE tblProduct SET qty=(qty - " + int.Parse(txtQty.Text) + ") WHERE pcode LIKE '" + txtPCode.Text + "'");
+                    if (qty > currentStock)
+                    {
+                        MessageBox.Show(
+                            "Cannot remove more than stock on hand.",
+                            "WARNING",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return;
+                    }
+
+                    UpdateInventory(-qty);
                 }
+
+                // ADD
                 else if (cboCommand.Text == "ADD TO INVENTORY")
                 {
-                    SqlStatement("UPDATE tblProduct SET qty=(qty +" + int.Parse(txtQty.Text) + ") WHERE pcode LIKE '" + txtPCode.Text + "'");
+                    UpdateInventory(qty);
                 }
 
-                SqlStatement("INSERT INTO tblAdjustment(referenceno, pcode, qty, action, remarks, sdate, [user]) VALUES ('" +
-                    txtRefNo.Text + "','" + txtPCode.Text + "','" + int.Parse(txtQty.Text) + "','" + cboCommand.Text + 
-                    "','" + txtRemarks.Text + "','" + DateTime.Now.ToShortDateString() + "','" + txtUser.Text + "')");
+                // Log adjustment
+                InsertAdjustmentRecord(qty);
 
-                MessageBox.Show("Stock has been successfully adjusted", "Process completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Stock has been successfully adjusted.",
+                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 LoadRecords();
                 Clear();
             }
             catch (Exception ex)
             {
                 conn.Close();
-                MessageBox.Show(ex.Message, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "ERROR",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // ================================
+        // UPDATE INVENTORY TABLE
+        // ================================
+        private void UpdateInventory(int delta)
+        {
+            string sql =
+                @"UPDATE inventory
+                  SET stock = stock + @delta
+                  WHERE product_id = @id";
+
+            conn.Open();
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@delta", delta);
+            cmd.Parameters.AddWithValue("@id", txtPCode.Text);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        // ================================
+        // INSERT ADJUSTMENT LOG
+        // ================================
+        private void InsertAdjustmentRecord(int qty)
+        {
+            string sql =
+                @"INSERT INTO inventory_adjustments
+                    (reference_no, product_id, qty, action, remarks, date, user)
+                  VALUES
+                    (@ref, @product, @qty, @action, @remarks, @date, @user)";
+
+            conn.Open();
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@ref", txtRefNo.Text);
+            cmd.Parameters.AddWithValue("@product", txtPCode.Text);
+            cmd.Parameters.AddWithValue("@qty", qty);
+            cmd.Parameters.AddWithValue("@action", cboCommand.Text);
+            cmd.Parameters.AddWithValue("@remarks", txtRemarks.Text);
+            cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
+            cmd.Parameters.AddWithValue("@user", txtUser.Text);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+            => Dispose();
 
         public void Clear()
         {
             txtDesc.Clear();
             txtPCode.Clear();
             txtQty.Clear();
-            txtRefNo.Clear();
             txtRemarks.Clear();
             cboCommand.Text = "";
-            Random rnd = new Random();
-            txtRefNo.Text = rnd.Next().ToString();
-        }
 
-        public void SqlStatement(string _sql)
-        {
-            conn.Open();
-            cmd = new SqlCommand(_sql, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            txtRefNo.Text = new Random().Next().ToString();
         }
-
-        private void BtnClose_Click(object sender, EventArgs e) 
-            => Dispose();
     }
 }

@@ -104,7 +104,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label10.Location = new System.Drawing.Point(9, 34);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 29);
+            this.label10.Size = new System.Drawing.Size(63, 17);
             this.label10.TabIndex = 0;
             this.label10.Text = "Discount";
             // 
@@ -116,7 +116,7 @@
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label17.Location = new System.Drawing.Point(10, 83);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 29);
+            this.label17.Size = new System.Drawing.Size(56, 17);
             this.label17.TabIndex = 0;
             this.label17.Text = "Vatable";
             // 
@@ -128,7 +128,7 @@
             this.lblSalesTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblSalesTotal.Location = new System.Drawing.Point(378, 9);
             this.lblSalesTotal.Name = "lblSalesTotal";
-            this.lblSalesTotal.Size = new System.Drawing.Size(58, 29);
+            this.lblSalesTotal.Size = new System.Drawing.Size(36, 17);
             this.lblSalesTotal.TabIndex = 0;
             this.lblSalesTotal.Text = "0.00";
             // 
@@ -137,7 +137,7 @@
             this.lblDisplayTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDisplayTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDisplayTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.lblDisplayTotal.Location = new System.Drawing.Point(1446, 0);
+            this.lblDisplayTotal.Location = new System.Drawing.Point(1234, 0);
             this.lblDisplayTotal.Name = "lblDisplayTotal";
             this.lblDisplayTotal.Size = new System.Drawing.Size(130, 47);
             this.lblDisplayTotal.TabIndex = 0;
@@ -152,7 +152,7 @@
             this.lblVatable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblVatable.Location = new System.Drawing.Point(378, 83);
             this.lblVatable.Name = "lblVatable";
-            this.lblVatable.Size = new System.Drawing.Size(58, 29);
+            this.lblVatable.Size = new System.Drawing.Size(36, 17);
             this.lblVatable.TabIndex = 0;
             this.lblVatable.Text = "0.00";
             // 
@@ -172,7 +172,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1576, 703);
+            this.panel7.Size = new System.Drawing.Size(1364, 703);
             this.panel7.TabIndex = 5;
             // 
             // panel8
@@ -193,7 +193,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(101)))), ((int)(((byte)(155)))));
             this.lblDate.Location = new System.Drawing.Point(10, 78);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(124, 42);
+            this.lblDate.Size = new System.Drawing.Size(76, 25);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "label1";
             // 
@@ -204,7 +204,7 @@
             this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(101)))), ((int)(((byte)(155)))));
             this.lblTime.Location = new System.Drawing.Point(2, 2);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(495, 126);
+            this.lblTime.Size = new System.Drawing.Size(292, 73);
             this.lblTime.TabIndex = 0;
             this.lblTime.Text = "00:00:00";
             // 
@@ -219,7 +219,7 @@
             this.panel3.Controls.Add(this.btnClearCart);
             this.panel3.Controls.Add(this.btnAddDiscount);
             this.panel3.Controls.Add(this.btnSetPayment);
-            this.panel3.Location = new System.Drawing.Point(1412, 33);
+            this.panel3.Location = new System.Drawing.Point(1200, 33);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(164, 243);
             this.panel3.TabIndex = 5;
@@ -391,7 +391,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label8.Location = new System.Drawing.Point(9, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(135, 29);
+            this.label8.Size = new System.Drawing.Size(79, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Sales Total";
             // 
@@ -403,7 +403,7 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label12.Location = new System.Drawing.Point(10, 58);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 29);
+            this.label12.Size = new System.Drawing.Size(29, 17);
             this.label12.TabIndex = 0;
             this.label12.Text = "Vat";
             // 
@@ -415,7 +415,7 @@
             this.lblDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblDiscount.Location = new System.Drawing.Point(378, 33);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(58, 29);
+            this.lblDiscount.Size = new System.Drawing.Size(36, 17);
             this.lblDiscount.TabIndex = 0;
             this.lblDiscount.Text = "0.00";
             // 
@@ -427,7 +427,7 @@
             this.lblVat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblVat.Location = new System.Drawing.Point(378, 58);
             this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(58, 29);
+            this.lblVat.Size = new System.Drawing.Size(36, 17);
             this.lblVat.TabIndex = 0;
             this.lblVat.Text = "0.00";
             // 
@@ -445,7 +445,7 @@
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1576, 31);
+            this.panel4.Size = new System.Drawing.Size(1364, 31);
             this.panel4.TabIndex = 2;
             // 
             // txtQty
@@ -467,7 +467,7 @@
             this.txtQty.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
             this.txtQty.Lines = new string[] {
         "1"};
-            this.txtQty.Location = new System.Drawing.Point(1527, 4);
+            this.txtQty.Location = new System.Drawing.Point(1315, 4);
             this.txtQty.MaxLength = 32767;
             this.txtQty.Name = "txtQty";
             this.txtQty.PasswordChar = '\0';
@@ -505,7 +505,7 @@
             this.txtSearch.DisplayIcon = true;
             this.txtSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearch.Icon")));
             this.txtSearch.Lines = new string[0];
-            this.txtSearch.Location = new System.Drawing.Point(1242, 4);
+            this.txtSearch.Location = new System.Drawing.Point(1030, 4);
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -530,7 +530,7 @@
             this.lblDateNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblDateNo.Location = new System.Drawing.Point(307, 8);
             this.lblDateNo.Name = "lblDateNo";
-            this.lblDateNo.Size = new System.Drawing.Size(182, 29);
+            this.lblDateNo.Size = new System.Drawing.Size(112, 17);
             this.lblDateNo.TabIndex = 0;
             this.lblDateNo.Text = "0000000000000";
             // 
@@ -541,7 +541,7 @@
             this.lblTransNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(113)))), ((int)(((byte)(74)))));
             this.lblTransNo.Location = new System.Drawing.Point(123, 8);
             this.lblTransNo.Name = "lblTransNo";
-            this.lblTransNo.Size = new System.Drawing.Size(182, 29);
+            this.lblTransNo.Size = new System.Drawing.Size(112, 17);
             this.lblTransNo.TabIndex = 0;
             this.lblTransNo.Text = "0000000000000";
             // 
@@ -552,7 +552,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label5.Location = new System.Drawing.Point(260, 8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 29);
+            this.label5.Size = new System.Drawing.Size(38, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Date";
             // 
@@ -563,7 +563,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label3.Location = new System.Drawing.Point(5, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 29);
+            this.label3.Size = new System.Drawing.Size(109, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Transaction No.";
             // 
@@ -627,7 +627,7 @@
             this.Column1.HeaderText = "#";
             this.Column1.MinimumWidth = 9;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 65;
+            this.Column1.Width = 39;
             // 
             // Column2
             // 
@@ -660,7 +660,7 @@
             this.Column4.HeaderText = "Price";
             this.Column4.MinimumWidth = 9;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 108;
+            this.Column4.Width = 63;
             // 
             // Column5
             // 
@@ -670,7 +670,7 @@
             this.Column5.HeaderText = "Qty";
             this.Column5.MinimumWidth = 9;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 88;
+            this.Column5.Width = 53;
             // 
             // Column7
             // 
@@ -680,7 +680,7 @@
             this.Column7.HeaderText = "Discount";
             this.Column7.MinimumWidth = 9;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 145;
+            this.Column7.Width = 86;
             // 
             // Column6
             // 
@@ -691,7 +691,7 @@
             this.Column6.MinimumWidth = 9;
             this.Column6.Name = "Column6";
             this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.Width = 107;
+            this.Column6.Width = 63;
             // 
             // colAdd
             // 
@@ -735,7 +735,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 47);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1576, 703);
+            this.panel2.Size = new System.Drawing.Size(1364, 703);
             this.panel2.TabIndex = 10;
             // 
             // lblName
@@ -745,7 +745,7 @@
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblName.Location = new System.Drawing.Point(65, 29);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(82, 29);
+            this.lblName.Size = new System.Drawing.Size(49, 17);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Walter";
             // 
@@ -760,7 +760,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1576, 47);
+            this.panel5.Size = new System.Drawing.Size(1364, 47);
             this.panel5.TabIndex = 9;
             // 
             // label2
@@ -770,7 +770,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(101)))), ((int)(((byte)(155)))));
             this.label2.Location = new System.Drawing.Point(65, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(241, 42);
+            this.label2.Size = new System.Drawing.Size(143, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "POS System";
             // 
@@ -781,16 +781,16 @@
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblUser.Location = new System.Drawing.Point(374, 29);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(82, 29);
+            this.lblUser.Size = new System.Drawing.Size(49, 17);
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Walter";
             // 
             // frmPOS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1576, 750);
+            this.ClientSize = new System.Drawing.Size(1364, 750);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);

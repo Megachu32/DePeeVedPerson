@@ -1,337 +1,323 @@
-﻿using System.Windows.Forms;
-using System.Data.SqlClient;
-using System;
+﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using MySql.Data.MySqlClient;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmRecords : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataReader dr;
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
+        MySqlDataReader dr;
         DBConnection dbconn = new DBConnection();
+
+        /*
+        Mega's Note - MANY MANY MISSING TABLE
+        
+        since the data will be stored in a table that will be used in other form, use the following sql codes as a reference.
+
+        CREATE VIEW vwSoldItems AS
+        SELECT
+            c.pcode,
+            p.pdesc,
+            c.qty,
+            c.total,
+            c.sdate,
+            c.status
+        FROM tblCart c
+        JOIN tblProduct p ON p.pcode = c.pcode;
+
+        CREATE VIEW vwCancelledOrder AS
+        SELECT *
+        FROM tblCancelledOrder;  -- if you have a cancelled order table
+
+        CREATE VIEW vwCriticalItems AS
+        SELECT 
+            p.pcode,
+            p.barcode,
+            p.pdesc,
+            b.brand,
+            c.category,
+            p.price,
+            p.reorder,
+            p.qty
+        FROM tblProduct p
+        JOIN tblBrand b ON p.bid=b.id
+        JOIN tblCategory c ON p.cid=c.id
+        WHERE p.qty <= p.reorder;
+
+        CREATE VIEW vwStockIn AS
+        SELECT *
+        FROM tblStockIn;   -- assuming you later add this table
+
+
+
+         */
+
         public frmRecords()
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             LoadCriticalItems();
             LoadInventory();
             CancelledOrders();
             LoadStockInHistory();
         }
 
+        // ==============================
+        // TOP SELLING RECORDS
+        // ==============================
         public void LoadRecords()
         {
             int i = 0;
             string sql;
-            conn.Open();
+
             dgvTopSell.Rows.Clear();
+            conn.Open();
+
             if (cboTopSelect.Text == "SORT BY QTY")
             {
-                sql = "SELECT TOP 10 pcode, pdesc, isnull(sum(qty), 0) as qty, isnull(sum(total), 0) as total FROM " +
-                    "vwSoldItems WHERE sdate between '" + dtFrom.Value.ToShortDateString() + "' and '" + dtFrom.Value.ToShortDateString() + 
-                    "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC";
+                sql = "SELECT pcode, pdesc, COALESCE(SUM(qty),0) AS qty, COALESCE(SUM(total),0) AS total " +
+                      "FROM vwSoldItems " +
+                      "WHERE DATE(sdate) BETWEEN @d1 AND @d2 AND status='Sold' " +
+                      "GROUP BY pcode, pdesc ORDER BY qty DESC LIMIT 10";
             }
             else
             {
-                sql = "SELECT TOP 10 pcode, pdesc, isnull(sum(qty), 0) as qty, isnull(sum(total), 0) as total FROM " +
-                    "vwSoldItems WHERE sdate between '" + dtFrom.Value.ToShortDateString() + "' and '" + dtFrom.Value.ToShortDateString() +
-                    "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC";
+                sql = "SELECT pcode, pdesc, COALESCE(SUM(qty),0) AS qty, COALESCE(SUM(total),0) AS total " +
+                      "FROM vwSoldItems " +
+                      "WHERE DATE(sdate) BETWEEN @d1 AND @d2 AND status='Sold' " +
+                      "GROUP BY pcode, pdesc ORDER BY total DESC LIMIT 10";
             }
-            cmd = new SqlCommand(sql, conn);
+
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@d1", dtFrom.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@d2", dtTo.Value.ToString("yyyy-MM-dd"));
+
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvTopSell.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), 
-                    double.Parse(dr["total"].ToString()).ToString("#,##0.0"));
+                dgvTopSell.Rows.Add(
+                    i,
+                    dr["pcode"].ToString(),
+                    dr["pdesc"].ToString(),
+                    dr["qty"].ToString(),
+                    Convert.ToDouble(dr["total"]).ToString("#,##0.0")
+                );
             }
+
             dr.Close();
             conn.Close();
         }
 
+        // ==============================
+        // CANCELLED ORDERS
+        // ==============================
         public void CancelledOrders()
         {
             int i = 0;
             dgvCancelledRecords.Rows.Clear();
             conn.Open();
-            string sql = "SELECT * FROM vwCancelledOrder WHERE sdate BETWEEN '" + dtFrom5.Value.ToString() + "' AND '" + dtTo.Value.ToString() + "'";
-            cmd = new SqlCommand(sql, conn);
+
+            string sql =
+                "SELECT * FROM vwCancelledOrder " +
+                "WHERE sdate BETWEEN @d1 AND @d2";
+
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@d1", dtFrom5.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@d2", dtTo.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvCancelledRecords.Rows.Add(i, dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(),
-                    dr["price"].ToString(), dr["qty"].ToString(), dr["total"].ToString(), dr["sdate"].ToString(), 
-                    dr["voidBy"].ToString(), dr["cancelledby"].ToString(), dr["reason"].ToString(), dr["action"].ToString());
+                dgvCancelledRecords.Rows.Add(
+                    i,
+                    dr["transno"].ToString(),
+                    dr["pcode"].ToString(),
+                    dr["pdesc"].ToString(),
+                    dr["price"].ToString(),
+                    dr["qty"].ToString(),
+                    dr["total"].ToString(),
+                    dr["sdate"].ToString(),
+                    dr["voidBy"].ToString(),
+                    dr["cancelledby"].ToString(),
+                    dr["reason"].ToString(),
+                    dr["action"].ToString()
+                );
             }
             dr.Close();
             conn.Close();
         }
 
+        // ==============================
+        // INVENTORY LIST
+        // ==============================
         public void LoadInventory()
         {
             int i = 0;
             dgvInventory.Rows.Clear();
             conn.Open();
-            string sql = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty, p.reorder FROM " +
-                "tblProduct AS p INNER JOIN tblBrand AS b on p.bid = b.id INNER JOIN tblCategory AS c on p.cid = c.id";
-            cmd = new SqlCommand(sql, conn);
+
+            string sql =
+                "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty, p.reorder " +
+                "FROM tblProduct p " +
+                "JOIN tblBrand b ON p.bid = b.id " +
+                "JOIN tblCategory c ON p.cid = c.id";
+
+            cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
+
             while (dr.Read())
             {
                 i++;
-                dgvInventory.Rows.Add(i, dr["pcode"].ToString(), dr["barcode"].ToString(), dr["pdesc"].ToString(), dr["brand"].ToString(),
-                    dr["category"].ToString(), dr["price"].ToString(), dr["reorder"].ToString(), dr["qty"].ToString());
+                dgvInventory.Rows.Add(
+                    i,
+                    dr["pcode"].ToString(),
+                    dr["barcode"].ToString(),
+                    dr["pdesc"].ToString(),
+                    dr["brand"].ToString(),
+                    dr["category"].ToString(),
+                    dr["price"].ToString(),
+                    dr["reorder"].ToString(),
+                    dr["qty"].ToString()
+                );
             }
+
             dr.Close();
             conn.Close();
         }
+
+        // ==============================
+        // CRITICAL STOCKS
+        // ==============================
         public void LoadCriticalItems()
         {
             try
             {
                 dgvCriticalStocks.Rows.Clear();
                 int i = 0;
+
                 conn.Open();
-                cmd = new SqlCommand("SELECT * FROM vwCriticalItems", conn);
+                cmd = new MySqlCommand("SELECT * FROM vwCriticalItems", conn);
                 dr = cmd.ExecuteReader();
+
                 while (dr.Read())
                 {
                     i++;
-                    dgvCriticalStocks.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),
-                        dr[4].ToString(), dr[5].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
+                    dgvCriticalStocks.Rows.Add(
+                        i,
+                        dr[0].ToString(),
+                        dr[1].ToString(),
+                        dr[2].ToString(),
+                        dr[3].ToString(),
+                        dr[4].ToString(),
+                        dr[5].ToString(),
+                        dr[6].ToString(),
+                        dr[7].ToString()
+                    );
                 }
+
                 dr.Close();
                 conn.Close();
             }
             catch (Exception ex)
             {
                 conn.Close();
-                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message);
             }
         }
-        private void ImgClose_Click(object sender, EventArgs e)
-            => Dispose();
 
+        // ==============================
+        // STOCK-IN HISTORY
+        // ==============================
         private void LoadStockInHistory()
         {
             int i = 0;
             dgvStocks2.Rows.Clear();
             conn.Open();
-            string sql = "SELECT * FROM vwStockIn WHERE cast(sdate AS date) BETWEEN '" + dtFrom6.Value.ToShortDateString()
-                + "' AND '" + dtTo6.Value.ToShortDateString() + "' AND status LIKE 'Done'";
-            cmd = new SqlCommand(sql, conn);
+
+            string sql =
+                "SELECT * FROM vwStockIn " +
+                "WHERE DATE(sdate) BETWEEN @d1 AND @d2 AND status='Done'";
+
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@d1", dtFrom6.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@d2", dtTo6.Value.ToString("yyyy-MM-dd"));
+
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvStocks2.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),
-                    dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString());
+                dgvStocks2.Rows.Add(
+                    i,
+                    dr[0].ToString(),
+                    dr[1].ToString(),
+                    dr[2].ToString(),
+                    dr[3].ToString(),
+                    dr[4].ToString(),
+                    Convert.ToDateTime(dr[5]).ToShortDateString(),
+                    dr[6].ToString()
+                );
             }
+
             dr.Close();
             conn.Close();
         }
 
-        private void BtnPrint_Click(object sender, EventArgs e)
-        {
-            frmInventoryReport f = new frmInventoryReport();
-            string sql = "", header = "";
-            if (cboTopSelect.Text == "SORT BY QTY")
-            {
-                sql = "SELECT TOP 10 pcode, pdesc, isnull(sum(qty), 0) AS qty, isnull(sum(total), 0) AS total FROM " +
-                    "vwSoldItems WHERE sdate between '" + dtFrom.Value.ToString() + "' AND '" + dtFrom.Value.ToString() +
-                    "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC";
-                header = "TOP SELLING ITEMS SORT BY QTY";
-            }
-            else if (cboTopSelect.Text == "SORT BY TOTAL AMOUNT")
-            {
-                sql = "SELECT TOP 10 pcode, pdesc, isnull(sum(qty), 0) AS qty, isnull(sum(total), 0) AS total FROM " +
-                    "vwSoldItems WHERE sdate between '" + dtFrom.Value.ToString() + "' AND '" + dtFrom.Value.ToString() +
-                    "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC";
-                header = "TOP SELLING ITEMS SORT BY TOTAL AMOUNT";
-            }
-            f.LoadTopSelling(sql, "From : " + dtFrom.Value.ToString() + " To : " + dtTo.Value.ToString(), header);
-            f.ShowDialog();
-        }
-
-        private void LinkPrint2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmInventoryReport f = new frmInventoryReport();
-            string sql = "SELECT c.pcode, p.pdesc, c.price, sum(c.qty) AS tot_qty, sum(c.disc) AS tot_disc, sum(c.total) AS total " +
-                "FROM tblCart AS c INNER JOIN tblProduct AS p on c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" +
-                dtFrom2.Value.ToString() + "' AND '" + dtTo2.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price";
-            f.LoadSoldItems(sql, "From : " + dtFrom2.Value.ToString() + " To : " + dtTo2.Value.ToString());
-            f.ShowDialog();
-        }
-
-        private void BtnLoadData_Click(object sender, EventArgs e)
-        {
-            if (cboTopSelect.Text == string.Empty)
-            {
-                MessageBox.Show("Please Select from the dropdown list", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            LoadRecords();
-            LoadChartTopSelling();
-        }
-
+        // ==============================
+        // CHARTS
+        // ==============================
         public void LoadChartTopSelling()
         {
-            SqlDataAdapter da = new SqlDataAdapter();
             conn.Open();
+
+            string sql;
             if (cboTopSelect.Text == "SORT BY QTY")
             {
-                da = new SqlDataAdapter("SELECT TOP 10 pcode, isnull(sum(qty), 0) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" +
-                    dtFrom.Value.ToString() + "' AND '" + dtFrom.Value.ToShortDateString() + "' AND status LIKE 'Sold' GROUP BY " +
-                    "pcode ORDER BY qty DESC", conn);
+                sql = "SELECT pcode, COALESCE(SUM(qty),0) AS qty " +
+                      "FROM vwSoldItems WHERE DATE(sdate) BETWEEN @d1 AND @d2 " +
+                      "AND status='Sold' GROUP BY pcode ORDER BY qty DESC LIMIT 10";
             }
-            else if (cboTopSelect.Text == "SORT BY TOTAL AMOUNT")
+            else
             {
-                da = new SqlDataAdapter("SELECT TOP 10 pcode, isnull(sum(qty), 0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" +
-                    dtFrom.Value.ToString() + "' AND '" + dtFrom.Value.ToShortDateString() + "' AND status LIKE 'Sold' GROUP BY " +
-                    "pcode ORDER BY total DESC", conn);
+                sql = "SELECT pcode, COALESCE(SUM(total),0) AS total " +
+                      "FROM vwSoldItems WHERE DATE(sdate) BETWEEN @d1 AND @d2 " +
+                      "AND status='Sold' GROUP BY pcode ORDER BY total DESC LIMIT 10";
             }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@d1", dtFrom.Value.ToString("yyyy-MM-dd"));
+            da.SelectCommand.Parameters.AddWithValue("@d2", dtTo.Value.ToString("yyyy-MM-dd"));
+
             DataSet ds = new DataSet();
             da.Fill(ds, "TOPSELLING");
+
             chart1.DataSource = ds.Tables["TOPSELLING"];
             Series series = chart1.Series[0];
             series.ChartType = SeriesChartType.Doughnut;
+            series.IsValueShownAsLabel = true;
 
-            series.Name = "TOP SELLING";
-            var chart = chart1;
-            chart.Series[0].XValueMember = "pcode";
             if (cboTopSelect.Text == "SORT BY QTY")
             {
-                chart.Series[0].YValueMembers = "qty";
-                chart.Series[0].LabelFormat = "(#,##0)";
+                series.XValueMember = "pcode";
+                series.YValueMembers = "qty";
+                series.LabelFormat = "(#,##0)";
             }
-            else if (cboTopSelect.Text == "SORT BY TOTAL AMOUNT")
+            else
             {
-                chart.Series[0].YValueMembers = "total";
-                chart.Series[0].LabelFormat = "(#,##0.00)";
+                series.XValueMember = "pcode";
+                series.YValueMembers = "total";
+                series.LabelFormat = "(#,##0.00)";
             }
-            chart.Series[0].IsValueShownAsLabel = true;
+
             conn.Close();
-        }
-
-        private void CboTopSelect_KeyPress(object sender, KeyPressEventArgs e) 
-            => e.Handled = true;
-
-        private void BtnPrint2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvSoldItems.Rows.Clear();
-                int i = 0;
-                conn.Open();
-                string sql = "SELECT c.pcode, p.pdesc, c.price, sum(c.qty) as tot_qty, sum(c.disc) as tot_disc, sum(c.total) as total " +
-                    "FROM tblCart AS c INNER JOIN tblProduct as p on c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" +
-                    dtFrom2.Value.ToString() + "' AND '" + dtTo2.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price";
-                cmd = new SqlCommand(sql, conn);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    i++;
-                    dgvSoldItems.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), double.Parse(dr["price"].ToString()).ToString("#,##0.00"),
-                        dr["tot_qty"].ToString(), dr["tot_disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
-                }
-                dr.Close();
-                conn.Close();
-
-                conn.Open();
-                string sql1 = "SELECT isnull(sum(total),0) FROM tblCart WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFrom2.Value.ToString() + "' AND '" + dtTo2.Value.ToString() + "'";
-                cmd = new SqlCommand(sql1, conn);
-                lblTotal.Text = double.Parse(cmd.ExecuteScalar().ToString()).ToString("#,##0.00");
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                conn.Close();
-                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void BtnLoad2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvSoldItems.Rows.Clear();
-                int i = 0;
-                conn.Open();
-                string sql = "SELECT c.pcode, p.pdesc, c.price, sum(c.qty) AS tot_qty, sum(c.disc) AS tot_disc, sum(c.total) AS total " +
-                    "FROM tblCart AS c INNER JOIN tblProduct as p on c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" +
-                    dtFrom2.Value.ToString() + "' AND '" + dtTo2.Value.ToString() + "' GROUP BY c.pcode, p.pdesc, c.price";
-                cmd = new SqlCommand(sql, conn);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    i++;
-                    dgvSoldItems.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), double.Parse(dr["price"].ToString()),
-                        dr[3].ToString(), dr[4].ToString(), double.Parse(dr[5].ToString()).ToString("#,##0.00"));
-                }
-                dr.Close();
-                conn.Close();
-
-                string x;
-                conn.Open();
-                cmd = new SqlCommand("SELECT isnull(sum(total), 0) FROM tblCart WHERE status LIKE 'Sold' AND sdate BETWEEN '" +
-                    dtFrom2.Value.ToString() + "' AND '" + dtTo2.Value.ToString());
-                lblTotal.Text = double.Parse(cmd.ExecuteScalar().ToString()).ToString("#,##0.00");
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                conn.Close();
-                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Util.CloseForm(this);
-
-        private void BtnPrint4_Click(object sender, EventArgs e)
-        {
-            frmInventoryReport frm = new frmInventoryReport();
-            frm.LoadReport();
-            frm.ShowDialog();
-        }
-
-        private void BtnLoadChart_Click(object sender, EventArgs e)
-        {
-            frmChart frm = new frmChart();
-            frm.lblTitle.Text = "SOLD ITEMS [" + dtFrom2.Value.ToShortDateString() + " - " + dtTo2.Value.ToShortDateString();
-            frm.LoadChartSold("SELECT p.pdesc, sum(c.total) AS total FROM tblCart AS c INNER JOIN tblProduct AS p ON c.pcode=p.pcode " +
-                "WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFrom2.Value.ToString() + "' AND '" + dtTo2.Value.ToString() + 
-                "' GROUP BY p.pdesc ORDER BY total desc");
-            frm.ShowDialog();
-        }
-
-        private void BtnPrint6_Click(object sender, EventArgs e)
-        {
-            frmInventoryReport frm = new frmInventoryReport();
-            string sql = "SELECT * FROM vwStockIn WHERE cast(sdate AS date) BETWEEN '" + dtFrom6.Value.ToShortDateString()
-                + "' AND '" + dtTo6.Value.ToShortDateString() + "' AND status LIKE 'Done'";
-            string param = "Date Covered: " + dtFrom6.Value.ToShortDateString() + " - " + dtTo6.Value.ToShortDateString();
-            frm.LoadStockInReport(sql, param);
-            frm.ShowDialog();
-        }
-
-        private void BtnLoad6_Click(object sender, EventArgs e)
-            => LoadStockInHistory();
-
-        private void BtnLoad5_Click(object sender, EventArgs e)
-            => CancelledOrders();
-
-        private void BtnPrint5_Click(object sender, EventArgs e)
-        {
-            frmInventoryReport frm = new frmInventoryReport();
-            string param = "Data Covered: " + dtFrom5.Value.ToString() + " - " + dtTo5.Value.ToString();
-            string sql = "SELECT * FROM vwCancelledOrder WHERE sdate BETWEEN '" + dtFrom5.Value.ToString() + "' AND '" + dtTo5.Value.ToString() + "'";
-            frm.LoadCancelledOrder(sql, param);
-            frm.ShowDialog();
-        }
     }
 }

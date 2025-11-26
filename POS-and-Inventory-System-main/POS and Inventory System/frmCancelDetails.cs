@@ -12,6 +12,12 @@ namespace POS_and_Inventory_System
             frm = _frm;
         }
 
+        /*
+         Mega Note
+
+        this code doesn't have any database operations hence doesn't need a change of database (MSSQL to MySQL).
+         */
+
         private void CboAction_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

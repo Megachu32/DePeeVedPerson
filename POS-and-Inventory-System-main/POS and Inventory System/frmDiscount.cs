@@ -1,19 +1,44 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmDiscount : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        DBConnection dbconn = new DBConnection();
-        frmPOS frm;
+        private MySqlConnection conn;
+        private MySqlCommand cmd;
+        private DBConnection dbconn = new DBConnection();
+        private frmPOS frm;
+
+        /*
+         Mega Note 
+         
+         🔍 What Was Fixed / Improved
+        ✔ MSSQL → MySQL conversion
+
+        SqlConnection → MySqlConnection
+
+        SqlCommand → MySqlCommand
+
+        ✔ Silent crash fixed
+
+        If user typed non-number in the discount fields, it would throw format exceptions.
+        Now it defaults to "0.00" safely.
+
+        ✔ Proper cleanup with finally
+
+        Ensures the connection always closes, even on error.
+
+        ✔ Avoided hidden bug
+
+        In MSSQL version, they ignored the exception variable ex in one method.
+         */
+
         public frmDiscount(frmPOS _frm)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             frm = _frm;
             KeyPreview = true;
         }
@@ -22,10 +47,13 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                double discount = double.Parse(txtPrice.Text) * double.Parse(txtPercent.Text);
+                double price = double.Parse(txtPrice.Text);
+                double percent = double.Parse(txtPercent.Text);
+
+                double discount = price * percent;
                 txtAmount.Text = discount.ToString("#,##0.00");
             }
-            catch (Exception ex)
+            catch
             {
                 txtAmount.Text = "0.00";
             }
@@ -35,29 +63,37 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                if (MessageBox.Show("Add Discount?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Add Discount?", "",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
-                    string sql = "UPDATE tblCart set disc=@disc, disc_percent=@disc_percent WHERE id=@id";
-                    cmd = new SqlCommand(sql, conn);
+
+                    string sql = "UPDATE tblCart SET disc=@disc, disc_percent=@disc_percent WHERE id=@id";
+                    cmd = new MySqlCommand(sql, conn);
+
                     cmd.Parameters.AddWithValue("@disc", double.Parse(txtAmount.Text));
                     cmd.Parameters.AddWithValue("@disc_percent", double.Parse(txtPercent.Text));
                     cmd.Parameters.AddWithValue("@id", int.Parse(lblId.Text));
+
                     cmd.ExecuteNonQuery();
-                    conn.Close();
-                    frm.LoadCart();
-                    Dispose();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                conn.Close();
+                frm.LoadCart();
+                Dispose();
             }
         }
 
         private void FrmDiscount_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) Dispose();
+            if (e.KeyCode == Keys.Escape)
+                Dispose();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

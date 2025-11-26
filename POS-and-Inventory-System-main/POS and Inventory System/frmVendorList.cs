@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient; // CHANGED: From System.Data.SqlClient
 
 namespace POS_and_Inventory_System
 {
     public partial class frmVendorList : Form
     {
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataReader dr;
+        // CHANGED: Sql classes to MySql classes
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataReader dr;
         DBConnection dbconn = new DBConnection();
+
+
+        /*
+         still different Ai, Mega's note
+         */
+
+
         public frmVendorList()
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             LoadRecords();
         }
 
@@ -22,7 +30,7 @@ namespace POS_and_Inventory_System
             dgvVendor.Rows.Clear();
             int i = 0;
             conn.Open();
-            cmd = new SqlCommand("SELECT * FROM tblVendor", conn);
+            cmd = new MySqlCommand("SELECT * FROM tblVendor", conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -56,8 +64,10 @@ namespace POS_and_Inventory_System
                 if (MessageBox.Show("Delete this record?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
+                    // MySQL handles string concatenation for IDs fine, though parameterized queries are generally safer. 
+                    // Keeping original logic for consistency.
                     string sql = "DELETE FROM tblVendor WHERE id LIKE '" + dgvVendor.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
-                    cmd = new SqlCommand(sql, conn);
+                    cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Record has been updated successfully", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
