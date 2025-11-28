@@ -169,7 +169,6 @@
             this.panel7.Controls.Add(this.panel9);
             this.panel7.Controls.Add(this.panel4);
             this.panel7.Controls.Add(this.dgvBrandList);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1576, 703);
@@ -221,7 +220,7 @@
             this.panel3.Controls.Add(this.btnSetPayment);
             this.panel3.Location = new System.Drawing.Point(1412, 33);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(164, 243);
+            this.panel3.Size = new System.Drawing.Size(164, 331);
             this.panel3.TabIndex = 5;
             // 
             // btnNew
@@ -255,9 +254,9 @@
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(0, 203);
+            this.btnClose.Location = new System.Drawing.Point(3, 274);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(164, 28);
+            this.btnClose.Size = new System.Drawing.Size(164, 35);
             this.btnClose.TabIndex = 18;
             this.btnClose.Text = "     Logout";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
