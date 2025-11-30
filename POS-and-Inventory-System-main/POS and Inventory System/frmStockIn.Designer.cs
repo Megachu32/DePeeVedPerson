@@ -93,13 +93,13 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("AvenirNext LT Pro Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(982, 25);
+            this.label1.Size = new System.Drawing.Size(1722, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "S T O C K - I N  M O D U L E";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,21 +109,21 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.tabControl1.Location = new System.Drawing.Point(0, 25);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tabControl1.Location = new System.Drawing.Point(0, 37);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(982, 542);
+            this.tabControl1.Size = new System.Drawing.Size(1722, 530);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(974, 514);
+            this.tabPage1.Size = new System.Drawing.Size(1714, 488);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Stock Entry";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -132,9 +132,9 @@
             // 
             this.panel4.Controls.Add(this.dgvStocks);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 126);
+            this.panel4.Location = new System.Drawing.Point(3, 241);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(968, 385);
+            this.panel4.Size = new System.Drawing.Size(1708, 244);
             this.panel4.TabIndex = 13;
             // 
             // dgvStocks
@@ -144,7 +144,7 @@
             this.dgvStocks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -168,7 +168,8 @@
             this.dgvStocks.Location = new System.Drawing.Point(0, 0);
             this.dgvStocks.Name = "dgvStocks";
             this.dgvStocks.RowHeadersVisible = false;
-            this.dgvStocks.Size = new System.Drawing.Size(968, 385);
+            this.dgvStocks.RowHeadersWidth = 72;
+            this.dgvStocks.Size = new System.Drawing.Size(1708, 244);
             this.dgvStocks.TabIndex = 7;
             this.dgvStocks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvStocks_CellContentClick);
             // 
@@ -176,37 +177,43 @@
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn1.HeaderText = "#";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 40;
+            this.dataGridViewTextBoxColumn1.Width = 65;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "ID";
+            this.Column8.MinimumWidth = 9;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             this.Column8.Visible = false;
+            this.Column8.Width = 175;
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column3.HeaderText = "REF #";
+            this.Column3.MinimumWidth = 9;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 68;
+            this.Column3.Width = 119;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn2.HeaderText = "PCODE";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 76;
+            this.dataGridViewTextBoxColumn2.Width = 137;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn3.HeaderText = "DESCRIPTION";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
@@ -214,44 +221,49 @@
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn4.HeaderText = "QTY";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 59;
+            this.dataGridViewTextBoxColumn4.Width = 103;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column5.HeaderText = "STOCK IN DATE";
+            this.Column5.MinimumWidth = 9;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 130;
+            this.Column5.Width = 236;
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column6.HeaderText = "STOCK IN BY";
+            this.Column6.MinimumWidth = 9;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 114;
+            this.Column6.Width = 204;
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column1.HeaderText = "VENDOR";
+            this.Column1.MinimumWidth = 9;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 86;
+            this.Column1.Width = 154;
             // 
             // Delete
             // 
             this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Delete.HeaderText = "";
             this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 9;
             this.Delete.Name = "Delete";
             this.Delete.Visible = false;
-            this.Delete.Width = 5;
+            this.Delete.Width = 9;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.lblVendorId);
             this.panel2.Controls.Add(this.cboVendor);
             this.panel2.Controls.Add(this.btnSave);
@@ -272,27 +284,27 @@
             this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(968, 123);
+            this.panel2.Size = new System.Drawing.Size(1708, 238);
             this.panel2.TabIndex = 0;
             // 
             // lblVendorId
             // 
             this.lblVendorId.AutoSize = true;
-            this.lblVendorId.Font = new System.Drawing.Font("Roboto Medium", 10F);
-            this.lblVendorId.Location = new System.Drawing.Point(364, 37);
+            this.lblVendorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblVendorId.Location = new System.Drawing.Point(833, 71);
             this.lblVendorId.Name = "lblVendorId";
-            this.lblVendorId.Size = new System.Drawing.Size(70, 17);
+            this.lblVendorId.Size = new System.Drawing.Size(120, 29);
             this.lblVendorId.TabIndex = 13;
             this.lblVendorId.Text = "Vendor ID";
             this.lblVendorId.Visible = false;
             // 
             // cboVendor
             // 
-            this.cboVendor.Font = new System.Drawing.Font("Roboto", 9.5F);
+            this.cboVendor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.cboVendor.FormattingEnabled = true;
-            this.cboVendor.Location = new System.Drawing.Point(588, 6);
+            this.cboVendor.Location = new System.Drawing.Point(1215, 16);
             this.cboVendor.Name = "cboVendor";
-            this.cboVendor.Size = new System.Drawing.Size(375, 23);
+            this.cboVendor.Size = new System.Drawing.Size(375, 34);
             this.cboVendor.TabIndex = 3;
             this.cboVendor.TextChanged += new System.EventHandler(this.CboVendor_TextChanged);
             this.cboVendor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CboVendor_KeyPress);
@@ -302,9 +314,9 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(283, 92);
+            this.btnSave.Location = new System.Drawing.Point(531, 140);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 25);
             this.btnSave.TabIndex = 8;
@@ -316,9 +328,9 @@
             // 
             this.linkGenerate.AutoSize = true;
             this.linkGenerate.LinkColor = System.Drawing.Color.LightGreen;
-            this.linkGenerate.Location = new System.Drawing.Point(361, 10);
+            this.linkGenerate.Location = new System.Drawing.Point(833, 33);
             this.linkGenerate.Name = "linkGenerate";
-            this.linkGenerate.Size = new System.Drawing.Size(73, 17);
+            this.linkGenerate.Size = new System.Drawing.Size(127, 29);
             this.linkGenerate.TabIndex = 0;
             this.linkGenerate.TabStop = true;
             this.linkGenerate.Text = "[Generate]";
@@ -329,9 +341,9 @@
             // 
             this.linkLblBrowseProduct.AutoSize = true;
             this.linkLblBrowseProduct.LinkColor = System.Drawing.Color.LightGreen;
-            this.linkLblBrowseProduct.Location = new System.Drawing.Point(5, 97);
+            this.linkLblBrowseProduct.Location = new System.Drawing.Point(5, 165);
             this.linkLblBrowseProduct.Name = "linkLblBrowseProduct";
-            this.linkLblBrowseProduct.Size = new System.Drawing.Size(196, 17);
+            this.linkLblBrowseProduct.Size = new System.Drawing.Size(342, 29);
             this.linkLblBrowseProduct.TabIndex = 6;
             this.linkLblBrowseProduct.TabStop = true;
             this.linkLblBrowseProduct.Text = "[Click Here to Browse Product]";
@@ -341,62 +353,62 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label7.Location = new System.Drawing.Point(467, 10);
+            this.label7.Location = new System.Drawing.Point(1052, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 15);
+            this.label7.Size = new System.Drawing.Size(115, 29);
             this.label7.TabIndex = 8;
             this.label7.Text = "VENDOR";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label8.Location = new System.Drawing.Point(467, 66);
+            this.label8.Location = new System.Drawing.Point(1072, 118);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 15);
+            this.label8.Size = new System.Drawing.Size(127, 29);
             this.label8.TabIndex = 8;
             this.label8.Text = "ADDRESS";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label6.Location = new System.Drawing.Point(467, 37);
+            this.label6.Location = new System.Drawing.Point(970, 70);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 15);
+            this.label6.Size = new System.Drawing.Size(239, 29);
             this.label6.TabIndex = 8;
             this.label6.Text = "CONTACT PERSON";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label2.Location = new System.Drawing.Point(5, 10);
+            this.label2.Location = new System.Drawing.Point(26, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 15);
+            this.label2.Size = new System.Drawing.Size(210, 29);
             this.label2.TabIndex = 8;
             this.label2.Text = "REFERENCE NO.";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label3.Location = new System.Drawing.Point(5, 37);
+            this.label3.Location = new System.Drawing.Point(26, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 15);
+            this.label3.Size = new System.Drawing.Size(165, 29);
             this.label3.TabIndex = 8;
             this.label3.Text = "STOCK IN BY";
             // 
             // txtAddress
             // 
-            this.txtAddress.Font = new System.Drawing.Font("Roboto", 9.5F);
-            this.txtAddress.Location = new System.Drawing.Point(588, 63);
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.txtAddress.Location = new System.Drawing.Point(1205, 115);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(375, 50);
@@ -404,56 +416,56 @@
             // 
             // dtStockInDate
             // 
-            this.dtStockInDate.Font = new System.Drawing.Font("Roboto", 9.5F);
-            this.dtStockInDate.Location = new System.Drawing.Point(108, 63);
+            this.dtStockInDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dtStockInDate.Location = new System.Drawing.Point(251, 132);
             this.dtStockInDate.Name = "dtStockInDate";
-            this.dtStockInDate.Size = new System.Drawing.Size(250, 23);
+            this.dtStockInDate.Size = new System.Drawing.Size(250, 33);
             this.dtStockInDate.TabIndex = 2;
             // 
             // txtContactPerson
             // 
-            this.txtContactPerson.Font = new System.Drawing.Font("Roboto", 9.5F);
-            this.txtContactPerson.Location = new System.Drawing.Point(588, 34);
+            this.txtContactPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.txtContactPerson.Location = new System.Drawing.Point(1215, 67);
             this.txtContactPerson.Name = "txtContactPerson";
-            this.txtContactPerson.Size = new System.Drawing.Size(375, 23);
+            this.txtContactPerson.Size = new System.Drawing.Size(375, 33);
             this.txtContactPerson.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label4.Location = new System.Drawing.Point(5, 66);
+            this.label4.Location = new System.Drawing.Point(16, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 15);
+            this.label4.Size = new System.Drawing.Size(199, 29);
             this.label4.TabIndex = 8;
             this.label4.Text = "STOCK-IN DATE";
             // 
             // txtStockInBy
             // 
-            this.txtStockInBy.Font = new System.Drawing.Font("Roboto", 9.5F);
-            this.txtStockInBy.Location = new System.Drawing.Point(108, 34);
+            this.txtStockInBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.txtStockInBy.Location = new System.Drawing.Point(251, 90);
             this.txtStockInBy.Name = "txtStockInBy";
-            this.txtStockInBy.Size = new System.Drawing.Size(250, 23);
+            this.txtStockInBy.Size = new System.Drawing.Size(250, 33);
             this.txtStockInBy.TabIndex = 1;
             // 
             // txtRefNo
             // 
-            this.txtRefNo.Font = new System.Drawing.Font("Roboto", 9.5F);
-            this.txtRefNo.Location = new System.Drawing.Point(108, 7);
+            this.txtRefNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.txtRefNo.Location = new System.Drawing.Point(251, 37);
             this.txtRefNo.Name = "txtRefNo";
             this.txtRefNo.ReadOnly = true;
-            this.txtRefNo.Size = new System.Drawing.Size(250, 23);
+            this.txtRefNo.Size = new System.Drawing.Size(250, 33);
             this.txtRefNo.TabIndex = 10;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvStocks2);
             this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(974, 514);
+            this.tabPage2.Size = new System.Drawing.Size(974, 500);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Stock In History";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -465,7 +477,7 @@
             this.dgvStocks2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -489,44 +501,51 @@
             this.dgvStocks2.Location = new System.Drawing.Point(3, 39);
             this.dgvStocks2.Name = "dgvStocks2";
             this.dgvStocks2.RowHeadersVisible = false;
-            this.dgvStocks2.Size = new System.Drawing.Size(968, 472);
+            this.dgvStocks2.RowHeadersWidth = 72;
+            this.dgvStocks2.Size = new System.Drawing.Size(968, 458);
             this.dgvStocks2.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn5.HeaderText = "#";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 40;
+            this.dataGridViewTextBoxColumn5.Width = 65;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Visible = false;
+            this.dataGridViewTextBoxColumn6.Width = 175;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn7.HeaderText = "REF #";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 68;
+            this.dataGridViewTextBoxColumn7.Width = 119;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn8.HeaderText = "PCODE";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 76;
+            this.dataGridViewTextBoxColumn8.Width = 137;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn9.HeaderText = "DESCRIPTION";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
@@ -534,39 +553,44 @@
             // 
             this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn10.HeaderText = "QTY";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 59;
+            this.dataGridViewTextBoxColumn10.Width = 103;
             // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn11.HeaderText = "STOCK IN DATE";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 130;
+            this.dataGridViewTextBoxColumn11.Width = 236;
             // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn12.HeaderText = "STOCK IN BY";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 9;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 114;
+            this.dataGridViewTextBoxColumn12.Width = 204;
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column2.HeaderText = "VENDOR";
+            this.Column2.MinimumWidth = 9;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 86;
+            this.Column2.Width = 154;
             // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.MinimumWidth = 9;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 5;
+            this.dataGridViewImageColumn1.Width = 9;
             // 
             // panel5
             // 
@@ -586,7 +610,7 @@
             this.btnLoadRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.btnLoadRecord.FlatAppearance.BorderSize = 0;
             this.btnLoadRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadRecord.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.btnLoadRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.btnLoadRecord.ForeColor = System.Drawing.Color.White;
             this.btnLoadRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadRecord.Image")));
             this.btnLoadRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -603,7 +627,7 @@
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtTo.Location = new System.Drawing.Point(235, 5);
             this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(110, 24);
+            this.dtTo.Size = new System.Drawing.Size(110, 34);
             this.dtTo.TabIndex = 1;
             // 
             // dtFrom
@@ -611,13 +635,13 @@
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFrom.Location = new System.Drawing.Point(115, 5);
             this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(110, 24);
+            this.dtFrom.Size = new System.Drawing.Size(110, 34);
             this.dtFrom.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("Roboto", 9.5F);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
@@ -635,7 +659,7 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(932, 1);
+            this.btnClose.Location = new System.Drawing.Point(1672, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 25);
             this.btnClose.TabIndex = 9;
@@ -644,15 +668,15 @@
             // 
             // frmStockIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            this.ClientSize = new System.Drawing.Size(982, 567);
+            this.ClientSize = new System.Drawing.Size(1722, 567);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Gotham Book", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmStockIn";

@@ -22,9 +22,9 @@ namespace POS_and_Inventory_System
             NotifyCriticalItems();
 
             lblDailySales.Text = dbconn.DailySales().ToString("#,##0.00");
-            lblProduct.Text = dbconn.ProductLine().ToString("#,##0");
-            lblStockOnHand.Text = dbconn.StockOnHand().ToString("#,##0");
-            lblCritical.Text = dbconn.CriticalItems().ToString("#,##0");
+            //lblProduct.Text = dbconn.ProductLine().ToString("#,##0");
+            //lblStockOnHand.Text = dbconn.StockOnHand().ToString("#,##0");
+            //lblCritical.Text = dbconn.CriticalItems().ToString("#,##0");
             dDal.LoadDashboard(chart1);
         }
 
@@ -109,6 +109,36 @@ namespace POS_and_Inventory_System
 
         private void BtnVendor_Click(object sender, EventArgs e)
             => Util.ShowFormInPanel(new frmVendorList(), pnlMain);
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ButtonConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private void BtnAdjust_Click(object sender, EventArgs e)
         {

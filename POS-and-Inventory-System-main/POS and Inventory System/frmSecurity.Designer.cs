@@ -43,25 +43,26 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 187);
+            this.panel1.Size = new System.Drawing.Size(589, 324);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(110)))), ((int)(((byte)(147)))));
-            this.label2.Location = new System.Drawing.Point(79, 164);
+            this.label2.Location = new System.Drawing.Point(130, 242);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 17);
+            this.label2.Size = new System.Drawing.Size(318, 29);
             this.label2.TabIndex = 2;
             this.label2.Text = "Enter your credentials below";
             // 
@@ -69,36 +70,38 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.label1.Location = new System.Drawing.Point(130, 137);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(203, 271);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 27);
+            this.label1.Size = new System.Drawing.Size(136, 44);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sign In";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(122, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(115, 11);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Size = new System.Drawing.Size(349, 228);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // txtUser
             // 
             this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUser.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtUser.CustomButton.Image = null;
-            this.txtUser.CustomButton.Location = new System.Drawing.Point(240, 1);
+            this.txtUser.CustomButton.Location = new System.Drawing.Point(486, 2);
             this.txtUser.CustomButton.Name = "";
-            this.txtUser.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.txtUser.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtUser.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtUser.CustomButton.TabIndex = 1;
             this.txtUser.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -107,8 +110,9 @@
             this.txtUser.DisplayIcon = true;
             this.txtUser.Icon = ((System.Drawing.Image)(resources.GetObject("txtUser.Icon")));
             this.txtUser.Lines = new string[0];
-            this.txtUser.Location = new System.Drawing.Point(33, 214);
+            this.txtUser.Location = new System.Drawing.Point(33, 331);
             this.txtUser.MaxLength = 32767;
+            this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
             this.txtUser.PromptText = "Username";
@@ -117,12 +121,12 @@
             this.txtUser.SelectionLength = 0;
             this.txtUser.SelectionStart = 0;
             this.txtUser.ShortcutsEnabled = true;
-            this.txtUser.Size = new System.Drawing.Size(264, 25);
+            this.txtUser.Size = new System.Drawing.Size(518, 34);
             this.txtUser.TabIndex = 0;
             this.txtUser.UseSelectable = true;
             this.txtUser.WaterMark = "Username";
             this.txtUser.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtUser.WaterMarkFont = new System.Drawing.Font("AvenirNext LT Pro Regular", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.WaterMarkFont = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // txtPass
             // 
@@ -131,9 +135,9 @@
             // 
             // 
             this.txtPass.CustomButton.Image = null;
-            this.txtPass.CustomButton.Location = new System.Drawing.Point(240, 1);
+            this.txtPass.CustomButton.Location = new System.Drawing.Point(478, 1);
             this.txtPass.CustomButton.Name = "";
-            this.txtPass.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.txtPass.CustomButton.Size = new System.Drawing.Size(39, 39);
             this.txtPass.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtPass.CustomButton.TabIndex = 1;
             this.txtPass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -142,8 +146,9 @@
             this.txtPass.DisplayIcon = true;
             this.txtPass.Icon = ((System.Drawing.Image)(resources.GetObject("txtPass.Icon")));
             this.txtPass.Lines = new string[0];
-            this.txtPass.Location = new System.Drawing.Point(33, 245);
+            this.txtPass.Location = new System.Drawing.Point(33, 371);
             this.txtPass.MaxLength = 32767;
+            this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '•';
             this.txtPass.PromptText = "Password";
@@ -152,27 +157,27 @@
             this.txtPass.SelectionLength = 0;
             this.txtPass.SelectionStart = 0;
             this.txtPass.ShortcutsEnabled = true;
-            this.txtPass.Size = new System.Drawing.Size(264, 25);
+            this.txtPass.Size = new System.Drawing.Size(518, 41);
             this.txtPass.TabIndex = 1;
             this.txtPass.UseSelectable = true;
             this.txtPass.WaterMark = "Password";
             this.txtPass.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtPass.WaterMarkFont = new System.Drawing.Font("AvenirNext LT Pro Regular", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.WaterMarkFont = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(68)))));
+            this.btnExit.BackColor = System.Drawing.Color.Black;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(113)))), ((int)(((byte)(74)))));
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.btnExit.Location = new System.Drawing.Point(0, 332);
+            this.btnExit.Location = new System.Drawing.Point(0, 575);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(335, 30);
+            this.btnExit.Size = new System.Drawing.Size(589, 40);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -181,17 +186,17 @@
             // btnLogin
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(68)))));
+            this.btnLogin.BackColor = System.Drawing.Color.Black;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
             this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.btnLogin.Location = new System.Drawing.Point(198, 286);
+            this.btnLogin.Location = new System.Drawing.Point(452, 530);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(99, 30);
+            this.btnLogin.Size = new System.Drawing.Size(99, 39);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Sign In";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -199,17 +204,17 @@
             // 
             // frmSecurity
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(335, 362);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(589, 615);
             this.ControlBox = false;
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Gotham Book", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSecurity";

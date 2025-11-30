@@ -22,15 +22,15 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                cboCategory.Items.Clear();
-                conn.Open();
-                string sql = "SELECT category FROM tblCategory";
-                cmd = new SqlCommand(sql, conn);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    cboCategory.Items.Add(dr[0].ToString());
-                }
+                //cboCategory.Items.Clear();
+                //conn.Open();
+                //string sql = "SELECT category FROM tblCategory";
+                //cmd = new SqlCommand(sql, conn);
+                //dr = cmd.ExecuteReader();
+                //while (dr.Read())
+                //{
+                //    cboCategory.Items.Add(dr[0].ToString());
+                //}
             }
             catch (Exception ex)
             {
@@ -47,14 +47,14 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                cboBrand.Items.Clear();
+                //cboBrand.Items.Clear();
                 conn.Open();
                 string sql = "SELECT brand FROM tblBrand";
                 cmd = new SqlCommand(sql, conn);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    cboBrand.Items.Add(dr[0].ToString());
+                    //cboBrand.Items.Add(dr[0].ToString());
                 }
             }
             catch (Exception ex)
@@ -77,8 +77,8 @@ namespace POS_and_Inventory_System
                 {
                     string bid = "", cid = "";
                     conn.Open();
-                    string sql = "SELECT id FROM tblBrand WHERE brand LIKE '" + cboBrand.Text + "'";
-                    cmd = new SqlCommand(sql, conn);
+                    //string sql = "SELECT id FROM tblBrand WHERE brand LIKE '" + cboBrand.Text + "'";
+                    //cmd = new SqlCommand(sql, conn);
                     dr = cmd.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows) bid = dr[0].ToString();
@@ -86,8 +86,8 @@ namespace POS_and_Inventory_System
                     conn.Close();
 
                     conn.Open();
-                    string sql1 = "SELECT id FROM tblCategory WHERE category LIKE '" + cboCategory.Text + "'";
-                    cmd = new SqlCommand(sql1, conn);
+                    //string sql1 = "SELECT id FROM tblCategory WHERE category LIKE '" + cboCategory.Text + "'";
+                    //cmd = new SqlCommand(sql1, conn);
                     dr = cmd.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows) cid = dr[0].ToString();
@@ -98,13 +98,13 @@ namespace POS_and_Inventory_System
                     string sql2 = "INSERT INTO tblProduct (pcode, barcode, pdesc, bid, cid, price, reorder) " +
                         "VALUES (@pcode, @barcode, @pdesc, @bid, @cid, @price, @reorder)";
                     cmd = new SqlCommand(sql2, conn);
-                    cmd.Parameters.AddWithValue("@pcode", txtPCode.Text);
-                    cmd.Parameters.AddWithValue("@barcode", txtBarcode.Text);
-                    cmd.Parameters.AddWithValue("@pdesc", txtDescription.Text);
-                    cmd.Parameters.AddWithValue("@bid", bid);
-                    cmd.Parameters.AddWithValue("@cid", cid);
-                    cmd.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    cmd.Parameters.AddWithValue("@reorder", int.Parse(txtReOrder.Text));
+                    //cmd.Parameters.AddWithValue("@pcode", txtPCode.Text);
+                    //cmd.Parameters.AddWithValue("@barcode", txtBarcode.Text);
+                    //cmd.Parameters.AddWithValue("@pdesc", txtDescription.Text);
+                    //cmd.Parameters.AddWithValue("@bid", bid);
+                    //cmd.Parameters.AddWithValue("@cid", cid);
+                    //cmd.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
+                    //cmd.Parameters.AddWithValue("@reorder", int.Parse(txtReOrder.Text));
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Product has been success saved.", "Product Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,16 +121,16 @@ namespace POS_and_Inventory_System
 
         public void Clear()
         {
-            txtPrice.Clear();
-            txtDescription.Clear();
-            txtPCode.Clear();
-            txtBarcode.Clear();
-            cboBrand.Text = "";
-            cboCategory.Text = "";
-            txtPCode.Clear();
-            txtReOrder.Text = "";
-            btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
+            //txtPrice.Clear();
+            //txtDescription.Clear();
+            //txtPCode.Clear();
+            //txtBarcode.Clear();
+            //cboBrand.Text = "";
+            //cboCategory.Text = "";
+            //txtPCode.Clear();
+            //txtReOrder.Text = "";
+            //btnSave.Enabled = true;
+            //btnUpdate.Enabled = false;
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -143,8 +143,8 @@ namespace POS_and_Inventory_System
                     string bid = "";
                     string cid = "";
                     conn.Open();
-                    string sql = "SELECT id FROM tblBrand WHERE brand LIKE '" + cboBrand.Text + "'";
-                    cmd = new SqlCommand(sql, conn);
+                    //string sql = "SELECT id FROM tblBrand WHERE brand LIKE '" + cboBrand.Text + "'";
+                    //cmd = new SqlCommand(sql, conn);
                     dr = cmd.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows) bid = dr[0].ToString();
@@ -152,8 +152,8 @@ namespace POS_and_Inventory_System
                     conn.Close();
 
                     conn.Open();
-                    string sql1 = "SELECT id FROM tblCategory WHERE category LIKE '" + cboCategory.Text + "'";
-                    cmd = new SqlCommand(sql1, conn);
+                    //string sql1 = "SELECT id FROM tblCategory WHERE category LIKE '" + cboCategory.Text + "'";
+                    //cmd = new SqlCommand(sql1, conn);
                     dr = cmd.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows) cid = dr[0].ToString();
@@ -164,13 +164,13 @@ namespace POS_and_Inventory_System
                     string sql2 = "UPDATE tblProduct SET barcode=@barcode, pdesc=@pdesc, bid=@bid, cid=@cid, " +
                         "price=@price, reorder=@reorder WHERE pcode LIKE @pcode";
                     cmd = new SqlCommand(sql2, conn);
-                    cmd.Parameters.AddWithValue("@pcode", txtPCode.Text);
-                    cmd.Parameters.AddWithValue("@barcode", txtBarcode.Text);
-                    cmd.Parameters.AddWithValue("@pdesc", txtDescription.Text);
-                    cmd.Parameters.AddWithValue("@bid", bid);
-                    cmd.Parameters.AddWithValue("@cid", cid);
-                    cmd.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    cmd.Parameters.AddWithValue("@reorder", int.Parse(txtReOrder.Text));
+                    //cmd.Parameters.AddWithValue("@pcode", txtPCode.Text);
+                    //cmd.Parameters.AddWithValue("@barcode", txtBarcode.Text);
+                    //cmd.Parameters.AddWithValue("@pdesc", txtDescription.Text);
+                    //cmd.Parameters.AddWithValue("@bid", bid);
+                    //cmd.Parameters.AddWithValue("@cid", cid);
+                    //cmd.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
+                    //cmd.Parameters.AddWithValue("@reorder", int.Parse(txtReOrder.Text));
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Product has been successfully updated.", "Product Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -202,5 +202,15 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Dispose();
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmProduct_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

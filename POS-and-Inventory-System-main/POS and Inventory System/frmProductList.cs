@@ -49,14 +49,14 @@ namespace POS_and_Inventory_System
             {
                 frmProduct frm = new frmProduct(this);
                 frm.btnSave.Enabled = false;
-                frm.btnUpdate.Enabled = true;
-                frm.txtPCode.Text = dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString();
-                frm.txtBarcode.Text = dgvProductList.Rows[e.RowIndex].Cells[2].Value.ToString();
-                frm.txtDescription.Text = dgvProductList.Rows[e.RowIndex].Cells[3].Value.ToString();
-                frm.txtPrice.Text = dgvProductList.Rows[e.RowIndex].Cells[6].Value.ToString();
-                frm.cboBrand.Text = dgvProductList.Rows[e.RowIndex].Cells[4].Value.ToString();
-                frm.cboCategory.Text = dgvProductList.Rows[e.RowIndex].Cells[5].Value.ToString();
-                frm.txtReOrder.Text = dgvProductList.Rows[e.RowIndex].Cells[7].Value.ToString();
+                //frm.btnUpdate.Enabled = true;
+                //frm.txtPCode.Text = dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString();
+                //frm.txtBarcode.Text = dgvProductList.Rows[e.RowIndex].Cells[2].Value.ToString();
+                //frm.txtDescription.Text = dgvProductList.Rows[e.RowIndex].Cells[3].Value.ToString();
+                //frm.txtPrice.Text = dgvProductList.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //frm.cboBrand.Text = dgvProductList.Rows[e.RowIndex].Cells[4].Value.ToString();
+                //frm.cboCategory.Text = dgvProductList.Rows[e.RowIndex].Cells[5].Value.ToString();
+                //frm.txtReOrder.Text = dgvProductList.Rows[e.RowIndex].Cells[7].Value.ToString();
                 frm.ShowDialog();
             }
             else if (colName == "Delete")
