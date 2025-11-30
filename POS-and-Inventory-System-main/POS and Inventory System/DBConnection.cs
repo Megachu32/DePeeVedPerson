@@ -27,14 +27,15 @@ namespace POS_and_Inventory_System
             string sdate = DateTime.Now.ToShortDateString();
             conn = new MySqlConnection(MyConnection());
             conn.Open();
-            string sql = "SELECT isnull(sum(total), 0) AS total FROM tblCart WHERE sdate BETWEEN '" + 
-                sdate + "' AND '" + sdate + "' AND status LIKE 'Sold'";
+            string sql = "SELECT isnull(sum(total), 0) AS total FROM sales WHERE sale_date BETWEEN '" + 
+                sdate + "' AND '" + sdate;
             cmd = new MySqlCommand(sql, conn);
             dailySales = double.Parse(cmd.ExecuteScalar().ToString());
             conn.Close();
             return dailySales;
         }
 
+        //idk what productline is for
         //public int ProductLine()
         //{
         //    conn = new SqlConnection(MyConnection());
@@ -45,21 +46,23 @@ namespace POS_and_Inventory_System
         //    return productLine;
         //}
 
+        //total of all stock in inventory
         //public int StockOnHand()
         //{
         //    conn = new SqlConnection(MyConnection());
         //    conn.Open();
-        //    cmd = new MySqlCommand("SELECT isnull(sum(qty),0) AS qty FROM tblProduct", conn);
+        //    cmd = new MySqlCommand("SELECT isnull(sum(stock),0) AS qty FROM inventory", conn);
         //    stockOnHand = int.Parse(cmd.ExecuteScalar().ToString());
         //    conn.Close();
         //    return stockOnHand;
         //}
 
+        //devices like iphone, ipad, mac not accessory items
         //public int CriticalItems()
         //{
         //    conn = new SqlConnection(MyConnection());
         //    conn.Open();
-        //    cmd = new MySqlCommand("SELECT count(*) FROM vwCriticalItems", conn);
+        //    cmd = new MySqlCommand("SELECT count(*) FROM products WHERE type IN ('iphone', 'ipad', 'mac')", conn);
         //    critical = int.Parse(cmd.ExecuteScalar().ToString());
         //    conn.Close();
         //    return critical;

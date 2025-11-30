@@ -1,6 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace POS_and_Inventory_System
 {
@@ -22,15 +23,24 @@ namespace POS_and_Inventory_System
             int i = 0;
             dgvProductList.Rows.Clear();
             conn.Open();
-            string sql = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder FROM tblProduct AS p INNER JOIN tblBrand " +
-                "AS b ON b.id=p.bid INNER JOIN tblCategory AS c ON c.id=p.cid WHERE p.pdesc LIKE '%" + txtSearch.Text + "%' order by p.pdesc";
+            string sql = @"
+                SELECT sku, name, type, model, price, status
+                FROM products
+                WHERE sku LIKE @search OR name LIKE @search OR type LIKE @search
+                ORDER BY type ASC
+            ";
+
+            //use later for this query when using MySQL
+            //MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            //da.SelectCommand.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
+
             cmd = new SqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
                 dgvProductList.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(),
-                    dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                    dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
             }
             dr.Close();
             conn.Close();
@@ -87,5 +97,6 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Util.CloseForm(this);
+
     }
 }

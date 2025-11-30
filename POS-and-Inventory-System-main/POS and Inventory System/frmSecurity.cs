@@ -63,9 +63,9 @@ namespace POS_and_Inventory_System
                         return;
                     }
 
-                    if (_role == "admin")
+                    if (_role == "cashier")
                     {
-                        MessageBox.Show("Access Granted! Welcome " + _name, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Access Granted! Welcome " + _username, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtPass.Clear();
                         txtUser.Clear();
                         Hide();
@@ -74,9 +74,9 @@ namespace POS_and_Inventory_System
                         frm.lblName.Text = _name + " | " + _role;
                         frm.ShowDialog();
                     }
-                    else
+                    else if(_role == "admin" || _role == "manager")
                     {
-                        MessageBox.Show("Access Granted! Welcome " + _name, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Access Granted! Welcome " + _username, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtPass.Clear();
                         txtUser.Clear();
                         Hide();
@@ -99,11 +99,6 @@ namespace POS_and_Inventory_System
                 conn.Close();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void FrmSecurity_KeyDown(object sender, KeyEventArgs e)
