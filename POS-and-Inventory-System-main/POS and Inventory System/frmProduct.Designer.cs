@@ -43,7 +43,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtPublishDate = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -55,6 +54,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnUpdate
@@ -64,7 +66,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(417, 365);
+            this.btnUpdate.Location = new System.Drawing.Point(416, 394);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(90, 25);
             this.btnUpdate.TabIndex = 8;
@@ -79,7 +81,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(311, 365);
+            this.btnSave.Location = new System.Drawing.Point(310, 394);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 25);
             this.btnSave.TabIndex = 7;
@@ -215,14 +217,6 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "TYPE";
             // 
-            // txtPublishDate
-            // 
-            this.txtPublishDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtPublishDate.Location = new System.Drawing.Point(133, 179);
-            this.txtPublishDate.Name = "txtPublishDate";
-            this.txtPublishDate.Size = new System.Drawing.Size(375, 23);
-            this.txtPublishDate.TabIndex = 20;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -313,7 +307,7 @@
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtDescription.Location = new System.Drawing.Point(133, 324);
+            this.txtDescription.Location = new System.Drawing.Point(132, 353);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(375, 23);
             this.txtDescription.TabIndex = 30;
@@ -323,19 +317,50 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(12, 327);
+            this.label16.Location = new System.Drawing.Point(11, 356);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(98, 16);
             this.label16.TabIndex = 31;
             this.label16.Text = "DESCRIPTION";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 180);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(374, 22);
+            this.dateTimePicker1.TabIndex = 32;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(133, 323);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(375, 24);
+            this.cmbStatus.TabIndex = 33;
+            this.cmbStatus.Text = "Active";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 326);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 16);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "STATUS";
             // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(523, 407);
+            this.ClientSize = new System.Drawing.Size(523, 451);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbStatus);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtSpecific);
@@ -346,7 +371,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtPublishDate);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.label10);
@@ -388,7 +412,6 @@
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label label10;
-        public System.Windows.Forms.TextBox txtPublishDate;
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label12;
@@ -400,5 +423,8 @@
         private System.Windows.Forms.Label label15;
         public System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label label4;
     }
 }

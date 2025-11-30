@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+//using MySql.Data.MySqlClient;
 
 namespace POS_and_Inventory_System
 {
@@ -24,49 +25,55 @@ namespace POS_and_Inventory_System
 
         public double DailySales()
         {
-            string sdate = DateTime.Now.ToShortDateString();
+            //string sdate = DateTime.Now.ToShortDateString();
+            DateTime dateAtMorning = DateTime.Today;
+            DateTime dateAtNight = DateTime.Today.AddDays(1).AddSeconds(-1);
+
             conn = new MySqlConnection(MyConnection());
             conn.Open();
-            string sql = "SELECT isnull(sum(total), 0) AS total FROM sales WHERE sale_date BETWEEN '" + 
-                sdate + "' AND '" + sdate;
+            //MessageBox.Show(dateAtNight);
+            string sql = "SELECT sum(total) AS total FROM sales WHERE sale_date BETWEEN @morning AND @night";
             cmd = new MySqlCommand(sql, conn);
-            dailySales = double.Parse(cmd.ExecuteScalar().ToString());
+            cmd.Parameters.Add("@morning", MySqlDbType.DateTime).Value = dateAtMorning;
+            cmd.Parameters.Add("@night", MySqlDbType.DateTime).Value = dateAtNight;
+
+            dailySales = Convert.ToDouble(cmd.ExecuteScalar());
             conn.Close();
             return dailySales;
         }
 
         //idk what productline is for
-        //public int ProductLine()
-        //{
-        //    conn = new SqlConnection(MyConnection());
-        //    conn.Open();
-        //    cmd = new MySqlCommand("SELECT count(*) FROM tblProduct", conn);
-        //    productLine = int.Parse(cmd.ExecuteScalar().ToString());
-        //    conn.Close();
-        //    return productLine;
-        //}
+        public int ProductLine()
+        {
+            conn = new MySqlConnection(MyConnection());
+            conn.Open();
+            cmd = new MySqlCommand("SELECT count(*) FROM tblProduct", conn);
+            productLine = int.Parse(cmd.ExecuteScalar().ToString());
+            conn.Close();
+            return productLine;
+        }
 
         //total of all stock in inventory
-        //public int StockOnHand()
-        //{
-        //    conn = new SqlConnection(MyConnection());
-        //    conn.Open();
-        //    cmd = new MySqlCommand("SELECT isnull(sum(stock),0) AS qty FROM inventory", conn);
-        //    stockOnHand = int.Parse(cmd.ExecuteScalar().ToString());
-        //    conn.Close();
-        //    return stockOnHand;
-        //}
+        public int StockOnHand()
+        {
+            conn = new MySqlConnection(MyConnection());
+            conn.Open();
+            cmd = new MySqlCommand("SELECT sum(stock) AS qty FROM inventory", conn);
+            stockOnHand = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            conn.Close();
+            return stockOnHand;
+        }
 
         //devices like iphone, ipad, mac not accessory items
-        //public int CriticalItems()
-        //{
-        //    conn = new SqlConnection(MyConnection());
-        //    conn.Open();
-        //    cmd = new MySqlCommand("SELECT count(*) FROM products WHERE type IN ('iphone', 'ipad', 'mac')", conn);
-        //    critical = int.Parse(cmd.ExecuteScalar().ToString());
-        //    conn.Close();
-        //    return critical;
-        //}
+        public int CriticalItems()
+        {
+            conn = new MySqlConnection(MyConnection());
+            conn.Open();
+            cmd = new MySqlCommand("SELECT count(*) FROM products WHERE type IN ('iphone', 'ipad', 'mac')", conn);
+            critical = int.Parse(cmd.ExecuteScalar().ToString());
+            conn.Close();
+            return critical;
+        }
 
         //public double GetVal()
         //{

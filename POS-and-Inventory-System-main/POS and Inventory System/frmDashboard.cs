@@ -24,12 +24,12 @@ namespace POS_and_Inventory_System
         public frmDashboard()
         {
             InitializeComponent();
-            //conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             //NotifyCriticalItems();
 
-            lblDailySales.Text = dbconn.DailySales().ToString("#,##0.00");
+            //lblDailySales.Text = dbconn.DailySales().ToString("#,##0.00");
             //lblProduct.Text = dbconn.ProductLine().ToString("#,##0");
-            //lblStockOnHand.Text = dbconn.StockOnHand().ToString("#,##0");
+            lblStockOnHand.Text = dbconn.StockOnHand().ToString("#,##0");
             //lblCritical.Text = dbconn.CriticalItems().ToString("#,##0");
         }
 

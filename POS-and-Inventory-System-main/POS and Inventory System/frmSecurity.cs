@@ -7,17 +7,17 @@ namespace POS_and_Inventory_System
     public partial class frmSecurity : Form
     {
 
+        // Connection variables
         MySqlConnection conn = new MySqlConnection();
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader dr;
 
         DBConnection dbconn = new DBConnection();
         public string _pass, _username = "";
-        public bool _isActive = false;
         public frmSecurity()
         {
             InitializeComponent();
-            //conn = new MySqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             KeyPreview = true;
         }
 
@@ -47,8 +47,6 @@ namespace POS_and_Inventory_System
                     _role = dr["role"].ToString();
                     _name = dr["name"].ToString();
                     _pass = dr["password"].ToString();
-                    _isActive = (dr["status"].ToString() == "active") ? true : false;
-                    MessageBox.Show(_isActive.ToString());
                 }
                 else found = false;
 
@@ -57,11 +55,6 @@ namespace POS_and_Inventory_System
 
                 if (found)
                 {
-                    if (!_isActive)
-                    {
-                        MessageBox.Show("Account is deactivated. Unable to login", "Inactivate Account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
 
                     if (_role == "cashier")
                     {
@@ -82,7 +75,6 @@ namespace POS_and_Inventory_System
                         Hide();
                         frmDashboard frm = new frmDashboard();
                         frm.lblName.Text = _name;
-                        //frm.lblUser.Text = _user;
                         frm.lblRole.Text = _role;
                         frm._pass = _pass;
                         frm._user = _username;

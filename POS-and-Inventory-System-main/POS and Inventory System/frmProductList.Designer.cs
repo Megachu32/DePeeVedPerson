@@ -40,22 +40,24 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
+            this.dtProductsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dtProductsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sku = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -172,6 +174,7 @@
             // dgvProductList
             // 
             this.dgvProductList.AllowUserToAddRows = false;
+            this.dgvProductList.AllowUserToDeleteRows = false;
             this.dgvProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -195,7 +198,9 @@
             this.type,
             this.model,
             this.price,
-            this.status});
+            this.status,
+            this.Edit,
+            this.Delete});
             this.dgvProductList.DataSource = this.dtProductsBindingSource1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -209,6 +214,7 @@
             this.dgvProductList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(179)))), ((int)(((byte)(206)))));
             this.dgvProductList.Location = new System.Drawing.Point(0, 43);
             this.dgvProductList.Name = "dgvProductList";
+            this.dgvProductList.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +231,11 @@
             this.dgvProductList.TabIndex = 3;
             this.dgvProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductList_CellContentClick);
             // 
+            // dtProductsBindingSource1
+            // 
+            this.dtProductsBindingSource1.DataMember = "dtProducts";
+            this.dtProductsBindingSource1.DataSource = this.dataSet1;
+            // 
             // dataSet1
             // 
             this.dataSet1.DataSetName = "DataSet1";
@@ -240,46 +251,65 @@
             this.dtProductsBindingSource.DataMember = "dtProducts";
             this.dtProductsBindingSource.DataSource = this.dataSet1;
             // 
-            // dtProductsBindingSource1
-            // 
-            this.dtProductsBindingSource1.DataMember = "dtProducts";
-            this.dtProductsBindingSource1.DataSource = this.dataSet1;
-            // 
             // sku
             // 
             this.sku.DataPropertyName = "sku";
             this.sku.HeaderText = "SKU";
             this.sku.Name = "sku";
+            this.sku.ReadOnly = true;
             // 
             // name
             // 
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "NAME";
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
             // type
             // 
             this.type.DataPropertyName = "type";
             this.type.HeaderText = "TYPE";
             this.type.Name = "type";
+            this.type.ReadOnly = true;
             // 
             // model
             // 
             this.model.DataPropertyName = "model";
             this.model.HeaderText = "MODEL";
             this.model.Name = "model";
+            this.model.ReadOnly = true;
             // 
             // price
             // 
             this.price.DataPropertyName = "price";
             this.price.HeaderText = "PRICE";
             this.price.Name = "price";
+            this.price.ReadOnly = true;
             // 
             // status
             // 
             this.status.DataPropertyName = "status";
             this.status.HeaderText = "STATUS";
             this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.DataPropertyName = "sku";
+            this.Edit.HeaderText = "EDIT";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.DataPropertyName = "sku";
+            this.Delete.HeaderText = "DELETE";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // frmProductList
             // 
@@ -296,10 +326,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,5 +353,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn model;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

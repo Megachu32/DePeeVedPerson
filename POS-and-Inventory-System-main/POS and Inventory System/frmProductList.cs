@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -7,42 +8,36 @@ namespace POS_and_Inventory_System
 {
     public partial class frmProductList : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
+        MySqlDataReader dr;
         DBConnection dbconn = new DBConnection();
-        SqlDataReader dr;
         public frmProductList()
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             LoadRecords();
         }
 
         public void LoadRecords()
         {
+            DataSet1 ds = new DataSet1();
+            DataTable dt = ds.Tables["dtProducts"];
+
             int i = 0;
-            dgvProductList.Rows.Clear();
             conn.Open();
             string sql = @"
                 SELECT sku, name, type, model, price, status
                 FROM products
-                WHERE sku LIKE @search OR name LIKE @search OR type LIKE @search
+
                 ORDER BY type ASC
             ";
 
-            //use later for this query when using MySQL
-            //MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-            //da.SelectCommand.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
 
-            cmd = new SqlCommand(sql, conn);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                i++;
-                dgvProductList.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(),
-                    dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
-            }
-            dr.Close();
+            da.Fill(dt);
+            dgvProductList.DataSource = dt;
             conn.Close();
         }
 
@@ -59,14 +54,9 @@ namespace POS_and_Inventory_System
             {
                 frmProduct frm = new frmProduct(this);
                 frm.btnSave.Enabled = false;
-                //frm.btnUpdate.Enabled = true;
-                //frm.txtPCode.Text = dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString();
-                //frm.txtBarcode.Text = dgvProductList.Rows[e.RowIndex].Cells[2].Value.ToString();
-                //frm.txtDescription.Text = dgvProductList.Rows[e.RowIndex].Cells[3].Value.ToString();
-                //frm.txtPrice.Text = dgvProductList.Rows[e.RowIndex].Cells[6].Value.ToString();
-                //frm.cboBrand.Text = dgvProductList.Rows[e.RowIndex].Cells[4].Value.ToString();
-                //frm.cboCategory.Text = dgvProductList.Rows[e.RowIndex].Cells[5].Value.ToString();
-                //frm.txtReOrder.Text = dgvProductList.Rows[e.RowIndex].Cells[7].Value.ToString();
+                frm.btnUpdate.Enabled = true;
+                frm.txtPCode.Text = dgvProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
+
                 frm.ShowDialog();
             }
             else if (colName == "Delete")
@@ -75,8 +65,28 @@ namespace POS_and_Inventory_System
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
-                    string sql = "DELETE FROM tblProduct WHERE pcode LIKE '" + dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
-                    cmd = new SqlCommand(sql, conn);
+                    string sql = sql = @"
+                        START TRANSACTION;
+
+                        DELETE si FROM sale_items si 
+                        JOIN products p ON si.product_id = p.product_id
+                        WHERE p.sku = @sku;
+
+                        DELETE pr FROM preorders pr 
+                        JOIN products p ON pr.product_id = p.product_id
+                        WHERE p.sku = @sku;
+
+                        DELETE inv FROM inventory inv
+                        JOIN products p ON inv.product_id = p.product_id
+                        WHERE p.sku = @sku;
+
+                        DELETE FROM products WHERE sku = @sku;
+
+                        COMMIT;
+                    ";
+
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@sku", dgvProductList.Rows[e.RowIndex].Cells[0].Value.ToString());
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     LoadRecords();
@@ -90,7 +100,6 @@ namespace POS_and_Inventory_System
             frmProduct frm = new frmProduct(this);
             frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
-            frm.LoadBrand();
             frm.LoadCategory();
             frm.ShowDialog();
         }
