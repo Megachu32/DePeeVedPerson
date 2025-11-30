@@ -430,5 +430,25 @@ namespace POS_and_Inventory_System
             txtSearch.Enabled = true;
             txtSearch.Focus();
         }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

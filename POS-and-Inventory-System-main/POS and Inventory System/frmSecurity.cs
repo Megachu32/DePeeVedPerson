@@ -106,6 +106,11 @@ namespace POS_and_Inventory_System
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void FrmSecurity_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return) BtnLogin_Click(sender, e);

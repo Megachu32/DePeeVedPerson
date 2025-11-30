@@ -42,17 +42,17 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1198, 25);
+            this.label1.Size = new System.Drawing.Size(1198, 31);
             this.label1.TabIndex = 3;
             this.label1.Text = "- P R I N T  P R E V I E W -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(0, 25);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 34);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1198, 571);
+            this.reportViewer1.Size = new System.Drawing.Size(1198, 552);
             this.reportViewer1.TabIndex = 4;
             // 
             // btnClose
@@ -73,7 +73,7 @@
             // 
             // frmInventoryReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 598);
             this.ControlBox = false;

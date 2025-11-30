@@ -120,6 +120,26 @@ namespace POS_and_Inventory_System
 
         }
 
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ButtonConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void BtnAdjust_Click(object sender, EventArgs e)
         {
             frmAdjustment frm = new frmAdjustment(this);

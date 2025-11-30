@@ -63,7 +63,7 @@
             this.dgvSoldItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -83,10 +83,11 @@
             this.Column10,
             this.Cancel});
             this.dgvSoldItems.EnableHeadersVisualStyles = false;
-            this.dgvSoldItems.Location = new System.Drawing.Point(0, 48);
+            this.dgvSoldItems.Location = new System.Drawing.Point(0, 79);
             this.dgvSoldItems.Name = "dgvSoldItems";
             this.dgvSoldItems.RowHeadersVisible = false;
-            this.dgvSoldItems.Size = new System.Drawing.Size(1198, 547);
+            this.dgvSoldItems.RowHeadersWidth = 72;
+            this.dgvSoldItems.Size = new System.Drawing.Size(1198, 516);
             this.dgvSoldItems.TabIndex = 6;
             this.dgvSoldItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSoldItems_CellContentClick);
             // 
@@ -94,33 +95,39 @@
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column1.HeaderText = "#";
+            this.Column1.MinimumWidth = 9;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 40;
+            this.Column1.Width = 65;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "ID";
+            this.Column2.MinimumWidth = 9;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
+            this.Column2.Width = 175;
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column4.HeaderText = "INVOICE #";
+            this.Column4.MinimumWidth = 9;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 97;
+            this.Column4.Width = 168;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column5.HeaderText = "PCODE";
+            this.Column5.MinimumWidth = 9;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 76;
+            this.Column5.Width = 137;
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column6.HeaderText = "DESCRIPTION";
+            this.Column6.MinimumWidth = 9;
             this.Column6.Name = "Column6";
             // 
             // Column7
@@ -129,8 +136,9 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column7.HeaderText = "PRICE";
+            this.Column7.MinimumWidth = 9;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 70;
+            this.Column7.Width = 124;
             // 
             // Column8
             // 
@@ -138,8 +146,9 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column8.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column8.HeaderText = "QTY";
+            this.Column8.MinimumWidth = 9;
             this.Column8.Name = "Column8";
-            this.Column8.Width = 59;
+            this.Column8.Width = 103;
             // 
             // Column9
             // 
@@ -147,8 +156,9 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Column9.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column9.HeaderText = "DISC";
+            this.Column9.MinimumWidth = 9;
             this.Column9.Name = "Column9";
-            this.Column9.Width = 61;
+            this.Column9.Width = 108;
             // 
             // Column10
             // 
@@ -156,49 +166,49 @@
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Column10.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column10.HeaderText = "TOTAL";
+            this.Column10.MinimumWidth = 9;
             this.Column10.Name = "Column10";
-            this.Column10.Width = 74;
+            this.Column10.Width = 131;
             // 
             // Cancel
             // 
             this.Cancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Cancel.HeaderText = "";
             this.Cancel.Image = ((System.Drawing.Image)(resources.GetObject("Cancel.Image")));
+            this.Cancel.MinimumWidth = 9;
             this.Cancel.Name = "Cancel";
-            this.Cancel.Width = 5;
+            this.Cancel.Width = 9;
             // 
             // dtFrom
             // 
-            this.dtFrom.Font = new System.Drawing.Font("Roboto", 10F);
+            this.dtFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFrom.Location = new System.Drawing.Point(330, 17);
             this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(110, 24);
+            this.dtFrom.Size = new System.Drawing.Size(110, 34);
             this.dtFrom.TabIndex = 8;
-            //this.dtFrom.ValueChanged += new System.EventHandler(this.DtFrom_ValueChanged);
             // 
             // dtTo
             // 
-            this.dtTo.Font = new System.Drawing.Font("Roboto", 10F);
+            this.dtTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtTo.Location = new System.Drawing.Point(450, 17);
             this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(110, 24);
+            this.dtTo.Size = new System.Drawing.Size(110, 34);
             this.dtTo.TabIndex = 8;
-            //this.dtTo.ValueChanged += new System.EventHandler(this.DtTo_ValueChanged);
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btnPrint.BackColor = System.Drawing.Color.Black;
             this.btnPrint.FlatAppearance.BorderSize = 0;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.btnPrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrint.Location = new System.Drawing.Point(739, 15);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(145, 26);
+            this.btnPrint.Size = new System.Drawing.Size(145, 36);
             this.btnPrint.TabIndex = 9;
             this.btnPrint.Text = "PRINTER PREVIEW";
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -207,12 +217,12 @@
             // 
             // lblTotal
             // 
-            this.lblTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
-            this.lblTotal.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.BackColor = System.Drawing.Color.Black;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.lblTotal.Location = new System.Drawing.Point(904, 15);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(140, 26);
+            this.lblTotal.Size = new System.Drawing.Size(140, 36);
             this.lblTotal.TabIndex = 10;
             this.lblTotal.Text = "0.00";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -222,7 +232,7 @@
             this.cboCashier.FormattingEnabled = true;
             this.cboCashier.Location = new System.Drawing.Point(566, 17);
             this.cboCashier.Name = "cboCashier";
-            this.cboCashier.Size = new System.Drawing.Size(167, 24);
+            this.cboCashier.Size = new System.Drawing.Size(167, 37);
             this.cboCashier.TabIndex = 11;
             this.cboCashier.SelectedIndexChanged += new System.EventHandler(this.CboCashier_SelectedIndexChanged);
             this.cboCashier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CboCashier_KeyPress);
@@ -245,7 +255,7 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label3.Location = new System.Drawing.Point(217, 10);
             this.label3.Name = "label3";
@@ -256,8 +266,8 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            this.label1.Font = new System.Drawing.Font("AvenirNext LT Pro Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -269,9 +279,9 @@
             // 
             // frmSoldItems
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1198, 598);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
@@ -283,7 +293,7 @@
             this.Controls.Add(this.dtTo);
             this.Controls.Add(this.dtFrom);
             this.Controls.Add(this.dgvSoldItems);
-            this.Font = new System.Drawing.Font("Gotham Book", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSoldItems";

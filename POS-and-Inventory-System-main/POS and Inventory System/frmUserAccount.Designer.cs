@@ -75,16 +75,17 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("AvenirNext LT Pro Bold", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(562, 25);
+            this.label1.Size = new System.Drawing.Size(1584, 60);
             this.label1.TabIndex = 0;
             this.label1.Text = "- A C C O U N T  S E T T I N G S -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // metroTabControl1
             // 
@@ -92,25 +93,27 @@
             this.metroTabControl1.Controls.Add(this.tabPage2);
             this.metroTabControl1.Controls.Add(this.tabPage3);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTabControl1.Location = new System.Drawing.Point(0, 25);
+            this.metroTabControl1.Location = new System.Drawing.Point(0, 60);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(562, 246);
+            this.metroTabControl1.Size = new System.Drawing.Size(1584, 549);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(554, 204);
+            this.tabPage1.Size = new System.Drawing.Size(1576, 507);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "CREATE ACCOUNT";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.cboRole);
@@ -126,19 +129,20 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(554, 204);
+            this.panel2.Size = new System.Drawing.Size(1576, 507);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(460, 163);
+            this.btnCancel.Location = new System.Drawing.Point(620, 228);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(80, 29);
+            this.btnCancel.Size = new System.Drawing.Size(147, 45);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "CLEAR";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -149,11 +153,11 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(374, 163);
+            this.btnSave.Location = new System.Drawing.Point(472, 228);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 29);
+            this.btnSave.Size = new System.Drawing.Size(126, 45);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -165,104 +169,115 @@
             this.cboRole.Items.AddRange(new object[] {
             "System Administrator",
             "Cashier"});
-            this.cboRole.Location = new System.Drawing.Point(160, 104);
+            this.cboRole.Location = new System.Drawing.Point(387, 130);
             this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(380, 24);
+            this.cboRole.Size = new System.Drawing.Size(380, 37);
             this.cboRole.TabIndex = 3;
+            this.cboRole.SelectedIndexChanged += new System.EventHandler(this.cboRole_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label6.Location = new System.Drawing.Point(15, 138);
+            this.label6.Location = new System.Drawing.Point(299, 178);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 15);
+            this.label6.Size = new System.Drawing.Size(82, 29);
             this.label6.TabIndex = 0;
             this.label6.Text = "NAME";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(160, 134);
+            this.txtName.Location = new System.Drawing.Point(387, 173);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(380, 23);
+            this.txtName.Size = new System.Drawing.Size(380, 33);
             this.txtName.TabIndex = 4;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtConfirmPass
             // 
-            this.txtConfirmPass.Location = new System.Drawing.Point(160, 75);
+            this.txtConfirmPass.Location = new System.Drawing.Point(387, 94);
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.PasswordChar = '•';
-            this.txtConfirmPass.Size = new System.Drawing.Size(380, 23);
+            this.txtConfirmPass.Size = new System.Drawing.Size(380, 33);
             this.txtConfirmPass.TabIndex = 2;
+            this.txtConfirmPass.TextChanged += new System.EventHandler(this.txtConfirmPass_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label5.Location = new System.Drawing.Point(15, 108);
+            this.label5.Location = new System.Drawing.Point(303, 138);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 15);
+            this.label5.Size = new System.Drawing.Size(78, 29);
             this.label5.TabIndex = 0;
             this.label5.Text = "ROLE";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label4.Location = new System.Drawing.Point(15, 79);
+            this.label4.Location = new System.Drawing.Point(132, 98);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 15);
+            this.label4.Size = new System.Drawing.Size(269, 29);
             this.label4.TabIndex = 0;
             this.label4.Text = "CONFIRM PASSWORD";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(160, 46);
+            this.txtPass.Location = new System.Drawing.Point(387, 55);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '•';
-            this.txtPass.Size = new System.Drawing.Size(380, 23);
+            this.txtPass.Size = new System.Drawing.Size(380, 33);
             this.txtPass.TabIndex = 1;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label3.Location = new System.Drawing.Point(15, 50);
+            this.label3.Location = new System.Drawing.Point(233, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 15);
+            this.label3.Size = new System.Drawing.Size(151, 29);
             this.label3.TabIndex = 0;
             this.label3.Text = "PASSWORD";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(160, 17);
+            this.txtUser.Location = new System.Drawing.Point(387, 16);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(380, 23);
+            this.txtUser.Size = new System.Drawing.Size(380, 33);
             this.txtUser.TabIndex = 0;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.label2.Location = new System.Drawing.Point(15, 21);
+            this.label2.Location = new System.Drawing.Point(233, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.Size = new System.Drawing.Size(148, 29);
             this.label2.TabIndex = 0;
             this.label2.Text = "USERNAME";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(554, 204);
+            this.tabPage2.Size = new System.Drawing.Size(554, 253);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CHANGE PASSWORD";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // panel1
             // 
@@ -280,15 +295,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 204);
+            this.panel1.Size = new System.Drawing.Size(554, 253);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(452, 153);
             this.button1.Name = "button1";
@@ -296,13 +312,14 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "CLEAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSave2
             // 
             this.btnSave2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.btnSave2.FlatAppearance.BorderSize = 0;
             this.btnSave2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave2.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.btnSave2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSave2.ForeColor = System.Drawing.Color.White;
             this.btnSave2.Location = new System.Drawing.Point(366, 153);
             this.btnSave2.Name = "btnSave2";
@@ -317,85 +334,94 @@
             this.txtConfirmPass2.Location = new System.Drawing.Point(160, 124);
             this.txtConfirmPass2.Name = "txtConfirmPass2";
             this.txtConfirmPass2.PasswordChar = '•';
-            this.txtConfirmPass2.Size = new System.Drawing.Size(380, 23);
+            this.txtConfirmPass2.Size = new System.Drawing.Size(380, 33);
             this.txtConfirmPass2.TabIndex = 10;
+            this.txtConfirmPass2.TextChanged += new System.EventHandler(this.txtConfirmPass2_TextChanged);
             // 
             // txtNewPass2
             // 
             this.txtNewPass2.Location = new System.Drawing.Point(160, 95);
             this.txtNewPass2.Name = "txtNewPass2";
             this.txtNewPass2.PasswordChar = '•';
-            this.txtNewPass2.Size = new System.Drawing.Size(380, 23);
+            this.txtNewPass2.Size = new System.Drawing.Size(380, 33);
             this.txtNewPass2.TabIndex = 9;
+            this.txtNewPass2.TextChanged += new System.EventHandler(this.txtNewPass2_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label8.Location = new System.Drawing.Point(15, 128);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(135, 15);
+            this.label8.Size = new System.Drawing.Size(269, 29);
             this.label8.TabIndex = 0;
             this.label8.Text = "CONFIRM PASSWORD";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label9.Location = new System.Drawing.Point(15, 99);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 15);
+            this.label9.Size = new System.Drawing.Size(213, 29);
             this.label9.TabIndex = 0;
             this.label9.Text = "NEW PASSWORD";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // txtOldPass2
             // 
             this.txtOldPass2.Location = new System.Drawing.Point(160, 67);
             this.txtOldPass2.Name = "txtOldPass2";
             this.txtOldPass2.PasswordChar = '•';
-            this.txtOldPass2.Size = new System.Drawing.Size(380, 23);
+            this.txtOldPass2.Size = new System.Drawing.Size(380, 33);
             this.txtOldPass2.TabIndex = 8;
+            this.txtOldPass2.TextChanged += new System.EventHandler(this.txtOldPass2_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label10.Location = new System.Drawing.Point(15, 70);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 15);
+            this.label10.Size = new System.Drawing.Size(206, 29);
             this.label10.TabIndex = 0;
             this.label10.Text = "OLD PASSWORD";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtUser2
             // 
             this.txtUser2.Enabled = false;
             this.txtUser2.Location = new System.Drawing.Point(160, 37);
             this.txtUser2.Name = "txtUser2";
-            this.txtUser2.Size = new System.Drawing.Size(380, 23);
+            this.txtUser2.Size = new System.Drawing.Size(380, 33);
             this.txtUser2.TabIndex = 7;
+            this.txtUser2.TextChanged += new System.EventHandler(this.txtUser2_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label11.Location = new System.Drawing.Point(15, 41);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 15);
+            this.label11.Size = new System.Drawing.Size(148, 29);
             this.label11.TabIndex = 0;
             this.label11.Text = "USERNAME";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 38);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(554, 204);
+            this.tabPage3.Size = new System.Drawing.Size(554, 253);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "ACTIVATE / DEACTIVATE";
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // panel3
             // 
@@ -407,27 +433,29 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(554, 204);
+            this.panel3.Size = new System.Drawing.Size(554, 253);
             this.panel3.TabIndex = 1;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // cbActive
             // 
             this.cbActive.AutoSize = true;
-            this.cbActive.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.cbActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(179)))), ((int)(((byte)(206)))));
             this.cbActive.Location = new System.Drawing.Point(118, 103);
             this.cbActive.Name = "cbActive";
-            this.cbActive.Size = new System.Drawing.Size(272, 21);
+            this.cbActive.Size = new System.Drawing.Size(445, 33);
             this.cbActive.TabIndex = 14;
             this.cbActive.Text = "Check if Active/ Uncheck to Deactivate";
             this.cbActive.UseVisualStyleBackColor = true;
+            this.cbActive.CheckedChanged += new System.EventHandler(this.cbActive_CheckedChanged);
             // 
             // btnSave3
             // 
             this.btnSave3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.btnSave3.FlatAppearance.BorderSize = 0;
             this.btnSave3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave3.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.btnSave3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSave3.ForeColor = System.Drawing.Color.White;
             this.btnSave3.Location = new System.Drawing.Point(423, 103);
             this.btnSave3.Name = "btnSave3";
@@ -441,20 +469,21 @@
             // 
             this.txtUser3.Location = new System.Drawing.Point(118, 71);
             this.txtUser3.Name = "txtUser3";
-            this.txtUser3.Size = new System.Drawing.Size(380, 23);
+            this.txtUser3.Size = new System.Drawing.Size(380, 33);
             this.txtUser3.TabIndex = 13;
             this.txtUser3.TextChanged += new System.EventHandler(this.TxtUser3_TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Roboto Medium", 9.5F);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label15.Location = new System.Drawing.Point(26, 75);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 15);
+            this.label15.Size = new System.Drawing.Size(148, 29);
             this.label15.TabIndex = 0;
             this.label15.Text = "USERNAME";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // btnClose
             // 
@@ -465,7 +494,7 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(512, 0);
+            this.btnClose.Location = new System.Drawing.Point(1534, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 25);
             this.btnClose.TabIndex = 5;
@@ -474,15 +503,15 @@
             // 
             // frmUserAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(562, 271);
+            this.ClientSize = new System.Drawing.Size(1584, 609);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Gotham Book", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUserAccount";
