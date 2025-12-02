@@ -1,52 +1,66 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+
 
 namespace POS_and_Inventory_System
 {
     public partial class frmSoldItems : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataReader dr;
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
+        MySqlDataReader dr;
         DBConnection dbconn = new DBConnection();
         public string sUser;
         public frmSoldItems()
         {
             InitializeComponent();
-            //conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             dtFrom.Value = DateTime.Now;
             dtTo.Value = DateTime.Now;
-            //LoadRecord();
-        //    LoadCashier();
+            LoadRecord();
+            //    LoadCashier();
         }
 
-        //public void LoadRecord()
-        //{
-        //    int i = 0;
-        //    double _total = 0;
-        //    string sql;
-        //    dgvSoldItems.Rows.Clear();
-        //    conn.Open();
-        //    if (cboCashier.Text == "All Cashier")
-        //        sql = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart AS c INNER JOIN tblProduct " +
-        //            "AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFrom.Value + "' AND '" + dtTo.Value + "'";
-        //    else
-        //        sql = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart AS c INNER JOIN tblProduct " +
-        //            "AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFrom.Value + "' AND '" + dtTo.Value + "' AND cashier LIKE '" + cboCashier.Text + "'";
-        //    cmd = new SqlCommand(sql, conn);
-        //    dr = cmd.ExecuteReader();
-        //    while (dr.Read())
-        //    {
-        //        i += 1;
-        //        _total += double.Parse(dr["total"].ToString());
-        //        dgvSoldItems.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(),
-        //            dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
-        //    }
-        //    dr.Close();
-        //    conn.Close();
-        //    lblTotal.Text = _total.ToString("#,##0.00");
-        //}
+        public void LoadRecord() // function to load sold items record
+        {
+            int i = 0;
+            double _total = 0;
+            string sql;
+            dgvSoldItems.Rows.Clear();
+            conn.Open();
+            if (cboCashier.Text == "All Cashier")
+                sql = @"
+                    SELECT c.name AS customer_name, c.id AS customer_id, s.sale_date AS sell_date, 
+                           s.subtotal, s.tax, s.total
+                    FROM customers c 
+                    JOIN sales s ON c.id = s.customer_id
+                    WHERE s.sale_date BETWEEN @from AND @to
+                ";
+            else
+                sql = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart AS c INNER JOIN tblProduct " +
+                    "AS p ON c.pcode=p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dtFrom.Value + "' AND '" + dtTo.Value + "' AND cashier LIKE '" + cboCashier.Text + "'";
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.Add("@from", MySqlDbType.DateTime).Value = dtFrom.Value;
+            cmd.Parameters.Add("@to", MySqlDbType.DateTime).Value = dtTo.Value;
+            dr = cmd.ExecuteReader();
+
+
+
+            while (dr.Read())
+            {
+                i += 1;
+                //_total += double.Parse(dr["total"].ToString());
+                dgvSoldItems.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(),
+                    dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
+            }
+
+
+
+            dr.Close();
+            conn.Close();
+            //lblTotal.Text = _total.ToString("#,##0.00");
+        }
 
         //private void DtFrom_ValueChanged(object sender, EventArgs e)
         //    => LoadRecord();

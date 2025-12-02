@@ -84,10 +84,5 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Dispose();
-
-        private void txtBrand_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

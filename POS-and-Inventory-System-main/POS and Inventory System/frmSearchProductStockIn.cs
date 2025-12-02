@@ -89,10 +89,5 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Dispose();
-
-        private void frmSearchProductStockIn_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

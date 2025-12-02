@@ -7,17 +7,17 @@ namespace POS_and_Inventory_System
     public partial class frmSecurity : Form
     {
 
+        // Connection variables
         MySqlConnection conn = new MySqlConnection();
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader dr;
 
         DBConnection dbconn = new DBConnection();
         public string _pass, _username = "";
-        public bool _isActive = false;
         public frmSecurity()
         {
             InitializeComponent();
-            //conn = new MySqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             KeyPreview = true;
         }
 
@@ -47,8 +47,6 @@ namespace POS_and_Inventory_System
                     _role = dr["role"].ToString();
                     _name = dr["name"].ToString();
                     _pass = dr["password"].ToString();
-                    _isActive = (dr["status"].ToString() == "active") ? true : false;
-                    MessageBox.Show(_isActive.ToString());
                 }
                 else found = false;
 
@@ -57,15 +55,10 @@ namespace POS_and_Inventory_System
 
                 if (found)
                 {
-                    if (!_isActive)
-                    {
-                        MessageBox.Show("Account is deactivated. Unable to login", "Inactivate Account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
 
-                    if (_role == "admin")
+                    if (_role == "cashier")
                     {
-                        MessageBox.Show("Access Granted! Welcome " + _name, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Access Granted! Welcome " + _username, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtPass.Clear();
                         txtUser.Clear();
                         Hide();
@@ -74,15 +67,14 @@ namespace POS_and_Inventory_System
                         frm.lblName.Text = _name + " | " + _role;
                         frm.ShowDialog();
                     }
-                    else
+                    else if(_role == "admin" || _role == "manager")
                     {
-                        MessageBox.Show("Access Granted! Welcome " + _name, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Access Granted! Welcome " + _username, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtPass.Clear();
                         txtUser.Clear();
                         Hide();
                         frmDashboard frm = new frmDashboard();
                         frm.lblName.Text = _name;
-                        //frm.lblUser.Text = _user;
                         frm.lblRole.Text = _role;
                         frm._pass = _pass;
                         frm._user = _username;
@@ -99,16 +91,6 @@ namespace POS_and_Inventory_System
                 conn.Close();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void FrmSecurity_KeyDown(object sender, KeyEventArgs e)

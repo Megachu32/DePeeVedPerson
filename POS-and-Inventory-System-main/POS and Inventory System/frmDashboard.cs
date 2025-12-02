@@ -1,16 +1,22 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using Tulpep.NotificationWindow;
+﻿using MySql.Data.MySqlClient;
 using POS_and_Inventory_System.DAL;
+using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmDashboard : Form
     {
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataReader dr;
+        //SqlConnection conn;
+        //SqlCommand cmd;
+        //SqlDataReader dr;
+
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
+        MySqlDataReader dr;
+
         DBConnection dbconn = new DBConnection();
         public string _pass, _user;
         DashboardDAL dDal = new DashboardDAL();
@@ -18,42 +24,42 @@ namespace POS_and_Inventory_System
         public frmDashboard()
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
-            NotifyCriticalItems();
+            conn = new MySqlConnection(dbconn.MyConnection());
+            //NotifyCriticalItems();
 
-            lblDailySales.Text = dbconn.DailySales().ToString("#,##0.00");
+            //lblDailySales.Text = dbconn.DailySales().ToString("#,##0.00");
             //lblProduct.Text = dbconn.ProductLine().ToString("#,##0");
-            //lblStockOnHand.Text = dbconn.StockOnHand().ToString("#,##0");
+            lblStockOnHand.Text = dbconn.StockOnHand().ToString("#,##0");
             //lblCritical.Text = dbconn.CriticalItems().ToString("#,##0");
-            dDal.LoadDashboard(chart1);
         }
 
-        public void NotifyCriticalItems()
-        {
-            string critical = "";
-            conn.Open();
-            cmd = new SqlCommand("SELECT count(*) FROM vwCriticalItems", conn);
-            string count = cmd.ExecuteScalar().ToString();
-            conn.Close();
+        //notification we don't use delete later if needed
+        //public void NotifyCriticalItems()
+        //{
+        //    string critical = "";
+        //    conn.Open();
+        //    //cmd = new SqlCommand("SELECT count(*) FROM vwCriticalItems", conn);
+        //    string count = cmd.ExecuteScalar().ToString();
+        //    conn.Close();
 
-            int i = 0;
-            conn.Open();
-            cmd = new SqlCommand("SELECT * FROM vwCriticalItems", conn);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                i++;
-                critical += i + ". " + dr["pdesc"].ToString() + Environment.NewLine;
-            }
-            dr.Close();
-            conn.Close();
+        //    int i = 0;
+        //    conn.Open();
+        //    //cmd = new SqlCommand("SELECT * FROM vwCriticalItems", conn);
+        //    dr = cmd.ExecuteReader();
+        //    while (dr.Read())
+        //    {
+        //        i++;
+        //        critical += i + ". " + dr["pdesc"].ToString() + Environment.NewLine;
+        //    }
+        //    dr.Close();
+        //    conn.Close();
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Properties.Resources.error;
-            popup.TitleText = count + "Critical Item(s)";
-            popup.ContentText = critical;
-            popup.Popup();
-        }
+        //    PopupNotifier popup = new PopupNotifier();
+        //    popup.Image = Properties.Resources.error;
+        //    popup.TitleText = count + "Critical Item(s)";
+        //    popup.ContentText = critical;
+        //    popup.Popup();
+        //}
 
         private void BtnBrand_Click(object sender, EventArgs e) 
             => Util.ShowFormInPanel(new frmBrandList(), pnlMain);
@@ -107,38 +113,14 @@ namespace POS_and_Inventory_System
         private void BtnProduct_Click(object sender, EventArgs e)
            => Util.ShowFormInPanel(new frmProductList(), pnlMain);
 
-        private void BtnVendor_Click(object sender, EventArgs e)
-            => Util.ShowFormInPanel(new frmVendorList(), pnlMain);
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        //private void BtnVendor_Click(object sender, EventArgs e)
+        //    => Util.ShowFormInPanel(new frmVendorList(), pnlMain);
 
         private void btnDashboard_Click(object sender, EventArgs e)
-        {
+            => Util.ShowFormInPanel(new frmDashboard(), pnlMain);
 
-        }
-
-        private void frmDashboard_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ButtonConfirm_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void BtnStaff_Click(object sender, EventArgs e)
+            => Util.ShowFormInPanel(new frmStaff(), pnlMain);
 
         private void BtnAdjust_Click(object sender, EventArgs e)
         {

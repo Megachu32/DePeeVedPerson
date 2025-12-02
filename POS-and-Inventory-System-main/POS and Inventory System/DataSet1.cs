@@ -4,5 +4,16 @@
 
     public partial class DataSet1
     {
+        partial class dtStaffDataTable
+        {
+        }
+
+        partial class dtSales_itemDataTable
+        {
+        }
+
+        partial class dtProductsDataTable
+        {
+        }
     }
 }

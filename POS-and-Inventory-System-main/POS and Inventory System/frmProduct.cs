@@ -1,71 +1,34 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmProduct : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
-        SqlDataReader dr;
+        MySqlDataReader dr;
         frmProductList fList;
+
         public frmProduct(frmProductList frm)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             fList = frm;
+
         }
 
-        public void LoadCategory()
+        public void LoadCategory() // calls in other place outside this form use to fill combobox
         {
-            try
-            {
-                //cboCategory.Items.Clear();
-                //conn.Open();
-                //string sql = "SELECT category FROM tblCategory";
-                //cmd = new SqlCommand(sql, conn);
-                //dr = cmd.ExecuteReader();
-                //while (dr.Read())
-                //{
-                //    cboCategory.Items.Add(dr[0].ToString());
-                //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                dr.Close();
-                conn.Close();
-            }
-        }
+            cmbType.Items.Add("iPhone");
+            cmbType.Items.Add("iPad");
+            cmbType.Items.Add("MacBook");
+            cmbType.Items.Add("Accessories");
 
-        public void LoadBrand()
-        {
-            try
-            {
-                //cboBrand.Items.Clear();
-                conn.Open();
-                string sql = "SELECT brand FROM tblBrand";
-                cmd = new SqlCommand(sql, conn);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    //cboBrand.Items.Add(dr[0].ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                dr.Close();
-                conn.Close();
-            }
+            cmbStatus.Items.Add("active");
+            cmbStatus.Items.Add("inactive");
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -75,41 +38,33 @@ namespace POS_and_Inventory_System
                 if (MessageBox.Show("Are you sure you want to save this product?", "Save Product",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string bid = "", cid = "";
                     conn.Open();
-                    //string sql = "SELECT id FROM tblBrand WHERE brand LIKE '" + cboBrand.Text + "'";
-                    //cmd = new SqlCommand(sql, conn);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) bid = dr[0].ToString();
-                    dr.Close();
-                    conn.Close();
 
-                    conn.Open();
-                    //string sql1 = "SELECT id FROM tblCategory WHERE category LIKE '" + cboCategory.Text + "'";
-                    //cmd = new SqlCommand(sql1, conn);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) cid = dr[0].ToString();
-                    dr.Close();
-                    conn.Close();
+                    string sql2 = @"
+                        INSERT INTO products (sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description) 
+                        VALUES (@sku, @name, @type, @model, @generation, @release_date, @price, @color, @storage, @specifications, @status, @description)
+                    ";
+                    cmd = new MySqlCommand(sql2, conn);
+                    cmd.Parameters.AddWithValue("@sku", txtPCode.Text);
+                    cmd.Parameters.AddWithValue("@name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@type", cmbType.Text);
+                    cmd.Parameters.AddWithValue("@model", txtModel.Text);
+                    cmd.Parameters.AddWithValue("@generation", Convert.ToInt16(txtGeneration.Text));
+                    cmd.Parameters.AddWithValue("@release_date", dateTimePicker1.Value.Date);
+                    cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(txtPrice.Text));
+                    cmd.Parameters.AddWithValue("@color", txtColor.Text);
+                    cmd.Parameters.AddWithValue("@storage", txtStorage.Text);
+                    cmd.Parameters.AddWithValue("@specifications", txtSpecific.Text);
+                    cmd.Parameters.AddWithValue("@status", "active");
+                    cmd.Parameters.AddWithValue("@description", txtDescription.Text);
 
-                    conn.Open();
-                    string sql2 = "INSERT INTO tblProduct (pcode, barcode, pdesc, bid, cid, price, reorder) " +
-                        "VALUES (@pcode, @barcode, @pdesc, @bid, @cid, @price, @reorder)";
-                    cmd = new SqlCommand(sql2, conn);
-                    //cmd.Parameters.AddWithValue("@pcode", txtPCode.Text);
-                    //cmd.Parameters.AddWithValue("@barcode", txtBarcode.Text);
-                    //cmd.Parameters.AddWithValue("@pdesc", txtDescription.Text);
-                    //cmd.Parameters.AddWithValue("@bid", bid);
-                    //cmd.Parameters.AddWithValue("@cid", cid);
-                    //cmd.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    //cmd.Parameters.AddWithValue("@reorder", int.Parse(txtReOrder.Text));
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Product has been success saved.", "Product Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     fList.LoadRecords();
+
+
                 }
             }
             catch (Exception ex)
@@ -121,16 +76,17 @@ namespace POS_and_Inventory_System
 
         public void Clear()
         {
-            //txtPrice.Clear();
-            //txtDescription.Clear();
-            //txtPCode.Clear();
-            //txtBarcode.Clear();
-            //cboBrand.Text = "";
-            //cboCategory.Text = "";
-            //txtPCode.Clear();
-            //txtReOrder.Text = "";
-            //btnSave.Enabled = true;
-            //btnUpdate.Enabled = false;
+            txtPCode.Clear();
+            txtName.Clear();
+            cmbType.Text = "";
+            txtModel.Clear();
+            txtGeneration.Clear();
+            dateTimePicker1.Value = DateTime.Now;
+            txtPrice.Clear();
+            txtColor.Clear();
+            txtStorage.Clear();
+            txtSpecific.Clear();
+            txtDescription.Clear();
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -161,16 +117,36 @@ namespace POS_and_Inventory_System
                     conn.Close();
 
                     conn.Open();
-                    string sql2 = "UPDATE tblProduct SET barcode=@barcode, pdesc=@pdesc, bid=@bid, cid=@cid, " +
-                        "price=@price, reorder=@reorder WHERE pcode LIKE @pcode";
-                    cmd = new SqlCommand(sql2, conn);
-                    //cmd.Parameters.AddWithValue("@pcode", txtPCode.Text);
-                    //cmd.Parameters.AddWithValue("@barcode", txtBarcode.Text);
-                    //cmd.Parameters.AddWithValue("@pdesc", txtDescription.Text);
-                    //cmd.Parameters.AddWithValue("@bid", bid);
-                    //cmd.Parameters.AddWithValue("@cid", cid);
-                    //cmd.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    //cmd.Parameters.AddWithValue("@reorder", int.Parse(txtReOrder.Text));
+                    string sql2 = @"
+                        INSERT INTO products (sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description) 
+                        VALUES (@sku, @name, @type, @model, @generation, @release_date, @price, @color, @storage, @specifications, @status, @description)
+                        
+                        ON DUPLICATE KEY UPDATE
+                        name = @name,
+                        type = @type,
+                        model = @model,
+                        generation = @generation,
+                        release_date = @release_date,
+                        price = @price,
+                        color = @color,
+                        storage = @storage,
+                        specifications = @specifications,
+                        status = @status,
+                        description = @description;
+                    ";
+                    cmd = new MySqlCommand(sql2, conn);
+                    cmd.Parameters.AddWithValue("@sku", txtPCode.Text);
+                    cmd.Parameters.AddWithValue("@name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@type", cmbType.Text);
+                    cmd.Parameters.AddWithValue("@model", txtModel.Text);
+                    cmd.Parameters.AddWithValue("@generation", Convert.ToInt16(txtGeneration.Text));
+                    cmd.Parameters.AddWithValue("@release_date", dateTimePicker1.Value.Date);
+                    cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(txtPrice.Text));
+                    cmd.Parameters.AddWithValue("@color", txtColor.Text);
+                    cmd.Parameters.AddWithValue("@storage", txtStorage.Text);
+                    cmd.Parameters.AddWithValue("@specifications", txtSpecific.Text);
+                    cmd.Parameters.AddWithValue("@status", "active");
+                    cmd.Parameters.AddWithValue("@description", txtDescription.Text);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Product has been successfully updated.", "Product Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -210,7 +186,52 @@ namespace POS_and_Inventory_System
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
+            if (txtPCode.Text.ToString() != "") fillData(); // if the sku is filled, fill the data for updating
+        }
 
+        public void fillData() //call when updating to fill the fields
+        {
+            try
+            {
+                conn.Open();
+                string sql = @"
+                    SELECT sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description
+                    FROM products
+                    WHERE sku = @sku
+                    LIMIT 1;
+                ";
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@sku", txtPCode.Text);
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    txtPCode.Text = dr["sku"].ToString();
+                    txtName.Text = dr["name"].ToString();
+                    cmbType.Text = dr["type"].ToString();
+                    txtModel.Text = dr["model"].ToString();
+                    txtGeneration.Text = dr["generation"].ToString();
+                    txtPrice.Text = dr["price"].ToString();
+                    txtColor.Text = dr["color"].ToString();
+                    txtStorage.Text = dr["storage"].ToString();
+                    txtSpecific.Text = dr["specifications"].ToString();
+                    txtDescription.Text = dr["description"].ToString();
+
+                    // safe date handling
+                    if (DateTime.TryParse(dr["release_date"].ToString(), out DateTime date))
+                        dateTimePicker1.Value = date;
+                    else
+                        dateTimePicker1.Value = DateTime.Today;
+                }
+
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

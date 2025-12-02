@@ -151,10 +151,10 @@
   <data name="Delete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAB8SURBVDhP7ZLBCYQwAAStwGvB
-        GqzAUmxBZP5WIleJ2JmyoBA3ySHBn/cYCMvuhEAqoHqCKCglCgJaYAHWA52VeS8p6oDtJupmRQ0w3UTd
-        rEj0wXNyqHPZuUToNn+Go85f9Ju3i8bE0Bl85xLxAb6J33wyA7XvXFJMFJSyA8doLKiRXd7rAAAAAElF
-        TkSuQmCC
+        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAACxMAAAsTAQCanBgAAACISURBVDhP7dLdCYAwDARgJ9AV
+        nMEJHMUVRPruJOIk4mZ6B6n0MIJ/T+LDB03IpRSahRBe4TbvcJumgglmwzN73uxuUQ3LSZzdsukSKqE/
+        ibNbNl0SNRCfc4QzkpPC8DbvKSnOSE4K8y/SnBTmw4s68MKpFiQnhSlgBO9H0wA5SE6KJ9zmdSFbAcdo
+        LKghlT55AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="dataGridViewTextBoxColumn5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -190,28 +190,30 @@
   <data name="dataGridViewImageColumn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAP1JREFUOE/tkssqhlEYhR8jE3chieQQiRi4AgMhcUkGv2JsoJxTJg5DrsQhKXNm
-        tLT618729fW7AYNVz37Xu1fv3r1IQlDUJ9gWvAvU0Iegk55uf9f5FdBfXbgX3ER3VX2gV4Dl8nWjZl3G
-        +6lVAR7tVHCYpjfBXs7WruA13rHgRLBTBzy3vPkvvTSfcBZjU7Aa3hKshzcEa+GL5hOs/ZijgsHwuGA4
-        PCIYCh+0BRzFXBTMhpcE8+EFwVzY0/4HtAR4QVyaye+bfXkqPC2Y7BXg7SqNY2FPMhF2UAk+bwu4ivkk
-        eAx7Q30u9YfwbVvActXwld3/jArbc/hKCfgG2vS4eWpuY1YAAAAASUVORK5CYII=
+        xAAADsQBlSsOGwAAARFJREFUOE/t0ssqR1EYBfBlZOItJJFcIhEDT2AgJB7J4K8YGyj3lInLkCdxScqc
+        GW1rrbN2zl8MzA1+u/V9e++v02mjlIICVD20Sa/EnS5v1CGdac43O10Det1q3NJV3KQnffTrAFH78ltP
+        zkl7X73WAH3aMe27BbzQTmrZpmfS3iEd0VZ7wKPj3zy1B8hJNtZpOXmDVpPXaCX5jHzXiwtg1yUwTP3J
+        ozSYPEQDyXvku15cAAcugXmaTl6g2eQ5mknW1/quFxf/A0QPRK0p0t9X1uWJ5EkaT/5xgF5XPTiSrC8Z
+        S9agOviUfNeLC+DCJfBA98l6oapr/y75mnzXiwtgkeqBD9Lbf4+atafhS8Si4BPa9Lh5qs6ztgAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="btnLoadRecord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAANNJREFUOE/l
-        0z9KA2EQhvEoiHqHgKcRAt5FCeQQid7AzhtY2hshRGJhkWuENP6pfjLJLITJErfWp1jYmfme/eaF7fX+
-        FzjHCG/4wjcWGOKkzreCCyxtmWKCMZ5xj6N6Zo+8SUhWuKz9zuQ6wUEJBnjEWe1tyEymtb5LSiK34KlV
-        lgOTWm8okoatLB75sksMD6qoAXf4qPUqOygJMMNrrW9IWQT4m+QqP3hTe51JyRrvOK39PXCMB7zgNjOJ
-        dYKQ9OuZVuI3wDXm+IxgI5NYp9NN/hY/2Lc0CQ8W2WAAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAANtJREFUOE/l
+        kE0KglAURi2Qag9BqwmE9lIELSJrB83aQcPmGURSgwZtI5pYjex8dCPFfOK0Dhzh/ryP5/P+jDRNOzjB
+        I97xgQcco29rbljs4RlFhCFOcYMLbNhqOSzpJgq5YN/a9eGwfkc4Q5gHuMK2tfIw0JtEVn7FQvRuYo3F
+        MJpaCK0swCwb8uYVpo8VWbQc2PkCzOaYWPmBZjbMGSKY7zC2Mg8DhekBq0IGKEbWqg+HFXLFE7asXQ5L
+        TVziFmeoN9HvCIV0bdUNiz4OcY83TDDGEVbf5JfwvCfYtzQJbjhwGAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAKJJREFUSEvt
-        lEsOgzAMBblEOUQ/91/BIfo5z1SWnCp6stNSwgpmw+KZeRFYGYaDfQLcgAk4aaYAIzADF81S/AXj0Spx
-        +ctnJ81TTOrytETk92imiZc8XWDPj2C1vBCUmLiPvODCuqSfvCCn7is3Ni0IvnlzuxYRyO2nf13hn4jk
-        VabbtaykJa9mtGTUmZTqqgjlBVnhWfMU4PrHZXfW7GAnvAEj1Z2dHOfYQQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAL5JREFUSEvt
+        lFkOgzAMRHMJOESX+3/BIbqcJ30j2ZVbGlJE+IInjUBexoFESQc7Jed8RQPqLFSEmh6N6GyhOtYg7qg4
+        hJzMnyqEwcJ1KO6QzMXPIcSi+Q1Vv/YDNaCHuu35NuB9nbmjRhSHyLiNuYOBDOOQduYORnHVop25wGy7
+        ARh9//PZ07UIDCYbalo/hMaJuaWUKx7hv6ChaO4ohuKQ3lJ1KParYnYzyWkhPmS0cB2KL2jpZXey0MG+
+        SOkFI9WdnSK3qD8AAAAASUVORK5CYII=
 </value>
   </data>
 </root>

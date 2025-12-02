@@ -118,20 +118,5 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e) 
             => Dispose();
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearch_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
