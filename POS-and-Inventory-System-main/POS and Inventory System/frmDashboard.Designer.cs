@@ -44,7 +44,7 @@
             this.btnBrand = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnStockIn = new System.Windows.Forms.Button();
-            this.btnVendor = new System.Windows.Forms.Button();
+            this.btnStaff = new System.Windows.Forms.Button();
             this.btnAdjust = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
@@ -69,14 +69,14 @@
             this.lblProduct = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
-            this.dtSalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selldateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtSalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,8 +88,8 @@
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -104,7 +104,7 @@
             this.panel2.Controls.Add(this.btnBrand);
             this.panel2.Controls.Add(this.btnCategory);
             this.panel2.Controls.Add(this.btnStockIn);
-            this.panel2.Controls.Add(this.btnVendor);
+            this.panel2.Controls.Add(this.btnStaff);
             this.panel2.Controls.Add(this.btnAdjust);
             this.panel2.Controls.Add(this.btnProduct);
             this.panel2.Controls.Add(this.btnDashboard);
@@ -343,28 +343,28 @@
             this.btnStockIn.UseVisualStyleBackColor = false;
             this.btnStockIn.Click += new System.EventHandler(this.BtnStockIn_Click);
             // 
-            // btnVendor
+            // btnStaff
             // 
-            this.btnVendor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnVendor.BackColor = System.Drawing.Color.Black;
-            this.btnVendor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVendor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.btnVendor.FlatAppearance.BorderSize = 0;
-            this.btnVendor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnVendor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(32)))), ((int)(((byte)(59)))));
-            this.btnVendor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.btnVendor.Image = ((System.Drawing.Image)(resources.GetObject("btnVendor.Image")));
-            this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendor.Location = new System.Drawing.Point(0, 228);
-            this.btnVendor.Name = "btnVendor";
-            this.btnVendor.Size = new System.Drawing.Size(200, 30);
-            this.btnVendor.TabIndex = 2;
-            this.btnVendor.Text = "     Vendor";
-            this.btnVendor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVendor.UseVisualStyleBackColor = false;
-            this.btnVendor.Click += new System.EventHandler(this.BtnVendor_Click);
+            this.btnStaff.BackColor = System.Drawing.Color.Black;
+            this.btnStaff.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStaff.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.btnStaff.FlatAppearance.BorderSize = 0;
+            this.btnStaff.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnStaff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(32)))), ((int)(((byte)(59)))));
+            this.btnStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.btnStaff.Image = ((System.Drawing.Image)(resources.GetObject("btnStaff.Image")));
+            this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStaff.Location = new System.Drawing.Point(0, 228);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Size = new System.Drawing.Size(200, 30);
+            this.btnStaff.TabIndex = 2;
+            this.btnStaff.Text = "     Staff";
+            this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStaff.UseVisualStyleBackColor = false;
+            this.btnStaff.Click += new System.EventHandler(this.BtnStaff_Click);
             // 
             // btnAdjust
             // 
@@ -492,7 +492,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label10.Location = new System.Drawing.Point(50, 35);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 17);
+            this.label10.Size = new System.Drawing.Size(108, 20);
             this.label10.TabIndex = 2;
             this.label10.Text = "Critical Items";
             // 
@@ -503,7 +503,7 @@
             this.lblCritical.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblCritical.Location = new System.Drawing.Point(51, 5);
             this.lblCritical.Name = "lblCritical";
-            this.lblCritical.Size = new System.Drawing.Size(67, 31);
+            this.lblCritical.Size = new System.Drawing.Size(83, 39);
             this.lblCritical.TabIndex = 1;
             this.lblCritical.Text = "0.00";
             // 
@@ -537,7 +537,7 @@
             this.lblStockOnHand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblStockOnHand.Location = new System.Drawing.Point(50, 5);
             this.lblStockOnHand.Name = "lblStockOnHand";
-            this.lblStockOnHand.Size = new System.Drawing.Size(67, 31);
+            this.lblStockOnHand.Size = new System.Drawing.Size(83, 39);
             this.lblStockOnHand.TabIndex = 1;
             this.lblStockOnHand.Text = "0.00";
             // 
@@ -548,7 +548,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label8.Location = new System.Drawing.Point(50, 35);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 17);
+            this.label8.Size = new System.Drawing.Size(123, 20);
             this.label8.TabIndex = 2;
             this.label8.Text = "Stock On Hand";
             // 
@@ -590,7 +590,7 @@
             this.lblDailySales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblDailySales.Location = new System.Drawing.Point(50, 5);
             this.lblDailySales.Name = "lblDailySales";
-            this.lblDailySales.Size = new System.Drawing.Size(67, 31);
+            this.lblDailySales.Size = new System.Drawing.Size(83, 39);
             this.lblDailySales.TabIndex = 1;
             this.lblDailySales.Text = "0.00";
             // 
@@ -601,7 +601,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label2.Location = new System.Drawing.Point(50, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Daily Sales";
             // 
@@ -634,7 +634,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label5.Location = new System.Drawing.Point(50, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 17);
+            this.label5.Size = new System.Drawing.Size(104, 20);
             this.label5.TabIndex = 2;
             this.label5.Text = "Product Line";
             // 
@@ -645,7 +645,7 @@
             this.lblProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblProduct.Location = new System.Drawing.Point(51, 5);
             this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(67, 31);
+            this.lblProduct.Size = new System.Drawing.Size(83, 39);
             this.lblProduct.TabIndex = 1;
             this.lblProduct.Text = "0.00";
             // 
@@ -685,59 +685,66 @@
             this.dataGridView1.DataSource = this.dtSalesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(0, 151);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(984, 410);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtSalesBindingSource
-            // 
-            this.dtSalesBindingSource.DataMember = "dtSales";
-            this.dtSalesBindingSource.DataSource = this.dataSet1;
             // 
             // customeridDataGridViewTextBoxColumn
             // 
             this.customeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id";
             this.customeridDataGridViewTextBoxColumn.HeaderText = "customer_id";
+            this.customeridDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.customeridDataGridViewTextBoxColumn.Name = "customeridDataGridViewTextBoxColumn";
             // 
             // selldateDataGridViewTextBoxColumn
             // 
             this.selldateDataGridViewTextBoxColumn.DataPropertyName = "sell_date";
             this.selldateDataGridViewTextBoxColumn.HeaderText = "sell_date";
+            this.selldateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.selldateDataGridViewTextBoxColumn.Name = "selldateDataGridViewTextBoxColumn";
             // 
             // subtotalDataGridViewTextBoxColumn
             // 
             this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "subtotal";
             this.subtotalDataGridViewTextBoxColumn.HeaderText = "subtotal";
+            this.subtotalDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
             // 
             // taxDataGridViewTextBoxColumn
             // 
             this.taxDataGridViewTextBoxColumn.DataPropertyName = "tax";
             this.taxDataGridViewTextBoxColumn.HeaderText = "tax";
+            this.taxDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.taxDataGridViewTextBoxColumn.Name = "taxDataGridViewTextBoxColumn";
             // 
             // totalDataGridViewTextBoxColumn
             // 
             this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
             this.totalDataGridViewTextBoxColumn.HeaderText = "total";
+            this.totalDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // dtSalesBindingSource
+            // 
+            this.dtSalesBindingSource.DataMember = "dtSales";
+            this.dtSalesBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // frmDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.ControlBox = false;
@@ -763,8 +770,8 @@
             this.panel1.PerformLayout();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -803,7 +810,7 @@
         public System.Windows.Forms.Label lblDailySales;
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Button btnVendor;
+        private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;

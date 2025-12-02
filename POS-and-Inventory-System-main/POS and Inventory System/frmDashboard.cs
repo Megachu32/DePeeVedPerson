@@ -113,13 +113,14 @@ namespace POS_and_Inventory_System
         private void BtnProduct_Click(object sender, EventArgs e)
            => Util.ShowFormInPanel(new frmProductList(), pnlMain);
 
-        private void BtnVendor_Click(object sender, EventArgs e)
-            => Util.ShowFormInPanel(new frmVendorList(), pnlMain);
+        //private void BtnVendor_Click(object sender, EventArgs e)
+        //    => Util.ShowFormInPanel(new frmVendorList(), pnlMain);
 
         private void btnDashboard_Click(object sender, EventArgs e)
-        {
+            => Util.ShowFormInPanel(new frmDashboard(), pnlMain);
 
-        }
+        private void BtnStaff_Click(object sender, EventArgs e)
+            => Util.ShowFormInPanel(new frmStaff(), pnlMain);
 
         private void BtnAdjust_Click(object sender, EventArgs e)
         {

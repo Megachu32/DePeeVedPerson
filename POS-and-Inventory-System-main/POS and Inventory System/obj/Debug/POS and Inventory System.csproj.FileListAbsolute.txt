@@ -356,3 +356,5 @@ C:\Users\dewad\source\repos\Megachu32\DePeeVedPerson\POS-and-Inventory-System-ma
 C:\Users\dewad\source\repos\Megachu32\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\dewad\source\repos\Megachu32\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\dewad\source\repos\Megachu32\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Guna.UI2.dll
+C:\Users\dewad\source\repos\Megachu32\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS_and_Inventory_System.frmStaff.resources
+C:\Users\dewad\source\repos\Megachu32\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS_and_Inventory_System.frmStaffEdit.resources
