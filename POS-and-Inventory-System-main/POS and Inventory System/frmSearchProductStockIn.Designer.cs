@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchProductStockIn));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
@@ -46,12 +46,12 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            this.label1.Font = new System.Drawing.Font("AvenirNext LT Pro Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 45);
+            this.label1.Size = new System.Drawing.Size(346, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "- P R O D U C T  L I S T -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,7 +74,7 @@
             this.txtSearch.DisplayIcon = true;
             this.txtSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearch.Icon")));
             this.txtSearch.Lines = new string[0];
-            this.txtSearch.Location = new System.Drawing.Point(250, 10);
+            this.txtSearch.Location = new System.Drawing.Point(352, 10);
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -89,7 +89,7 @@
             this.txtSearch.UseSelectable = true;
             this.txtSearch.WaterMark = "Search Product...";
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtSearch.WaterMarkFont = new System.Drawing.Font("Roboto", 10F);
+            this.txtSearch.WaterMarkFont = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // dgvProductList
@@ -97,14 +97,14 @@
             this.dgvProductList.AllowUserToAddRows = false;
             this.dgvProductList.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Gotham Book", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductList.ColumnHeadersHeight = 30;
             this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -117,6 +117,7 @@
             this.dgvProductList.Location = new System.Drawing.Point(0, 48);
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.RowHeadersVisible = false;
+            this.dgvProductList.RowHeadersWidth = 51;
             this.dgvProductList.Size = new System.Drawing.Size(864, 504);
             this.dgvProductList.TabIndex = 6;
             this.dgvProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductList_CellContentClick);
@@ -125,54 +126,61 @@
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column1.HeaderText = "#";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 40;
+            this.Column1.Width = 45;
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column2.HeaderText = "PCODE";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 78;
+            this.Column2.Width = 98;
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column4.HeaderText = "DESCRIPTION";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column7.HeaderText = "QTY";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 58;
+            this.Column7.Width = 69;
             // 
             // Select
             // 
             this.Select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Select.HeaderText = "";
             this.Select.Image = ((System.Drawing.Image)(resources.GetObject("Select.Image")));
+            this.Select.MinimumWidth = 6;
             this.Select.Name = "Select";
-            this.Select.Width = 5;
+            this.Select.Width = 6;
             // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 125;
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.btnClear.BackColor = System.Drawing.Color.Black;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Roboto Medium", 10F);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.Location = new System.Drawing.Point(545, 12);
+            this.btnClear.Location = new System.Drawing.Point(648, 10);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(25, 20);
             this.btnClear.TabIndex = 7;
@@ -181,7 +189,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btnClose.BackColor = System.Drawing.Color.Black;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Firebrick;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
@@ -196,9 +204,9 @@
             // 
             // frmSearchProductStockIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(864, 552);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
@@ -206,11 +214,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvProductList);
-            this.Font = new System.Drawing.Font("Gotham Book", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSearchProductStockIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmSearchProductStockIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
             this.ResumeLayout(false);
 

@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0QAADdEBwivf4wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACqvSURBVHhe7d15
+        0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACqvSURBVHhe7d15
         /G1lWffxD4NMioI4EYiC4BCYIc49meKIWqKQpVkizvNUaQ+alhOKaY8+ooah8aCCOfRkTomaOaSkhjgg
         zijOigqIzPW6PYvXkeu6zzm/YQ/3utfnj/c/X4vz22td+7r2Xnut++a///u/kSTNHrANcEPgYOARwAuB
         NwOfAs4p/3v8/5EWJQWSpNUDdgEOBf4WeA/wZeBioPyPm3Kd+N+RFiUFkqQtA3YE7jp8qz8VuKwy4Ldk
@@ -409,40 +409,11 @@
         DKKai6CasAGqRv/AGIQvjIiP/kEDABbHr6MCsDQ5AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
   <metadata name="dtSalesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>116, 17</value>
+  </metadata>
+  <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
