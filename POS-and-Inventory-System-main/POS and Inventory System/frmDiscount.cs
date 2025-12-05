@@ -31,7 +31,7 @@ namespace POS_and_Inventory_System
             }
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void guna2ButtonConfirm_Click(object sender, EventArgs e)
         {
             try
             {
@@ -62,5 +62,10 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Dispose();
+
+        private void frmDiscount_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
