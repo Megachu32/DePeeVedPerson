@@ -56,8 +56,7 @@ insert  into `inventory`(`product_id`,`stock`) values
 (2,18),
 (3,7),
 (4,10),
-(5,22),
-(6,30);
+(5,22);
 
 /*Table structure for table `preorders` */
 
@@ -106,11 +105,11 @@ CREATE TABLE `products` (
   `color` varchar(50) DEFAULT NULL,
   `storage` varchar(50) DEFAULT NULL,
   `specifications` text DEFAULT NULL,
-  `status` enum('active','inactive') DEFAULT 'active',
+  `status` enum('active','inactive','incoming') DEFAULT 'active',
   `description` text DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   UNIQUE KEY `sku` (`sku`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `products` */
 
@@ -119,7 +118,10 @@ insert  into `products`(`product_id`,`sku`,`name`,`type`,`model`,`generation`,`r
 (2,'IP15-128BLU','iPhone 15','iPhone','A3085',15,'2023-09-22',15990000.00,'Blue','128GB','A16 Bionic, 48MP main camera','active','Standard iPhone 15'),
 (3,'IPADP11-256SLV','iPad Pro 11\"','iPad','A2759',5,'2022-10-15',18990000.00,'Silver','256GB','M2 chip, 120Hz ProMotion, Face ID','active','iPad Pro 11 inch (2022)'),
 (4,'MACAR15-512GRY','MacBook Air 15\"','MacBook','A2941',1,'2023-06-13',23990000.00,'Space Gray','512GB','M2 chip, Liquid Retina display','active','MacBook Air 15-inch'),
-(5,'MACPRO14-1TBBLK','MacBook Pro 14\"','MacBook','A2992',3,'2023-11-07',38990000.00,'Black','1TB','M3 Pro chip, 120Hz XDR display','active','MacBook Pro 2023');
+(5,'MACPRO14-1TBBLK','MacBook Pro 14\"','MacBook','A2992',3,'2023-11-07',38990000.00,'Black','1TB','M3 Pro chip, 120Hz XDR display','active','MacBook Pro 2023'),
+(8,'sdsdsd','MAKANAn','dsdsds','dsds',12,'2025-11-30',12.00,'sdsd','dsds','dsdsd','active','dsd'),
+(11,'idhiufa','aousihriqu','MacBook','aiufhq',12,'2025-12-01',1222.00,'asas','sas','asas','active','asasasas'),
+(12,'LKosdf','Iphone 20','iPhone','A121',20,'2027-07-09',1233.00,'Black','230Mb','sdfghsdfg','active','makanan');
 
 /*Table structure for table `sale_items` */
 
