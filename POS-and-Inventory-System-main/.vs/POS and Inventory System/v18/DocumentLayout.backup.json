@@ -1,54 +1,146 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\",
+  "WorkspaceRootPath": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|c:\\users\\dewad\\source\\repos\\megachu32\\depeevedperson\\pos-and-inventory-system-main\\pos and inventory system\\frmstaffedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstaffedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmdiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmdiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstaffedit.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstaffedit.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstaffedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstaffedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmproductlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmproductlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmproductlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmchart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmchart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmcategorylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmcategorylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|c:\\users\\guest2077\\source\\repos\\depeevedperson\\pos-and-inventory-system-main\\pos and inventory system\\frmcanceldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmcanceldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmbrandlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmbrandlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmbrand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmbrand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmadjustment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmadjustment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmvoid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmvoid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmvendorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmvendorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmvendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmvendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmuseraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmuseraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstockin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstockin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstaffedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstaffedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsolditems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsolditems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsecurity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsecurity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsearchproductstockin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsearchproductstockin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsearchproductstockin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsearchproductstockin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmreceipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmrecords.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmrecords.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmreportsold.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmreportsold.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmqty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmqty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmproductlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmproductlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmlookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmlookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frminventoryreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frminventoryreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmcategorylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmcategorylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsecurity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsecurity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,41 +154,17 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DBConnection.cs",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\DBConnection.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\DBConnection.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\DBConnection.cs",
-              "RelativeToolTip": "POS and Inventory System\\DBConnection.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 30,
+              "Title": "frmCategory.cs",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategory.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmCategory.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategory.cs",
+              "RelativeToolTip": "POS and Inventory System\\frmCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T06:07:37.957Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "frmProductList.cs",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProductList.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmProductList.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProductList.cs",
-              "RelativeToolTip": "POS and Inventory System\\frmProductList.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T09:48:43.818Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DataSet1.xsd",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\DataSet1.xsd",
-              "RelativeDocumentMoniker": "POS and Inventory System\\DataSet1.xsd",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\DataSet1.xsd",
-              "RelativeToolTip": "POS and Inventory System\\DataSet1.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2025-12-01T06:22:33.667Z",
-              "IsPinned": true
+              "WhenOpened": "2025-12-02T06:26:52.925Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -104,107 +172,392 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmStaffEdit.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.Designer.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmStaffEdit.Designer.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.Designer.cs",
-              "RelativeToolTip": "POS and Inventory System\\frmStaffEdit.Designer.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "frmCategoryList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategoryList.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmCategoryList.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategoryList.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmCategoryList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:37:09.525Z"
+              "WhenOpened": "2025-12-02T05:57:22.575Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmChart.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmChart.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmChart.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmChart.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmChart.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:22:23.174Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmDashboard.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmDashboard.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmDashboard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:22:24.668Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmStaffEdit.cs",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmStaffEdit.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.cs",
-              "RelativeToolTip": "POS and Inventory System\\frmStaffEdit.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAAAK4AAAAJAAAAAAAAAA==",
+              "Title": "frmDiscount.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDiscount.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmDiscount.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDiscount.cs [Design]*",
+              "RelativeToolTip": "POS and Inventory System\\frmDiscount.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:36:33.011Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmStaffEdit.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmStaffEdit.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.cs [Design]",
-              "RelativeToolTip": "POS and Inventory System\\frmStaffEdit.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:36:29.859Z"
+              "WhenOpened": "2025-12-02T05:57:16.786Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "frmProduct.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProduct.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmProduct.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProduct.cs [Design]",
-              "RelativeToolTip": "POS and Inventory System\\frmProduct.cs [Design]",
+              "Title": "frmCategory.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategory.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmCategory.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategory.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmCategory.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:35:37.428Z"
+              "WhenOpened": "2025-12-02T05:55:50.44Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "frmStaff.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaff.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmStaff.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaff.cs [Design]",
-              "RelativeToolTip": "POS and Inventory System\\frmStaff.cs [Design]",
+              "Title": "frmCancelDetails.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCancelDetails.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmCancelDetails.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCancelDetails.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmCancelDetails.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:21:08.177Z"
+              "WhenOpened": "2025-12-02T06:14:38.378Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "frmStaff.cs",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaff.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmStaff.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaff.cs",
-              "RelativeToolTip": "POS and Inventory System\\frmStaff.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAmwCAAAAAhAAAAAAAAAA==",
+              "Title": "frmBrandList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmBrandList.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmBrandList.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmBrandList.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmBrandList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:10:57.832Z"
+              "WhenOpened": "2025-12-02T06:22:18.987Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "frmDashboard.cs",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmDashboard.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs",
-              "RelativeToolTip": "POS and Inventory System\\frmDashboard.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAwHgAAAAAAAAAAAAAAA==",
+              "Title": "frmBrand.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmBrand.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmBrand.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmBrand.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmBrand.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:09:34.884Z"
+              "WhenOpened": "2025-12-02T06:14:37.089Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmAdjustment.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmAdjustment.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmAdjustment.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmAdjustment.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmAdjustment.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:29:29.074Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "frmStore.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStore.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmStore.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStore.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmStore.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:55:56.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmVoid.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmVoid.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmVoid.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmVoid.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmVoid.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:55:58.863Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "frmDashboard.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs",
-              "RelativeDocumentMoniker": "POS and Inventory System\\frmDashboard.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs [Design]",
-              "RelativeToolTip": "POS and Inventory System\\frmDashboard.cs [Design]",
+              "Title": "frmVendorList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmVendorList.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmVendorList.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmVendorList.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmVendorList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T06:08:58.119Z"
+              "WhenOpened": "2025-12-02T05:55:59.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "frmStockIn.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStockIn.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmStockIn.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStockIn.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmStockIn.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:31:51.803Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "frmVendor.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmVendor.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmVendor.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmVendor.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmVendor.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:31:57.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "frmStaffEdit.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmStaffEdit.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaffEdit.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmStaffEdit.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:55:55.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "frmStaff.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaff.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmStaff.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmStaff.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmStaff.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:16:36.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "frmUserAccount.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmUserAccount.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmUserAccount.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmUserAccount.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmUserAccount.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:16:35.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "frmSoldItems.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSoldItems.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmSoldItems.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSoldItems.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmSoldItems.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:31:44.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "frmSecurity.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSecurity.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmSecurity.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSecurity.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmSecurity.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:55:54.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "frmSearchProductStockIn.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSearchProductStockIn.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmSearchProductStockIn.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSearchProductStockIn.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmSearchProductStockIn.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:15:13.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "frmSearchProductStockIn.cs",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSearchProductStockIn.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmSearchProductStockIn.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSearchProductStockIn.cs",
+              "RelativeToolTip": "POS and Inventory System\\frmSearchProductStockIn.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAewDEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:30:07.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "frmSettle.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSettle.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmSettle.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSettle.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmSettle.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:16:33.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "frmReceipt.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmReceipt.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmReceipt.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmReceipt.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmReceipt.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:57:42.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "frmRecords.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmRecords.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmRecords.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmRecords.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmRecords.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:57:21.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "frmReportSold.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmReportSold.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmReportSold.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmReportSold.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmReportSold.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:55:53.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "frmQty.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmQty.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmQty.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmQty.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmQty.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:57:20.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "frmProductList.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProductList.cs",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProductList.cs",
               "RelativeDocumentMoniker": "POS and Inventory System\\frmProductList.cs",
-              "ToolTip": "C:\\Users\\dewad\\source\\repos\\Megachu32\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProductList.cs [Design]",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProductList.cs [Design]",
               "RelativeToolTip": "POS and Inventory System\\frmProductList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T09:48:41.75Z"
+              "WhenOpened": "2025-12-02T06:15:07.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "frmLookUp.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmLookUp.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmLookUp.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmLookUp.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmLookUp.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:57:55.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "frmPOS.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmPOS.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmPOS.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmPOS.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmPOS.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:55:51.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "frmInventoryReport.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmInventoryReport.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmInventoryReport.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmInventoryReport.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmInventoryReport.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:57:40.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "frmDashboard.cs",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmDashboard.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmDashboard.cs",
+              "RelativeToolTip": "POS and Inventory System\\frmDashboard.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAjwH4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:22:39.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "frmCategoryList.cs",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategoryList.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmCategoryList.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmCategoryList.cs",
+              "RelativeToolTip": "POS and Inventory System\\frmCategoryList.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAewEcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:24:06.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "frmSecurity.cs",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSecurity.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmSecurity.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSecurity.cs",
+              "RelativeToolTip": "POS and Inventory System\\frmSecurity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T06:15:43.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "frmProduct.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProduct.cs",
+              "RelativeDocumentMoniker": "POS and Inventory System\\frmProduct.cs",
+              "ToolTip": "C:\\Users\\guest2077\\source\\repos\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmProduct.cs [Design]",
+              "RelativeToolTip": "POS and Inventory System\\frmProduct.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T05:57:41.138Z"
             }
           ]
         }

@@ -27,9 +27,9 @@ namespace POS_and_Inventory_System
                 Application.Exit();
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private void guna2ButtonLogin_Click(object sender, EventArgs e)
         {
-            string _role="", _name = "";
+            string _role = "", _name = "";
             try
             {
                 bool found = false;
@@ -67,7 +67,7 @@ namespace POS_and_Inventory_System
                         frm.lblName.Text = _name + " | " + _role;
                         frm.ShowDialog();
                     }
-                    else if(_role == "admin" || _role == "manager")
+                    else if (_role == "admin" || _role == "manager")
                     {
                         MessageBox.Show("Access Granted! Welcome " + _username, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtPass.Clear();
@@ -95,7 +95,7 @@ namespace POS_and_Inventory_System
 
         private void FrmSecurity_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Return) BtnLogin_Click(sender, e);
+            if (e.KeyCode == Keys.Return) guna2ButtonLogin_Click(sender, e);
             else if (e.KeyCode == Keys.Escape) BtnCancel_Click(sender, e);
         }
     }
