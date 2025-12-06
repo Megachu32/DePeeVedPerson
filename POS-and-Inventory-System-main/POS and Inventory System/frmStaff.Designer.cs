@@ -40,11 +40,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.dgvStaffList = new System.Windows.Forms.DataGridView();
-            this.dtStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
-            this.dtProductsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dtProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.staffidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +50,11 @@
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dtStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
+            this.dtProductsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtStaffBindingSource)).BeginInit();
@@ -108,6 +108,7 @@
             this.btnAdd.Text = "ADD STAFF";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnClose
             // 
@@ -235,31 +236,7 @@
             this.dgvStaffList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvStaffList.Size = new System.Drawing.Size(983, 531);
             this.dgvStaffList.TabIndex = 3;
-            // 
-            // dtStaffBindingSource
-            // 
-            this.dtStaffBindingSource.DataMember = "dtStaff";
-            this.dtStaffBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtProductsBindingSource1
-            // 
-            this.dtProductsBindingSource1.DataMember = "dtProducts";
-            this.dtProductsBindingSource1.DataSource = this.dataSet1;
-            // 
-            // dataSet1BindingSource
-            // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
-            // 
-            // dtProductsBindingSource
-            // 
-            this.dtProductsBindingSource.DataMember = "dtProducts";
-            this.dtProductsBindingSource.DataSource = this.dataSet1;
+            this.dgvStaffList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductList_CellContentClick);
             // 
             // staffidDataGridViewTextBoxColumn
             // 
@@ -327,7 +304,7 @@
             // 
             // Edit
             // 
-            this.Edit.DataPropertyName = "sku";
+            this.Edit.DataPropertyName = "Edit";
             this.Edit.HeaderText = "EDIT";
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
@@ -337,7 +314,7 @@
             // 
             // Delete
             // 
-            this.Delete.DataPropertyName = "sku";
+            this.Delete.DataPropertyName = "Delete";
             this.Delete.HeaderText = "DELETE";
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
@@ -345,9 +322,34 @@
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
+            // dtStaffBindingSource
+            // 
+            this.dtStaffBindingSource.DataMember = "dtStaff";
+            this.dtStaffBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtProductsBindingSource1
+            // 
+            this.dtProductsBindingSource1.DataMember = "dtProducts";
+            this.dtProductsBindingSource1.DataSource = this.dataSet1;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // dtProductsBindingSource
+            // 
+            this.dtProductsBindingSource.DataMember = "dtProducts";
+            this.dtProductsBindingSource.DataSource = this.dataSet1;
+            // 
             // frmStaff
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(983, 574);
