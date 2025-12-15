@@ -38,6 +38,29 @@ insert  into `customers`(`customer_id`,`name`,`phone`,`email`,`government_id`,`c
 (3,'Michael Brown','0834567891','michael@mail.com','ID77291823','2025-11-26 18:05:30'),
 (4,'Sarah Wilson','0845678912','sarah@mail.com','ID61588294','2025-11-26 18:05:30');
 
+/*Table structure for table `discounts` */
+
+DROP TABLE IF EXISTS `discounts`;
+
+CREATE TABLE `discounts` (
+  `discount_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `discount_percentage` int(11) NOT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  PRIMARY KEY (`discount_id`),
+  KEY `fk_discounts_product` (`product_id`),
+  CONSTRAINT `fk_discounts_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `discounts` */
+
+insert  into `discounts`(`discount_id`,`product_id`,`discount_percentage`,`start_date`,`end_date`,`is_active`) values 
+(1,1,10,'2025-12-01','2025-12-31',1),
+(2,1,20,NULL,NULL,1),
+(3,4,30,'2025-11-01','2025-11-30',1);
+
 /*Table structure for table `inventory` */
 
 DROP TABLE IF EXISTS `inventory`;
@@ -133,6 +156,7 @@ CREATE TABLE `sale_items` (
   `product_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `unit_price` decimal(10,2) DEFAULT NULL,
+  `discount_amount` decimal(10,2) DEFAULT 0.00,
   PRIMARY KEY (`sale_item_id`),
   KEY `sale_id` (`sale_id`),
   KEY `product_id` (`product_id`),
@@ -142,10 +166,10 @@ CREATE TABLE `sale_items` (
 
 /*Data for the table `sale_items` */
 
-insert  into `sale_items`(`sale_item_id`,`sale_id`,`product_id`,`quantity`,`unit_price`) values 
-(1,1,1,1,1699.00),
-(2,2,2,1,999.00),
-(3,3,3,1,1249.00);
+insert  into `sale_items`(`sale_item_id`,`sale_id`,`product_id`,`quantity`,`unit_price`,`discount_amount`) values 
+(1,1,1,1,1699.00,0.00),
+(2,2,2,1,999.00,0.00),
+(3,3,3,1,1249.00,0.00);
 
 /*Table structure for table `sales` */
 
@@ -157,6 +181,7 @@ CREATE TABLE `sales` (
   `sale_date` datetime DEFAULT NULL,
   `subtotal` decimal(10,2) DEFAULT NULL,
   `tax` decimal(10,2) DEFAULT NULL,
+  `discount_amount` decimal(10,2) DEFAULT 0.00,
   `total` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`sale_id`),
   KEY `customer_id` (`customer_id`),
@@ -165,10 +190,10 @@ CREATE TABLE `sales` (
 
 /*Data for the table `sales` */
 
-insert  into `sales`(`sale_id`,`customer_id`,`sale_date`,`subtotal`,`tax`,`total`) values 
-(1,1,'2025-11-26 18:05:30',1699.00,169.90,1868.90),
-(2,2,'2025-11-26 18:05:30',999.00,99.90,1098.90),
-(3,3,'2025-11-26 18:05:30',1249.00,124.90,1373.90);
+insert  into `sales`(`sale_id`,`customer_id`,`sale_date`,`subtotal`,`tax`,`discount_amount`,`total`) values 
+(1,1,'2025-11-26 18:05:30',1699.00,169.90,0.00,1868.90),
+(2,2,'2025-11-26 18:05:30',999.00,99.90,0.00,1098.90),
+(3,3,'2025-11-26 18:05:30',1249.00,124.90,0.00,1373.90);
 
 /*Table structure for table `staff` */
 
@@ -187,7 +212,7 @@ CREATE TABLE `staff` (
   PRIMARY KEY (`staff_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `staff` */
 
@@ -195,7 +220,7 @@ insert  into `staff`(`staff_id`,`name`,`email`,`phone`,`username`,`password`,`ro
 (1,'Alice Johnson','alice@shop.com','0811111111','alice','hashed_pw_1','admin','2023-01-10','active'),
 (2,'Bob Carter','bob@shop.com','0822222222','bob','hashed_pw_2','cashier','2023-03-15','active'),
 (3,'Charlie Evans','charlie@shop.com','0833333333','charlie','hashed_pw_3','technician','2023-05-20','inactive'),
-(4,'Diana Brooks','diana@shop.com','0844444444','diana','hashed_pw_4','manager','2024-02-01','active');
+(4,'Diana Brookssd','diana@shop.com','0844444444','diana','hashed_pw_4','manager','2024-02-01','active');
 
 /*Table structure for table `trade_ins` */
 
