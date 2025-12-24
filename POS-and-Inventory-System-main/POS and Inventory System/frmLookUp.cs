@@ -1,40 +1,52 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmLookUp : Form
     {
         frmPOS frm;
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataReader dr;
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
+        MySqlDataReader dr;
         DBConnection dbconn = new DBConnection();
         public frmLookUp(frmPOS _frm)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             frm = _frm;
             KeyPreview = true;
         }
 
         public void LoadRecords()
         {
-            int i = 0;
-            dgvProductList.Rows.Clear();
+            if(dgvProductList.Rows.Count > 0 ) dgvProductList.Rows.Clear();
+
+            DataSet1 ds = new DataSet1();
+            DataTable dt = ds.Tables["dtProductsView"];
+
             conn.Open();
-            string sql = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct AS p INNER JOIN tblBrand " +
-                "AS b ON b.id=p.bid INNER JOIN tblCategory AS c ON c.id=p.cid WHERE p.pdesc LIKE '%" + txtSearch.Text + "%' order by p.pdesc";
-            cmd = new SqlCommand(sql, conn);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                i++;
-                dgvProductList.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(),
-                    dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
-            }
-            dr.Close();
+            string sql = @"
+                SELECT
+                    ROW_NUMBER() OVER (ORDER BY p.product_id) AS id,
+                    p.sku AS sku,
+                    p.name AS NAME,
+                    p.type AS TYPE,
+                    p.model AS model,
+                    p.status AS STATUS,
+                    COALESCE(i.stock, 0) AS stock,
+                    p.price AS price
+                FROM products p
+                LEFT JOIN inventory i
+                    ON i.product_id = p.product_id;
+            ";
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.Fill(dt);
+            dgvProductList.DataSource = dt;
             conn.Close();
         }
 
@@ -44,12 +56,13 @@ namespace POS_and_Inventory_System
         private void DgvProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvProductList.Columns[e.ColumnIndex].Name;
-            if (colName == "Select")
+            if (colName == "select")
             {
+                //when button is clicked send data to qty form so you can input qty
                 frmQty frmQty = new frmQty(frm);
                 frmQty.ProductDetails(dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString(),
-                    double.Parse(dgvProductList.Rows[e.RowIndex].Cells[6].Value.ToString()), frm.lblTransNo.Text, 
-                    int.Parse(dgvProductList.Rows[e.RowIndex].Cells[7].Value.ToString()));
+                    double.Parse(dgvProductList.Rows[e.RowIndex].Cells[7].Value.ToString()), frm.lblTransNo.Text, 
+                    int.Parse(dgvProductList.Rows[e.RowIndex].Cells[6].Value.ToString()), dgvProductList.Rows[e.RowIndex].Cells[5].ToString());
                 frmQty.ShowDialog();
             }
         }

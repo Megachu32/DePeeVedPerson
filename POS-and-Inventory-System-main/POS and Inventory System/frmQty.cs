@@ -1,33 +1,37 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmQty : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
-        SqlDataReader dr;
+        MySqlDataReader dr;
         frmPOS fPos;
         private string pcode;
         private double price;
         private int qty;
         private string transNo;
+        private string status;
         public frmQty(frmPOS _fPos)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             fPos = _fPos;
         }
 
-        public void ProductDetails(string _pcode, double _price, string _transNo, int _qty)
+        // just for the passing of data from look up form to qty form
+        public void ProductDetails(string _pcode, double _price, string _transNo, int _qty, string _status)
         {
             pcode = _pcode;
             price = _price;
             transNo = _transNo;
             qty = _qty;
+            status = _status;
         }
 
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -38,9 +42,16 @@ namespace POS_and_Inventory_System
                 int cartQty = 0;
                 bool found = false;
                 conn.Open();
-                cmd = new SqlCommand("SELECT * FROM tblCart WHERE transno=@transno AND pcode=@pcode", conn);
-                cmd.Parameters.AddWithValue("@transno", fPos.lblTransNo.Text);
-                cmd.Parameters.AddWithValue("@pcode", pcode);
+                string sql = @"
+                    SELECT 
+	                    i.stock     AS stock
+                        p.status    AS status,
+                    FROM products AS p
+                    JOIN inventory i ON i.product_id = p.product_id
+                    WHERE p.sku = @sku
+                ";
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@sku", pcode);
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
@@ -62,7 +73,7 @@ namespace POS_and_Inventory_System
                     }
 
                     conn.Open();
-                    cmd = new SqlCommand("UPDATE tblCart SET qty=(qty +" + int.Parse(txtQty.Text) + ") WHERE id= '" + id +"'", conn);
+                    cmd = new MySqlCommand("UPDATE tblCart SET qty=(qty +" + int.Parse(txtQty.Text) + ") WHERE id= '" + id +"'", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
@@ -80,9 +91,9 @@ namespace POS_and_Inventory_System
                     }
 
                     conn.Open();
-                    string sql = "INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) VALUES " +
+                    sql = "INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) VALUES " +
                         "(@transno, @pcode, @price, @qty, @sdate, @cashier)";
-                    cmd = new SqlCommand(sql, conn);
+                    cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@transno", transNo);
                     cmd.Parameters.AddWithValue("@pcode", pcode);
                     cmd.Parameters.AddWithValue("@price", price);

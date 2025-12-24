@@ -58,25 +58,17 @@ namespace POS_and_Inventory_System
             {
                 string sdate = DateTime.Now.ToString("yyyyMMdd");
                 string transNo;
-                string count = "";
                 conn.Open();
                 string sql = @"
-                    SELECT LPAD(sale_id, 4, '0') AS padded_id
-                    FROM sales 
-                    order by sale_id DESC 
-                    LIMIT 1
+                    SELECT LPAD(COUNT(sale_id) + 1, 4, '0')
+                    FROM sales
                 ";
                 cmd = new MySqlCommand(sql, conn);
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    foreach (char c in dr[0].ToString())
-                    {
-                        count += c;
-                    }
-                    transNo = dr[0].ToString();
-                    lblTransNo.Text = sdate + count;
+                    lblTransNo.Text = sdate + dr[0].ToString();
                 }
                 else
                 {
@@ -371,7 +363,6 @@ namespace POS_and_Inventory_System
 
         private void BtnSearchProd_Click(object sender, EventArgs e)
         {
-            if (lblTransNo.Text == "0000000000000") return;
             frmLookUp lookUpFrm = new frmLookUp(this);
             lookUpFrm.LoadRecords();
             lookUpFrm.ShowDialog();
