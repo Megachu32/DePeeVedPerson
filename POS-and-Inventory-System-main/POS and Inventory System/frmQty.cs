@@ -39,15 +39,18 @@ namespace POS_and_Inventory_System
             if (e.KeyChar == 13 && txtQty.Text != string.Empty)
             {
                 string id = "";
-                int cartQty = 0;
+                int stock = 0;
+                string status = "";
                 bool found = false;
+
+                //basically search the product returning status and it's stock.
                 conn.Open();
                 string sql = @"
                     SELECT 
-	                    i.stock     AS stock
-                        p.status    AS status,
+	                    i.stock     AS stock,
+                        p.status    AS status
                     FROM products AS p
-                    JOIN inventory i ON i.product_id = p.product_id
+                    JOIN inventory AS i ON i.product_id = p.product_id
                     WHERE p.sku = @sku
                 ";
                 cmd = new MySqlCommand(sql, conn);
@@ -58,7 +61,8 @@ namespace POS_and_Inventory_System
                 {
                     found = true;
                     id = dr["id"].ToString();
-                    cartQty = int.Parse(dr["qty"].ToString());
+                    status = dr["status"].ToString();
+                    stock = int.Parse(dr["stock"].ToString());
                 }
                 else found = false;
                 dr.Close();
@@ -66,7 +70,8 @@ namespace POS_and_Inventory_System
 
                 if (found)
                 {
-                    if (qty < (int.Parse(txtQty.Text) + cartQty))
+                    // checkes for if the product is inactive, doesn't have the stock or is incoming
+                    if ((qty < (int.Parse(txtQty.Text)) || status == "inactive") && status != "incoming")
                     {
                         MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -82,32 +87,32 @@ namespace POS_and_Inventory_System
                     fPos.LoadCart();
                     Dispose();
                 }
-                else
-                {
-                    if (qty < int.Parse(txtQty.Text))
-                    {
-                        MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                //else
+                //{
+                //    if (qty < int.Parse(txtQty.Text))
+                //    {
+                //        MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //        return;
+                //    }
 
-                    conn.Open();
-                    sql = "INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) VALUES " +
-                        "(@transno, @pcode, @price, @qty, @sdate, @cashier)";
-                    cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@transno", transNo);
-                    cmd.Parameters.AddWithValue("@pcode", pcode);
-                    cmd.Parameters.AddWithValue("@price", price);
-                    cmd.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
-                    cmd.Parameters.AddWithValue("@sdate", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@cashier", fPos.lblUser.Text);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                //    conn.Open();
+                //    sql = "INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) VALUES " +
+                //        "(@transno, @pcode, @price, @qty, @sdate, @cashier)";
+                //    cmd = new MySqlCommand(sql, conn);
+                //    cmd.Parameters.AddWithValue("@transno", transNo);
+                //    cmd.Parameters.AddWithValue("@pcode", pcode);
+                //    cmd.Parameters.AddWithValue("@price", price);
+                //    cmd.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
+                //    cmd.Parameters.AddWithValue("@sdate", DateTime.Now);
+                //    cmd.Parameters.AddWithValue("@cashier", fPos.lblUser.Text);
+                //    cmd.ExecuteNonQuery();
+                //    conn.Close();
 
-                    fPos.txtSearch.Clear();
-                    fPos.txtSearch.Focus();
-                    fPos.LoadCart();
-                    Dispose();
-                }
+                //    fPos.txtSearch.Clear();
+                //    fPos.txtSearch.Focus();
+                //    fPos.LoadCart();
+                //    Dispose();
+                //}
             }
         }
     }

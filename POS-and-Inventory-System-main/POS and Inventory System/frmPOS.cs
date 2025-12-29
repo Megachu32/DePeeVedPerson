@@ -3,6 +3,7 @@ using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace POS_and_Inventory_System
 {
@@ -94,6 +95,7 @@ namespace POS_and_Inventory_System
             lblDate.Text = DateTime.Now.ToLongDateString();
         }
 
+        //text box search text changed event
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             try
@@ -140,15 +142,21 @@ namespace POS_and_Inventory_System
             }
         }
 
+        // Adds a product to the cart for the current transaction.
+        // If the product already exists, it increases the quantity.
+        // Before adding/updating, it checks if enough stock is available.
         private void AddToCart(string _pcode, double _price, int _qty)
         {
             string id = "";
             bool found = false;
             int cartQty = 0;
+            int value = int.Parse(lblTransNo.Text.Substring(lblTransNo.Text.Length - 4)); //takes the last 4 digits of transno
             conn.Open();
-            string sql = "SELECT * FROM tblCart WHERE transno=@transno AND pcode=@pcode";
+            string sql = @"
+
+            ";
             cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@transno", lblTransNo.Text);
+            cmd.Parameters.AddWithValue("@transno", value);
             cmd.Parameters.AddWithValue("@pcode", _pcode);
             dr = cmd.ExecuteReader();
             dr.Read();
@@ -162,6 +170,7 @@ namespace POS_and_Inventory_System
             dr.Close();
             conn.Close();
 
+            //if there's products go here
             if (found)
             {
                 if (qty < (int.Parse(txtQty.Text) + cartQty))
@@ -181,6 +190,7 @@ namespace POS_and_Inventory_System
                 LoadCart();
                 //Dispose();
             }
+            // if there's no products go here
             else
             {
                 if (qty < int.Parse(txtQty.Text))
@@ -430,5 +440,7 @@ namespace POS_and_Inventory_System
             txtSearch.Enabled = true;
             txtSearch.Focus();
         }
+
+        //public void insert
     }
 }
