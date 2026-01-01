@@ -36,9 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
             this.dtProductsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new POS_and_Inventory_System.DataSet1();
+            this.btnClose = new System.Windows.Forms.Button();
             this.dtProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +101,7 @@
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             // 
             // dgvProductList
             // 
@@ -157,6 +158,16 @@
             this.dgvProductList.TabIndex = 10;
             this.dgvProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductList_CellContentClick);
             // 
+            // dtProductsViewBindingSource
+            // 
+            this.dtProductsViewBindingSource.DataMember = "dtProductsView";
+            this.dtProductsViewBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -172,16 +183,6 @@
             this.btnClose.TabIndex = 17;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // dtProductsViewBindingSource
-            // 
-            this.dtProductsViewBindingSource.DataMember = "dtProductsView";
-            this.dtProductsViewBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dtProductsBindingSource
             // 
@@ -246,12 +247,14 @@
             // 
             // select
             // 
+            this.select.DataPropertyName = "Select";
             this.select.HeaderText = "Select";
             this.select.Name = "select";
             this.select.ReadOnly = true;
             this.select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.select.Text = "Select";
+            this.select.UseColumnTextForButtonValue = true;
             // 
             // frmLookUp
             // 

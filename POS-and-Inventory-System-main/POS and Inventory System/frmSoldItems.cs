@@ -25,7 +25,6 @@ namespace POS_and_Inventory_System
         public void LoadRecord() // function to load sold items record
         {
             int i = 0;
-            double _total = 0;
             string sql;
             dgvSoldItems.Rows.Clear();
             conn.Open();
@@ -45,8 +44,6 @@ namespace POS_and_Inventory_System
             cmd.Parameters.Add("@to", MySqlDbType.DateTime).Value = dtTo.Value;
             dr = cmd.ExecuteReader();
 
-
-
             while (dr.Read())
             {
                 i += 1;
@@ -54,8 +51,6 @@ namespace POS_and_Inventory_System
                 dgvSoldItems.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(),
                     dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
             }
-
-
 
             dr.Close();
             conn.Close();

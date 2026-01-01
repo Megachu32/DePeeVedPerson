@@ -17,6 +17,9 @@ namespace POS_and_Inventory_System
         int qty;
         string id;
         string price;
+
+        public DataSet1 ds = new DataSet1();
+
         public frmPOS()
         {
             InitializeComponent();
@@ -107,17 +110,26 @@ namespace POS_and_Inventory_System
                     double _price;
                     int _qty;
                     conn.Open();
-                    string sql = "SELECT * FROM tblProduct WHERE barcode LIKE '" + txtSearch.Text + "'";
+                    string sql = @"
+                        SELECT 
+                        p.product_id AS pcode,
+                        p.price AS price,
+                        i.stock AS stock
+                        FROM products AS p
+                        JOIN inventory AS i ON i.product_id = p.product_id
+                        WHERE sku LIKE @text
+                    ";
                     cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@text", txtSearch.Text);
                     dr = cmd.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows)
                     {
 
-                        qty = int.Parse(dr["qty"].ToString());
-                        _pcode = dr["pcode"].ToString();
+                        qty = int.Parse(dr["stock"].ToString()); // stock of the product in inventory
+                        _pcode = dr["pcode"].ToString(); // product id
                         _price = double.Parse(dr["price"].ToString());
-                        _qty = int.Parse(txtQty.Text);
+                        _qty = int.Parse(txtQty.Text); // quantity to add
 
                         dr.Close();
                         conn.Close();
@@ -147,76 +159,81 @@ namespace POS_and_Inventory_System
         // Before adding/updating, it checks if enough stock is available.
         private void AddToCart(string _pcode, double _price, int _qty)
         {
-            string id = "";
-            bool found = false;
-            int cartQty = 0;
-            int value = int.Parse(lblTransNo.Text.Substring(lblTransNo.Text.Length - 4)); //takes the last 4 digits of transno
-            conn.Open();
-            string sql = @"
+            //string id = "";
+            //bool found = false;
+            //int cartQty = 0;
+            //int _transno = int.Parse(lblTransNo.Text.Substring(lblTransNo.Text.Length - 4)); //takes the last 4 digits of transno to get sale id
+            //conn.Open();
+            //string sql = @"
+            //    SELECT *
+            //    FROM sales AS s
+            //    LEFT JOIN sale_items AS si ON si.sale_id = s.sale_id
+            //    WHERE s.sale_id=@transno AND s.total = NULL OR s.total = 0 AND si.product_id = @pcode
+            //";
+            //cmd = new MySqlCommand(sql, conn);
+            //cmd.Parameters.AddWithValue("@transno", _transno);
+            //cmd.Parameters.AddWithValue("@pcode", _pcode);
+            //dr = cmd.ExecuteReader();
+            //dr.Read();
+            //if (dr.HasRows)
+            //{
+            //    found = true;
+            //    id = dr["id"].ToString();
+            //    cartQty = int.Parse(dr["qty"].ToString());
+            //}
+            //else found = false;
+            //dr.Close();
+            //conn.Close();
 
-            ";
-            cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@transno", value);
-            cmd.Parameters.AddWithValue("@pcode", _pcode);
-            dr = cmd.ExecuteReader();
-            dr.Read();
-            if (dr.HasRows)
-            {
-                found = true;
-                id = dr["id"].ToString();
-                cartQty = int.Parse(dr["qty"].ToString());
-            }
-            else found = false;
-            dr.Close();
-            conn.Close();
+            //search in the dgv or in the tablele
 
             //if there's products go here
-            if (found)
-            {
-                if (qty < (int.Parse(txtQty.Text) + cartQty))
-                {
-                    MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+            //if (found)
+            //{
+            //    if (qty < (int.Parse(txtQty.Text) + cartQty))
+            //    {
+            //        MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        return;
+            //    }
 
-                conn.Open();
-                string sql1 = "UPDATE tblCart SET qty=(qty +" + _qty + ") WHERE id= '" + id + "'";
-                cmd = new MySqlCommand(sql1, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+            //    conn.Open();
+            //    string sql1 = "UPDATE tblCart SET qty=(qty +" + _qty + ") WHERE id= '" + id + "'";
+            //    cmd = new MySqlCommand(sql1, conn);
+            //    cmd.ExecuteNonQuery();
+            //    conn.Close();
 
-                txtSearch.SelectionStart = 0;
-                txtSearch.SelectionLength = txtSearch.Text.Length;
-                LoadCart();
-                //Dispose();
-            }
-            // if there's no products go here
-            else
-            {
-                if (qty < int.Parse(txtQty.Text))
-                {
-                    MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+            //    txtSearch.SelectionStart = 0;
+            //    txtSearch.SelectionLength = txtSearch.Text.Length;
+            //    LoadCart();
+            //    //Dispose();
+            //}
+            //// if there's no products go here
+            //else
+            //{
+            //    if (qty < int.Parse(txtQty.Text))
+            //    {
+            //        MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        return;
+            //    }
 
-                conn.Open();
-                string sql1 = "INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) " +
-                    "VALUES (@transno, @pcode, @price, @qty, @sdate, @cashier)";
-                cmd = new MySqlCommand(sql1, conn);
-                cmd.Parameters.AddWithValue("@transno", lblTransNo.Text);
-                cmd.Parameters.AddWithValue("@pcode", _pcode);
-                cmd.Parameters.AddWithValue("@price", _price);
-                cmd.Parameters.AddWithValue("@qty", _qty);
-                cmd.Parameters.AddWithValue("@sdate", DateTime.Now);
-                cmd.Parameters.AddWithValue("@cashier", lblUser.Text);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+            //    conn.Open();
+            //    string sql1 = "INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) " +
+            //        "VALUES (@transno, @pcode, @price, @qty, @sdate, @cashier)";
+            //    cmd = new MySqlCommand(sql1, conn);
+            //    cmd.Parameters.AddWithValue("@transno", lblTransNo.Text);
+            //    cmd.Parameters.AddWithValue("@pcode", _pcode);
+            //    cmd.Parameters.AddWithValue("@price", _price);
+            //    cmd.Parameters.AddWithValue("@qty", _qty);
+            //    cmd.Parameters.AddWithValue("@sdate", DateTime.Now);
+            //    cmd.Parameters.AddWithValue("@cashier", lblUser.Text);
+            //    cmd.ExecuteNonQuery();
+            //    conn.Close();
 
-                txtSearch.SelectionStart = 0;
-                txtSearch.SelectionLength = txtSearch.Text.Length;
-                LoadCart();
-                //Dispose();
-            }
+            //    txtSearch.SelectionStart = 0;
+            //    txtSearch.SelectionLength = txtSearch.Text.Length;
+            //    LoadCart();
+            //    //Dispose();
+            //}
         }
 
         public void LoadCart()

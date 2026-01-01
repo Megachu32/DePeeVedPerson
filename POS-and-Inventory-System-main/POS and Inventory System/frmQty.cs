@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace POS_and_Inventory_System
@@ -12,11 +14,14 @@ namespace POS_and_Inventory_System
         DBConnection dbconn = new DBConnection();
         MySqlDataReader dr;
         frmPOS fPos;
+
         private string pcode;
         private double price;
         private int qty;
-        private string transNo;
-        private string status;
+        private int amount;
+        private string name;
+        private int discount;
+
         public frmQty(frmPOS _fPos)
         {
             InitializeComponent();
@@ -25,21 +30,19 @@ namespace POS_and_Inventory_System
         }
 
         // just for the passing of data from look up form to qty form
-        public void ProductDetails(string _pcode, double _price, string _transNo, int _qty, string _status)
+        public void ProductDetails(string _pcode, double _price, int _qty)
         {
             pcode = _pcode;
             price = _price;
-            transNo = _transNo;
             qty = _qty;
-            status = _status;
         }
 
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //when enter is pressed on the qty textbox
             if (e.KeyChar == 13 && txtQty.Text != string.Empty)
             {
                 string id = "";
-                int stock = 0;
                 string status = "";
                 bool found = false;
 
@@ -47,10 +50,19 @@ namespace POS_and_Inventory_System
                 conn.Open();
                 string sql = @"
                     SELECT 
-	                    i.stock     AS stock,
-                        p.status    AS status
+                        p.product_id    AS id,
+                        p.name          AS name,
+	                    i.stock         AS stock,
+                        p.status        AS status,
+                        p.price         AS price,
+                        CASE
+                        WHEN d.is_active = 1 
+                        THEN d.discount_percentage
+                        ELSE 0
+                        END             AS discount
                     FROM products AS p
                     JOIN inventory AS i ON i.product_id = p.product_id
+                    LEFT JOIN discounts AS d ON p.product_id = d.product_id
                     WHERE p.sku = @sku
                 ";
                 cmd = new MySqlCommand(sql, conn);
@@ -59,60 +71,75 @@ namespace POS_and_Inventory_System
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    found = true;
                     id = dr["id"].ToString();
+                    name = dr["name"].ToString();
                     status = dr["status"].ToString();
-                    stock = int.Parse(dr["stock"].ToString());
+                    amount = int.Parse(dr["stock"].ToString());
+                    price = double.Parse(dr["price"].ToString());
+                    discount = int.Parse(dr["discount"].ToString());
                 }
-                else found = false;
+
                 dr.Close();
                 conn.Close();
 
-                if (found)
+                // checkes for if the product is inactive, doesn't have the stock or is incoming
+                if ((qty < (int.Parse(txtQty.Text)) || status == "inactive") && status != "incoming")
                 {
-                    // checkes for if the product is inactive, doesn't have the stock or is incoming
-                    if ((qty < (int.Parse(txtQty.Text)) || status == "inactive") && status != "incoming")
-                    {
-                        MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    conn.Open();
-                    cmd = new MySqlCommand("UPDATE tblCart SET qty=(qty +" + int.Parse(txtQty.Text) + ") WHERE id= '" + id +"'", conn);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-
-                    fPos.txtSearch.Clear();
-                    fPos.txtSearch.Focus();
-                    fPos.LoadCart();
-                    Dispose();
+                    MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                //else
-                //{
-                //    if (qty < int.Parse(txtQty.Text))
-                //    {
-                //        MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        return;
-                //    }
 
-                //    conn.Open();
-                //    sql = "INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) VALUES " +
-                //        "(@transno, @pcode, @price, @qty, @sdate, @cashier)";
-                //    cmd = new MySqlCommand(sql, conn);
-                //    cmd.Parameters.AddWithValue("@transno", transNo);
-                //    cmd.Parameters.AddWithValue("@pcode", pcode);
-                //    cmd.Parameters.AddWithValue("@price", price);
-                //    cmd.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
-                //    cmd.Parameters.AddWithValue("@sdate", DateTime.Now);
-                //    cmd.Parameters.AddWithValue("@cashier", fPos.lblUser.Text);
-                //    cmd.ExecuteNonQuery();
-                //    conn.Close();
+                int qtyToAdd = int.Parse(txtQty.Text);
 
-                //    fPos.txtSearch.Clear();
-                //    fPos.txtSearch.Focus();
-                //    fPos.LoadCart();
-                //    Dispose();
-                //}
+                // calculate using UNIT price
+                double linePrice = price;
+                double discountRate = discount / 100.0;
+
+                // get table
+                DataSet1 ds = fPos.ds;
+                DataTable dt = ds.Tables["dtCheckOut"];
+
+                // try find existing row
+                DataRow existingRow = dt.AsEnumerable()
+                    .FirstOrDefault(r => r["product_id"].ToString() == id); // basically loops variable r.product_id match id
+
+                //if not null update
+                if (existingRow != null)
+                {
+                    int oldQty = Convert.ToInt32(existingRow["qty"]);
+                    int newQty = oldQty + qtyToAdd;
+
+                    double subtotal = linePrice * newQty;
+                    double discountAmount = subtotal * discountRate;
+
+                    existingRow["qty"] = newQty;
+                    existingRow["price"] = linePrice;   // update if price changed
+                    existingRow["discount"] = discount;
+                    existingRow["total"] = subtotal - discountAmount;
+                }
+                else
+                {
+                    // ADD new row
+                    int qty = qtyToAdd;
+                    double subtotal = linePrice * qty;
+                    double discountAmount = subtotal * discountRate;
+
+                    DataRow row = dt.NewRow();
+                    row["product_id"] = id;
+                    row["name"] = name;
+                    row["qty"] = qty;
+                    row["price"] = linePrice;
+                    row["discount"] = discount;
+                    row["total"] = subtotal - discountAmount;
+
+                    dt.Rows.Add(row);
+                }
+
+                fPos.txtSearch.Clear();
+                fPos.txtSearch.Focus();
+                fPos.dgvBrandList.DataSource = dt;
+                Dispose();
+                
             }
         }
     }
