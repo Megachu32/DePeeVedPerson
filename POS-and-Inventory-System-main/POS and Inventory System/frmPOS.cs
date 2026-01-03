@@ -379,6 +379,7 @@ namespace POS_and_Inventory_System
 
         private void DgvBrandList_SelectionChanged(object sender, EventArgs e)
         {
+            if(dgvBrandList.CurrentRow == null) return;
             int i = dgvBrandList.CurrentRow.Index;
             id = dgvBrandList[1, i].Value.ToString();
             price = dgvBrandList[4, i].Value.ToString();
@@ -431,15 +432,8 @@ namespace POS_and_Inventory_System
 
         private void BtnClearCart_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Remove all items from cart?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                conn.Open();
-                cmd = new MySqlCommand("DELETE FROM tblCart WHERE transno LIKE '" + lblTransNo.Text + "'", conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("All items has been successful removed", "Remove Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadCart();
-            }
+            DataTable dt = ds.Tables["dtCheckOut"];
+            dt.Clear();
         }
 
         private void BtnDailySales_Click(object sender, EventArgs e)
@@ -475,6 +469,18 @@ namespace POS_and_Inventory_System
             GetTransNo();
             txtSearch.Enabled = true;
             txtSearch.Focus();
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmPOS_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("WALK IN");
+            comboBox1.Items.Add("ONLINE");
         }
 
         //public void insert

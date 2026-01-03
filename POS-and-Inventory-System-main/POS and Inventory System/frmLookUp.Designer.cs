@@ -41,13 +41,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.dtProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sku = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.select = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductsViewBindingSource)).BeginInit();
@@ -123,13 +123,13 @@
             this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.skuDataGridViewTextBoxColumn,
+            this.sku,
             this.nameDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
             this.modelDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
             this.stock,
-            this.priceDataGridViewTextBoxColumn,
+            this.price,
             this.select});
             this.dgvProductList.DataSource = this.dtProductsViewBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -196,12 +196,12 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
-            // skuDataGridViewTextBoxColumn
+            // sku
             // 
-            this.skuDataGridViewTextBoxColumn.DataPropertyName = "sku";
-            this.skuDataGridViewTextBoxColumn.HeaderText = "sku";
-            this.skuDataGridViewTextBoxColumn.Name = "skuDataGridViewTextBoxColumn";
-            this.skuDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sku.DataPropertyName = "sku";
+            this.sku.HeaderText = "sku";
+            this.sku.Name = "sku";
+            this.sku.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -238,17 +238,17 @@
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
             // 
-            // priceDataGridViewTextBoxColumn
+            // price
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "price";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
             // 
             // select
             // 
             this.select.DataPropertyName = "Select";
-            this.select.HeaderText = "Select";
+            this.select.HeaderText = "select";
             this.select.Name = "select";
             this.select.ReadOnly = true;
             this.select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -289,13 +289,13 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource dtProductsViewBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn skuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sku;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewButtonColumn select;
     }
 }

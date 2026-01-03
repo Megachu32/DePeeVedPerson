@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label10 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lblSalesTotal = new System.Windows.Forms.Label();
@@ -63,20 +63,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvBrandList = new System.Windows.Forms.DataGridView();
             this.dtCheckOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
+            this.dtCheckOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_mode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,10 +88,11 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -98,7 +103,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label10.Location = new System.Drawing.Point(9, 34);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 20);
+            this.label10.Size = new System.Drawing.Size(63, 17);
             this.label10.TabIndex = 0;
             this.label10.Text = "Discount";
             // 
@@ -110,7 +115,7 @@
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label17.Location = new System.Drawing.Point(10, 83);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 20);
+            this.label17.Size = new System.Drawing.Size(56, 17);
             this.label17.TabIndex = 0;
             this.label17.Text = "Vatable";
             // 
@@ -122,7 +127,7 @@
             this.lblSalesTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblSalesTotal.Location = new System.Drawing.Point(378, 9);
             this.lblSalesTotal.Name = "lblSalesTotal";
-            this.lblSalesTotal.Size = new System.Drawing.Size(40, 20);
+            this.lblSalesTotal.Size = new System.Drawing.Size(36, 17);
             this.lblSalesTotal.TabIndex = 0;
             this.lblSalesTotal.Text = "0.00";
             // 
@@ -146,7 +151,7 @@
             this.lblVatable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblVatable.Location = new System.Drawing.Point(378, 83);
             this.lblVatable.Name = "lblVatable";
-            this.lblVatable.Size = new System.Drawing.Size(40, 20);
+            this.lblVatable.Size = new System.Drawing.Size(36, 17);
             this.lblVatable.TabIndex = 0;
             this.lblVatable.Text = "0.00";
             // 
@@ -158,6 +163,8 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Black;
+            this.panel7.Controls.Add(this.label1);
+            this.panel7.Controls.Add(this.comboBox1);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Controls.Add(this.panel3);
             this.panel7.Controls.Add(this.panel9);
@@ -168,6 +175,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1576, 703);
             this.panel7.TabIndex = 5;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // panel8
             // 
@@ -189,7 +197,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(10, 78);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(92, 31);
+            this.lblDate.Size = new System.Drawing.Size(76, 25);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "label1";
             // 
@@ -200,7 +208,7 @@
             this.lblTime.ForeColor = System.Drawing.Color.White;
             this.lblTime.Location = new System.Drawing.Point(2, 2);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(355, 91);
+            this.lblTime.Size = new System.Drawing.Size(292, 73);
             this.lblTime.TabIndex = 0;
             this.lblTime.Text = "00:00:00";
             // 
@@ -345,7 +353,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label8.Location = new System.Drawing.Point(9, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 20);
+            this.label8.Size = new System.Drawing.Size(79, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Sales Total";
             // 
@@ -357,7 +365,7 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label12.Location = new System.Drawing.Point(10, 58);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 20);
+            this.label12.Size = new System.Drawing.Size(29, 17);
             this.label12.TabIndex = 0;
             this.label12.Text = "Vat";
             // 
@@ -369,7 +377,7 @@
             this.lblDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblDiscount.Location = new System.Drawing.Point(378, 33);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(40, 20);
+            this.lblDiscount.Size = new System.Drawing.Size(36, 17);
             this.lblDiscount.TabIndex = 0;
             this.lblDiscount.Text = "0.00";
             // 
@@ -381,7 +389,7 @@
             this.lblVat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblVat.Location = new System.Drawing.Point(378, 58);
             this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(40, 20);
+            this.lblVat.Size = new System.Drawing.Size(36, 17);
             this.lblVat.TabIndex = 0;
             this.lblVat.Text = "0.00";
             // 
@@ -484,7 +492,7 @@
             this.lblDateNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblDateNo.Location = new System.Drawing.Point(307, 8);
             this.lblDateNo.Name = "lblDateNo";
-            this.lblDateNo.Size = new System.Drawing.Size(126, 20);
+            this.lblDateNo.Size = new System.Drawing.Size(112, 17);
             this.lblDateNo.TabIndex = 0;
             this.lblDateNo.Text = "0000000000000";
             // 
@@ -495,7 +503,7 @@
             this.lblTransNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(113)))), ((int)(((byte)(74)))));
             this.lblTransNo.Location = new System.Drawing.Point(123, 8);
             this.lblTransNo.Name = "lblTransNo";
-            this.lblTransNo.Size = new System.Drawing.Size(126, 20);
+            this.lblTransNo.Size = new System.Drawing.Size(112, 17);
             this.lblTransNo.TabIndex = 0;
             this.lblTransNo.Text = "0000000000000";
             // 
@@ -506,7 +514,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label5.Location = new System.Drawing.Point(260, 8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 20);
+            this.label5.Size = new System.Drawing.Size(38, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Date";
             // 
@@ -517,7 +525,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label3.Location = new System.Drawing.Point(5, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 20);
+            this.label3.Size = new System.Drawing.Size(109, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Transaction No.";
             // 
@@ -529,149 +537,53 @@
             this.dgvBrandList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBrandList.BackgroundColor = System.Drawing.Color.White;
             this.dgvBrandList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBrandList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBrandList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvBrandList.ColumnHeadersHeight = 30;
             this.dgvBrandList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBrandList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.number,
-            this.name,
-            this.qtyDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.discountDataGridViewTextBoxColumn,
-            this.totalDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.order_mode,
             this.delete});
-            this.dgvBrandList.DataSource = this.dtCheckOutBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBrandList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBrandList.DataSource = this.dtCheckOutBindingSource1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBrandList.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBrandList.EnableHeadersVisualStyles = false;
             this.dgvBrandList.GridColor = System.Drawing.Color.White;
             this.dgvBrandList.Location = new System.Drawing.Point(2, 33);
             this.dgvBrandList.Name = "dgvBrandList";
             this.dgvBrandList.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBrandList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBrandList.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvBrandList.RowHeadersVisible = false;
             this.dgvBrandList.RowHeadersWidth = 72;
             this.dgvBrandList.Size = new System.Drawing.Size(1032, 408);
             this.dgvBrandList.TabIndex = 4;
             this.dgvBrandList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBrandList_CellContentClick);
             this.dgvBrandList.SelectionChanged += new System.EventHandler(this.DgvBrandList_SelectionChanged);
-            // 
-            // dtCheckOutBindingSource
-            // 
-            //this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //this.Column1.HeaderText = "#";
-            //this.Column1.MinimumWidth = 9;
-            //this.Column1.Name = "Column1";
-            //this.Column1.Width = 45;
-            // 
-            // dataSet1
-            // 
-            //this.Column2.HeaderText = "ID";
-            //this.Column2.MinimumWidth = 9;
-            //this.Column2.Name = "Column2";
-            //this.Column2.Visible = false;
-            //this.Column2.Width = 175;
-            // 
-            // Column8
-            // 
-            //this.Column8.HeaderText = "PCode";
-            //this.Column8.MinimumWidth = 9;
-            //this.Column8.Name = "Column8";
-            //this.Column8.Visible = false;
-            //this.Column8.Width = 175;
-            // 
-            // Column3
-            // 
-            //this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            //this.Column3.HeaderText = "Description";
-            //this.Column3.MinimumWidth = 9;
-            //this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            //this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            //this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
-            //this.Column4.HeaderText = "Price";
-            //this.Column4.MinimumWidth = 9;
-            //this.Column4.Name = "Column4";
-            //this.Column4.Width = 75;
-            // 
-            // Column5
-            // 
-            //this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            //this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
-            //this.Column5.HeaderText = "Qty";
-            //this.Column5.MinimumWidth = 9;
-            //this.Column5.Name = "Column5";
-            //this.Column5.Width = 62;
-            // 
-            // Column7
-            // 
-            //this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            //this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
-            //this.Column7.HeaderText = "Discount";
-            //this.Column7.MinimumWidth = 9;
-            //this.Column7.Name = "Column7";
-            //this.Column7.Width = 103;
-            // 
-            // Column6
-            // 
-            //this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            //this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
-            //this.Column6.HeaderText = "Total";
-            //this.Column6.MinimumWidth = 9;
-            //this.Column6.Name = "Column6";
-            //this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            //this.Column6.Width = 73;
-            // 
-            // colAdd
-            // 
-            //this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //this.colAdd.HeaderText = "";
-            //this.colAdd.MinimumWidth = 9;
-            //this.colAdd.Name = "colAdd";
-            //this.colAdd.Width = 9;
-            // 
-            // colRemove
-            // 
-            //this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //this.colRemove.HeaderText = "";
-            //this.colRemove.MinimumWidth = 9;
-            //this.colRemove.Name = "colRemove";
-            //this.colRemove.Width = 9;
-            // 
-            // Delete
-            // 
-            //this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            //this.Delete.HeaderText = "";
-            //this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            //this.Delete.MinimumWidth = 9;
-            //this.Delete.Name = "Delete";
-            //this.Delete.Width = 9;
             // 
             // pictureBox1
             // 
@@ -700,7 +612,7 @@
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblName.Location = new System.Drawing.Point(65, 29);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(58, 20);
+            this.lblName.Size = new System.Drawing.Size(49, 17);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Walter";
             // 
@@ -725,7 +637,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(65, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 31);
+            this.label2.Size = new System.Drawing.Size(143, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "POS System";
             // 
@@ -736,9 +648,19 @@
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblUser.Location = new System.Drawing.Point(374, 29);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(58, 20);
+            this.lblUser.Size = new System.Drawing.Size(49, 17);
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Walter";
+            // 
+            // dtCheckOutBindingSource1
+            // 
+            this.dtCheckOutBindingSource1.DataMember = "dtCheckOut";
+            this.dtCheckOutBindingSource1.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // number
             // 
@@ -746,40 +668,47 @@
             this.number.Name = "number";
             this.number.ReadOnly = true;
             // 
-            // name
+            // nameDataGridViewTextBoxColumn
             // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // qtyDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
-            this.qtyDataGridViewTextBoxColumn.HeaderText = "qty";
-            this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
-            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "qty";
+            this.dataGridViewTextBoxColumn1.HeaderText = "qty";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // priceDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "price";
+            this.dataGridViewTextBoxColumn2.HeaderText = "price";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // discountDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.discountDataGridViewTextBoxColumn.DataPropertyName = "discount";
-            this.discountDataGridViewTextBoxColumn.HeaderText = "discount";
-            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            this.discountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "discount";
+            this.dataGridViewTextBoxColumn3.HeaderText = "discount";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // totalDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "total";
+            this.dataGridViewTextBoxColumn4.HeaderText = "total";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // order_mode
+            // 
+            this.order_mode.DataPropertyName = "order_mode";
+            this.order_mode.HeaderText = "order mode";
+            this.order_mode.Name = "order_mode";
+            this.order_mode.ReadOnly = true;
             // 
             // delete
             // 
@@ -788,11 +717,32 @@
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.Text = "delete";
             this.delete.UseColumnTextForButtonValue = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1052, 90);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.label1.Location = new System.Drawing.Point(1049, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Purchased type";
             // 
             // frmPOS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1576, 750);
@@ -804,8 +754,10 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmPOS_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPOS_KeyDown);
             this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -815,11 +767,12 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -863,12 +816,21 @@
         public System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.BindingSource dtCheckOutBindingSource;
         private DataSet1 dataSet1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource dtCheckOutBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_mode;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

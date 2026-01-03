@@ -43,7 +43,7 @@ namespace POS_and_Inventory_System
             if (e.KeyChar == 13 && txtQty.Text != string.Empty)
             {
                 string id = "";
-                string status = "";
+                string status = "lolme";
                 bool found = false;
 
                 //basically search the product returning status and it's stock.
@@ -52,7 +52,7 @@ namespace POS_and_Inventory_System
                     SELECT 
                         p.product_id    AS id,
                         p.name          AS name,
-	                    i.stock         AS stock,
+	                    IFNULL(i.stock, 0)         AS stock,
                         p.status        AS status,
                         p.price         AS price,
                         CASE
@@ -61,31 +61,37 @@ namespace POS_and_Inventory_System
                         ELSE 0
                         END             AS discount
                     FROM products AS p
-                    JOIN inventory AS i ON i.product_id = p.product_id
+                    LEFT JOIN inventory AS i ON i.product_id = p.product_id
                     LEFT JOIN discounts AS d ON p.product_id = d.product_id
                     WHERE p.sku = @sku
                 ";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@sku", pcode);
                 dr = cmd.ExecuteReader();
-                dr.Read();
-                if (dr.HasRows)
-                {
-                    id = dr["id"].ToString();
-                    name = dr["name"].ToString();
-                    status = dr["status"].ToString();
-                    amount = int.Parse(dr["stock"].ToString());
-                    price = double.Parse(dr["price"].ToString());
-                    discount = int.Parse(dr["discount"].ToString());
+                if (dr.Read()) { 
+                    if (dr.HasRows)
+                    {
+                        id = dr["id"].ToString();
+                        name = dr["name"].ToString();
+                        status = dr["status"].ToString();
+                        amount = Convert.ToInt32(dr["stock"]);
+                        price = Convert.ToDouble(dr["price"]);
+                        discount = Convert.ToInt32(dr["discount"]);
+                    }                
                 }
-
+                
                 dr.Close();
                 conn.Close();
-
-                // checkes for if the product is inactive, doesn't have the stock or is incoming
-                if ((qty < (int.Parse(txtQty.Text)) || status == "inactive") && status != "incoming")
+  
+                //checkes for if the product is inactive, doesn't have the stock or is incoming
+                if (status == "incoming")
                 {
-                    MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("this product is still incoming", "info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (qty < (int.Parse(txtQty.Text)) || status == "inactive")
+                {
+                    MessageBox.Show("this product is empty", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Dispose();
                     return;
                 }
 
@@ -103,11 +109,30 @@ namespace POS_and_Inventory_System
                 DataRow existingRow = dt.AsEnumerable()
                     .FirstOrDefault(r => r["product_id"].ToString() == id); // basically loops variable r.product_id match id
 
+                //enable or disable buttons based on if data table or the dgv is null
+                if (dt == null)
+                {
+                    fPos.btnClearCart.Enabled = false;
+                    fPos.btnSetPayment.Enabled = false;
+                }
+                else
+                {
+                    fPos.btnClearCart.Enabled = true;
+                    fPos.btnSetPayment.Enabled = true;
+                }
+
                 //if not null update
                 if (existingRow != null)
                 {
                     int oldQty = Convert.ToInt32(existingRow["qty"]);
                     int newQty = oldQty + qtyToAdd;
+
+                    if(newQty > amount)
+                    {
+                        MessageBox.Show("Not enough stock available.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Dispose();
+                        return;
+                    }
 
                     double subtotal = linePrice * newQty;
                     double discountAmount = subtotal * discountRate;
@@ -116,6 +141,7 @@ namespace POS_and_Inventory_System
                     existingRow["price"] = linePrice;   // update if price changed
                     existingRow["discount"] = discount;
                     existingRow["total"] = subtotal - discountAmount;
+
                 }
                 else
                 {
@@ -131,7 +157,14 @@ namespace POS_and_Inventory_System
                     row["price"] = linePrice;
                     row["discount"] = discount;
                     row["total"] = subtotal - discountAmount;
-
+                    if (status == "incoming")
+                    {
+                        row["order_mode"] = "pre-order";
+                    }
+                    else
+                    {
+                        row["order_mode"] = "normal";
+                    }
                     dt.Rows.Add(row);
                 }
 
