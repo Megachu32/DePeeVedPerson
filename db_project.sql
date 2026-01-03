@@ -142,7 +142,7 @@ insert  into `products`(`product_id`,`sku`,`name`,`type`,`model`,`generation`,`r
 (3,'IPADP11-256SLV','iPad Pro 11\"','iPad','A2759',5,'2022-10-15',18990000.00,'Silver','256GB','M2 chip, 120Hz ProMotion, Face ID','active','iPad Pro 11 inch (2022)'),
 (4,'MACAR15-512GRY','MacBook Air 15\"','MacBook','A2941',1,'2023-06-13',23990000.00,'Space Gray','512GB','M2 chip, Liquid Retina display','active','MacBook Air 15-inch'),
 (5,'MACPRO14-1TBBLK','MacBook Pro 14\"','MacBook','A2992',3,'2023-11-07',38990000.00,'Black','1TB','M3 Pro chip, 120Hz XDR display','active','MacBook Pro 2023'),
-(8,'sdsdsd','MAKANAn','dsdsds','dsds',12,'2025-11-30',12.00,'sdsd','dsds','dsdsd','active','dsd'),
+(8,'sdsdsd','MAKANAn','dsdsds','dsds',12,'2025-11-30',12.00,'sdsd','dsds','dsdsd','incoming','dsd'),
 (11,'idhiufa','aousihriqu','MacBook','aiufhq',12,'2025-12-01',1222.00,'asas','sas','asas','active','asasasas'),
 (12,'LKosdf','Iphone 20','iPhone','A121',20,'2027-07-09',1233.00,'Black','230Mb','sdfghsdfg','active','makanan');
 
@@ -183,17 +183,23 @@ CREATE TABLE `sales` (
   `tax` decimal(10,2) DEFAULT NULL,
   `discount_amount` decimal(10,2) DEFAULT 0.00,
   `total` decimal(10,2) DEFAULT NULL,
+  `store_id` int(11) DEFAULT NULL,
+  `payment_method` varchar(50) DEFAULT NULL,
+  `purchase_type` enum('online','offline') DEFAULT 'offline',
+  `order_mode` enum('normal','pre-order') DEFAULT 'normal',
   PRIMARY KEY (`sale_id`),
   KEY `customer_id` (`customer_id`),
+  KEY `fk_sales_store` (`store_id`),
+  CONSTRAINT `fk_sales_store` FOREIGN KEY (`store_id`) REFERENCES `stores` (`store_id`),
   CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `sales` */
 
-insert  into `sales`(`sale_id`,`customer_id`,`sale_date`,`subtotal`,`tax`,`discount_amount`,`total`) values 
-(1,1,'2025-11-26 18:05:30',1699.00,169.90,0.00,1868.90),
-(2,2,'2025-11-26 18:05:30',999.00,99.90,0.00,1098.90),
-(3,3,'2025-11-26 18:05:30',1249.00,124.90,0.00,1373.90);
+insert  into `sales`(`sale_id`,`customer_id`,`sale_date`,`subtotal`,`tax`,`discount_amount`,`total`,`store_id`,`payment_method`,`purchase_type`,`order_mode`) values 
+(1,1,'2025-11-26 18:05:30',1699.00,169.90,0.00,1868.90,NULL,NULL,'offline','normal'),
+(2,2,'2025-11-26 18:05:30',999.00,99.90,0.00,1098.90,NULL,NULL,'offline','normal'),
+(3,3,'2025-11-26 18:05:30',1249.00,124.90,0.00,1373.90,NULL,NULL,'offline','normal');
 
 /*Table structure for table `staff` */
 
@@ -221,6 +227,22 @@ insert  into `staff`(`staff_id`,`name`,`email`,`phone`,`username`,`password`,`ro
 (2,'Bob Carter','bob@shop.com','0822222222','bob','hashed_pw_2','cashier','2023-03-15','active'),
 (3,'Charlie Evans','charlie@shop.com','0833333333','charlie','hashed_pw_3','technician','2023-05-20','inactive'),
 (4,'Diana Brookssd','diana@shop.com','0844444444','diana','hashed_pw_4','manager','2024-02-01','active');
+
+/*Table structure for table `stores` */
+
+DROP TABLE IF EXISTS `stores`;
+
+CREATE TABLE `stores` (
+  `store_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_name` varchar(100) NOT NULL,
+  `store_address` text DEFAULT NULL,
+  `company_name` varchar(100) DEFAULT NULL,
+  `customer_service_phone` varchar(20) DEFAULT NULL,
+  `company_location` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`store_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `stores` */
 
 /*Table structure for table `trade_ins` */
 
