@@ -10,14 +10,15 @@ namespace POS_and_Inventory_System
         MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
         MySqlDataReader dr;
-        frmProductList fList;
+        frmStaff fList;
+        int _staffID;
 
-        public frmStaffEdit(frmProductList frm)
+        public frmStaffEdit(frmStaff frms)
         {
             InitializeComponent();
             conn = new MySqlConnection(dbconn.MyConnection());
-            fList = frm;
-
+            fList = frms;
+            LoadCategory();
         }
 
         public void LoadCategory() // calls in other place outside this form use to fill combobox
@@ -40,25 +41,21 @@ namespace POS_and_Inventory_System
                     conn.Open();
 
                     string sql2 = @"
-                        INSERT INTO staff (name, email, phone, username, password, hire_date, status) 
-                        VALUES (@name, @email, @phone, @username, @password, @hire_date, @status)
+                        INSERT INTO staff (name, email, phone, username, role, hire_date, status) 
+                        VALUES (@name, @email, @phone, @username, @role, @hire_date, @status)
                     ";
                     cmd = new MySqlCommand(sql2, conn);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    //cmd.Parameters.AddWithValue("@type", cmbType.Text);
-                    //cmd.Parameters.AddWithValue("@model", txtModel.Text);
-                    //cmd.Parameters.AddWithValue("@generation", Convert.ToInt16(txtGeneration.Text));
-                    //cmd.Parameters.AddWithValue("@release_date", dateTimePicker1.Value.Date);
-                    //cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(txtPrice.Text));
-                    //cmd.Parameters.AddWithValue("@color", txtColor.Text);
-                    //cmd.Parameters.AddWithValue("@storage", txtStorage.Text);
-                    //cmd.Parameters.AddWithValue("@specifications", txtSpecific.Text);
-                    //cmd.Parameters.AddWithValue("@status", "active");
-                    //cmd.Parameters.AddWithValue("@description", txtDescription.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
+                    cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                    cmd.Parameters.AddWithValue("@role", cmbRole.Text);
+                    cmd.Parameters.AddWithValue("@hire_date", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
 
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Product has been success saved.", "Product Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Staff has been success saved.", "Staff Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     fList.LoadRecords();
 
@@ -74,77 +71,47 @@ namespace POS_and_Inventory_System
 
         public void Clear()
         {
-            //txtPCode.Clear();
-            //txtName.Clear();
-            //cmbType.Text = "";
-            //txtModel.Clear();
-            //txtGeneration.Clear();
-            //dateTimePicker1.Value = DateTime.Now;
-            //txtPrice.Clear();
-            //txtColor.Clear();
-            //txtStorage.Clear();
-            //txtSpecific.Clear();
-            //txtDescription.Clear();
+            txtName.Clear();
+            cmbRole.Text = "";
+            cmbStatus.Items.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            dateTimePicker1 = new DateTimePicker();
+            txtUsername.Clear();
+            cmbStatus.Text = "";
+            cmbStatus.Items.Clear();
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MessageBox.Show("Are you sure you want to update this product?", "Save Product", 
+                if (MessageBox.Show("Are you sure you want to update this Staff?", "Save Staff", 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string bid = "";
-                    string cid = "";
-                    conn.Open();
-                    //string sql = "SELECT id FROM tblBrand WHERE brand LIKE '" + cboBrand.Text + "'";
-                    //cmd = new SqlCommand(sql, conn);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) bid = dr[0].ToString();
-                    dr.Close();
-                    conn.Close();
-
-                    conn.Open();
-                    //string sql1 = "SELECT id FROM tblCategory WHERE category LIKE '" + cboCategory.Text + "'";
-                    //cmd = new SqlCommand(sql1, conn);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) cid = dr[0].ToString();
-                    dr.Close();
-                    conn.Close();
-
                     conn.Open();
                     string sql2 = @"
-                        INSERT INTO products (sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description) 
-                        VALUES (@sku, @name, @type, @model, @generation, @release_date, @price, @color, @storage, @specifications, @status, @description)
-                        
+                        INSERT INTO staff (staff_id, name, email, phone, username, role, hire_date, status) 
+                        VALUES (@id, @name, @email, @phone, @username, @role, @hire_date, @status)
                         ON DUPLICATE KEY UPDATE
-                        name = @name,
-                        type = @type,
-                        model = @model,
-                        generation = @generation,
-                        release_date = @release_date,
-                        price = @price,
-                        color = @color,
-                        storage = @storage,
-                        specifications = @specifications,
-                        status = @status,
-                        description = @description;
+                            name = @name,
+                            email = @email,
+                            phone = @phone,
+                            username = @username,
+                            role = @role,
+                            hire_date = @hire_date,
+                            status = @status;
                     ";
+
                     cmd = new MySqlCommand(sql2, conn);
-                    //cmd.Parameters.AddWithValue("@sku", txtPCode.Text);
-                    //cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    //cmd.Parameters.AddWithValue("@type", cmbType.Text);
-                    //cmd.Parameters.AddWithValue("@model", txtModel.Text);
-                    //cmd.Parameters.AddWithValue("@generation", Convert.ToInt16(txtGeneration.Text));
-                    //cmd.Parameters.AddWithValue("@release_date", dateTimePicker1.Value.Date);
-                    //cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(txtPrice.Text));
-                    //cmd.Parameters.AddWithValue("@color", txtColor.Text);
-                    //cmd.Parameters.AddWithValue("@storage", txtStorage.Text);
-                    //cmd.Parameters.AddWithValue("@specifications", txtSpecific.Text);
-                    //cmd.Parameters.AddWithValue("@status", "active");
-                    //cmd.Parameters.AddWithValue("@description", txtDescription.Text);
+                    cmd.Parameters.AddWithValue("@id", _staffID);
+                    cmd.Parameters.AddWithValue("@name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
+                    cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                    cmd.Parameters.AddWithValue("@role", cmbRole.Text);
+                    cmd.Parameters.AddWithValue("@hire_date", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Product has been successfully updated.", "Product Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -184,39 +151,37 @@ namespace POS_and_Inventory_System
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
-            //if (txtPCode.Text.ToString() != "") fillData(); // if the sku is filled, fill the data for updating
+            if (int.TryParse(txtName.Text, out _)) fillData(); // if the sku is filled, fill the data for updating
         }
 
         public void fillData() //call when updating to fill the fields
         {
+            _staffID = Convert.ToInt32(txtName.Text);
+
             try
             {
                 conn.Open();
                 string sql = @"
-                    SELECT sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description
-                    FROM products
-                    WHERE sku = @sku
+                    SELECT name, email, phone, username, role, hire_date, status
+                    FROM staff
+                    WHERE staff_id = @id
                     LIMIT 1;
                 ";
                 cmd = new MySqlCommand(sql, conn);
-                //cmd.Parameters.AddWithValue("@sku", txtPCode.Text);
+                cmd.Parameters.AddWithValue("@id", _staffID);
                 dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
-                    //txtPCode.Text = dr["sku"].ToString();
-                    //txtName.Text = dr["name"].ToString();
-                    //cmbType.Text = dr["type"].ToString();
-                    //txtModel.Text = dr["model"].ToString();
-                    //txtGeneration.Text = dr["generation"].ToString();
-                    //txtPrice.Text = dr["price"].ToString();
-                    //txtColor.Text = dr["color"].ToString();
-                    //txtStorage.Text = dr["storage"].ToString();
-                    //txtSpecific.Text = dr["specifications"].ToString();
-                    //txtDescription.Text = dr["description"].ToString();
+                    txtName.Text = dr["name"].ToString();
+                    txtEmail.Text = dr["email"].ToString();
+                    txtPhone.Text = dr["phone"].ToString();
+                    txtUsername.Text = dr["username"].ToString();
+                    cmbStatus.Text = dr["status"].ToString();
+                    cmbRole.Text = dr["role"].ToString();
 
                     // safe date handling
-                    if (DateTime.TryParse(dr["release_date"].ToString(), out DateTime date))
+                    if (DateTime.TryParse(dr["hire_date"].ToString(), out DateTime date))
                         dateTimePicker1.Value = date;
                     else
                         dateTimePicker1.Value = DateTime.Today;

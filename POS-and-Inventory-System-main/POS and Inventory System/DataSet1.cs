@@ -4,6 +4,14 @@
 
     public partial class DataSet1
     {
+        partial class dtStruckDataTable
+        {
+        }
+
+        partial class dtCheckOutDataTable
+        {
+        }
+
         partial class dtStaffDataTable
         {
         }

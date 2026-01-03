@@ -38,8 +38,6 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -149,25 +147,6 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "HIRE DATE";
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtUsername.Location = new System.Drawing.Point(133, 208);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(375, 26);
-            this.txtUsername.TabIndex = 22;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(12, 211);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 20);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "USERNAME";
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(133, 180);
@@ -179,7 +158,7 @@
             // 
             this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(136, 240);
+            this.cmbStatus.Location = new System.Drawing.Point(132, 240);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(375, 28);
             this.cmbStatus.TabIndex = 33;
@@ -296,8 +275,6 @@
         public System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        public System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label12;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label label4;

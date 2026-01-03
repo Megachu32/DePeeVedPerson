@@ -40,8 +40,8 @@ namespace POS_and_Inventory_System
             conn.Close();
         }
 
-        //private void BtnClear_Click(object sender, EventArgs e) 
-        //    => txtSearch.Clear();
+        private void BtnClear_Click(object sender, EventArgs e)
+            => txtSearch.Clear();
 
         private void TxtSearch_TextChanged(object sender, EventArgs e) 
             => LoadRecords();
@@ -51,12 +51,12 @@ namespace POS_and_Inventory_System
             string colName = dgvStaffList.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
-                //frmStaff frm = new frmStaff(this);
-                //frm.btnSave.Enabled = false;
-                //frm.btnUpdate.Enabled = true;
-                //frm.txtPCode.Text = dgvProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
+                frmStaffEdit frm = new frmStaffEdit(this);
+                frm.btnSave.Enabled = false;
+                frm.btnUpdate.Enabled = true;
+                frm.txtName.Text = dgvStaffList.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                //frm.ShowDialog();
+                frm.ShowDialog();
             }
             else if (colName == "Delete")
             {
@@ -67,41 +67,31 @@ namespace POS_and_Inventory_System
                     string sql = sql = @"
                         START TRANSACTION;
 
-                        DELETE si FROM sale_items si 
-                        JOIN products p ON si.product_id = p.product_id
-                        WHERE p.sku = @sku;
+                        SELECT * FROM staff WHERE staff_id = @id FOR UPDATE;
 
-                        DELETE pr FROM preorders pr 
-                        JOIN products p ON pr.product_id = p.product_id
-                        WHERE p.sku = @sku;
-
-                        DELETE inv FROM inventory inv
-                        JOIN products p ON inv.product_id = p.product_id
-                        WHERE p.sku = @sku;
-
-                        DELETE FROM products WHERE sku = @sku;
+                        DELETE FROM staff WHERE staff_id = @id;
 
                         COMMIT;
                     ";
 
                     cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@sku", dgvStaffList.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    cmd.Parameters.AddWithValue("@id", dgvStaffList.Rows[e.RowIndex].Cells[0].Value);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     LoadRecords();
-                    MessageBox.Show("Product has been removed", "Removed Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Staff has been removed", "Removed Staff", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
-        //private void BtnAdd_Click(object sender, EventArgs e)
-        //{
-        //    frmProduct frm = new frmProduct(this);
-        //    frm.btnSave.Enabled = true;
-        //    frm.btnUpdate.Enabled = false;
-        //    frm.LoadCategory();
-        //    frm.ShowDialog();
-        //}
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            frmStaffEdit frm = new frmStaffEdit(this);
+            frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+            frm.LoadCategory();
+            frm.ShowDialog();
+        }
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Util.CloseForm(this);

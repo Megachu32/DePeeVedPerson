@@ -31,12 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label10 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lblSalesTotal = new System.Windows.Forms.Label();
@@ -50,10 +46,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnDailySales = new System.Windows.Forms.Button();
             this.btnSearchProd = new System.Windows.Forms.Button();
             this.btnClearCart = new System.Windows.Forms.Button();
-            this.btnAddDiscount = new System.Windows.Forms.Button();
             this.btnSetPayment = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,29 +62,29 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvBrandList = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dtCheckOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -178,9 +172,10 @@
             // panel8
             // 
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.panel8.BackColor = System.Drawing.Color.Black;
             this.panel8.Controls.Add(this.lblDate);
             this.panel8.Controls.Add(this.lblTime);
+            this.panel8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel8.Location = new System.Drawing.Point(3, 594);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(596, 106);
@@ -189,8 +184,9 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
+            this.lblDate.BackColor = System.Drawing.Color.Black;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(101)))), ((int)(((byte)(155)))));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(10, 78);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(92, 31);
@@ -201,7 +197,7 @@
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(101)))), ((int)(((byte)(155)))));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
             this.lblTime.Location = new System.Drawing.Point(2, 2);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(355, 91);
@@ -211,22 +207,20 @@
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Controls.Add(this.btnNew);
             this.panel3.Controls.Add(this.btnClose);
-            this.panel3.Controls.Add(this.btnDailySales);
             this.panel3.Controls.Add(this.btnSearchProd);
             this.panel3.Controls.Add(this.btnClearCart);
-            this.panel3.Controls.Add(this.btnAddDiscount);
             this.panel3.Controls.Add(this.btnSetPayment);
             this.panel3.Location = new System.Drawing.Point(1412, 33);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(164, 243);
+            this.panel3.Size = new System.Drawing.Size(164, 171);
             this.panel3.TabIndex = 5;
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.btnNew.BackColor = System.Drawing.Color.Black;
             this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNew.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNew.FlatAppearance.BorderSize = 0;
@@ -247,7 +241,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.btnClose.BackColor = System.Drawing.Color.Black;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -255,7 +249,7 @@
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(0, 203);
+            this.btnClose.Location = new System.Drawing.Point(0, 136);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(164, 28);
             this.btnClose.TabIndex = 18;
@@ -264,29 +258,9 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // btnDailySales
-            // 
-            this.btnDailySales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
-            this.btnDailySales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDailySales.FlatAppearance.BorderSize = 0;
-            this.btnDailySales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDailySales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDailySales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.btnDailySales.Image = ((System.Drawing.Image)(resources.GetObject("btnDailySales.Image")));
-            this.btnDailySales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDailySales.Location = new System.Drawing.Point(0, 169);
-            this.btnDailySales.Name = "btnDailySales";
-            this.btnDailySales.Size = new System.Drawing.Size(164, 28);
-            this.btnDailySales.TabIndex = 16;
-            this.btnDailySales.Text = "     Daily Sales";
-            this.btnDailySales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDailySales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDailySales.UseVisualStyleBackColor = false;
-            this.btnDailySales.Click += new System.EventHandler(this.BtnDailySales_Click);
-            // 
             // btnSearchProd
             // 
-            this.btnSearchProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.btnSearchProd.BackColor = System.Drawing.Color.Black;
             this.btnSearchProd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchProd.FlatAppearance.BorderSize = 0;
             this.btnSearchProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -306,7 +280,7 @@
             // 
             // btnClearCart
             // 
-            this.btnClearCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.btnClearCart.BackColor = System.Drawing.Color.Black;
             this.btnClearCart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClearCart.Enabled = false;
             this.btnClearCart.FlatAppearance.BorderSize = 0;
@@ -315,7 +289,7 @@
             this.btnClearCart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.btnClearCart.Image = ((System.Drawing.Image)(resources.GetObject("btnClearCart.Image")));
             this.btnClearCart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClearCart.Location = new System.Drawing.Point(0, 135);
+            this.btnClearCart.Location = new System.Drawing.Point(0, 102);
             this.btnClearCart.Name = "btnClearCart";
             this.btnClearCart.Size = new System.Drawing.Size(164, 28);
             this.btnClearCart.TabIndex = 15;
@@ -325,30 +299,9 @@
             this.btnClearCart.UseVisualStyleBackColor = false;
             this.btnClearCart.Click += new System.EventHandler(this.BtnClearCart_Click);
             // 
-            // btnAddDiscount
-            // 
-            this.btnAddDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
-            this.btnAddDiscount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDiscount.Enabled = false;
-            this.btnAddDiscount.FlatAppearance.BorderSize = 0;
-            this.btnAddDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.btnAddDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDiscount.Image")));
-            this.btnAddDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddDiscount.Location = new System.Drawing.Point(0, 68);
-            this.btnAddDiscount.Name = "btnAddDiscount";
-            this.btnAddDiscount.Size = new System.Drawing.Size(164, 28);
-            this.btnAddDiscount.TabIndex = 13;
-            this.btnAddDiscount.Text = "     Add Discount";
-            this.btnAddDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddDiscount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddDiscount.UseVisualStyleBackColor = false;
-            this.btnAddDiscount.Click += new System.EventHandler(this.BtnAddDiscount_Click);
-            // 
             // btnSetPayment
             // 
-            this.btnSetPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(76)))));
+            this.btnSetPayment.BackColor = System.Drawing.Color.Black;
             this.btnSetPayment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSetPayment.Enabled = false;
             this.btnSetPayment.FlatAppearance.BorderSize = 0;
@@ -357,7 +310,7 @@
             this.btnSetPayment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.btnSetPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnSetPayment.Image")));
             this.btnSetPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetPayment.Location = new System.Drawing.Point(0, 101);
+            this.btnSetPayment.Location = new System.Drawing.Point(0, 68);
             this.btnSetPayment.Name = "btnSetPayment";
             this.btnSetPayment.Size = new System.Drawing.Size(164, 28);
             this.btnSetPayment.TabIndex = 14;
@@ -378,6 +331,7 @@
             this.panel9.Controls.Add(this.label17);
             this.panel9.Controls.Add(this.lblVat);
             this.panel9.Controls.Add(this.lblSalesTotal);
+            this.panel9.ForeColor = System.Drawing.Color.Black;
             this.panel9.Location = new System.Drawing.Point(614, 442);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(420, 109);
@@ -570,6 +524,9 @@
             // dgvBrandList
             // 
             this.dgvBrandList.AllowUserToAddRows = false;
+            this.dgvBrandList.AllowUserToDeleteRows = false;
+            this.dgvBrandList.AutoGenerateColumns = false;
+            this.dgvBrandList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBrandList.BackgroundColor = System.Drawing.Color.White;
             this.dgvBrandList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -583,37 +540,35 @@
             this.dgvBrandList.ColumnHeadersHeight = 30;
             this.dgvBrandList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBrandList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column8,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column7,
-            this.Column6,
-            this.colAdd,
-            this.colRemove,
-            this.Delete});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBrandList.DefaultCellStyle = dataGridViewCellStyle6;
+            this.number,
+            this.name,
+            this.qtyDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.discountDataGridViewTextBoxColumn,
+            this.totalDataGridViewTextBoxColumn,
+            this.delete});
+            this.dgvBrandList.DataSource = this.dtCheckOutBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBrandList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBrandList.EnableHeadersVisualStyles = false;
             this.dgvBrandList.GridColor = System.Drawing.Color.White;
             this.dgvBrandList.Location = new System.Drawing.Point(2, 33);
             this.dgvBrandList.Name = "dgvBrandList";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBrandList.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvBrandList.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBrandList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBrandList.RowHeadersVisible = false;
             this.dgvBrandList.RowHeadersWidth = 72;
             this.dgvBrandList.Size = new System.Drawing.Size(1032, 408);
@@ -621,7 +576,7 @@
             this.dgvBrandList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBrandList_CellContentClick);
             this.dgvBrandList.SelectionChanged += new System.EventHandler(this.DgvBrandList_SelectionChanged);
             // 
-            // Column1
+            // dtCheckOutBindingSource
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column1.HeaderText = "#";
@@ -629,7 +584,7 @@
             this.Column1.Name = "Column1";
             this.Column1.Width = 45;
             // 
-            // Column2
+            // dataSet1
             // 
             this.Column2.HeaderText = "ID";
             this.Column2.MinimumWidth = 9;
@@ -767,7 +722,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(101)))), ((int)(((byte)(155)))));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(65, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(179, 31);
@@ -784,6 +739,56 @@
             this.lblUser.Size = new System.Drawing.Size(58, 20);
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Walter";
+            // 
+            // number
+            // 
+            this.number.HeaderText = "#";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // qtyDataGridViewTextBoxColumn
+            // 
+            this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
+            this.qtyDataGridViewTextBoxColumn.HeaderText = "qty";
+            this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
+            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // discountDataGridViewTextBoxColumn
+            // 
+            this.discountDataGridViewTextBoxColumn.DataPropertyName = "discount";
+            this.discountDataGridViewTextBoxColumn.HeaderText = "discount";
+            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            this.discountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "Delete";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.UseColumnTextForButtonValue = true;
             // 
             // frmPOS
             // 
@@ -809,6 +814,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -850,22 +857,18 @@
         public System.Windows.Forms.DataGridView dgvBrandList;
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.Button btnClose;
-        public System.Windows.Forms.Button btnDailySales;
         public System.Windows.Forms.Button btnSearchProd;
         public System.Windows.Forms.Button btnClearCart;
-        public System.Windows.Forms.Button btnAddDiscount;
         public System.Windows.Forms.Button btnSetPayment;
         public System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewButtonColumn colAdd;
-        private System.Windows.Forms.DataGridViewButtonColumn colRemove;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.BindingSource dtCheckOutBindingSource;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }

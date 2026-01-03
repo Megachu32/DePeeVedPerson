@@ -490,7 +490,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label10.Location = new System.Drawing.Point(50, 44);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 20);
+            this.label10.Size = new System.Drawing.Size(87, 17);
             this.label10.TabIndex = 2;
             this.label10.Text = "Critical Items";
             // 
@@ -501,7 +501,7 @@
             this.lblCritical.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblCritical.Location = new System.Drawing.Point(51, 5);
             this.lblCritical.Name = "lblCritical";
-            this.lblCritical.Size = new System.Drawing.Size(83, 39);
+            this.lblCritical.Size = new System.Drawing.Size(67, 31);
             this.lblCritical.TabIndex = 1;
             this.lblCritical.Text = "0.00";
             // 
@@ -535,7 +535,7 @@
             this.lblStockOnHand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblStockOnHand.Location = new System.Drawing.Point(50, 5);
             this.lblStockOnHand.Name = "lblStockOnHand";
-            this.lblStockOnHand.Size = new System.Drawing.Size(83, 39);
+            this.lblStockOnHand.Size = new System.Drawing.Size(67, 31);
             this.lblStockOnHand.TabIndex = 1;
             this.lblStockOnHand.Text = "0.00";
             // 
@@ -546,7 +546,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label8.Location = new System.Drawing.Point(53, 44);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 20);
+            this.label8.Size = new System.Drawing.Size(104, 17);
             this.label8.TabIndex = 2;
             this.label8.Text = "Stock On Hand";
             // 
@@ -578,7 +578,7 @@
             this.lblDailySales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblDailySales.Location = new System.Drawing.Point(36, 0);
             this.lblDailySales.Name = "lblDailySales";
-            this.lblDailySales.Size = new System.Drawing.Size(83, 39);
+            this.lblDailySales.Size = new System.Drawing.Size(67, 31);
             this.lblDailySales.TabIndex = 1;
             this.lblDailySales.Text = "0.00";
             this.lblDailySales.Click += new System.EventHandler(this.lblDailySales_Click);
@@ -590,7 +590,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label2.Location = new System.Drawing.Point(39, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 20);
+            this.label2.Size = new System.Drawing.Size(78, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Daily Sales";
             // 
@@ -623,7 +623,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label5.Location = new System.Drawing.Point(54, 39);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 20);
+            this.label5.Size = new System.Drawing.Size(88, 17);
             this.label5.TabIndex = 2;
             this.label5.Text = "Product Line";
             // 
@@ -634,7 +634,7 @@
             this.lblProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblProduct.Location = new System.Drawing.Point(51, 5);
             this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(83, 39);
+            this.lblProduct.Size = new System.Drawing.Size(67, 31);
             this.lblProduct.TabIndex = 1;
             this.lblProduct.Text = "0.00";
             // 
@@ -733,7 +733,7 @@
             // 
             // frmDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.ControlBox = false;
