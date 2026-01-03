@@ -578,100 +578,100 @@
             // 
             // dtCheckOutBindingSource
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "#";
-            this.Column1.MinimumWidth = 9;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 45;
+            //this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //this.Column1.HeaderText = "#";
+            //this.Column1.MinimumWidth = 9;
+            //this.Column1.Name = "Column1";
+            //this.Column1.Width = 45;
             // 
             // dataSet1
             // 
-            this.Column2.HeaderText = "ID";
-            this.Column2.MinimumWidth = 9;
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            this.Column2.Width = 175;
+            //this.Column2.HeaderText = "ID";
+            //this.Column2.MinimumWidth = 9;
+            //this.Column2.Name = "Column2";
+            //this.Column2.Visible = false;
+            //this.Column2.Width = 175;
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "PCode";
-            this.Column8.MinimumWidth = 9;
-            this.Column8.Name = "Column8";
-            this.Column8.Visible = false;
-            this.Column8.Width = 175;
+            //this.Column8.HeaderText = "PCode";
+            //this.Column8.MinimumWidth = 9;
+            //this.Column8.Name = "Column8";
+            //this.Column8.Visible = false;
+            //this.Column8.Width = 175;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Description";
-            this.Column3.MinimumWidth = 9;
-            this.Column3.Name = "Column3";
+            //this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            //this.Column3.HeaderText = "Description";
+            //this.Column3.MinimumWidth = 9;
+            //this.Column3.Name = "Column3";
             // 
             // Column4
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column4.HeaderText = "Price";
-            this.Column4.MinimumWidth = 9;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 75;
+            //this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            //this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            //this.Column4.HeaderText = "Price";
+            //this.Column4.MinimumWidth = 9;
+            //this.Column4.Name = "Column4";
+            //this.Column4.Width = 75;
             // 
             // Column5
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column5.HeaderText = "Qty";
-            this.Column5.MinimumWidth = 9;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 62;
+            //this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            //this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
+            //this.Column5.HeaderText = "Qty";
+            //this.Column5.MinimumWidth = 9;
+            //this.Column5.Name = "Column5";
+            //this.Column5.Width = 62;
             // 
             // Column7
             // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column7.HeaderText = "Discount";
-            this.Column7.MinimumWidth = 9;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 103;
+            //this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            //this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            //this.Column7.HeaderText = "Discount";
+            //this.Column7.MinimumWidth = 9;
+            //this.Column7.Name = "Column7";
+            //this.Column7.Width = 103;
             // 
             // Column6
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column6.HeaderText = "Total";
-            this.Column6.MinimumWidth = 9;
-            this.Column6.Name = "Column6";
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.Width = 73;
+            //this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            //this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
+            //this.Column6.HeaderText = "Total";
+            //this.Column6.MinimumWidth = 9;
+            //this.Column6.Name = "Column6";
+            //this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            //this.Column6.Width = 73;
             // 
             // colAdd
             // 
-            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colAdd.HeaderText = "";
-            this.colAdd.MinimumWidth = 9;
-            this.colAdd.Name = "colAdd";
-            this.colAdd.Width = 9;
+            //this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //this.colAdd.HeaderText = "";
+            //this.colAdd.MinimumWidth = 9;
+            //this.colAdd.Name = "colAdd";
+            //this.colAdd.Width = 9;
             // 
             // colRemove
             // 
-            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colRemove.HeaderText = "";
-            this.colRemove.MinimumWidth = 9;
-            this.colRemove.Name = "colRemove";
-            this.colRemove.Width = 9;
+            //this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //this.colRemove.HeaderText = "";
+            //this.colRemove.MinimumWidth = 9;
+            //this.colRemove.Name = "colRemove";
+            //this.colRemove.Width = 9;
             // 
             // Delete
             // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 9;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 9;
+            //this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            //this.Delete.HeaderText = "";
+            //this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            //this.Delete.MinimumWidth = 9;
+            //this.Delete.Name = "Delete";
+            //this.Delete.Width = 9;
             // 
             // pictureBox1
             // 

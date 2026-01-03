@@ -425,7 +425,7 @@ namespace POS_and_Inventory_System
         private void BtnSetPayment_Click(object sender, EventArgs e)
         {
             frmSettle setFrm = new frmSettle(this);
-            setFrm.txtSale.Text = lblDisplayTotal.Text;
+            //setFrm.txtSale.Text = lblDisplayTotal.Text;
             setFrm.ShowDialog();
         }
 

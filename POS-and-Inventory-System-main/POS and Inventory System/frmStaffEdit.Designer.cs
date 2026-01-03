@@ -241,8 +241,8 @@
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.label12);
+            //this.Controls.Add(this.txtUsername);
+            //this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cmbRole);
             this.Controls.Add(this.label10);

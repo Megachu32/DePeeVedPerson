@@ -47,8 +47,8 @@ namespace POS_and_Inventory_System
                 frm.txtMobile.Text = dgvVendor.Rows[e.RowIndex].Cells[5].Value.ToString();
                 frm.txtEmail.Text = dgvVendor.Rows[e.RowIndex].Cells[6].Value.ToString();
                 frm.txtFax.Text = dgvVendor.Rows[e.RowIndex].Cells[7].Value.ToString();
-                frm.btnSave.Enabled = false;
-                frm.btnUpdate.Enabled = true;
+                //frm.btnSave.Enabled = false;
+                //frm.btnUpdate.Enabled = true;
                 frm.ShowDialog();
             }
             else if (colName == "Delete")
@@ -72,8 +72,8 @@ namespace POS_and_Inventory_System
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             frmVendor frm = new frmVendor(this);
-            frm.btnSave.Enabled = true;
-            frm.btnUpdate.Enabled = false;
+            //frm.btnSave.Enabled = true;
+            //frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
     }

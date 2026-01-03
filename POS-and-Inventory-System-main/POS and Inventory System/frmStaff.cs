@@ -52,8 +52,8 @@ namespace POS_and_Inventory_System
             if (colName == "Edit")
             {
                 frmStaffEdit frm = new frmStaffEdit(this);
-                frm.btnSave.Enabled = false;
-                frm.btnUpdate.Enabled = true;
+                //frm.btnSave.Enabled = false;
+                //frm.btnUpdate.Enabled = true;
                 frm.txtName.Text = dgvStaffList.Rows[e.RowIndex].Cells[0].Value.ToString();
 
                 frm.ShowDialog();
@@ -87,8 +87,8 @@ namespace POS_and_Inventory_System
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             frmStaffEdit frm = new frmStaffEdit(this);
-            frm.btnSave.Enabled = true;
-            frm.btnUpdate.Enabled = false;
+            //frm.btnSave.Enabled = true;
+            //frm.btnUpdate.Enabled = false;
             frm.LoadCategory();
             frm.ShowDialog();
         }

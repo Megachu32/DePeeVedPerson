@@ -20,18 +20,18 @@ namespace POS_and_Inventory_System
 
         private void TxtCash_TextChanged(object sender, EventArgs e)
         {
-            double sale = double.Parse(txtSale.Text);
-            double cash = double.Parse(txtCash.Text);
-            double change = cash - sale;
-            try
-            {
-                txtChange.Text = change.ToString("#,##0.00");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(change.ToString());
-                txtChange.Text = "0.00";
-            }
+            //double sale = double.Parse(txtSale.Text);
+            //double cash = double.Parse(txtCash.Text);
+            //double change = cash - sale;
+            //try
+            //{
+            //    txtChange.Text = change.ToString("#,##0.00");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(change.ToString());
+            //    txtChange.Text = "0.00";
+            //}
         }
 
         private void Btn7_Click(object sender, EventArgs e) 
@@ -77,37 +77,37 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                if (double.Parse(txtChange.Text) < 0 || txtChange.Text == string.Empty)
-                {
-                    MessageBox.Show("Insufficient Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else
-                {
-                    for (int i = 0; i < fpos.dgvBrandList.Rows.Count; i++)
-                    {
-                        conn.Open();
-                        string sql = "UPDATE tblProduct SET qty=qty - " + int.Parse(fpos.dgvBrandList.Rows[i].Cells[5].Value.ToString()) +
-                            " WHERE pcode='" + fpos.dgvBrandList.Rows[i].Cells[2].Value.ToString() + "'";
-                        cmd = new SqlCommand(sql, conn);
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
+                //if (double.Parse(txtChange.Text) < 0 || txtChange.Text == string.Empty)
+                //{
+                //    MessageBox.Show("Insufficient Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+                //else
+                //{
+                //    for (int i = 0; i < fpos.dgvBrandList.Rows.Count; i++)
+                //    {
+                //        conn.Open();
+                //        string sql = "UPDATE tblProduct SET qty=qty - " + int.Parse(fpos.dgvBrandList.Rows[i].Cells[5].Value.ToString()) +
+                //            " WHERE pcode='" + fpos.dgvBrandList.Rows[i].Cells[2].Value.ToString() + "'";
+                //        cmd = new SqlCommand(sql, conn);
+                //        cmd.ExecuteNonQuery();
+                //        conn.Close();
 
-                        conn.Open();
-                        string sql1 = "UPDATE tblCart SET status='Sold' WHERE id='" + fpos.dgvBrandList.Rows[i].Cells[1].Value.ToString() + "'";
-                        cmd = new SqlCommand(sql1, conn);
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
-                    frmReceipt frm = new frmReceipt(fpos);
-                    frm.LoadReport(txtCash.Text, txtChange.Text);
-                    frm.ShowDialog();
+                //        conn.Open();
+                //        string sql1 = "UPDATE tblCart SET status='Sold' WHERE id='" + fpos.dgvBrandList.Rows[i].Cells[1].Value.ToString() + "'";
+                //        cmd = new SqlCommand(sql1, conn);
+                //        cmd.ExecuteNonQuery();
+                //        conn.Close();
+                //    }
+                //    frmReceipt frm = new frmReceipt(fpos);
+                //    frm.LoadReport(txtCash.Text, txtChange.Text);
+                //    frm.ShowDialog();
 
-                    MessageBox.Show("Payment Successfully Saved!", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //fpos.GetTransNo();
-                    fpos.LoadCart();
-                    Dispose();
-                }
+                //    MessageBox.Show("Payment Successfully Saved!", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    //fpos.GetTransNo();
+                //    fpos.LoadCart();
+                //    Dispose();
+                //}
             }
             catch (Exception ex)
             {

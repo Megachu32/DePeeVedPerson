@@ -48,7 +48,7 @@ namespace POS_and_Inventory_System
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
-                    cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                    //cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@role", cmbRole.Text);
                     cmd.Parameters.AddWithValue("@hire_date", dateTimePicker1.Value);
                     cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
@@ -77,7 +77,7 @@ namespace POS_and_Inventory_System
             txtEmail.Clear();
             txtPhone.Clear();
             dateTimePicker1 = new DateTimePicker();
-            txtUsername.Clear();
+            //txtUsername.Clear();
             cmbStatus.Text = "";
             cmbStatus.Items.Clear();
         }
@@ -108,7 +108,7 @@ namespace POS_and_Inventory_System
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
-                    cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                    //cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@role", cmbRole.Text);
                     cmd.Parameters.AddWithValue("@hire_date", dateTimePicker1.Value);
                     cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
@@ -176,7 +176,7 @@ namespace POS_and_Inventory_System
                     txtName.Text = dr["name"].ToString();
                     txtEmail.Text = dr["email"].ToString();
                     txtPhone.Text = dr["phone"].ToString();
-                    txtUsername.Text = dr["username"].ToString();
+                    //txtUsername.Text = dr["username"].ToString();
                     cmbStatus.Text = dr["status"].ToString();
                     cmbRole.Text = dr["role"].ToString();
 

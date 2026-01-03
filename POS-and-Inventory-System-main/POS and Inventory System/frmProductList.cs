@@ -53,8 +53,8 @@ namespace POS_and_Inventory_System
             if (colName == "Edit")
             {
                 frmProduct frm = new frmProduct(this);
-                frm.btnSave.Enabled = false;
-                frm.btnUpdate.Enabled = true;
+                //frm.btnSave.Enabled = false;
+                //frm.btnUpdate.Enabled = true;
                 frm.txtPCode.Text = dgvProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
 
                 frm.ShowDialog();
@@ -98,8 +98,8 @@ namespace POS_and_Inventory_System
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             frmProduct frm = new frmProduct(this);
-            frm.btnSave.Enabled = true;
-            frm.btnUpdate.Enabled = false;
+            //frm.btnSave.Enabled = true;
+            //frm.btnUpdate.Enabled = false;
             frm.LoadCategory();
             frm.ShowDialog();
         }

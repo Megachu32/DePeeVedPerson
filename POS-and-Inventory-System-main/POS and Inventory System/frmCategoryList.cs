@@ -52,8 +52,8 @@ namespace POS_and_Inventory_System
                 frmCategory frm = new frmCategory(this);
                 frm.lblId.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                frm.btnSave.Enabled = false;
-                frm.btnUpdate.Enabled = true;
+                //frm.btnSave.Enabled = false;
+                //frm.btnUpdate.Enabled = true;
                 frm.ShowDialog();
             }
             else if (colName == "Delete")
@@ -84,8 +84,8 @@ namespace POS_and_Inventory_System
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             frmCategory frm = new frmCategory(this);
-            frm.btnSave.Enabled = true;
-            frm.btnUpdate.Enabled = false;
+            //frm.btnSave.Enabled = true;
+            //frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
 
