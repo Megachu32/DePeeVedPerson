@@ -57,8 +57,8 @@ namespace POS_and_Inventory_System
             txtContact.Clear();
             txtMobile.Clear();
             txtVendor.Clear();
-            btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
+            //btnSave.Enabled = true;
+            //btnUpdate.Enabled = false;
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -91,6 +91,11 @@ namespace POS_and_Inventory_System
                 conn.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void lblId_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

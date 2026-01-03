@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.txtPCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,44 +55,16 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.guna2ButtonSave = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Black;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(416, 394);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(90, 25);
-            this.btnUpdate.TabIndex = 8;
-            this.btnUpdate.Text = "UPDATE";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Black;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(310, 394);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // txtPCode
             // 
             this.txtPCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtPCode.Location = new System.Drawing.Point(133, 33);
             this.txtPCode.Name = "txtPCode";
-            this.txtPCode.Size = new System.Drawing.Size(375, 23);
+            this.txtPCode.Size = new System.Drawing.Size(375, 26);
             this.txtPCode.TabIndex = 0;
             // 
             // label2
@@ -104,7 +74,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 16);
+            this.label2.Size = new System.Drawing.Size(137, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "PRODUCT CODE";
             // 
@@ -115,7 +85,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(12, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 16);
+            this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "MODEL";
             // 
@@ -124,7 +94,7 @@
             this.txtModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtModel.Location = new System.Drawing.Point(133, 121);
             this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(375, 23);
+            this.txtModel.Size = new System.Drawing.Size(375, 26);
             this.txtModel.TabIndex = 2;
             // 
             // txtName
@@ -132,7 +102,7 @@
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtName.Location = new System.Drawing.Point(133, 62);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(375, 23);
+            this.txtName.Size = new System.Drawing.Size(375, 26);
             this.txtName.TabIndex = 1;
             // 
             // label7
@@ -142,7 +112,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(12, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 16);
+            this.label7.Size = new System.Drawing.Size(55, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "NAME";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -183,7 +153,7 @@
             this.txtGeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtGeneration.Location = new System.Drawing.Point(133, 150);
             this.txtGeneration.Name = "txtGeneration";
-            this.txtGeneration.Size = new System.Drawing.Size(375, 23);
+            this.txtGeneration.Size = new System.Drawing.Size(375, 26);
             this.txtGeneration.TabIndex = 16;
             // 
             // label9
@@ -193,7 +163,7 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(12, 153);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 16);
+            this.label9.Size = new System.Drawing.Size(94, 20);
             this.label9.TabIndex = 17;
             this.label9.Text = "GENERASI";
             // 
@@ -203,7 +173,7 @@
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(133, 91);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(375, 24);
+            this.cmbType.Size = new System.Drawing.Size(375, 28);
             this.cmbType.TabIndex = 18;
             // 
             // label10
@@ -213,7 +183,7 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(12, 94);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 16);
+            this.label10.Size = new System.Drawing.Size(50, 20);
             this.label10.TabIndex = 19;
             this.label10.Text = "TYPE";
             // 
@@ -224,7 +194,7 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(12, 182);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 16);
+            this.label11.Size = new System.Drawing.Size(126, 20);
             this.label11.TabIndex = 21;
             this.label11.Text = "PUBLISH DATE";
             // 
@@ -233,7 +203,7 @@
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtPrice.Location = new System.Drawing.Point(133, 208);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(375, 23);
+            this.txtPrice.Size = new System.Drawing.Size(375, 26);
             this.txtPrice.TabIndex = 22;
             // 
             // label12
@@ -243,7 +213,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(12, 211);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 16);
+            this.label12.Size = new System.Drawing.Size(58, 20);
             this.label12.TabIndex = 23;
             this.label12.Text = "PRICE";
             // 
@@ -252,7 +222,7 @@
             this.txtColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtColor.Location = new System.Drawing.Point(133, 237);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(375, 23);
+            this.txtColor.Size = new System.Drawing.Size(375, 26);
             this.txtColor.TabIndex = 24;
             // 
             // label13
@@ -262,7 +232,7 @@
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(12, 240);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 16);
+            this.label13.Size = new System.Drawing.Size(65, 20);
             this.label13.TabIndex = 25;
             this.label13.Text = "COLOR";
             // 
@@ -271,7 +241,7 @@
             this.txtStorage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtStorage.Location = new System.Drawing.Point(133, 266);
             this.txtStorage.Name = "txtStorage";
-            this.txtStorage.Size = new System.Drawing.Size(375, 23);
+            this.txtStorage.Size = new System.Drawing.Size(375, 26);
             this.txtStorage.TabIndex = 26;
             // 
             // label14
@@ -281,7 +251,7 @@
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(12, 269);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 16);
+            this.label14.Size = new System.Drawing.Size(88, 20);
             this.label14.TabIndex = 27;
             this.label14.Text = "STORAGE";
             // 
@@ -290,7 +260,7 @@
             this.txtSpecific.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtSpecific.Location = new System.Drawing.Point(133, 295);
             this.txtSpecific.Name = "txtSpecific";
-            this.txtSpecific.Size = new System.Drawing.Size(375, 23);
+            this.txtSpecific.Size = new System.Drawing.Size(375, 26);
             this.txtSpecific.TabIndex = 28;
             // 
             // label15
@@ -300,7 +270,7 @@
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.Location = new System.Drawing.Point(12, 298);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(107, 16);
+            this.label15.Size = new System.Drawing.Size(131, 20);
             this.label15.TabIndex = 29;
             this.label15.Text = "SPECIFICATION";
             // 
@@ -309,7 +279,7 @@
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtDescription.Location = new System.Drawing.Point(132, 353);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(375, 23);
+            this.txtDescription.Size = new System.Drawing.Size(375, 26);
             this.txtDescription.TabIndex = 30;
             // 
             // label16
@@ -319,7 +289,7 @@
             this.label16.ForeColor = System.Drawing.Color.Black;
             this.label16.Location = new System.Drawing.Point(11, 356);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 16);
+            this.label16.Size = new System.Drawing.Size(118, 20);
             this.label16.TabIndex = 31;
             this.label16.Text = "DESCRIPTION";
             // 
@@ -327,7 +297,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(133, 180);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(374, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(374, 26);
             this.dateTimePicker1.TabIndex = 32;
             // 
             // cmbStatus
@@ -336,7 +306,7 @@
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Location = new System.Drawing.Point(133, 323);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(375, 24);
+            this.cmbStatus.Size = new System.Drawing.Size(375, 28);
             this.cmbStatus.TabIndex = 33;
             this.cmbStatus.Text = "Active";
             // 
@@ -347,17 +317,53 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(12, 326);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 16);
+            this.label4.Size = new System.Drawing.Size(72, 20);
             this.label4.TabIndex = 34;
             this.label4.Text = "STATUS";
             // 
+            // guna2ButtonSave
+            // 
+            this.guna2ButtonSave.BorderRadius = 10;
+            this.guna2ButtonSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonSave.FillColor = System.Drawing.Color.Black;
+            this.guna2ButtonSave.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonSave.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonSave.Location = new System.Drawing.Point(402, 394);
+            this.guna2ButtonSave.Name = "guna2ButtonSave";
+            this.guna2ButtonSave.Size = new System.Drawing.Size(95, 32);
+            this.guna2ButtonSave.TabIndex = 35;
+            this.guna2ButtonSave.Text = "Save";
+            this.guna2ButtonSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Black;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(301, 394);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(95, 32);
+            this.guna2Button1.TabIndex = 36;
+            this.guna2Button1.Text = "Update";
+            this.guna2Button1.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // frmProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(523, 451);
             this.ControlBox = false;
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.guna2ButtonSave);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker1);
@@ -382,10 +388,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtModel);
             this.Controls.Add(this.txtPCode);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSave);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -402,8 +406,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtModel;
-        public System.Windows.Forms.Button btnUpdate;
-        public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
@@ -426,5 +428,7 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonSave;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

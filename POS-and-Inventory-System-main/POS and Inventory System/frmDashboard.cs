@@ -122,6 +122,11 @@ namespace POS_and_Inventory_System
         private void BtnStaff_Click(object sender, EventArgs e)
             => Util.ShowFormInPanel(new frmStaff(), pnlMain);
 
+        private void lblDailySales_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void BtnAdjust_Click(object sender, EventArgs e)
         {
             frmAdjustment frm = new frmAdjustment(this);

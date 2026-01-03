@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStaffEdit));
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -45,39 +43,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonSave = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Black;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(417, 298);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(90, 25);
-            this.btnUpdate.TabIndex = 8;
-            this.btnUpdate.Text = "UPDATE";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Black;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(311, 298);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // label3
             // 
@@ -227,24 +195,39 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "ROLE";
             // 
-            // label12
+            // guna2Button1
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(12, 211);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 20);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "USERNAME";
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Black;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(315, 407);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(95, 32);
+            this.guna2Button1.TabIndex = 38;
+            this.guna2Button1.Text = "Update";
+            this.guna2Button1.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // txtUsername
+            // guna2ButtonSave
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtUsername.Location = new System.Drawing.Point(133, 208);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(375, 26);
-            this.txtUsername.TabIndex = 22;
+            this.guna2ButtonSave.BorderRadius = 10;
+            this.guna2ButtonSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonSave.FillColor = System.Drawing.Color.Black;
+            this.guna2ButtonSave.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonSave.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonSave.Location = new System.Drawing.Point(416, 407);
+            this.guna2ButtonSave.Name = "guna2ButtonSave";
+            this.guna2ButtonSave.Size = new System.Drawing.Size(95, 32);
+            this.guna2ButtonSave.TabIndex = 37;
+            this.guna2ButtonSave.Text = "Save";
+            this.guna2ButtonSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // frmStaffEdit
             // 
@@ -253,6 +236,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(523, 451);
             this.ControlBox = false;
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.guna2ButtonSave);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker1);
@@ -268,9 +253,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnSave);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -285,8 +268,6 @@
         #endregion
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtEmail;
-        public System.Windows.Forms.Button btnUpdate;
-        public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
@@ -299,7 +280,7 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.TextBox txtUsername;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonSave;
     }
 }

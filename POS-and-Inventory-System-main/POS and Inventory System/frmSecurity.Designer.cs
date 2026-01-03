@@ -36,7 +36,7 @@
             this.txtUser = new MetroFramework.Controls.MetroTextBox();
             this.txtPass = new MetroFramework.Controls.MetroTextBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.guna2ButtonLogin = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +61,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(110)))), ((int)(((byte)(147)))));
             this.label2.Location = new System.Drawing.Point(79, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 17);
+            this.label2.Size = new System.Drawing.Size(221, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Enter your credentials below";
             // 
@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(130, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 26);
+            this.label1.Size = new System.Drawing.Size(98, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sign In";
             // 
@@ -179,34 +179,32 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // btnLogin
+            // guna2ButtonLogin
             // 
-            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.BackColor = System.Drawing.Color.Black;
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.btnLogin.Location = new System.Drawing.Point(198, 286);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(99, 30);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Sign In";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            this.guna2ButtonLogin.BorderRadius = 20;
+            this.guna2ButtonLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonLogin.FillColor = System.Drawing.Color.Black;
+            this.guna2ButtonLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonLogin.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonLogin.Location = new System.Drawing.Point(83, 276);
+            this.guna2ButtonLogin.Name = "guna2ButtonLogin";
+            this.guna2ButtonLogin.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonLogin.TabIndex = 4;
+            this.guna2ButtonLogin.Text = "Login";
+            this.guna2ButtonLogin.Click += new System.EventHandler(this.guna2ButtonLogin_Click);
             // 
             // frmSecurity
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(335, 362);
             this.ControlBox = false;
+            this.Controls.Add(this.guna2ButtonLogin);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.panel1);
@@ -230,8 +228,8 @@
         private MetroFramework.Controls.MetroTextBox txtPass;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonLogin;
     }
 }

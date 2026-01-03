@@ -30,9 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettle));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSale = new System.Windows.Forms.TextBox();
             this.txtCash = new System.Windows.Forms.TextBox();
-            this.txtChange = new System.Windows.Forms.TextBox();
             this.btnEnter = new System.Windows.Forms.Button();
             this.btn00 = new System.Windows.Forms.Button();
             this.btn0 = new System.Windows.Forms.Button();
@@ -51,9 +49,9 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Roboto Black", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -63,53 +61,25 @@
             this.label1.Text = "Settle Payment";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtSale
-            // 
-            this.txtSale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
-            this.txtSale.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSale.Font = new System.Drawing.Font("Roboto Medium", 14F);
-            this.txtSale.ForeColor = System.Drawing.Color.White;
-            this.txtSale.Location = new System.Drawing.Point(8, 35);
-            this.txtSale.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSale.Name = "txtSale";
-            this.txtSale.ReadOnly = true;
-            this.txtSale.Size = new System.Drawing.Size(250, 23);
-            this.txtSale.TabIndex = 2;
-            this.txtSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // txtCash
             // 
-            this.txtCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
-            this.txtCash.Font = new System.Drawing.Font("Roboto Medium", 14F);
+            this.txtCash.BackColor = System.Drawing.Color.White;
+            this.txtCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.txtCash.ForeColor = System.Drawing.Color.White;
             this.txtCash.Location = new System.Drawing.Point(8, 69);
             this.txtCash.Margin = new System.Windows.Forms.Padding(4);
             this.txtCash.Name = "txtCash";
-            this.txtCash.Size = new System.Drawing.Size(250, 30);
+            this.txtCash.Size = new System.Drawing.Size(250, 34);
             this.txtCash.TabIndex = 0;
             this.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCash.TextChanged += new System.EventHandler(this.TxtCash_TextChanged);
             // 
-            // txtChange
-            // 
-            this.txtChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
-            this.txtChange.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtChange.Font = new System.Drawing.Font("Roboto Medium", 14F);
-            this.txtChange.ForeColor = System.Drawing.Color.White;
-            this.txtChange.Location = new System.Drawing.Point(8, 108);
-            this.txtChange.Margin = new System.Windows.Forms.Padding(4);
-            this.txtChange.Name = "txtChange";
-            this.txtChange.ReadOnly = true;
-            this.txtChange.Size = new System.Drawing.Size(250, 23);
-            this.txtChange.TabIndex = 1;
-            this.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // btnEnter
             // 
-            this.btnEnter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btnEnter.BackColor = System.Drawing.Color.Black;
             this.btnEnter.FlatAppearance.BorderSize = 0;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnter.Font = new System.Drawing.Font("Roboto Medium", 16F);
+            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
             this.btnEnter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEnter.Location = new System.Drawing.Point(8, 330);
@@ -123,10 +93,10 @@
             // 
             // btn00
             // 
-            this.btn00.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn00.BackColor = System.Drawing.Color.Black;
             this.btn00.FlatAppearance.BorderSize = 0;
             this.btn00.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn00.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn00.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn00.ForeColor = System.Drawing.Color.White;
             this.btn00.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn00.Location = new System.Drawing.Point(198, 264);
@@ -140,10 +110,10 @@
             // 
             // btn0
             // 
-            this.btn0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn0.BackColor = System.Drawing.Color.Black;
             this.btn0.FlatAppearance.BorderSize = 0;
             this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn0.ForeColor = System.Drawing.Color.White;
             this.btn0.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn0.Location = new System.Drawing.Point(198, 203);
@@ -157,10 +127,10 @@
             // 
             // btnC
             // 
-            this.btnC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btnC.BackColor = System.Drawing.Color.Black;
             this.btnC.FlatAppearance.BorderSize = 0;
             this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnC.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnC.ForeColor = System.Drawing.Color.White;
             this.btnC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnC.Location = new System.Drawing.Point(198, 142);
@@ -174,10 +144,10 @@
             // 
             // btn3
             // 
-            this.btn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn3.BackColor = System.Drawing.Color.Black;
             this.btn3.FlatAppearance.BorderSize = 0;
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn3.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn3.ForeColor = System.Drawing.Color.White;
             this.btn3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn3.Location = new System.Drawing.Point(135, 264);
@@ -191,10 +161,10 @@
             // 
             // btn6
             // 
-            this.btn6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn6.BackColor = System.Drawing.Color.Black;
             this.btn6.FlatAppearance.BorderSize = 0;
             this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn6.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn6.ForeColor = System.Drawing.Color.White;
             this.btn6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn6.Location = new System.Drawing.Point(135, 203);
@@ -208,10 +178,10 @@
             // 
             // btn9
             // 
-            this.btn9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn9.BackColor = System.Drawing.Color.Black;
             this.btn9.FlatAppearance.BorderSize = 0;
             this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn9.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn9.ForeColor = System.Drawing.Color.White;
             this.btn9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn9.Location = new System.Drawing.Point(135, 142);
@@ -225,10 +195,10 @@
             // 
             // btn2
             // 
-            this.btn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn2.BackColor = System.Drawing.Color.Black;
             this.btn2.FlatAppearance.BorderSize = 0;
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn2.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn2.ForeColor = System.Drawing.Color.White;
             this.btn2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn2.Location = new System.Drawing.Point(72, 264);
@@ -242,10 +212,10 @@
             // 
             // btn1
             // 
-            this.btn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn1.BackColor = System.Drawing.Color.Black;
             this.btn1.FlatAppearance.BorderSize = 0;
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn1.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1.ForeColor = System.Drawing.Color.White;
             this.btn1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn1.Location = new System.Drawing.Point(8, 264);
@@ -259,10 +229,10 @@
             // 
             // btn5
             // 
-            this.btn5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn5.BackColor = System.Drawing.Color.Black;
             this.btn5.FlatAppearance.BorderSize = 0;
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn5.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn5.ForeColor = System.Drawing.Color.White;
             this.btn5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn5.Location = new System.Drawing.Point(72, 203);
@@ -276,10 +246,10 @@
             // 
             // btn4
             // 
-            this.btn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn4.BackColor = System.Drawing.Color.Black;
             this.btn4.FlatAppearance.BorderSize = 0;
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn4.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn4.ForeColor = System.Drawing.Color.White;
             this.btn4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn4.Location = new System.Drawing.Point(8, 203);
@@ -293,10 +263,10 @@
             // 
             // btn8
             // 
-            this.btn8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn8.BackColor = System.Drawing.Color.Black;
             this.btn8.FlatAppearance.BorderSize = 0;
             this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn8.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn8.ForeColor = System.Drawing.Color.White;
             this.btn8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn8.Location = new System.Drawing.Point(72, 142);
@@ -310,10 +280,10 @@
             // 
             // btn7
             // 
-            this.btn7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btn7.BackColor = System.Drawing.Color.Black;
             this.btn7.FlatAppearance.BorderSize = 0;
             this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn7.Font = new System.Drawing.Font("AvenirNext LT Pro Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn7.ForeColor = System.Drawing.Color.White;
             this.btn7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn7.Location = new System.Drawing.Point(8, 142);
@@ -328,7 +298,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
+            this.btnClose.BackColor = System.Drawing.Color.Black;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Firebrick;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
@@ -343,9 +313,9 @@
             // 
             // frmSettle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(268, 397);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
@@ -363,10 +333,8 @@
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn8);
             this.Controls.Add(this.btn7);
-            this.Controls.Add(this.txtChange);
             this.Controls.Add(this.txtCash);
-            this.Controls.Add(this.txtSale);
-            this.Font = new System.Drawing.Font("Gotham Book", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSettle";
@@ -392,9 +360,7 @@
         public System.Windows.Forms.Button btn4;
         public System.Windows.Forms.Button btn8;
         public System.Windows.Forms.Button btn7;
-        public System.Windows.Forms.TextBox txtSale;
         public System.Windows.Forms.TextBox txtCash;
-        public System.Windows.Forms.TextBox txtChange;
         private System.Windows.Forms.Button btnClose;
     }
 }

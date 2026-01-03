@@ -19,13 +19,13 @@ namespace POS_and_Inventory_System
 
         public void Clear()
         {
-            btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
+            guna2ButtonSave.Enabled = true;
+            guna2ButtonUpdate.Enabled = false;
             txtCategory.Clear();
             txtCategory.Focus();
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void guna2ButtonSave_Click(object sender, EventArgs e)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace POS_and_Inventory_System
             }
         }
 
-        private void BtnUpdate_Click(object sender, EventArgs e)
+        private void guna2ButtonUpdate_Click(object sender, EventArgs e)
         {
             try
             {
