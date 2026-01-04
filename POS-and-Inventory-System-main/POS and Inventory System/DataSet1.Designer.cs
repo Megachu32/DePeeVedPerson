@@ -4722,6 +4722,8 @@ namespace POS_and_Inventory_System {
             
             private global::System.Data.DataColumn columnstore_id;
             
+            private global::System.Data.DataColumn columnorder_mode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dtCheckOutDataTable() {
@@ -4821,6 +4823,14 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn order_modeColumn {
+                get {
+                    return this.columnorder_mode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4856,7 +4866,7 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtCheckOutRow AdddtCheckOutRow(string product_id, string name, string qty, string price, string discount, string total, string sale_id, string store_id) {
+            public dtCheckOutRow AdddtCheckOutRow(string product_id, string name, string qty, string price, string discount, string total, string sale_id, string store_id, string order_mode) {
                 dtCheckOutRow rowdtCheckOutRow = ((dtCheckOutRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         product_id,
@@ -4866,7 +4876,8 @@ namespace POS_and_Inventory_System {
                         discount,
                         total,
                         sale_id,
-                        store_id};
+                        store_id,
+                        order_mode};
                 rowdtCheckOutRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtCheckOutRow);
                 return rowdtCheckOutRow;
@@ -4897,6 +4908,7 @@ namespace POS_and_Inventory_System {
                 this.columntotal = base.Columns["total"];
                 this.columnsale_id = base.Columns["sale_id"];
                 this.columnstore_id = base.Columns["store_id"];
+                this.columnorder_mode = base.Columns["order_mode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4918,6 +4930,8 @@ namespace POS_and_Inventory_System {
                 base.Columns.Add(this.columnsale_id);
                 this.columnstore_id = new global::System.Data.DataColumn("store_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstore_id);
+                this.columnorder_mode = new global::System.Data.DataColumn("order_mode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorder_mode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8149,6 +8163,22 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string order_mode {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtCheckOut.order_modeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'order_mode\' in table \'dtCheckOut\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtCheckOut.order_modeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isproduct_idNull() {
                 return this.IsNull(this.tabledtCheckOut.product_idColumn);
             }
@@ -8241,6 +8271,18 @@ namespace POS_and_Inventory_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setstore_idNull() {
                 this[this.tabledtCheckOut.store_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isorder_modeNull() {
+                return this.IsNull(this.tabledtCheckOut.order_modeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setorder_modeNull() {
+                this[this.tabledtCheckOut.order_modeColumn] = global::System.Convert.DBNull;
             }
         }
         

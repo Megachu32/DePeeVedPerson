@@ -52,7 +52,7 @@ namespace POS_and_Inventory_System
                     SELECT 
                         p.product_id    AS id,
                         p.name          AS name,
-	                    i.stock         AS stock,
+	                    IFNULL(i.stock,0)         AS stock,
                         p.status        AS status,
                         p.price         AS price,
                         CASE
@@ -61,7 +61,7 @@ namespace POS_and_Inventory_System
                         ELSE 0
                         END             AS discount
                     FROM products AS p
-                    JOIN inventory AS i ON i.product_id = p.product_id
+                    LEFT JOIN inventory AS i ON i.product_id = p.product_id
                     LEFT JOIN discounts AS d ON p.product_id = d.product_id
                     WHERE p.sku = @sku
                 ";
@@ -86,6 +86,7 @@ namespace POS_and_Inventory_System
                 if ((qty < (int.Parse(txtQty.Text)) || status == "inactive") && status != "incoming")
                 {
                     MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Dispose();
                     return;
                 }
 
@@ -131,6 +132,11 @@ namespace POS_and_Inventory_System
                     row["price"] = linePrice;
                     row["discount"] = discount;
                     row["total"] = subtotal - discountAmount;
+                    
+                    if(status == "incoming")
+                    {
+                        row["status"] = "pre_order";
+                    }
 
                     dt.Rows.Add(row);
                 }
