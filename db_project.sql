@@ -178,6 +178,7 @@ DROP TABLE IF EXISTS `sales`;
 CREATE TABLE `sales` (
   `sale_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) DEFAULT NULL,
+  `customer_ref` varchar(100) DEFAULT NULL,
   `sale_date` datetime DEFAULT NULL,
   `subtotal` decimal(10,2) DEFAULT NULL,
   `tax` decimal(10,2) DEFAULT NULL,
@@ -186,6 +187,7 @@ CREATE TABLE `sales` (
   `store_id` int(11) DEFAULT NULL,
   `payment_method` varchar(50) DEFAULT NULL,
   `purchase_type` enum('online','offline') DEFAULT 'offline',
+  `pickup_method` enum('online','offline') DEFAULT 'offline',
   `order_mode` enum('normal','pre-order') DEFAULT 'normal',
   PRIMARY KEY (`sale_id`),
   KEY `customer_id` (`customer_id`),
@@ -196,10 +198,10 @@ CREATE TABLE `sales` (
 
 /*Data for the table `sales` */
 
-insert  into `sales`(`sale_id`,`customer_id`,`sale_date`,`subtotal`,`tax`,`discount_amount`,`total`,`store_id`,`payment_method`,`purchase_type`,`order_mode`) values 
-(1,1,'2025-11-26 18:05:30',1699.00,169.90,0.00,1868.90,NULL,NULL,'offline','normal'),
-(2,2,'2025-11-26 18:05:30',999.00,99.90,0.00,1098.90,NULL,NULL,'offline','normal'),
-(3,3,'2025-11-26 18:05:30',1249.00,124.90,0.00,1373.90,NULL,NULL,'offline','normal');
+insert  into `sales`(`sale_id`,`customer_id`,`customer_ref`,`sale_date`,`subtotal`,`tax`,`discount_amount`,`total`,`store_id`,`payment_method`,`purchase_type`,`pickup_method`,`order_mode`) values 
+(1,1,NULL,'2025-11-26 18:05:30',1699.00,169.90,0.00,1868.90,NULL,NULL,'offline','offline','normal'),
+(2,2,NULL,'2025-11-26 18:05:30',999.00,99.90,0.00,1098.90,NULL,NULL,'offline','offline','normal'),
+(3,3,NULL,'2025-11-26 18:05:30',1249.00,124.90,0.00,1373.90,NULL,NULL,'offline','offline','normal');
 
 /*Table structure for table `staff` */
 
