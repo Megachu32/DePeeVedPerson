@@ -30,14 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSalesTotal = new System.Windows.Forms.Label();
             this.lblDisplayTotal = new System.Windows.Forms.Label();
-            this.lblVatable = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -51,9 +48,6 @@
             this.btnSetPayment = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblDiscount = new System.Windows.Forms.Label();
-            this.lblVat = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
@@ -63,24 +57,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvBrandList = new System.Windows.Forms.DataGridView();
             this.dtCheckOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.dtCheckOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet11 = new POS_and_Inventory_System.DataSet1();
-            this.dtCheckOutBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_mode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_mode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dtCheckOutBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet11 = new POS_and_Inventory_System.DataSet1();
+            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
+            this.dtCheckOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,38 +88,14 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.label10.Location = new System.Drawing.Point(9, 34);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 17);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Discount";
-            // 
-            // label17
-            // 
-            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.label17.Location = new System.Drawing.Point(10, 83);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(56, 17);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Vatable";
             // 
             // lblSalesTotal
             // 
@@ -127,7 +103,7 @@
             this.lblSalesTotal.AutoSize = true;
             this.lblSalesTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblSalesTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.lblSalesTotal.Location = new System.Drawing.Point(378, 9);
+            this.lblSalesTotal.Location = new System.Drawing.Point(297, 9);
             this.lblSalesTotal.Name = "lblSalesTotal";
             this.lblSalesTotal.Size = new System.Drawing.Size(36, 17);
             this.lblSalesTotal.TabIndex = 0;
@@ -145,18 +121,6 @@
             this.lblDisplayTotal.Text = "0.00";
             this.lblDisplayTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblVatable
-            // 
-            this.lblVatable.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblVatable.AutoSize = true;
-            this.lblVatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblVatable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.lblVatable.Location = new System.Drawing.Point(378, 83);
-            this.lblVatable.Name = "lblVatable";
-            this.lblVatable.Size = new System.Drawing.Size(36, 17);
-            this.lblVatable.TabIndex = 0;
-            this.lblVatable.Text = "0.00";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -165,6 +129,12 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Black;
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Controls.Add(this.comboBox3);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Controls.Add(this.comboBox2);
+            this.panel7.Controls.Add(this.label1);
+            this.panel7.Controls.Add(this.comboBox1);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Controls.Add(this.panel3);
             this.panel7.Controls.Add(this.panel9);
@@ -175,6 +145,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1576, 703);
             this.panel7.TabIndex = 5;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // panel8
             // 
@@ -331,17 +302,11 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.Black;
             this.panel9.Controls.Add(this.label8);
-            this.panel9.Controls.Add(this.label10);
-            this.panel9.Controls.Add(this.lblVatable);
-            this.panel9.Controls.Add(this.label12);
-            this.panel9.Controls.Add(this.lblDiscount);
-            this.panel9.Controls.Add(this.label17);
-            this.panel9.Controls.Add(this.lblVat);
             this.panel9.Controls.Add(this.lblSalesTotal);
             this.panel9.ForeColor = System.Drawing.Color.Black;
             this.panel9.Location = new System.Drawing.Point(614, 442);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(420, 109);
+            this.panel9.Size = new System.Drawing.Size(420, 108);
             this.panel9.TabIndex = 2;
             // 
             // label8
@@ -355,42 +320,6 @@
             this.label8.Size = new System.Drawing.Size(79, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Sales Total";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.label12.Location = new System.Drawing.Point(10, 58);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 17);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Vat";
-            // 
-            // lblDiscount
-            // 
-            this.lblDiscount.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblDiscount.AutoSize = true;
-            this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.lblDiscount.Location = new System.Drawing.Point(378, 33);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(36, 17);
-            this.lblDiscount.TabIndex = 0;
-            this.lblDiscount.Text = "0.00";
-            // 
-            // lblVat
-            // 
-            this.lblVat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblVat.AutoSize = true;
-            this.lblVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblVat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.lblVat.Location = new System.Drawing.Point(378, 58);
-            this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(36, 17);
-            this.lblVat.TabIndex = 0;
-            this.lblVat.Text = "0.00";
             // 
             // panel4
             // 
@@ -536,19 +465,19 @@
             this.dgvBrandList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBrandList.BackgroundColor = System.Drawing.Color.White;
             this.dgvBrandList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBrandList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBrandList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvBrandList.ColumnHeadersHeight = 30;
             this.dgvBrandList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBrandList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.number,
-            this.nameDataGridViewTextBoxColumn,
+            this.product_name,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -556,38 +485,33 @@
             this.order_mode,
             this.delete});
             this.dgvBrandList.DataSource = this.dtCheckOutBindingSource2;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBrandList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBrandList.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvBrandList.EnableHeadersVisualStyles = false;
             this.dgvBrandList.GridColor = System.Drawing.Color.White;
             this.dgvBrandList.Location = new System.Drawing.Point(2, 33);
             this.dgvBrandList.Name = "dgvBrandList";
             this.dgvBrandList.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBrandList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBrandList.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvBrandList.RowHeadersVisible = false;
             this.dgvBrandList.RowHeadersWidth = 72;
             this.dgvBrandList.Size = new System.Drawing.Size(1032, 408);
             this.dgvBrandList.TabIndex = 4;
             this.dgvBrandList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBrandList_CellContentClick);
             this.dgvBrandList.SelectionChanged += new System.EventHandler(this.DgvBrandList_SelectionChanged);
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -656,20 +580,45 @@
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Walter";
             // 
-            // dtCheckOutBindingSource1
+            // comboBox1
             // 
-            this.dtCheckOutBindingSource1.DataMember = "dtCheckOut";
-            this.dtCheckOutBindingSource1.DataSource = this.dataSet1;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1067, 101);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 6;
             // 
-            // dataSet11
+            // label1
             // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.label1.Location = new System.Drawing.Point(1064, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Purchased Type";
             // 
-            // dtCheckOutBindingSource2
+            // comboBox2
             // 
-            this.dtCheckOutBindingSource2.DataMember = "dtCheckOut";
-            this.dtCheckOutBindingSource2.DataSource = this.dataSet11;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(1067, 180);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.label4.Location = new System.Drawing.Point(1064, 160);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Pickup Method";
             // 
             // number
             // 
@@ -677,12 +626,49 @@
             this.number.Name = "number";
             this.number.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // order_mode
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.order_mode.DataPropertyName = "order_mode";
+            this.order_mode.HeaderText = "order_mode";
+            this.order_mode.Name = "order_mode";
+            this.order_mode.ReadOnly = true;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "Delete";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.Text = "delete";
+            this.delete.UseColumnTextForButtonValue = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(1067, 269);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 24);
+            this.comboBox3.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.label6.Location = new System.Drawing.Point(1064, 249);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(114, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Payment Method";
+            // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "name";
+            this.product_name.HeaderText = "name";
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -712,21 +698,25 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // order_mode
+            // dtCheckOutBindingSource2
             // 
-            this.order_mode.DataPropertyName = "order_mode";
-            this.order_mode.HeaderText = "order_mode";
-            this.order_mode.Name = "order_mode";
-            this.order_mode.ReadOnly = true;
+            this.dtCheckOutBindingSource2.DataMember = "dtCheckOut";
+            this.dtCheckOutBindingSource2.DataSource = this.dataSet11;
             // 
-            // delete
+            // dataSet11
             // 
-            this.delete.HeaderText = "Delete";
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.UseColumnTextForButtonValue = true;
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtCheckOutBindingSource1
+            // 
+            this.dtCheckOutBindingSource1.DataMember = "dtCheckOut";
+            this.dtCheckOutBindingSource1.DataSource = this.dataSet1;
             // 
             // frmPOS
             // 
@@ -742,8 +732,10 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmPOS_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPOS_KeyDown);
             this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -753,25 +745,21 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label17;
         public System.Windows.Forms.Label lblSalesTotal;
         private System.Windows.Forms.Label lblDisplayTotal;
-        public System.Windows.Forms.Label lblVatable;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel4;
@@ -785,9 +773,6 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.Label lblDiscount;
-        public System.Windows.Forms.Label lblVat;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label lblName;
@@ -810,15 +795,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource dtCheckOutBindingSource1;
+        private System.Windows.Forms.BindingSource dtCheckOutBindingSource2;
+        private DataSet1 dataSet11;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_mode;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
-        private System.Windows.Forms.BindingSource dtCheckOutBindingSource2;
-        private DataSet1 dataSet11;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.ComboBox comboBox3;
     }
 }
