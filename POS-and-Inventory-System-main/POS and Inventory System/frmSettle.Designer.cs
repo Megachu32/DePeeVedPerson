@@ -45,6 +45,12 @@
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblCash = new System.Windows.Forms.Label();
+            this.lblChange = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +62,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 25);
+            this.label1.Size = new System.Drawing.Size(570, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Settle Payment";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -69,7 +75,7 @@
             this.txtCash.Location = new System.Drawing.Point(8, 69);
             this.txtCash.Margin = new System.Windows.Forms.Padding(4);
             this.txtCash.Name = "txtCash";
-            this.txtCash.Size = new System.Drawing.Size(250, 34);
+            this.txtCash.Size = new System.Drawing.Size(250, 29);
             this.txtCash.TabIndex = 0;
             this.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCash.TextChanged += new System.EventHandler(this.TxtCash_TextChanged);
@@ -304,20 +310,80 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(71)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(218, 0);
+            this.btnClose.Location = new System.Drawing.Point(520, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 25);
             this.btnClose.TabIndex = 26;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(321, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Total";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(321, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 16);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Cash";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(321, 163);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 16);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Change";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(437, 69);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(38, 16);
+            this.lblTotal.TabIndex = 30;
+            this.lblTotal.Text = "00.00";
+            // 
+            // lblCash
+            // 
+            this.lblCash.AutoSize = true;
+            this.lblCash.Location = new System.Drawing.Point(437, 117);
+            this.lblCash.Name = "lblCash";
+            this.lblCash.Size = new System.Drawing.Size(38, 16);
+            this.lblCash.TabIndex = 31;
+            this.lblCash.Text = "00.00";
+            // 
+            // lblChange
+            // 
+            this.lblChange.AutoSize = true;
+            this.lblChange.Location = new System.Drawing.Point(437, 163);
+            this.lblChange.Name = "lblChange";
+            this.lblChange.Size = new System.Drawing.Size(38, 16);
+            this.lblChange.TabIndex = 32;
+            this.lblChange.Text = "00.00";
+            // 
             // frmSettle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(268, 397);
+            this.ClientSize = new System.Drawing.Size(570, 401);
             this.ControlBox = false;
+            this.Controls.Add(this.lblChange);
+            this.Controls.Add(this.lblCash);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEnter);
@@ -362,5 +428,11 @@
         public System.Windows.Forms.Button btn7;
         public System.Windows.Forms.TextBox txtCash;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblCash;
+        private System.Windows.Forms.Label lblChange;
     }
 }

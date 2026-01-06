@@ -20,7 +20,8 @@ namespace POS_and_Inventory_System
         string price;
 
         public DataSet1 ds = new DataSet1();
-
+        public DateTime timeDate;
+        public int staffId;
         public frmPOS()
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace POS_and_Inventory_System
             try
             {
                 string sdate = DateTime.Now.ToString("yyyyMMdd");
+                timeDate = DateTime.Now;
                 string transNo;
                 conn.Open();
                 string sql = @"
@@ -262,7 +264,7 @@ namespace POS_and_Inventory_System
                 dr.Close();
                 conn.Close();
                 lblSalesTotal.Text = total.ToString("#,##0.00");
-                lblDiscount.Text = discount.ToString("#,##0.00");
+                //lblDiscount.Text = discount.ToString("#,##0.00");
                 GetCartTotal();
                 btnSetPayment.Enabled = hasRecord;
                 //btnAddDiscount.Enabled = hasRecord;
@@ -278,78 +280,10 @@ namespace POS_and_Inventory_System
 
         private void DgvBrandList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //string colName = dgvBrandList.Columns[e.ColumnIndex].Name;
-            //if (colName == "Delete")
-            //{
-            //    if (MessageBox.Show("Remove this item", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //    {
-            //        conn.Open();
-            //        string sql = "DELETE FROM tblCart WHERE id LIKE '" + dgvBrandList.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
-            //        cmd = new MySqlCommand(sql, conn);
-            //        cmd.ExecuteNonQuery();
-            //        conn.Close();
-            //        MessageBox.Show("item has successfully removed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        LoadCart();
-            //    }
-            //}
-            //else if (colName == "colAdd")
-            //{
-            //    int i = 0;
-            //    conn.Open();
-            //    string sql = "SELECT sum(qty) AS qty FROM tblProduct WHERE pcode LIKE '" + 
-            //        dgvBrandList.Rows[e.RowIndex].Cells[2].Value.ToString() + "' GROUP BY pcode";
-            //    cmd = new MySqlCommand(sql, conn);
-            //    i = int.Parse(cmd.ExecuteScalar().ToString());
-            //    conn.Close();
-
-            //    if (int.Parse(dgvBrandList.Rows[e.RowIndex].Cells[5].Value.ToString()) < i)
-            //    {
-            //        conn.Open();
-            //        string sql2 = "UPDATE tblCart SET qty = qty +" + int.Parse(txtQty.Text) + " WHERE transno LIKE '" + 
-            //            lblTransNo.Text + "' AND pcode LIKE '" + dgvBrandList.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
-            //        cmd = new MySqlCommand(sql2, conn);
-            //        cmd.ExecuteNonQuery();
-            //        conn.Close();
-            //        LoadCart();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Remaining qty on hand is " + i + " !", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
-            //}
-            //else if (colName == "colRemove")
-            //{
-            //    int i = 0;
-            //    conn.Open();
-            //    string sql = "SELECT sum(qty) AS qty FROM tblCart WHERE pcode LIKE '" + dgvBrandList.Rows[e.RowIndex].Cells[2].Value.ToString() + 
-            //        "' AND transno LIKE '" + lblTransNo.Text + "' GROUP BY transno, pcode";
-            //    cmd = new MySqlCommand(sql, conn);
-            //    i = int.Parse(cmd.ExecuteScalar().ToString());
-            //    conn.Close();
-
-            //    if (i > 1)
-            //    {
-            //        conn.Open();
-            //        string sql2 = "UPDATE tblCart SET qty = qty - " + int.Parse(txtQty.Text) + " WHERE transno LIKE '" +
-            //            lblTransNo.Text + "' AND pcode LIKE '" + dgvBrandList.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
-            //        cmd = new MySqlCommand(sql2, conn);
-            //        cmd.ExecuteNonQuery();
-            //        conn.Close();
-
-            //        LoadCart();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Remaining qty on cart is " + i + " !", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
-            //}
-            // Check if the clicked cell is the Delete button column (e.g., index 5)
             string colName = dgvBrandList.Columns[e.ColumnIndex].Name;
             if (colName == "delete" || colName == "Delete")
             {
-                string itemName = dgvBrandList.Rows[e.RowIndex].Cells["name"].Value.ToString();
+                string itemName = dgvBrandList.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
 
                 var confirmResult = MessageBox.Show($"Remove {itemName} from cart?", "Confirm Delete", MessageBoxButtons.YesNo);
 
@@ -367,7 +301,7 @@ namespace POS_and_Inventory_System
 
         public void GetCartTotal()
         {
-            double discount = double.Parse(lblDiscount.Text);
+            //double discount = double.Parse(lblDiscount.Text);
             double sales = double.Parse(lblSalesTotal.Text);
             //double vat = sales * dbconn.GetVal();
             //double vatable = sales - vat;
@@ -379,9 +313,16 @@ namespace POS_and_Inventory_System
 
         private void DgvBrandList_SelectionChanged(object sender, EventArgs e)
         {
+            lblSalesTotal.Text = "00.00";
+            if (dgvBrandList.Rows.Count <= 0) return;
             int i = dgvBrandList.CurrentRow.Index;
             id = dgvBrandList[1, i].Value.ToString();
             price = dgvBrandList[4, i].Value.ToString();
+
+            DataTable dt = ds.Tables["dtCheckOut"];
+            // Use double or decimal for money/tax calculations
+            double finalTotal = Convert.ToDouble(dt.Compute("SUM(total)", ""));
+            lblSalesTotal.Text = (finalTotal != null || finalTotal != 0) ? finalTotal.ToString("N2") : "00.00";
         }
 
         private void FrmPOS_KeyDown(object sender, KeyEventArgs e)
@@ -431,15 +372,8 @@ namespace POS_and_Inventory_System
 
         private void BtnClearCart_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Remove all items from cart?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                conn.Open();
-                cmd = new MySqlCommand("DELETE FROM tblCart WHERE transno LIKE '" + lblTransNo.Text + "'", conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("All items has been successful removed", "Remove Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadCart();
-            }
+            DataTable dt = ds.Tables["dtCheckOut"];
+            dt.Clear();
         }
 
         private void BtnDailySales_Click(object sender, EventArgs e)
@@ -475,6 +409,32 @@ namespace POS_and_Inventory_System
             GetTransNo();
             txtSearch.Enabled = true;
             txtSearch.Focus();
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmPOS_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("offline");
+            comboBox1.Items.Add("online");
+
+            comboBox2.Items.Clear();
+            comboBox2.Items.Add("offline");
+            comboBox2.Items.Add("online");
+
+            comboBox3.Items.Clear();
+            comboBox3.Items.Add("cash");
+            comboBox3.Items.Add("credit card");
+            comboBox3.Items.Add("e-wallet");
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+
         }
 
         //public void insert

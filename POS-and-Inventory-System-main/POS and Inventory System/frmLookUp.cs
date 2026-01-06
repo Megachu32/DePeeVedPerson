@@ -49,7 +49,8 @@ namespace POS_and_Inventory_System
                 LEFT JOIN inventory i
                     ON i.product_id = p.product_id
                 WHERE p.name LIKE CONCAT('%', @text, '%')
-                    OR p.sku  LIKE CONCAT('%', @text, '%');
+                    OR p.sku  LIKE CONCAT('%', @text, '%')
+                    AND p.status != 'inactive';
             ";
 
             dt.Clear();
@@ -80,9 +81,9 @@ namespace POS_and_Inventory_System
             {
                 //when button is clicked send data to qty form so you can input qty
                 frmQty frmQty = new frmQty(frm);
-                frmQty.ProductDetails(dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString(),
-                    double.Parse(dgvProductList.Rows[e.RowIndex].Cells[7].Value.ToString()), 
-                    int.Parse(dgvProductList.Rows[e.RowIndex].Cells[6].Value.ToString()));
+                frmQty.ProductDetails(dgvProductList.Rows[e.RowIndex].Cells["sku"].Value.ToString(),
+                    double.Parse(dgvProductList.Rows[e.RowIndex].Cells["price"].Value.ToString()), 
+                    int.Parse(dgvProductList.Rows[e.RowIndex].Cells["stock"].Value.ToString()));
                 frmQty.ShowDialog();
             }
         }

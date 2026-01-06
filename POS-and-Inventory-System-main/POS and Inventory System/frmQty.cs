@@ -35,6 +35,7 @@ namespace POS_and_Inventory_System
             pcode = _pcode;
             price = _price;
             qty = _qty;
+
         }
 
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -63,7 +64,7 @@ namespace POS_and_Inventory_System
                     FROM products AS p
                     LEFT JOIN inventory AS i ON i.product_id = p.product_id
                     LEFT JOIN discounts AS d ON p.product_id = d.product_id
-                    WHERE p.sku = @sku
+                    WHERE p.sku = @sku;
                 ";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@sku", pcode);
@@ -83,7 +84,7 @@ namespace POS_and_Inventory_System
                 conn.Close();
 
                 // checkes for if the product is inactive, doesn't have the stock or is incoming
-                if ((qty < (int.Parse(txtQty.Text)) || status == "inactive") && status != "incoming")
+                if ((amount < (int.Parse(txtQty.Text)) || status == "inactive") && status != "incoming")
                 {
                     MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Dispose();
@@ -100,15 +101,33 @@ namespace POS_and_Inventory_System
                 DataSet1 ds = fPos.ds;
                 DataTable dt = ds.Tables["dtCheckOut"];
 
-                // try find existing row
-                DataRow existingRow = dt.AsEnumerable()
-                    .FirstOrDefault(r => r["product_id"].ToString() == id); // basically loops variable r.product_id match id
+                if (dt == null)
+                {
+                    fPos.btnClearCart.Enabled = false; 
+                    fPos.btnSetPayment.Enabled = false;
+                }
+                else
+                {
+                    fPos.btnClearCart.Enabled = true;
+                    fPos.btnSetPayment.Enabled = true;
+                }
+
+                    // try find existing row
+                    DataRow existingRow = dt.AsEnumerable()
+                        .FirstOrDefault(r => r["product_id"].ToString() == id); // basically loops variable r.product_id match id
 
                 //if not null update
                 if (existingRow != null)
                 {
                     int oldQty = Convert.ToInt32(existingRow["qty"]);
                     int newQty = oldQty + qtyToAdd;
+
+                    if(amount < newQty && status != "incoming")
+                    {
+                        MessageBox.Show("Unable to proceed. Remaining qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Dispose();
+                        return;
+                    }
 
                     double subtotal = linePrice * newQty;
                     double discountAmount = subtotal * discountRate;
@@ -135,10 +154,14 @@ namespace POS_and_Inventory_System
                     
                     if(status == "incoming")
                     {
-                        row["status"] = "pre_order";
+                        row["order_mode"] = "pre_order";
+                    }
+                    else
+                    {
+                        row["order_mode"] = "normal";
                     }
 
-                    dt.Rows.Add(row);
+                        dt.Rows.Add(row);
                 }
 
                 fPos.txtSearch.Clear();

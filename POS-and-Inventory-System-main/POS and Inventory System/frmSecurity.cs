@@ -30,6 +30,7 @@ namespace POS_and_Inventory_System
         private void guna2ButtonLogin_Click(object sender, EventArgs e)
         {
             string _role = "", _name = "";
+            int _id = 0;
             try
             {
                 bool found = false;
@@ -47,6 +48,7 @@ namespace POS_and_Inventory_System
                     _role = dr["role"].ToString();
                     _name = dr["name"].ToString();
                     _pass = dr["password"].ToString();
+                    _id = Convert.ToInt32(dr["staff_id"]);
                 }
                 else found = false;
 
@@ -65,6 +67,7 @@ namespace POS_and_Inventory_System
                         frmPOS frm = new frmPOS();
                         frm.lblUser.Text = _username;
                         frm.lblName.Text = _name + " | " + _role;
+                        frm.staffId = _id;
                         frm.ShowDialog();
                     }
                     else if (_role == "admin" || _role == "manager")

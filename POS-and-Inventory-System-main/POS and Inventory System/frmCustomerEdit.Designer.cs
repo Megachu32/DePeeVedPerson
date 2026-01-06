@@ -1,6 +1,6 @@
 ﻿namespace POS_and_Inventory_System
 {
-    partial class frmStaffEdit
+    partial class frmCustomerEdit
     {
         /// <summary>
         /// Required designer variable.
