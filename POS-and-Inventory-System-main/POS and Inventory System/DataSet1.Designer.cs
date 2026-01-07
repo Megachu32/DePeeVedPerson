@@ -4724,6 +4724,10 @@ namespace POS_and_Inventory_System {
             
             private global::System.Data.DataColumn columnorder_mode;
             
+            private global::System.Data.DataColumn columntotal_after;
+            
+            private global::System.Data.DataColumn columndiscount_percentage;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dtCheckOutDataTable() {
@@ -4831,6 +4835,22 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn total_afterColumn {
+                get {
+                    return this.columntotal_after;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn discount_percentageColumn {
+                get {
+                    return this.columndiscount_percentage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4866,7 +4886,7 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtCheckOutRow AdddtCheckOutRow(string product_id, string name, string qty, string price, string discount, decimal total, string sale_id, string store_id, string order_mode) {
+            public dtCheckOutRow AdddtCheckOutRow(ulong product_id, string name, short qty, double price, double discount, double total, int sale_id, int store_id, string order_mode, double total_after, double discount_percentage) {
                 dtCheckOutRow rowdtCheckOutRow = ((dtCheckOutRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         product_id,
@@ -4877,7 +4897,9 @@ namespace POS_and_Inventory_System {
                         total,
                         sale_id,
                         store_id,
-                        order_mode};
+                        order_mode,
+                        total_after,
+                        discount_percentage};
                 rowdtCheckOutRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtCheckOutRow);
                 return rowdtCheckOutRow;
@@ -4909,29 +4931,35 @@ namespace POS_and_Inventory_System {
                 this.columnsale_id = base.Columns["sale_id"];
                 this.columnstore_id = base.Columns["store_id"];
                 this.columnorder_mode = base.Columns["order_mode"];
+                this.columntotal_after = base.Columns["total_after"];
+                this.columndiscount_percentage = base.Columns["discount_percentage"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnproduct_id = new global::System.Data.DataColumn("product_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnproduct_id = new global::System.Data.DataColumn("product_id", typeof(ulong), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproduct_id);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
-                this.columnqty = new global::System.Data.DataColumn("qty", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnqty = new global::System.Data.DataColumn("qty", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnqty);
-                this.columnprice = new global::System.Data.DataColumn("price", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice);
-                this.columndiscount = new global::System.Data.DataColumn("discount", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columndiscount = new global::System.Data.DataColumn("discount", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiscount);
-                this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
-                this.columnsale_id = new global::System.Data.DataColumn("sale_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnsale_id = new global::System.Data.DataColumn("sale_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsale_id);
-                this.columnstore_id = new global::System.Data.DataColumn("store_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnstore_id = new global::System.Data.DataColumn("store_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstore_id);
                 this.columnorder_mode = new global::System.Data.DataColumn("order_mode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorder_mode);
+                this.columntotal_after = new global::System.Data.DataColumn("total_after", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal_after);
+                this.columndiscount_percentage = new global::System.Data.DataColumn("discount_percentage", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndiscount_percentage);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5285,7 +5313,7 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtInvoiceRow AdddtInvoiceRow(string staff_name, string customer_name, string invoice_no, string date, string time, string store_name, string store_location, string company_name, string company_location, string cs_number, string payment_method, string purchase_type, string order_mode, string store_id, string sale_id) {
+            public dtInvoiceRow AdddtInvoiceRow(string staff_name, string customer_name, string invoice_no, string date, string time, string store_name, string store_location, string company_name, string company_location, string cs_number, string payment_method, string purchase_type, string order_mode, int store_id, int sale_id) {
                 dtInvoiceRow rowdtInvoiceRow = ((dtInvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         staff_name,
@@ -5371,9 +5399,9 @@ namespace POS_and_Inventory_System {
                 base.Columns.Add(this.columnpurchase_type);
                 this.columnorder_mode = new global::System.Data.DataColumn("order_mode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorder_mode);
-                this.columnstore_id = new global::System.Data.DataColumn("store_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnstore_id = new global::System.Data.DataColumn("store_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstore_id);
-                this.columnsale_id = new global::System.Data.DataColumn("sale_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnsale_id = new global::System.Data.DataColumn("sale_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsale_id);
             }
             
@@ -8049,10 +8077,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string product_id {
+            public ulong product_id {
                 get {
                     try {
-                        return ((string)(this[this.tabledtCheckOut.product_idColumn]));
+                        return ((ulong)(this[this.tabledtCheckOut.product_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'product_id\' in table \'dtCheckOut\' is DBNull.", e);
@@ -8081,10 +8109,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string qty {
+            public short qty {
                 get {
                     try {
-                        return ((string)(this[this.tabledtCheckOut.qtyColumn]));
+                        return ((short)(this[this.tabledtCheckOut.qtyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'qty\' in table \'dtCheckOut\' is DBNull.", e);
@@ -8097,10 +8125,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string price {
+            public double price {
                 get {
                     try {
-                        return ((string)(this[this.tabledtCheckOut.priceColumn]));
+                        return ((double)(this[this.tabledtCheckOut.priceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'dtCheckOut\' is DBNull.", e);
@@ -8113,10 +8141,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string discount {
+            public double discount {
                 get {
                     try {
-                        return ((string)(this[this.tabledtCheckOut.discountColumn]));
+                        return ((double)(this[this.tabledtCheckOut.discountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'discount\' in table \'dtCheckOut\' is DBNull.", e);
@@ -8129,10 +8157,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal total {
+            public double total {
                 get {
                     try {
-                        return ((decimal)(this[this.tabledtCheckOut.totalColumn]));
+                        return ((double)(this[this.tabledtCheckOut.totalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'total\' in table \'dtCheckOut\' is DBNull.", e);
@@ -8145,10 +8173,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string sale_id {
+            public int sale_id {
                 get {
                     try {
-                        return ((string)(this[this.tabledtCheckOut.sale_idColumn]));
+                        return ((int)(this[this.tabledtCheckOut.sale_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'sale_id\' in table \'dtCheckOut\' is DBNull.", e);
@@ -8161,10 +8189,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string store_id {
+            public int store_id {
                 get {
                     try {
-                        return ((string)(this[this.tabledtCheckOut.store_idColumn]));
+                        return ((int)(this[this.tabledtCheckOut.store_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'store_id\' in table \'dtCheckOut\' is DBNull.", e);
@@ -8188,6 +8216,38 @@ namespace POS_and_Inventory_System {
                 }
                 set {
                     this[this.tabledtCheckOut.order_modeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double total_after {
+                get {
+                    try {
+                        return ((double)(this[this.tabledtCheckOut.total_afterColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'total_after\' in table \'dtCheckOut\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtCheckOut.total_afterColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double discount_percentage {
+                get {
+                    try {
+                        return ((double)(this[this.tabledtCheckOut.discount_percentageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'discount_percentage\' in table \'dtCheckOut\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtCheckOut.discount_percentageColumn] = value;
                 }
             }
             
@@ -8297,6 +8357,30 @@ namespace POS_and_Inventory_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setorder_modeNull() {
                 this[this.tabledtCheckOut.order_modeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istotal_afterNull() {
+                return this.IsNull(this.tabledtCheckOut.total_afterColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settotal_afterNull() {
+                this[this.tabledtCheckOut.total_afterColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdiscount_percentageNull() {
+                return this.IsNull(this.tabledtCheckOut.discount_percentageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdiscount_percentageNull() {
+                this[this.tabledtCheckOut.discount_percentageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8524,10 +8608,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string store_id {
+            public int store_id {
                 get {
                     try {
-                        return ((string)(this[this.tabledtInvoice.store_idColumn]));
+                        return ((int)(this[this.tabledtInvoice.store_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'store_id\' in table \'dtInvoice\' is DBNull.", e);
@@ -8540,10 +8624,10 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string sale_id {
+            public int sale_id {
                 get {
                     try {
-                        return ((string)(this[this.tabledtInvoice.sale_idColumn]));
+                        return ((int)(this[this.tabledtInvoice.sale_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'sale_id\' in table \'dtInvoice\' is DBNull.", e);

@@ -264,10 +264,8 @@ namespace POS_and_Inventory_System
                 dr.Close();
                 conn.Close();
                 lblSalesTotal.Text = total.ToString("#,##0.00");
-                //lblDiscount.Text = discount.ToString("#,##0.00");
                 GetCartTotal();
                 btnSetPayment.Enabled = hasRecord;
-                //btnAddDiscount.Enabled = hasRecord;
                 btnClearCart.Enabled = hasRecord;
             }
             catch (Exception ex)

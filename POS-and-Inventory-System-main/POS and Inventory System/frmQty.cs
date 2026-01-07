@@ -164,6 +164,11 @@ namespace POS_and_Inventory_System
                         dt.Rows.Add(row);
                 }
 
+                dt = ds.Tables["dtCheckOut"];
+                // Use double or decimal for money/tax calculations
+                double finalTotal = Convert.ToDouble(dt.Compute("SUM(total)", ""));
+                fPos.lblSalesTotal.Text = (finalTotal != null || finalTotal != 0) ? finalTotal.ToString("N2") : "00.00";
+
                 fPos.txtSearch.Clear();
                 fPos.txtSearch.Focus();
                 fPos.dgvBrandList.DataSource = dt;

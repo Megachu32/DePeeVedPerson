@@ -640,3 +640,5 @@ C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS and .1977F62D.Up2Date
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS_and_Inventory_System.frmCustomerEdit.resources
+C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS_and_Inventory_System.frmReportViewer.resources
