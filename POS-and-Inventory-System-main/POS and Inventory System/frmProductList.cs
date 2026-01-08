@@ -27,9 +27,11 @@ namespace POS_and_Inventory_System
             int i = 0;
             conn.Open();
             string sql = @"
-                SELECT sku, name, type, model, price, status
-                FROM products
-
+                SELECT *
+                FROM products as p
+                LEFT JOIN inventory as i ON p.product_id = i.product_id
+                WHERE (p.name LIKE @search OR p.sku LIKE @search) 
+                  AND p.status != 'inactive'
                 ORDER BY type ASC
             ";
 
@@ -53,10 +55,10 @@ namespace POS_and_Inventory_System
             if (colName == "Edit")
             {
                 frmProduct frm = new frmProduct(this);
-                //frm.btnSave.Enabled = false;
-                //frm.btnUpdate.Enabled = true;
+                frm.guna2ButtonSave.Enabled = false;
+                frm.guna2Button1.Enabled = true;
                 frm.txtPCode.Text = dgvProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
-
+                frm.fillData();
                 frm.ShowDialog();
             }
             else if (colName == "Delete")

@@ -2818,6 +2818,8 @@ namespace POS_and_Inventory_System {
             
             private global::System.Data.DataColumn columnid;
             
+            private global::System.Data.DataColumn columnstock;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dtProductsDataTable() {
@@ -2909,6 +2911,14 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn stockColumn {
+                get {
+                    return this.columnstock;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2944,7 +2954,7 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtProductsRow AdddtProductsRow(string sku, string name, string type, string model, string status, int price, short id) {
+            public dtProductsRow AdddtProductsRow(string sku, string name, string type, string model, string status, int price, short id, string stock) {
                 dtProductsRow rowdtProductsRow = ((dtProductsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         sku,
@@ -2953,7 +2963,8 @@ namespace POS_and_Inventory_System {
                         model,
                         status,
                         price,
-                        id};
+                        id,
+                        stock};
                 rowdtProductsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtProductsRow);
                 return rowdtProductsRow;
@@ -2983,6 +2994,7 @@ namespace POS_and_Inventory_System {
                 this.columnstatus = base.Columns["status"];
                 this.columnprice = base.Columns["price"];
                 this.columnid = base.Columns["id"];
+                this.columnstock = base.Columns["stock"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3002,6 +3014,8 @@ namespace POS_and_Inventory_System {
                 base.Columns.Add(this.columnprice);
                 this.columnid = new global::System.Data.DataColumn("id", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
+                this.columnstock = new global::System.Data.DataColumn("stock", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstock);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5123,6 +5137,8 @@ namespace POS_and_Inventory_System {
             
             private global::System.Data.DataColumn columnsale_id;
             
+            private global::System.Data.DataColumn columncustomer_ref;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dtInvoiceDataTable() {
@@ -5278,6 +5294,14 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn customer_refColumn {
+                get {
+                    return this.columncustomer_ref;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5313,7 +5337,23 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtInvoiceRow AdddtInvoiceRow(string staff_name, string customer_name, string invoice_no, string date, string time, string store_name, string store_location, string company_name, string company_location, string cs_number, string payment_method, string purchase_type, string order_mode, int store_id, int sale_id) {
+            public dtInvoiceRow AdddtInvoiceRow(
+                        string staff_name, 
+                        string customer_name, 
+                        string invoice_no, 
+                        string date, 
+                        string time, 
+                        string store_name, 
+                        string store_location, 
+                        string company_name, 
+                        string company_location, 
+                        string cs_number, 
+                        string payment_method, 
+                        string purchase_type, 
+                        string order_mode, 
+                        int store_id, 
+                        int sale_id, 
+                        string customer_ref) {
                 dtInvoiceRow rowdtInvoiceRow = ((dtInvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         staff_name,
@@ -5330,7 +5370,8 @@ namespace POS_and_Inventory_System {
                         purchase_type,
                         order_mode,
                         store_id,
-                        sale_id};
+                        sale_id,
+                        customer_ref};
                 rowdtInvoiceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtInvoiceRow);
                 return rowdtInvoiceRow;
@@ -5368,6 +5409,7 @@ namespace POS_and_Inventory_System {
                 this.columnorder_mode = base.Columns["order_mode"];
                 this.columnstore_id = base.Columns["store_id"];
                 this.columnsale_id = base.Columns["sale_id"];
+                this.columncustomer_ref = base.Columns["customer_ref"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5403,6 +5445,8 @@ namespace POS_and_Inventory_System {
                 base.Columns.Add(this.columnstore_id);
                 this.columnsale_id = new global::System.Data.DataColumn("sale_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsale_id);
+                this.columncustomer_ref = new global::System.Data.DataColumn("customer_ref", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustomer_ref);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7091,6 +7135,22 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string stock {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtProducts.stockColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'stock\' in table \'dtProducts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtProducts.stockColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsskuNull() {
                 return this.IsNull(this.tabledtProducts.skuColumn);
             }
@@ -7171,6 +7231,18 @@ namespace POS_and_Inventory_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetidNull() {
                 this[this.tabledtProducts.idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsstockNull() {
+                return this.IsNull(this.tabledtProducts.stockColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetstockNull() {
+                this[this.tabledtProducts.stockColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8640,6 +8712,22 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string customer_ref {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtInvoice.customer_refColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'customer_ref\' in table \'dtInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtInvoice.customer_refColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isstaff_nameNull() {
                 return this.IsNull(this.tabledtInvoice.staff_nameColumn);
             }
@@ -8816,6 +8904,18 @@ namespace POS_and_Inventory_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setsale_idNull() {
                 this[this.tabledtInvoice.sale_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscustomer_refNull() {
+                return this.IsNull(this.tabledtInvoice.customer_refColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcustomer_refNull() {
+                this[this.tabledtInvoice.customer_refColumn] = global::System.Convert.DBNull;
             }
         }
         

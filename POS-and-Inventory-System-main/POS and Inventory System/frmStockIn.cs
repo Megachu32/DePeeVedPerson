@@ -1,20 +1,21 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmStockIn : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
-        SqlDataReader dr;
+        MySqlDataReader dr;
         public frmStockIn()
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
-            LoadVendor();
+            conn = new MySqlConnection(dbconn.MyConnection());
+            //LoadVendor();
         }
 
         public void LoadStockIn()
@@ -23,7 +24,7 @@ namespace POS_and_Inventory_System
             dgvStocks.Rows.Clear();
             conn.Open();
             string sql = "SELECT * FROM vwStockIn WHERE refno LIKE '" + txtRefNo.Text + "' AND status LIKE 'Pending'";
-            cmd = new SqlCommand(sql, conn);
+            cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -50,7 +51,7 @@ namespace POS_and_Inventory_System
                 conn.Open();
                 string sql = "SELECT * FROM vwStockIn WHERE cast(sdate AS date) BETWEEN '" + dtFrom.Value.ToShortDateString() 
                     + "' AND '" + dtTo.Value.ToShortDateString() + "' AND status LIKE 'Done'";
-                cmd = new SqlCommand(sql, conn);
+                //cmd = new SqlCommand(sql, conn);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -90,7 +91,7 @@ namespace POS_and_Inventory_System
             cboVendor.Items.Clear();
             conn.Open();
             string sql = "SELECT * FROM tblVendor";
-            cmd = new SqlCommand(sql, conn);
+            //cmd = new SqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -109,7 +110,7 @@ namespace POS_and_Inventory_System
         {
             conn.Open();
             string sql = "SELECT * FROM tblVendor WHERE vendor LIKE '" + cboVendor.Text + "'";
-            cmd = new SqlCommand(sql, conn);
+            //cmd = new SqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             dr.Read();
             if (dr.HasRows)
@@ -151,7 +152,7 @@ namespace POS_and_Inventory_System
                             conn.Open();
                             string sql = "UPDATE tblProduct SET qty=qty + " + int.Parse(dgvStocks.Rows[i].Cells[5].Value.ToString()) +
                                 " WHERE pcode LIKE '" + dgvStocks.Rows[i].Cells[3].Value.ToString() + "'";
-                            cmd = new SqlCommand(sql, conn);
+                            //cmd = new SqlCommand(sql, conn);
                             cmd.ExecuteNonQuery();
                             conn.Close();
 
@@ -159,7 +160,7 @@ namespace POS_and_Inventory_System
                             conn.Open();
                             string sql1 = "UPDATE tblStockIn SET qty=qty + " + int.Parse(dgvStocks.Rows[i].Cells[5].Value.ToString()) +
                                 ", status='Done' WHERE id LIKE '" + dgvStocks.Rows[i].Cells[1].Value.ToString() + "'";
-                            cmd = new SqlCommand(sql1, conn);
+                            //cmd = new SqlCommand(sql1, conn);
                             cmd.ExecuteNonQuery();
                             conn.Close();
                         }
@@ -183,7 +184,7 @@ namespace POS_and_Inventory_System
                 if (MessageBox.Show("Remove this item", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
-                    cmd = new SqlCommand("DELETE FROM tblStockIn WHERE id = '" + dgvStocks.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", conn);
+                    //cmd = new SqlCommand("DELETE FROM tblStockIn WHERE id = '" + dgvStocks.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Item has been successfully removed.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

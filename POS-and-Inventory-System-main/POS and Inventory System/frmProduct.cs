@@ -17,34 +17,48 @@ namespace POS_and_Inventory_System
             InitializeComponent();
             conn = new MySqlConnection(dbconn.MyConnection());
             fList = frm;
-
+            LoadCategory();
         }
 
         public void LoadCategory() // calls in other place outside this form use to fill combobox
         {
+            cmbStatus.Items.Clear();
+            cmbType.Items.Clear();
+
             cmbType.Items.Add("iPhone");
             cmbType.Items.Add("iPad");
             cmbType.Items.Add("MacBook");
             cmbType.Items.Add("Accessories");
 
             cmbStatus.Items.Add("active");
+            cmbStatus.Items.Add("incoming");
             cmbStatus.Items.Add("inactive");
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            // Declare transaction outside try block so we can access it in catch
+            MySqlTransaction transaction = null;
+
             try
             {
                 if (MessageBox.Show("Are you sure you want to save this product?", "Save Product",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
+                    // Start a local transaction
+                    transaction = conn.BeginTransaction();
 
-                    string sql2 = @"
-                        INSERT INTO products (sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description) 
-                        VALUES (@sku, @name, @type, @model, @generation, @release_date, @price, @color, @storage, @specifications, @status, @description)
-                    ";
-                    cmd = new MySqlCommand(sql2, conn);
+                    // 1. INSERT PRODUCT AND GET THE NEW ID
+                    // We add "; SELECT LAST_INSERT_ID();" to the end of the query
+                    string sqlProduct = @"
+                INSERT INTO products (sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description) 
+                VALUES (@sku, @name, @type, @model, @generation, @release_date, @price, @color, @storage, @specifications, @status, @description);
+                SELECT LAST_INSERT_ID();";
+
+                    cmd = new MySqlCommand(sqlProduct, conn);
+                    cmd.Transaction = transaction; // Important: Link command to transaction
+
                     cmd.Parameters.AddWithValue("@sku", txtPCode.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
                     cmd.Parameters.AddWithValue("@type", cmbType.Text);
@@ -55,20 +69,49 @@ namespace POS_and_Inventory_System
                     cmd.Parameters.AddWithValue("@color", txtColor.Text);
                     cmd.Parameters.AddWithValue("@storage", txtStorage.Text);
                     cmd.Parameters.AddWithValue("@specifications", txtSpecific.Text);
-                    cmd.Parameters.AddWithValue("@status", "active");
+                    cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                     cmd.Parameters.AddWithValue("@description", txtDescription.Text);
 
-                    cmd.ExecuteNonQuery();
+                    // ExecuteScalar returns the first column of the first row (our ID)
+                    int newProductId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    // 2. INSERT INTO INVENTORY
+                    // I am assuming you have a textbox for stock called 'txtStock'. 
+                    // If not, replace Convert.ToInt32(txtStock.Text) with your default value (e.g., 0).
+                    string sqlInventory = "INSERT INTO inventory (product_id, stock) VALUES (@product_id, @stock)";
+
+                    using (MySqlCommand cmdInv = new MySqlCommand(sqlInventory, conn))
+                    {
+                        cmdInv.Transaction = transaction; // Link to the same transaction
+                        cmdInv.Parameters.AddWithValue("@product_id", newProductId);
+
+                        // CHANGE THIS: Ensure txtStock exists, or set a default value like 0
+                        int stockValue = 0;
+                        if (!string.IsNullOrEmpty(numericUpDown1.Value.ToString()))
+                        {
+                            stockValue = Convert.ToInt32(numericUpDown1.Value.ToString());
+                        }
+                        cmdInv.Parameters.AddWithValue("@stock", stockValue);
+
+                        cmdInv.ExecuteNonQuery();
+                    }
+
+                    // If we reached here, both inserts worked. Commit the changes.
+                    transaction.Commit();
                     conn.Close();
-                    MessageBox.Show("Product has been success saved.", "Product Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Product and Inventory saved successfully.", "Product Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     fList.LoadRecords();
-
-
                 }
             }
             catch (Exception ex)
             {
+                // If an error occurred, cancel the transaction so no partial data is saved
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
                 conn.Close();
                 MessageBox.Show(ex.Message);
             }
@@ -91,50 +134,37 @@ namespace POS_and_Inventory_System
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
+            MySqlTransaction transaction = null;
+
             try
             {
-                if (MessageBox.Show("Are you sure you want to update this product?", "Save Product", 
+                if (MessageBox.Show("Are you sure you want to update this product?", "Update Product",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string bid = "";
-                    string cid = "";
                     conn.Open();
-                    //string sql = "SELECT id FROM tblBrand WHERE brand LIKE '" + cboBrand.Text + "'";
-                    //cmd = new SqlCommand(sql, conn);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) bid = dr[0].ToString();
-                    dr.Close();
-                    conn.Close();
+                    transaction = conn.BeginTransaction();
 
-                    conn.Open();
-                    //string sql1 = "SELECT id FROM tblCategory WHERE category LIKE '" + cboCategory.Text + "'";
-                    //cmd = new SqlCommand(sql1, conn);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) cid = dr[0].ToString();
-                    dr.Close();
-                    conn.Close();
+                    // 1. UPDATE PRODUCT
+                    // We use 'UPDATE' instead of 'INSERT ... ON DUPLICATE KEY' because this is strictly an Update button.
+                    // We use the SKU (txtPCode) to find the record to update.
+                    string sqlProduct = @"
+                UPDATE products 
+                SET name = @name, 
+                    type = @type, 
+                    model = @model, 
+                    generation = @generation, 
+                    release_date = @release_date, 
+                    price = @price, 
+                    color = @color, 
+                    storage = @storage, 
+                    specifications = @specifications, 
+                    status = @status, 
+                    description = @description
+                WHERE sku = @sku";
 
-                    conn.Open();
-                    string sql2 = @"
-                        INSERT INTO products (sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description) 
-                        VALUES (@sku, @name, @type, @model, @generation, @release_date, @price, @color, @storage, @specifications, @status, @description)
-                        
-                        ON DUPLICATE KEY UPDATE
-                        name = @name,
-                        type = @type,
-                        model = @model,
-                        generation = @generation,
-                        release_date = @release_date,
-                        price = @price,
-                        color = @color,
-                        storage = @storage,
-                        specifications = @specifications,
-                        status = @status,
-                        description = @description;
-                    ";
-                    cmd = new MySqlCommand(sql2, conn);
+                    cmd = new MySqlCommand(sqlProduct, conn);
+                    cmd.Transaction = transaction; // Link to transaction
+
                     cmd.Parameters.AddWithValue("@sku", txtPCode.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
                     cmd.Parameters.AddWithValue("@type", cmbType.Text);
@@ -145,20 +175,51 @@ namespace POS_and_Inventory_System
                     cmd.Parameters.AddWithValue("@color", txtColor.Text);
                     cmd.Parameters.AddWithValue("@storage", txtStorage.Text);
                     cmd.Parameters.AddWithValue("@specifications", txtSpecific.Text);
-                    cmd.Parameters.AddWithValue("@status", "active");
+                    cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                     cmd.Parameters.AddWithValue("@description", txtDescription.Text);
+
                     cmd.ExecuteNonQuery();
+
+                    // 2. UPDATE INVENTORY
+                    // We use a subquery (SELECT id FROM products WHERE sku = @sku) to get the ID automatically.
+                    // This 'INSERT ... ON DUPLICATE KEY UPDATE' ensures that if the inventory row 
+                    // is missing for some reason, it creates it. If it exists, it updates it.
+                    string sqlInventory = @"
+                INSERT INTO inventory (product_id, stock) 
+                VALUES ((SELECT product_id FROM products WHERE sku = @sku), @stock)
+                ON DUPLICATE KEY UPDATE stock = @stock";
+
+                    using (MySqlCommand cmdInv = new MySqlCommand(sqlInventory, conn))
+                    {
+                        cmdInv.Transaction = transaction;
+                        cmdInv.Parameters.AddWithValue("@sku", txtPCode.Text);
+
+                        // Handle Stock input safely
+                        int stockValue = 0;
+                        if (!string.IsNullOrEmpty(numericUpDown1.Value.ToString()))
+                        {
+                            stockValue = Convert.ToInt32(numericUpDown1.Value.ToString());
+                        }
+                        cmdInv.Parameters.AddWithValue("@stock", stockValue);
+
+                        cmdInv.ExecuteNonQuery();
+                    }
+
+                    // Commit changes
+                    transaction.Commit();
                     conn.Close();
-                    MessageBox.Show("Product has been successfully updated.", "Product Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Product and Inventory successfully updated.", "Product Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     fList.LoadRecords();
-                    Dispose();
+                    this.Dispose(); // Close the form after update
                 }
             }
             catch (Exception ex)
             {
+                if (transaction != null) transaction.Rollback();
                 conn.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -186,7 +247,7 @@ namespace POS_and_Inventory_System
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
-            if (txtPCode.Text.ToString() != "") fillData(); // if the sku is filled, fill the data for updating
+            //if (txtPCode.Text.ToString() != "") fillData(); // if the sku is filled, fill the data for updating
         }
 
         public void fillData() //call when updating to fill the fields
@@ -195,8 +256,9 @@ namespace POS_and_Inventory_System
             {
                 conn.Open();
                 string sql = @"
-                    SELECT sku, name, type, model, generation, release_date, price, color, storage, specifications, status, description
-                    FROM products
+                    SELECT p.sku, p.name, p.type, p.model, p.generation, p.release_date, p.price, p.color, p.storage, p.specifications, p.status, p.description, IFNULL(i.stock, 0) as stock
+                    FROM products as p
+                    LEFT JOIN inventory as i ON i.product_id = p.product_id
                     WHERE sku = @sku
                     LIMIT 1;
                 ";
@@ -216,6 +278,8 @@ namespace POS_and_Inventory_System
                     txtStorage.Text = dr["storage"].ToString();
                     txtSpecific.Text = dr["specifications"].ToString();
                     txtDescription.Text = dr["description"].ToString();
+                    numericUpDown1.Value = Convert.ToInt32(dr["stock"].ToString());
+                    cmbStatus.Text = dr["status"].ToString();
 
                     // safe date handling
                     if (DateTime.TryParse(dr["release_date"].ToString(), out DateTime date))

@@ -1,20 +1,21 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace POS_and_Inventory_System
 {
     public partial class frmSearchProductStockIn : Form
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        MySqlConnection conn = new MySqlConnection();
+        MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
-        SqlDataReader dr;
+        MySqlDataReader dr;
         frmStockIn fList;
         public frmSearchProductStockIn(frmStockIn _fList)
         {
             InitializeComponent();
-            conn = new SqlConnection(dbconn.MyConnection());
+            conn = new MySqlConnection(dbconn.MyConnection());
             fList = _fList;
         }
 
@@ -26,7 +27,7 @@ namespace POS_and_Inventory_System
                 dgvProductList.Rows.Clear();
                 conn.Open();
                 string sql = "SELECT pcode, pdesc, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearch.Text + "%' ORDER BY pdesc";
-                cmd = new SqlCommand(sql, conn);
+                //cmd = new MySqlCommand(sql, conn);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -67,7 +68,7 @@ namespace POS_and_Inventory_System
                     conn.Open();
                     string sql = "INSERT INTO tblStockIn (refno, pcode, sdate, qty, stockInBy, status, vendorId) VALUES " +
                         "(@refno, @pcode, @sdate, @qty, @stockInBy, @status, @vendorId)";
-                    cmd = new SqlCommand(sql, conn);
+                    //cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@refno", fList.txtRefNo.Text);
                     cmd.Parameters.AddWithValue("@pcode", dgvProductList.Rows[e.RowIndex].Cells[1].Value.ToString());
                     cmd.Parameters.AddWithValue("@sdate", fList.dtStockInDate.Value);
