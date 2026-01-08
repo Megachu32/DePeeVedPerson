@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -68,14 +68,15 @@
             this.lblProduct = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtSalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
+            this.dtDashboardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selldateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtSalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
+            this.saleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDashboardBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -655,14 +657,14 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.CausesValidation = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customeridDataGridViewTextBoxColumn,
@@ -670,56 +672,15 @@
             this.subtotalDataGridViewTextBoxColumn,
             this.taxDataGridViewTextBoxColumn,
             this.totalDataGridViewTextBoxColumn,
-            this.idDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.dtSalesBindingSource;
+            this.saleidDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.dtDashboardBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(0, 151);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(984, 410);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // customeridDataGridViewTextBoxColumn
-            // 
-            this.customeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id";
-            this.customeridDataGridViewTextBoxColumn.HeaderText = "customer_id";
-            this.customeridDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customeridDataGridViewTextBoxColumn.Name = "customeridDataGridViewTextBoxColumn";
-            // 
-            // selldateDataGridViewTextBoxColumn
-            // 
-            this.selldateDataGridViewTextBoxColumn.DataPropertyName = "sell_date";
-            this.selldateDataGridViewTextBoxColumn.HeaderText = "sell_date";
-            this.selldateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.selldateDataGridViewTextBoxColumn.Name = "selldateDataGridViewTextBoxColumn";
-            // 
-            // subtotalDataGridViewTextBoxColumn
-            // 
-            this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "subtotal";
-            this.subtotalDataGridViewTextBoxColumn.HeaderText = "subtotal";
-            this.subtotalDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
-            // 
-            // taxDataGridViewTextBoxColumn
-            // 
-            this.taxDataGridViewTextBoxColumn.DataPropertyName = "tax";
-            this.taxDataGridViewTextBoxColumn.HeaderText = "tax";
-            this.taxDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.taxDataGridViewTextBoxColumn.Name = "taxDataGridViewTextBoxColumn";
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "total";
-            this.totalDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dtSalesBindingSource
             // 
@@ -730,6 +691,49 @@
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtDashboardBindingSource
+            // 
+            this.dtDashboardBindingSource.DataMember = "dtDashboard";
+            this.dtDashboardBindingSource.DataSource = this.dataSet1;
+            // 
+            // customeridDataGridViewTextBoxColumn
+            // 
+            this.customeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id";
+            this.customeridDataGridViewTextBoxColumn.HeaderText = "customer_id";
+            this.customeridDataGridViewTextBoxColumn.Name = "customeridDataGridViewTextBoxColumn";
+            // 
+            // selldateDataGridViewTextBoxColumn
+            // 
+            this.selldateDataGridViewTextBoxColumn.DataPropertyName = "sell_date";
+            this.selldateDataGridViewTextBoxColumn.HeaderText = "sell_date";
+            this.selldateDataGridViewTextBoxColumn.Name = "selldateDataGridViewTextBoxColumn";
+            // 
+            // subtotalDataGridViewTextBoxColumn
+            // 
+            this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "subtotal";
+            this.subtotalDataGridViewTextBoxColumn.HeaderText = "subtotal";
+            this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
+            // 
+            // taxDataGridViewTextBoxColumn
+            // 
+            this.taxDataGridViewTextBoxColumn.DataPropertyName = "tax";
+            this.taxDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.taxDataGridViewTextBoxColumn.HeaderText = "tax";
+            this.taxDataGridViewTextBoxColumn.Name = "taxDataGridViewTextBoxColumn";
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            // 
+            // saleidDataGridViewTextBoxColumn
+            // 
+            this.saleidDataGridViewTextBoxColumn.DataPropertyName = "sale_id";
+            this.saleidDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.saleidDataGridViewTextBoxColumn.HeaderText = "sale_id";
+            this.saleidDataGridViewTextBoxColumn.Name = "saleidDataGridViewTextBoxColumn";
             // 
             // frmDashboard
             // 
@@ -744,6 +748,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -760,6 +765,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDashboardBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -802,14 +808,15 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource dtSalesBindingSource;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource dtDashboardBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn customeridDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn selldateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn taxDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource dtSalesBindingSource;
-        private DataSet1 dataSet1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleidDataGridViewTextBoxColumn;
     }
 }
 

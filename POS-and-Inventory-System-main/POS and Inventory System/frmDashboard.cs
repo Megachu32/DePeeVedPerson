@@ -13,6 +13,7 @@ namespace POS_and_Inventory_System
         //SqlCommand cmd;
         //SqlDataReader dr;
 
+        DataSet1 ds = new DataSet1();
         MySqlConnection conn = new MySqlConnection();
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader dr;
@@ -132,6 +133,33 @@ namespace POS_and_Inventory_System
             frmAdjustment frm = new frmAdjustment(this);
             frm.txtUser.Text = lblName.Text;
             frm.ShowDialog();
+        }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+            loadDataGridView();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void loadDataGridView()
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT customer_id,sale_date AS 'sell_date',subtotal,tax,total,sale_id FROM sales";
+                cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds.dtDashboard);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
