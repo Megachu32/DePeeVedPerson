@@ -51,6 +51,14 @@ namespace POS_and_Inventory_System
             }
         }
 
+        private int doubleToInt(double input)
+        {
+            int result;
+            result = Convert.ToInt32(input);
+
+            return result;
+        }
+
         private void Btn7_Click(object sender, EventArgs e) 
             => txtCash.Text += btn7.Text;
 
@@ -95,9 +103,21 @@ namespace POS_and_Inventory_System
             try
             {
                 // 1. Initial Validation
-                if (!double.TryParse(lblChange.Text, out double changeVal) || changeVal < 0)
+                //if (!double.TryParse(lblChange.Text, out double changeVal) || changeVal < 0)
+                //{
+                //    MessageBox.Show("Insufficient Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+
+                /*
+                 step:  read if text is value
+                        calculate if the resulting number is negative
+                        if negative, show warning and exit
+                 */
+
+                if (!double.TryParse(lblChange.Text, out double changeVal) || doubleToInt(change)<0)
                 {
-                    MessageBox.Show("Insufficient Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid Cash Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -409,5 +429,6 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Dispose();
+
     }
 }
