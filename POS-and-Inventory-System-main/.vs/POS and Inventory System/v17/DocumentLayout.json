@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|c:\\users\\vince\\onedrive\\documents\\github\\dapeevedperson\\depeevedperson\\pos-and-inventory-system-main\\pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\crystalreport1.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
       "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\crystalreport1.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|solutionrelative:pos and inventory system\\frmsettle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A40E552A-C2E9-40CB-8D8D-5D65E854DCEC}|POS and Inventory System\\POS and Inventory System.csproj|C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\pos and inventory system\\frmsettle.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -186,7 +186,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -217,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmSettle.cs [Design]",
               "DocumentMoniker": "C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSettle.cs",
               "RelativeDocumentMoniker": "POS and Inventory System\\frmSettle.cs",
@@ -252,19 +252,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "frmSettle.cs",
               "DocumentMoniker": "C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSettle.cs",
               "RelativeDocumentMoniker": "POS and Inventory System\\frmSettle.cs",
               "ToolTip": "C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\frmSettle.cs",
               "RelativeToolTip": "POS and Inventory System\\frmSettle.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAwwHQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAnwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T04:22:25.18Z"
+              "WhenOpened": "2025-11-17T04:22:25.18Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CrystalReport1.rpt",
               "DocumentMoniker": "C:\\Users\\vince\\OneDrive\\Documents\\GitHub\\DaPeevedPerson\\DePeeVedPerson\\POS-and-Inventory-System-main\\POS and Inventory System\\CrystalReport1.rpt",
               "RelativeDocumentMoniker": "POS and Inventory System\\CrystalReport1.rpt",

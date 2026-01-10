@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,8 +31,15 @@ namespace POS_and_Inventory_System
 
         private void TxtCash_TextChanged(object sender, EventArgs e)
         {
-            sale = Convert.ToDouble(fpos.lblSalesTotal.Text);
-            cash = Convert.ToDouble(txtCash.Text);
+            //safely extract text to avoid error/crashing
+
+            //sale = Convert.ToDouble(fpos.lblSalesTotal.Text);
+            double.TryParse(fpos.lblSalesTotal.Text, out sale);
+            //cash = Convert.ToDouble(txtCash.Text);
+            if (!double.TryParse(txtCash.Text, out cash))
+            {
+                cash = 0;
+            }
             change = cash - sale;
             try
             {
@@ -54,7 +62,8 @@ namespace POS_and_Inventory_System
         private int doubleToInt(double input)
         {
             int result;
-            result = Convert.ToInt32(input);
+
+                result = Convert.ToInt32(input);
 
             return result;
         }
