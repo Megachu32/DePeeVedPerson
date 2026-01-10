@@ -42,7 +42,9 @@ namespace POS_and_Inventory_System
                     p.name AS NAME,
                     p.type AS TYPE,
                     p.model AS model,
+                    p.release_date AS 'RELEASE_DATE',
                     p.status AS STATUS,
+                    p.color AS COLOR,
                     COALESCE(i.stock, 0) AS stock,
                     p.price AS price
                 FROM products p
@@ -97,6 +99,16 @@ namespace POS_and_Inventory_System
             => Dispose();
 
         private void txtSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtProductsViewBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtProductsBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }

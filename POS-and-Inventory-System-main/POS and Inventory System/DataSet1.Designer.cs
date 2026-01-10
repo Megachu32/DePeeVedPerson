@@ -4426,6 +4426,10 @@ namespace POS_and_Inventory_System {
             
             private global::System.Data.DataColumn columnstock;
             
+            private global::System.Data.DataColumn columncolor;
+            
+            private global::System.Data.DataColumn columnrelease_date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dtProductsViewDataTable() {
@@ -4525,6 +4529,22 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn colorColumn {
+                get {
+                    return this.columncolor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn release_dateColumn {
+                get {
+                    return this.columnrelease_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4560,7 +4580,7 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtProductsViewRow AdddtProductsViewRow(string sku, string name, string type, string model, string status, int price, short id, string stock) {
+            public dtProductsViewRow AdddtProductsViewRow(string sku, string name, string type, string model, string status, int price, short id, string stock, string color, System.DateTime release_date) {
                 dtProductsViewRow rowdtProductsViewRow = ((dtProductsViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         sku,
@@ -4570,7 +4590,9 @@ namespace POS_and_Inventory_System {
                         status,
                         price,
                         id,
-                        stock};
+                        stock,
+                        color,
+                        release_date};
                 rowdtProductsViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtProductsViewRow);
                 return rowdtProductsViewRow;
@@ -4601,6 +4623,8 @@ namespace POS_and_Inventory_System {
                 this.columnprice = base.Columns["price"];
                 this.columnid = base.Columns["id"];
                 this.columnstock = base.Columns["stock"];
+                this.columncolor = base.Columns["color"];
+                this.columnrelease_date = base.Columns["release_date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4622,6 +4646,10 @@ namespace POS_and_Inventory_System {
                 base.Columns.Add(this.columnid);
                 this.columnstock = new global::System.Data.DataColumn("stock", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstock);
+                this.columncolor = new global::System.Data.DataColumn("color", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncolor);
+                this.columnrelease_date = new global::System.Data.DataColumn("release_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrelease_date);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8390,6 +8418,38 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string color {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtProductsView.colorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'color\' in table \'dtProductsView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtProductsView.colorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime release_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabledtProductsView.release_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'release_date\' in table \'dtProductsView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtProductsView.release_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsskuNull() {
                 return this.IsNull(this.tabledtProductsView.skuColumn);
             }
@@ -8482,6 +8542,30 @@ namespace POS_and_Inventory_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetstockNull() {
                 this[this.tabledtProductsView.stockColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscolorNull() {
+                return this.IsNull(this.tabledtProductsView.colorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcolorNull() {
+                this[this.tabledtProductsView.colorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isrelease_dateNull() {
+                return this.IsNull(this.tabledtProductsView.release_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setrelease_dateNull() {
+                this[this.tabledtProductsView.release_dateColumn] = global::System.Convert.DBNull;
             }
         }
         
