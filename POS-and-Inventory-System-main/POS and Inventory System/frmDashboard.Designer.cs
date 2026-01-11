@@ -326,7 +326,7 @@
             this.btnStockIn.Text = "     Preorder List";
             this.btnStockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStockIn.UseVisualStyleBackColor = false;
-            this.btnStockIn.Click += new System.EventHandler(this.BtnStockIn_Click);
+            this.btnStockIn.Click += new System.EventHandler(this.btnStockIn_Click_1);
             // 
             // btnStaff
             // 
@@ -349,7 +349,7 @@
             this.btnStaff.Text = "     Staff";
             this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStaff.UseVisualStyleBackColor = false;
-            this.btnStaff.Click += new System.EventHandler(this.BtnStaff_Click);
+            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click_1);
             // 
             // btnAdjust
             // 
