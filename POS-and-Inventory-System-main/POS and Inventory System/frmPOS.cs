@@ -428,6 +428,11 @@ namespace POS_and_Inventory_System
             comboBox3.Items.Add("cash");
             comboBox3.Items.Add("credit card");
             comboBox3.Items.Add("e-wallet");
+
+            if (dgvBrandList.Rows.Count > 0) return;
+            GetTransNo();
+            txtSearch.Enabled = true;
+            txtSearch.Focus();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)

@@ -222,6 +222,11 @@ namespace POS_and_Inventory_System
                                 pCmd.Parameters.AddWithValue("@productid", productid);
                                 object statusObj = pCmd.ExecuteScalar();
                                 status = statusObj != null ? statusObj.ToString() : "";
+                                if(status == "incoming")
+                                {
+                                    //frmUserregis frm = frmUserregis(fpos);
+                                    //frm.Show();
+                                }
                             }
 
                             // 2. Preorder Logic
@@ -263,7 +268,21 @@ namespace POS_and_Inventory_System
 
                             // 4. Discount Lookup (Standard Logic)
                             decimal discAmt = 0;
-                            // ... (Your existing discount logic here) ...
+                            string discSql = "SELECT discount_percentage FROM discounts WHERE product_id = @productid AND is_active=1 LIMIT 1";
+
+                            using (MySqlCommand dCmd = new MySqlCommand(discSql, conn, trans))
+
+                            {
+
+                                dCmd.Parameters.AddWithValue("@productid", productid);
+
+                                object dRes = dCmd.ExecuteScalar();
+
+                                if (dRes != null && dRes != DBNull.Value)
+
+                                    discAmt = (price * qty) * (Convert.ToDecimal(dRes) / 100);
+
+                            }
 
                             // 5. Insert Sale Item
                             // We insert the price exactly as it is in the cart (The 50% amount)
@@ -288,6 +307,267 @@ namespace POS_and_Inventory_System
                         trans.Rollback();
                         throw;
                     }
+
+
+
+
+                    // testing
+
+
+
+                    DataSet1 ds = fpos.ds;
+
+
+
+                    // 1. Open Connection (if not already open)
+
+                    if (conn.State == ConnectionState.Closed) conn.Open();
+
+
+
+                    // 2. The Header Query (Updated to use specific ID)
+
+                    string sql = @"
+
+            SELECT 
+
+                st.name AS staff_name,
+
+                c.name AS customer_name,
+
+                s.customer_ref AS customer_ref,
+
+                /* Generates Invoice No: YYYYMMDD + 4-digit padded Customer ID */
+
+                CONCAT(DATE_FORMAT(s.sale_date, '%Y%m%d'), LPAD(s.customer_id, 4, '0')) AS invoice_no,
+
+                DATE(s.sale_date) AS DATE,
+
+                TIME(s.sale_date) AS TIME,
+
+                str.store_name,
+
+                str.store_address AS store_location,
+
+                str.company_name,
+
+                str.company_location,
+
+                str.customer_service_phone AS cs_number,
+
+                s.payment_method,
+
+                s.purchase_type,
+
+                s.order_mode,
+
+                s.store_id,
+
+                s.sale_id, /* Ensure this is selected so we can map it */
+
+                s.total AS total_amount,
+
+                (SELECT SUM(quantity) FROM sale_items WHERE sale_id = s.sale_id) AS total_items
+
+            FROM sales s
+
+            JOIN customers c ON s.customer_id = c.customer_id
+
+            LEFT JOIN stores str ON s.store_id = str.store_id
+
+            /* FIX: Link the staff correctly. If sales table has no staff_id, pass it as a parameter instead */
+
+            LEFT JOIN staff st ON st.staff_id = @staffIdParam
+
+            WHERE s.sale_id = @targetSaleId";  // <--- KEY CHANGE: Target specific ID
+
+
+
+                    // 3. Create the Header Adapter & Temp Table
+
+                    DataTable dtTempHeader = new DataTable();
+
+                    using (MySqlCommand cmdHeader = new MySqlCommand(sql, conn))
+
+                    {
+
+                        // Pass the ID we generated during the INSERT phase
+
+                        cmdHeader.Parameters.AddWithValue("@targetSaleId", realSaleId);
+
+                        // Pass the staff ID (assuming fpos.staffId exists)
+
+                        cmdHeader.Parameters.AddWithValue("@staffIdParam", fpos.staffId);
+
+
+
+                        using (MySqlDataAdapter daInvoice = new MySqlDataAdapter(cmdHeader))
+
+                        {
+
+                            daInvoice.Fill(dtTempHeader);
+
+                        }
+
+                    }
+
+
+
+                    if (dtTempHeader.Rows.Count > 0)
+
+                    {
+
+                        // 4. Import the Header Row
+
+                        // Clear old data first to be safe
+
+                        ds.Tables["dtInvoice"].Clear();
+
+                        // ImportRow is great: it ignores columns that exist in SQL but not in your Dataset
+
+                        ds.Tables["dtInvoice"].ImportRow(dtTempHeader.Rows[0]);
+
+
+
+                        // 5. Fetch the Items
+
+                        string checkOutSql = @"
+
+                SELECT 
+
+                    si.product_id,
+
+                    p.name,
+
+                    si.quantity AS qty,
+
+                    si.unit_price AS price,
+
+                    IFNULL(d.discount_percentage,0) AS discount_percentage,
+
+                    si.discount_amount AS discount,
+
+                    (si.quantity * si.unit_price) AS total,
+
+                    (si.quantity * si.unit_price) - si.discount_amount AS total_after,
+
+                    si.sale_id,
+
+                    s.store_id,
+
+                    s.order_mode
+
+                FROM sale_items si
+
+                JOIN products p ON si.product_id = p.product_id
+
+                JOIN sales s ON si.sale_id = s.sale_id
+
+                LEFT JOIN discounts d ON d.product_id = si.product_id
+
+                WHERE si.sale_id = @lastSaleId";
+
+
+
+                        using (MySqlCommand cmdItems = new MySqlCommand(checkOutSql, conn))
+
+                        {
+
+                            cmdItems.Parameters.AddWithValue("@lastSaleId", realSaleId);
+
+
+
+                            using (MySqlDataAdapter daItems = new MySqlDataAdapter(cmdItems))
+
+                            {
+
+                                // Clear old items from the "cart" view so we only print what we just bought
+
+                                ds.Tables["dtCheckOut"].Clear();
+
+                                daItems.Fill(ds.Tables["dtCheckOut"]);
+
+                            }
+
+                        }
+
+
+
+                        // 6. Now you are ready to show the report!
+
+
+
+                        // this is for non direct printing
+
+
+
+                        //// 2. Instantiate Report
+
+                        //CrystalReport1 myReport = new CrystalReport1();
+
+
+
+                        //// 3. Pass the WHOLE Dataset (Contains dtInvoice AND dtCheckOut)
+
+                        //myReport.SetDataSource(fpos.ds);
+
+
+
+                        //// 4. Show Report
+
+                        //using (frmReportViewer viewerForm = new frmReportViewer())
+
+                        //{
+
+                        //    viewerForm.crystalReportViewer1.ReportSource = myReport;
+
+                        //    viewerForm.ShowDialog();
+
+                        //}
+
+
+
+
+
+                        //this is for direcrt printing
+
+                        CrystalReport1 myReport = new CrystalReport1();
+
+
+
+                        // 1. Pass the Dataset
+
+                        myReport.SetDataSource(fpos.ds);
+
+
+
+                        // 2. (Optional) Specify a specific printer name
+
+                        // If you don't set this, it prints to the Windows Default Printer
+
+                        // myReport.PrintOptions.PrinterName = "EPSON TM-T82 Receipt"; 
+
+
+
+                        // 3. Print Directly
+
+                        // Parameters: (Copies, Collated, StartPage, EndPage)
+
+                        // 0, 0 means "Print All Pages"
+
+                        myReport.PrintToPrinter(1, false, 0, 0);
+
+
+
+                        // 5. Cleanup
+
+                        fpos.ds.Tables["dtInvoice"].Clear();
+
+                        fpos.ds.Tables["dtCheckOut"].Clear();
+
+
+
+                    }
                 }
             }
             catch (Exception ex)
@@ -300,6 +580,13 @@ namespace POS_and_Inventory_System
             }
 
             MessageBox.Show("Payment Successfully Saved!", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            fpos.btnClearCart.Enabled = false;
+            fpos.btnSetPayment.Enabled = false;
+
+            if (fpos.dgvBrandList.Rows.Count > 0) return;
+            fpos.GetTransNo();
+            fpos.txtSearch.Enabled = true;
+            fpos.txtSearch.Focus();
             this.Dispose();
         }
 

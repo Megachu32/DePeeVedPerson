@@ -46,7 +46,9 @@ namespace POS_and_Inventory_System
                     p.status AS STATUS,
                     p.color AS COLOR,
                     COALESCE(i.stock, 0) AS stock,
-                    p.price AS price
+                    p.price AS price,
+                    p.storage AS storage,
+                    p.specifications AS specifications
                 FROM products p
                 LEFT JOIN inventory i
                     ON i.product_id = p.product_id

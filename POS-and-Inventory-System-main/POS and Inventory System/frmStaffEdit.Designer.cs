@@ -88,7 +88,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
@@ -241,8 +241,6 @@
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker1);
-            //this.Controls.Add(this.txtUsername);
-            //this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cmbRole);
             this.Controls.Add(this.label10);
