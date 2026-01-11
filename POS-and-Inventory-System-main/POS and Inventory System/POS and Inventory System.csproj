@@ -236,11 +236,23 @@
     <Compile Include="frmCustomerEdit.Designer.cs">
       <DependentUpon>frmCustomerEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDiscounted.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiscounted.Designer.cs">
+      <DependentUpon>frmDiscounted.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReportViewer.Designer.cs">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreorderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreorderList.Designer.cs">
+      <DependentUpon>frmPreorderList.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStaffEdit.cs">
       <SubType>Form</SubType>
@@ -401,8 +413,14 @@
     <EmbeddedResource Include="frmCustomerEdit.resx">
       <DependentUpon>frmCustomerEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDiscounted.resx">
+      <DependentUpon>frmDiscounted.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportViewer.resx">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreorderList.resx">
+      <DependentUpon>frmPreorderList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStaffEdit.resx">
       <DependentUpon>frmStaffEdit.cs</DependentUpon>

@@ -409,11 +409,24 @@
         DKKai6CasAGqRv/AGIQvjIiP/kEDABbHr6MCsDQ5AAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="dtDashboardBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>284, 17</value>
+  <data name="printRaport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAO5JREFUOE/N
+        0k8rhFEUx/EhSd4DsbeZspilKcXC3kbJwsbSxpuQlJXZ2HgRJOF1sGRh51+y++jmjo5TwzMp+dap2zm/
+        vvc8T7fV+iuwiG7uDwVm8IxHTOV5IzCCc9zWOs2ZRmDLB0tYrufNnPsWzOIFh6HXwxOmv6YD6GAh1FUV
+        rYReOZde+dyY7fQl83Xt39Auokm85ckQvGKiv1VZdxDXuMnNwEn8Rzt5WjnDaK1Bl21HUTtPK7shs5eH
+        lbkoKo/vPifwgHVs1NedufuUBNlxTjXgKHuKaC2nGrCaPUU0jgNc4PKHKpl9jGXP/+EdW5mdMGH2bF0A
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="dtDashboard1BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>527, 17</value>
   </metadata>
   <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="dtDashboardBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>284, 17</value>
   </metadata>
   <metadata name="dtSalesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>116, 17</value>

@@ -1,6 +1,6 @@
 ﻿namespace POS_and_Inventory_System
 {
-    partial class frmProductList
+    partial class frmPreorderList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,35 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreorderList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductList));
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.printRaport = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
-            this.dgvProductList = new System.Windows.Forms.DataGridView();
-            this.sku = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dtProductsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvStaffList = new System.Windows.Forms.DataGridView();
+            this.dtPreoderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new POS_and_Inventory_System.DataSet1();
+            this.dtStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtProductsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.printRaport = new System.Windows.Forms.Button();
+            this.customer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.money_hold = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reserved_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pickup_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPreoderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtStaffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -72,14 +71,13 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 45);
             this.label1.TabIndex = 0;
-            this.label1.Text = "- P R O D U C T  L I S T -";
+            this.label1.Text = "- O R D E R   L I S T -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.printRaport);
-            this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Controls.Add(this.txtSearch);
@@ -89,24 +87,30 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(983, 45);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // btnAdd
+            // printRaport
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Black;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(221)))));
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(588, 10);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(135, 25);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "ADD PRODUCT";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.printRaport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.printRaport.BackColor = System.Drawing.Color.Black;
+            this.printRaport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.printRaport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.printRaport.FlatAppearance.BorderSize = 0;
+            this.printRaport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.printRaport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(32)))), ((int)(((byte)(59)))));
+            this.printRaport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printRaport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.printRaport.Image = ((System.Drawing.Image)(resources.GetObject("printRaport.Image")));
+            this.printRaport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.printRaport.Location = new System.Drawing.Point(655, 3);
+            this.printRaport.Name = "printRaport";
+            this.printRaport.Size = new System.Drawing.Size(138, 39);
+            this.printRaport.TabIndex = 13;
+            this.printRaport.Text = "Popular print";
+            this.printRaport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.printRaport.UseVisualStyleBackColor = false;
+            this.printRaport.Click += new System.EventHandler(this.printRaport_Click);
             // 
             // btnClose
             // 
@@ -137,7 +141,6 @@
             this.btnClear.Size = new System.Drawing.Size(25, 20);
             this.btnClear.TabIndex = 2;
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // txtSearch
             // 
@@ -174,17 +177,17 @@
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
-            // dgvProductList
+            // dgvStaffList
             // 
-            this.dgvProductList.AllowUserToAddRows = false;
-            this.dgvProductList.AllowUserToDeleteRows = false;
-            this.dgvProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvStaffList.AllowUserToAddRows = false;
+            this.dgvStaffList.AllowUserToDeleteRows = false;
+            this.dgvStaffList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProductList.AutoGenerateColumns = false;
-            this.dgvProductList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProductList.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProductList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvStaffList.AutoGenerateColumns = false;
+            this.dgvStaffList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStaffList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvStaffList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,20 +195,16 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProductList.ColumnHeadersHeight = 30;
-            this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sku,
-            this.name,
-            this.type,
-            this.model,
-            this.price,
-            this.status,
-            this.stock,
-            this.Edit,
-            this.Delete});
-            this.dgvProductList.DataSource = this.dtProductsBindingSource1;
+            this.dgvStaffList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvStaffList.ColumnHeadersHeight = 30;
+            this.dgvStaffList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvStaffList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customer_name,
+            this.nameDataGridViewTextBoxColumn,
+            this.money_hold,
+            this.reserved_time,
+            this.pickup_code});
+            this.dgvStaffList.DataSource = this.dtPreoderBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -213,12 +212,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProductList.EnableHeadersVisualStyles = false;
-            this.dgvProductList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(179)))), ((int)(((byte)(206)))));
-            this.dgvProductList.Location = new System.Drawing.Point(0, 43);
-            this.dgvProductList.Name = "dgvProductList";
-            this.dgvProductList.ReadOnly = true;
+            this.dgvStaffList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvStaffList.EnableHeadersVisualStyles = false;
+            this.dgvStaffList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(179)))), ((int)(((byte)(206)))));
+            this.dgvStaffList.Location = new System.Drawing.Point(0, 43);
+            this.dgvStaffList.Name = "dgvStaffList";
+            this.dgvStaffList.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -226,101 +225,35 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProductList.RowHeadersVisible = false;
-            this.dgvProductList.RowHeadersWidth = 51;
-            this.dgvProductList.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dgvProductList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProductList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvProductList.Size = new System.Drawing.Size(983, 531);
-            this.dgvProductList.TabIndex = 3;
-            this.dgvProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductList_CellContentClick);
+            this.dgvStaffList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvStaffList.RowHeadersVisible = false;
+            this.dgvStaffList.RowHeadersWidth = 51;
+            this.dgvStaffList.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvStaffList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStaffList.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvStaffList.Size = new System.Drawing.Size(983, 531);
+            this.dgvStaffList.TabIndex = 3;
+            this.dgvStaffList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductList_CellContentClick);
             // 
-            // sku
+            // dtPreoderBindingSource
             // 
-            this.sku.DataPropertyName = "sku";
-            this.sku.HeaderText = "SKU";
-            this.sku.MinimumWidth = 6;
-            this.sku.Name = "sku";
-            this.sku.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "NAME";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // type
-            // 
-            this.type.DataPropertyName = "type";
-            this.type.HeaderText = "TYPE";
-            this.type.MinimumWidth = 6;
-            this.type.Name = "type";
-            this.type.ReadOnly = true;
-            // 
-            // model
-            // 
-            this.model.DataPropertyName = "model";
-            this.model.HeaderText = "MODEL";
-            this.model.MinimumWidth = 6;
-            this.model.Name = "model";
-            this.model.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "PRICE";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "STATUS";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            this.stock.HeaderText = "STOCK";
-            this.stock.MinimumWidth = 6;
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.DataPropertyName = "sku";
-            this.Edit.HeaderText = "EDIT";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            // 
-            // Delete
-            // 
-            this.Delete.DataPropertyName = "sku";
-            this.Delete.HeaderText = "DELETE";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            // 
-            // dtProductsBindingSource1
-            // 
-            this.dtProductsBindingSource1.DataMember = "dtProducts";
-            this.dtProductsBindingSource1.DataSource = this.dataSet1;
+            this.dtPreoderBindingSource.DataMember = "dtPreoder";
+            this.dtPreoderBindingSource.DataSource = this.dataSet1;
             // 
             // dataSet1
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtStaffBindingSource
+            // 
+            this.dtStaffBindingSource.DataMember = "dtStaff";
+            this.dtStaffBindingSource.DataSource = this.dataSet1;
+            // 
+            // dtProductsBindingSource1
+            // 
+            this.dtProductsBindingSource1.DataMember = "dtProducts";
+            this.dtProductsBindingSource1.DataSource = this.dataSet1;
             // 
             // dataSet1BindingSource
             // 
@@ -332,45 +265,65 @@
             this.dtProductsBindingSource.DataMember = "dtProducts";
             this.dtProductsBindingSource.DataSource = this.dataSet1;
             // 
-            // printRaport
+            // customer_name
             // 
-            this.printRaport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.printRaport.BackColor = System.Drawing.Color.Black;
-            this.printRaport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.printRaport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.printRaport.FlatAppearance.BorderSize = 0;
-            this.printRaport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.printRaport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(32)))), ((int)(((byte)(59)))));
-            this.printRaport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printRaport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.printRaport.Image = ((System.Drawing.Image)(resources.GetObject("printRaport.Image")));
-            this.printRaport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.printRaport.Location = new System.Drawing.Point(754, 4);
-            this.printRaport.Name = "printRaport";
-            this.printRaport.Size = new System.Drawing.Size(134, 38);
-            this.printRaport.TabIndex = 13;
-            this.printRaport.Text = "Product print";
-            this.printRaport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.printRaport.UseVisualStyleBackColor = false;
+            this.customer_name.DataPropertyName = "customer_name";
+            this.customer_name.HeaderText = "Name";
+            this.customer_name.MinimumWidth = 6;
+            this.customer_name.Name = "customer_name";
+            this.customer_name.ReadOnly = true;
             // 
-            // frmProductList
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Product Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // money_hold
+            // 
+            this.money_hold.DataPropertyName = "money_hold";
+            this.money_hold.HeaderText = "Deposit";
+            this.money_hold.MinimumWidth = 6;
+            this.money_hold.Name = "money_hold";
+            this.money_hold.ReadOnly = true;
+            // 
+            // reserved_time
+            // 
+            this.reserved_time.DataPropertyName = "reserved_time";
+            this.reserved_time.HeaderText = "Pickup Time";
+            this.reserved_time.MinimumWidth = 6;
+            this.reserved_time.Name = "reserved_time";
+            this.reserved_time.ReadOnly = true;
+            // 
+            // pickup_code
+            // 
+            this.pickup_code.DataPropertyName = "pickup_code";
+            this.pickup_code.HeaderText = "Pickup Code";
+            this.pickup_code.MinimumWidth = 6;
+            this.pickup_code.Name = "pickup_code";
+            this.pickup_code.ReadOnly = true;
+            // 
+            // frmPreorderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(26)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(983, 574);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dgvProductList);
+            this.Controls.Add(this.dgvStaffList);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmProductList";
+            this.Name = "frmPreorderList";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPreoderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtStaffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -383,22 +336,19 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClear;
         private MetroFramework.Controls.MetroTextBox txtSearch;
-        private System.Windows.Forms.DataGridView dgvProductList;
+        private System.Windows.Forms.DataGridView dgvStaffList;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAdd;
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource dataSet1BindingSource;
         private System.Windows.Forms.BindingSource dtProductsBindingSource1;
         private System.Windows.Forms.BindingSource dtProductsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sku;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.BindingSource dtStaffBindingSource;
+        private System.Windows.Forms.BindingSource dtPreoderBindingSource;
         private System.Windows.Forms.Button printRaport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customer_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn money_hold;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reserved_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pickup_code;
     }
 }
