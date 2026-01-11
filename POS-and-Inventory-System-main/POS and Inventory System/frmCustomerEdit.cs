@@ -10,10 +10,10 @@ namespace POS_and_Inventory_System
         MySqlCommand cmd = new MySqlCommand();
         DBConnection dbconn = new DBConnection();
         MySqlDataReader dr;
-        frmStaff fList;
+        frmSettle fList;
         int _staffID;
 
-        public frmCustomerEdit(frmStaff frms)
+        public frmCustomerEdit(frmSettle frms)
         {
             InitializeComponent();
             conn = new MySqlConnection(dbconn.MyConnection());
@@ -38,28 +38,48 @@ namespace POS_and_Inventory_System
                 if (MessageBox.Show("Are you sure the contact is correct?", "Save Contact",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    
                     conn.Open();
 
-                    //TODO : query plz
-                    //string sql2 = @"
-                    //    INSERT INTO staff (name, email, phone, username, role, hire_date, status) 
-                    //    VALUES (@name, @email, @phone, @username, @role, @hire_date, @status)
-                    //";
-                    //cmd = new MySqlCommand(sql2, conn);
-                    cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
-                    //cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-                    //cmd.Parameters.AddWithValue("@role", cmbRole.Text);
-                    //cmd.Parameters.AddWithValue("@hire_date", dateTimePicker1.Value);
-                    //cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
+                    // 1. The SQL Query with placeholders (@)
+                    string sql = @"UPDATE customers 
+                       SET 
+                           name = @name, 
+                           email = @email, 
+                           phone = @phone, 
+                           government_id = @govId 
+                       WHERE customer_id = @id";
 
-                    cmd.ExecuteNonQuery();
+                    // 2. Create the Command (The 'cmd')
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        // 3. Fill the placeholders with real data from your TextBoxes
+                        // (Replace 'txtName', 'txtEmail' with the actual names of your textboxes)
+                        cmd.Parameters.AddWithValue("@name", txtName.Text);
+                        cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
+                        cmd.Parameters.AddWithValue("@govId", txtGovId.Text);
+
+                        // For the ID, you likely have it saved in a variable or a label
+                        cmd.Parameters.AddWithValue("@id", fList.realCustomerId);
+
+                        // 4. EXECUTE the query
+                        // ExecuteNonQuery is used for UPDATE, INSERT, and DELETE
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Customer updated successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update failed. Customer ID not found.");
+                        }
+                    }
+
                     conn.Close();
-                    MessageBox.Show("Staff has been success saved.", "Staff Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Clear();
-                    fList.LoadRecords();
 
+                    Dispose();
 
                 }
             }

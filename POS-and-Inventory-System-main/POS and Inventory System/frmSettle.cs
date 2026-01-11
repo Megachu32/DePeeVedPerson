@@ -20,6 +20,8 @@ namespace POS_and_Inventory_System
         double cash;
         double change;
 
+        public int realCustomerId;
+
         public frmSettle(frmPOS _fpos)
         {
             InitializeComponent();
@@ -140,7 +142,7 @@ namespace POS_and_Inventory_System
                 // 2. Open Connection ONCE
                 if (conn.State == ConnectionState.Closed) conn.Open();
 
-                int realCustomerId = 0;
+                realCustomerId = 0;
                 int realStoreId = 0;
                 long realSaleId = 0;
 
@@ -199,6 +201,30 @@ namespace POS_and_Inventory_System
 
                 // --- STEP D: START TRANSACTION FOR ITEMS ---
                 DataTable dt = fpos.ds.Tables["dtCheckOut"];
+
+                bool ispreorder= false;
+                foreach (DataRow row in dt.Rows)
+                {
+
+                    string productid = row["product_id"].ToString();
+                    string status1 = "";
+
+                    // Check Product Status
+                    string temp1 = @"SELECT status FROM products where product_id = @productid";
+                    using (MySqlCommand pCmd = new MySqlCommand(temp1, conn))
+                    {
+                        pCmd.Parameters.AddWithValue("@productid", productid);
+                        object statusObj = pCmd.ExecuteScalar();
+                        status1 = statusObj != null ? statusObj.ToString() : "";
+                    }
+                    if (status1 == "incoming" && ispreorder == false)
+                    {
+                        ispreorder = true;
+                        frmCustomerEdit frmCustomerEdit = new frmCustomerEdit(this);
+                        frmCustomerEdit.ShowDialog();
+                    }
+
+                }
                 using (MySqlTransaction trans = conn.BeginTransaction())
                 {
                     try
@@ -273,6 +299,8 @@ namespace POS_and_Inventory_System
                                         // Capture the ID for the Receipt link
                                         existingPreorderId = pCmd.LastInsertedId;
                                     }
+
+
                                 }
                                 // B. Normal Sale (Active Item)
                                 else

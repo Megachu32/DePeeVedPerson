@@ -50,7 +50,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(12, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 16);
+            this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "EMAIL";
             // 
@@ -59,7 +59,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtEmail.Location = new System.Drawing.Point(133, 121);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(375, 23);
+            this.txtEmail.Size = new System.Drawing.Size(375, 26);
             this.txtEmail.TabIndex = 2;
             // 
             // txtName
@@ -67,7 +67,7 @@
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtName.Location = new System.Drawing.Point(133, 62);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(375, 23);
+            this.txtName.Size = new System.Drawing.Size(375, 26);
             this.txtName.TabIndex = 1;
             // 
             // label7
@@ -77,7 +77,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(12, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 16);
+            this.label7.Size = new System.Drawing.Size(55, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "NAME";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -94,7 +94,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(522, 25);
             this.label1.TabIndex = 14;
-            this.label1.Text = "- STAFFF MODULE -";
+            this.label1.Text = "- CUSTOMER MODULE -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose
@@ -118,7 +118,7 @@
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtPhone.Location = new System.Drawing.Point(136, 91);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(375, 23);
+            this.txtPhone.Size = new System.Drawing.Size(375, 26);
             this.txtPhone.TabIndex = 16;
             // 
             // label9
@@ -128,7 +128,7 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(12, 94);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 16);
+            this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 17;
             this.label9.Text = "PHONE";
             // 
@@ -170,7 +170,7 @@
             // 
             this.txtGovId.Location = new System.Drawing.Point(133, 151);
             this.txtGovId.Name = "txtGovId";
-            this.txtGovId.Size = new System.Drawing.Size(375, 22);
+            this.txtGovId.Size = new System.Drawing.Size(375, 26);
             this.txtGovId.TabIndex = 39;
             // 
             // label2
@@ -180,13 +180,13 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 154);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 16);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 40;
             this.label2.Text = "GOV ID";
             // 
             // frmCustomerEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(523, 234);
