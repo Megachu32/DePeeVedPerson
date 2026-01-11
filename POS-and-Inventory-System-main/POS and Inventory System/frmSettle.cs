@@ -393,6 +393,10 @@ namespace POS_and_Inventory_System
 
                 s.total AS total_amount,
 
+                s.paid_amount,    
+        
+                s.change_amount,
+
                 (SELECT SUM(quantity) FROM sale_items WHERE sale_id = s.sale_id) AS total_items
 
             FROM sales s

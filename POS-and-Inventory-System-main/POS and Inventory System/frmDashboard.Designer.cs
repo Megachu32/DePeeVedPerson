@@ -68,15 +68,15 @@
             this.lblProduct = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dtSalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
-            this.dtDashboardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selldateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDashboardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new POS_and_Inventory_System.DataSet1();
+            this.dtSalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -87,9 +87,9 @@
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDashboardBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -682,21 +682,6 @@
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // dtSalesBindingSource
-            // 
-            this.dtSalesBindingSource.DataMember = "dtSales";
-            this.dtSalesBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtDashboardBindingSource
-            // 
-            this.dtDashboardBindingSource.DataMember = "dtDashboard";
-            this.dtDashboardBindingSource.DataSource = this.dataSet1;
-            // 
             // customeridDataGridViewTextBoxColumn
             // 
             this.customeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id";
@@ -735,6 +720,21 @@
             this.saleidDataGridViewTextBoxColumn.HeaderText = "sale_id";
             this.saleidDataGridViewTextBoxColumn.Name = "saleidDataGridViewTextBoxColumn";
             // 
+            // dtDashboardBindingSource
+            // 
+            this.dtDashboardBindingSource.DataMember = "dtDashboard";
+            this.dtDashboardBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtSalesBindingSource
+            // 
+            this.dtSalesBindingSource.DataMember = "dtSales";
+            this.dtSalesBindingSource.DataSource = this.dataSet1;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -763,9 +763,9 @@
             this.panel1.PerformLayout();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDashboardBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSalesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
