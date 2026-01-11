@@ -45,6 +45,8 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.release_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,6 +129,8 @@
             this.nameDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
             this.modelDataGridViewTextBoxColumn,
+            this.color,
+            this.release_date,
             this.status,
             this.stock,
             this.price,
@@ -162,6 +166,7 @@
             // 
             this.dtProductsViewBindingSource.DataMember = "dtProductsView";
             this.dtProductsViewBindingSource.DataSource = this.dataSet1;
+            this.dtProductsViewBindingSource.CurrentChanged += new System.EventHandler(this.dtProductsViewBindingSource_CurrentChanged);
             // 
             // dataSet1
             // 
@@ -188,6 +193,7 @@
             // 
             this.dtProductsBindingSource.DataMember = "dtProducts";
             this.dtProductsBindingSource.DataSource = this.dataSet1;
+            this.dtProductsBindingSource.CurrentChanged += new System.EventHandler(this.dtProductsBindingSource_CurrentChanged);
             // 
             // id
             // 
@@ -223,6 +229,20 @@
             this.modelDataGridViewTextBoxColumn.HeaderText = "model";
             this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
             this.modelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // color
+            // 
+            this.color.DataPropertyName = "color";
+            this.color.HeaderText = "color";
+            this.color.Name = "color";
+            this.color.ReadOnly = true;
+            // 
+            // release_date
+            // 
+            this.release_date.DataPropertyName = "release_date";
+            this.release_date.HeaderText = "release_date";
+            this.release_date.Name = "release_date";
+            this.release_date.ReadOnly = true;
             // 
             // status
             // 
@@ -293,6 +313,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn release_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;

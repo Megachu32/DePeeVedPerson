@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,8 +31,15 @@ namespace POS_and_Inventory_System
 
         private void TxtCash_TextChanged(object sender, EventArgs e)
         {
-            sale = Convert.ToDouble(fpos.lblSalesTotal.Text);
-            cash = Convert.ToDouble(txtCash.Text);
+            //safely extract text to avoid error/crashing
+
+            //sale = Convert.ToDouble(fpos.lblSalesTotal.Text);
+            double.TryParse(fpos.lblSalesTotal.Text, out sale);
+            //cash = Convert.ToDouble(txtCash.Text);
+            if (!double.TryParse(txtCash.Text, out cash))
+            {
+                cash = 0;
+            }
             change = cash - sale;
             try
             {
@@ -49,6 +57,15 @@ namespace POS_and_Inventory_System
             {
                 MessageBox.Show(change.ToString());
             }
+        }
+
+        private int doubleToInt(double input)
+        {
+            int result;
+
+                result = Convert.ToInt32(input);
+
+            return result;
         }
 
         private void Btn7_Click(object sender, EventArgs e) 
@@ -95,10 +112,21 @@ namespace POS_and_Inventory_System
             try
             {
                 // 1. Initial Validation
-                // We parse Change here, and we also need to parse the Cash Paid for the database
-                if (!double.TryParse(lblChange.Text, out double changeVal) || changeVal < 0)
+                //if (!double.TryParse(lblChange.Text, out double changeVal) || changeVal < 0)
+                //{
+                //    MessageBox.Show("Insufficient Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+
+                /*
+                 step:  read if text is value
+                        calculate if the resulting number is negative
+                        if negative, show warning and exit
+                 */
+
+                if (!double.TryParse(lblChange.Text, out double changeVal) || doubleToInt(change)<0)
                 {
-                    MessageBox.Show("Insufficient Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid Cash Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -285,5 +313,6 @@ namespace POS_and_Inventory_System
 
         private void BtnClose_Click(object sender, EventArgs e)
             => Dispose();
+
     }
 }
