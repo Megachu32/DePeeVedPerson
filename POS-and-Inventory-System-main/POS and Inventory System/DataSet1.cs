@@ -4,6 +4,14 @@
 
     public partial class DataSet1
     {
+        partial class dtPreoderDataTable
+        {
+        }
+
+        partial class dtDashboard1DataTable
+        {
+        }
+
         partial class dtProductsViewDataTable
         {
         }

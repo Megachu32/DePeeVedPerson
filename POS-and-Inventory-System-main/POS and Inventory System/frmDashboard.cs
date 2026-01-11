@@ -70,7 +70,7 @@ namespace POS_and_Inventory_System
 
 
         private void BtnStockIn_Click(object sender, EventArgs e) 
-            => Util.ShowFormInPanel(new frmStockIn(), pnlMain);
+            => Util.ShowFormInPanel(new frmPreorderList(), pnlMain);
         private void BtnRecords_Click(object sender, EventArgs e)
         {
             frmRecords frm = new frmRecords();
@@ -129,11 +129,7 @@ namespace POS_and_Inventory_System
         }
 
         private void BtnAdjust_Click(object sender, EventArgs e)
-        {
-            frmAdjustment frm = new frmAdjustment(this);
-            frm.txtUser.Text = lblName.Text;
-            frm.ShowDialog();
-        }
+            => Util.ShowFormInPanel(new frmDiscounted(), pnlMain);       
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
@@ -150,10 +146,26 @@ namespace POS_and_Inventory_System
             try
             {
                 conn.Open();
-                string sql = "SELECT customer_id,sale_date AS 'sell_date',subtotal,tax,total,sale_id FROM sales";
+                string sql = @"
+                    SELECT
+                        p.name,
+                        SUM(s.quantity) AS total_sold,
+                        SUM(sa.total) AS money_generated
+                    FROM
+                        products AS p
+                    JOIN
+                        sale_items AS s ON s.product_id = p.product_id
+                    JOIN sales AS sa ON sa.sale_id = s.sale_id
+                    GROUP BY
+                        p.product_id
+                    ORDER BY
+                        total_sold DESC
+                    LIMIT 5;
+                ";
                 cmd = new MySqlCommand(sql, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(ds.dtDashboard);
+                adapter.Fill(ds.dtDashboard1);
+                dataGridView1.DataSource = ds.dtDashboard1;
 
             }
             catch (Exception ex)
