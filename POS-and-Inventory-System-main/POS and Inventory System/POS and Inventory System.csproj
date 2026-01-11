@@ -142,6 +142,11 @@
       <DependentUpon>CRDiscount.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRDiscount1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRDiscount.rpt</DependentUpon>
+    </Compile>
     <Compile Include="CRPreorderItem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -392,7 +397,7 @@
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="CRDiscount.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CRDiscount.cs</LastGenOutput>
+      <LastGenOutput>CRDiscount1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRPreorderItem.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
