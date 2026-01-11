@@ -4,6 +4,10 @@
 
     public partial class DataSet1
     {
+        partial class dtSoldReport1DataTable
+        {
+        }
+
         partial class dtProductsViewDataTable
         {
         }
