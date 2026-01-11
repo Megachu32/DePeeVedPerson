@@ -124,7 +124,7 @@ namespace POS_and_Inventory_System
                         if negative, show warning and exit
                  */
 
-                if (!double.TryParse(lblChange.Text, out double changeVal) || doubleToInt(change)<0)
+                if (!double.TryParse(lblChange.Text, out double changeVal) || doubleToInt(change) < 0)
                 {
                     MessageBox.Show("Invalid Cash Amount", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -207,96 +207,121 @@ namespace POS_and_Inventory_System
                         {
                             string productid = row["product_id"].ToString();
                             int qty = Convert.ToInt32(row["qty"]);
-
-                            // This 'price' is ALREADY the 50% amount because of your frmQTY logic
                             decimal price = Convert.ToDecimal(row["price"]);
 
-                            string status = "";
-                            long preorderId = 0;
-
-                            // 1. Get Status from Database 
-                            // (We still need this to know if it goes into 'preorders' table)
-                            string temp = @"SELECT status FROM products where product_id = @productid";
-                            using (MySqlCommand pCmd = new MySqlCommand(temp, conn, trans))
+                            // Check if this is an EXISTING Pre-order (Pickup)
+                            // We look for the column 'preorder_id' which we added in frmPOS
+                            long existingPreorderId = 0;
+                            if (dt.Columns.Contains("preorder_id") && row["preorder_id"] != DBNull.Value && row["preorder_id"].ToString() != "")
                             {
-                                pCmd.Parameters.AddWithValue("@productid", productid);
-                                object statusObj = pCmd.ExecuteScalar();
-                                status = statusObj != null ? statusObj.ToString() : "";
-                                if(status == "incoming")
-                                {
-                                    //frmUserregis frm = frmUserregis(fpos);
-                                    //frm.Show();
-                                }
+                                existingPreorderId = Convert.ToInt64(row["preorder_id"]);
                             }
 
-                            // 2. Preorder Logic
-                            if (status.ToLower() == "incoming")
+                            // =========================================================================
+                            // SCENARIO 1: IT IS A PICKUP (Settle existing order)
+                            // =========================================================================
+                            if (existingPreorderId > 0)
                             {
-                                string preSql = @"INSERT INTO preorders (customer_id, product_id, preorder_date, status, money_hold_amount, payment_method, pickup_code)
-                                  SELECT @cid, product_id, @date, 'order_placed', @hold, @method, @pickupCode  FROM products WHERE product_id = @productid";
-                                using (MySqlCommand pCmd = new MySqlCommand(preSql, conn, trans))
-                                {
-                                    pCmd.Parameters.AddWithValue("@cid", realCustomerId);
-                                    pCmd.Parameters.AddWithValue("@date", fpos.timeDate);
-                                    pCmd.Parameters.AddWithValue("@pickupCode", fpos.lblTransNo.Text);
-                                    // --- CRITICAL CHANGE IS HERE ---
-                                    // OLD CODE: pCmd.Parameters.AddWithValue("@hold", price * 0.50m); 
-                                    // NEW CODE: We use 'price' directly because it is already halved in frmQTY
-                                    pCmd.Parameters.AddWithValue("@hold", price);
-                                    // -------------------------------
+                                // 1. Update the OLD Pre-order Record
+                                // We set status to 'picked_up' because they are paying and taking it now.
+                                string updateSql = @"UPDATE preorders 
+                                             SET status = 'picked_up', 
+                                                 final_charge_amount = @paid, 
+                                                 pickup_date = @date 
+                                             WHERE preorder_id = @id";
 
-                                    pCmd.Parameters.AddWithValue("@method", fpos.comboBox3.Text);
+                                using (MySqlCommand upCmd = new MySqlCommand(updateSql, conn, trans))
+                                {
+                                    upCmd.Parameters.AddWithValue("@paid", price * qty); // The amount paid today
+                                    upCmd.Parameters.AddWithValue("@date", fpos.timeDate);
+                                    upCmd.Parameters.AddWithValue("@id", existingPreorderId);
+                                    upCmd.ExecuteNonQuery();
+                                }
+                            }
+                            // =========================================================================
+                            // SCENARIO 2: IT IS A NEW ITEM (Normal Sale or New Pre-order)
+                            // =========================================================================
+                            else
+                            {
+                                string status = "";
+
+                                // Check Product Status
+                                string temp = @"SELECT status FROM products where product_id = @productid";
+                                using (MySqlCommand pCmd = new MySqlCommand(temp, conn, trans))
+                                {
                                     pCmd.Parameters.AddWithValue("@productid", productid);
-                                    pCmd.ExecuteNonQuery();
-                                    preorderId = (int)pCmd.LastInsertedId;
+                                    object statusObj = pCmd.ExecuteScalar();
+                                    status = statusObj != null ? statusObj.ToString() : "";
                                 }
-                            }
 
-                            // 3. Inventory Upsert (Only for normal items)
-                            if (status.ToLower() != "incoming")
-                            {
-                                string invSql = @"INSERT INTO inventory (product_id, stock)
-                                  SELECT product_id, 0 FROM products WHERE product_id = @productid
-                                  ON DUPLICATE KEY UPDATE stock = stock - @qty";
-                                using (MySqlCommand iCmd = new MySqlCommand(invSql, conn, trans))
+                                // A. New Pre-order (Incoming Item)
+                                if (status.ToLower() == "incoming")
                                 {
-                                    iCmd.Parameters.AddWithValue("@qty", qty);
-                                    iCmd.Parameters.AddWithValue("@productid", productid);
-                                    iCmd.ExecuteNonQuery();
+                                    string preSql = @"INSERT INTO preorders (customer_id, product_id, preorder_date, status, money_hold_amount, payment_method, pickup_code, quantity)
+                                              SELECT @cid, product_id, @date, 'order_placed', @hold, @method, @pickupCode, @qty FROM products WHERE product_id = @productid";
+                                    using (MySqlCommand pCmd = new MySqlCommand(preSql, conn, trans))
+                                    {
+                                        pCmd.Parameters.AddWithValue("@cid", realCustomerId);
+                                        pCmd.Parameters.AddWithValue("@date", fpos.timeDate);
+                                        pCmd.Parameters.AddWithValue("@pickupCode", fpos.lblTransNo.Text);
+                                        pCmd.Parameters.AddWithValue("@hold", price * qty); // 50% Deposit
+                                        pCmd.Parameters.AddWithValue("@qty", qty);
+                                        pCmd.Parameters.AddWithValue("@method", fpos.comboBox3.Text);
+                                        pCmd.Parameters.AddWithValue("@productid", productid);
+                                        pCmd.ExecuteNonQuery();
+
+                                        // Capture the ID for the Receipt link
+                                        existingPreorderId = pCmd.LastInsertedId;
+                                    }
+                                }
+                                // B. Normal Sale (Active Item)
+                                else
+                                {
+                                    string invSql = @"INSERT INTO inventory (product_id, stock)
+                                              SELECT product_id, 0 FROM products WHERE product_id = @productid
+                                              ON DUPLICATE KEY UPDATE stock = stock - @qty";
+                                    using (MySqlCommand iCmd = new MySqlCommand(invSql, conn, trans))
+                                    {
+                                        iCmd.Parameters.AddWithValue("@qty", qty);
+                                        iCmd.Parameters.AddWithValue("@productid", productid);
+                                        iCmd.ExecuteNonQuery();
+                                    }
                                 }
                             }
 
-                            // 4. Discount Lookup (Standard Logic)
+                            // =========================================================================
+                            // COMMON STEP: CREATE RECEIPT RECORD (For all scenarios)
+                            // =========================================================================
+
+                            // 1. Calculate Discount (Only if it's NOT a pickup, usually discounts apply to the first sale)
                             decimal discAmt = 0;
-                            string discSql = "SELECT discount_percentage FROM discounts WHERE product_id = @productid AND is_active=1 LIMIT 1";
-
-                            using (MySqlCommand dCmd = new MySqlCommand(discSql, conn, trans))
-
+                            if (existingPreorderId == 0) // Only calculate discount for new items
                             {
-
-                                dCmd.Parameters.AddWithValue("@productid", productid);
-
-                                object dRes = dCmd.ExecuteScalar();
-
-                                if (dRes != null && dRes != DBNull.Value)
-
-                                    discAmt = (price * qty) * (Convert.ToDecimal(dRes) / 100);
-
+                                string discSql = "SELECT discount_percentage FROM discounts WHERE product_id = @productid AND is_active=1 LIMIT 1";
+                                using (MySqlCommand dCmd = new MySqlCommand(discSql, conn, trans))
+                                {
+                                    dCmd.Parameters.AddWithValue("@productid", productid);
+                                    object dRes = dCmd.ExecuteScalar();
+                                    if (dRes != null && dRes != DBNull.Value)
+                                        discAmt = (price * qty) * (Convert.ToDecimal(dRes) / 100);
+                                }
                             }
 
-                            // 5. Insert Sale Item
-                            // We insert the price exactly as it is in the cart (The 50% amount)
+                            // 2. Insert Sale Item
                             string itemSql = @"INSERT INTO sale_items (sale_id, product_id, quantity, unit_price, discount_amount, preorder_id)
-                               VALUES (@sid, @productid, @qty, @prc, @disc, @preorderid)";
+                                       VALUES (@sid, @productid, @qty, @prc, @disc, @preorderid)";
 
                             using (MySqlCommand sCmd = new MySqlCommand(itemSql, conn, trans))
                             {
                                 sCmd.Parameters.AddWithValue("@sid", realSaleId);
                                 sCmd.Parameters.AddWithValue("@qty", qty);
-                                sCmd.Parameters.AddWithValue("@prc", price); // Saves the deposit amount
+                                sCmd.Parameters.AddWithValue("@prc", price);
                                 sCmd.Parameters.AddWithValue("@disc", discAmt);
                                 sCmd.Parameters.AddWithValue("@productid", productid);
-                                sCmd.Parameters.AddWithValue("@preorderid", preorderId > 0 ? (object)preorderId : DBNull.Value);
+
+                                // Link to the correct Preorder ID (Old one for Pickups, New one for Incoming, Null for Normal)
+                                sCmd.Parameters.AddWithValue("@preorderid", existingPreorderId > 0 ? (object)existingPreorderId : DBNull.Value);
+
                                 sCmd.ExecuteNonQuery();
                             }
                         }
@@ -307,6 +332,7 @@ namespace POS_and_Inventory_System
                         trans.Rollback();
                         throw;
                     }
+
 
 
 
@@ -566,6 +592,8 @@ namespace POS_and_Inventory_System
                         fpos.ds.Tables["dtCheckOut"].Clear();
 
 
+                        fpos.btnCancelPreOrder.Visible = false;
+                        fpos.btnCancelPreOrder.Enabled = false;
 
                     }
                 }

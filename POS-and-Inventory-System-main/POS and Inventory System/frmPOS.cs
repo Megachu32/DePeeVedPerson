@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using static System.Net.Mime.MediaTypeNames;
@@ -106,44 +107,102 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                if (txtSearch.Text == string.Empty) return;
+                if (txtSearch.Text == string.Empty) 
+                {
+                    btnCancelPreOrder.Tag = null; // Clear any stored preorder ID
+
+                    btnCancelPreOrder.Visible = false;
+                    btnCancelPreOrder.Enabled = false;
+
+                    return; 
+                } 
                 else
                 {
-                    string _pcode;
-                    double _price;
-                    int _qty;
                     conn.Open();
+                    // Fixed Query: Joined with products to get name/price, and checked Status
                     string sql = @"
                         SELECT 
-                        p.product_id AS pcode,
-                        p.price AS price,
-                        i.stock AS stock
-                        FROM products AS p
-                        JOIN inventory AS i ON i.product_id = p.product_id
-                        WHERE sku LIKE @text
-                    ";
-                    cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@text", txtSearch.Text);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows)
+                            po.preorder_id,
+                            po.product_id,
+                            po.money_hold_amount,
+                            p.name,
+                            p.price,
+                            p.sku
+                        FROM preorders AS po
+                        JOIN products AS p ON po.product_id = p.product_id
+                        WHERE po.pickup_code = @text 
+                        AND po.status IN ('order_placed', 'arrived')"; // Only fetch active orders
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
+                        cmd.Parameters.AddWithValue("@text", txtSearch.Text);
 
-                        qty = int.Parse(dr["stock"].ToString()); // stock of the product in inventory
-                        _pcode = dr["pcode"].ToString(); // product id
-                        _price = double.Parse(dr["price"].ToString());
-                        _qty = int.Parse(txtQty.Text); // quantity to add
+                        using (MySqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                // 1. Get Data
+                                string productId = dr["product_id"].ToString();
+                                string productName = dr["name"].ToString();
 
-                        dr.Close();
-                        conn.Close();
+                                // Calculate Remaining Price (Normal Price / 2)
+                                // Or you can do: (Total Price - Money Hold Amount) to be safer
+                                decimal fullPrice = Convert.ToDecimal(dr["price"]);
+                                decimal paidAmount = Convert.ToDecimal(dr["money_hold_amount"]);
+                                decimal remainingPrice = fullPrice - paidAmount;
 
-                        AddToCart(_pcode, _price, _qty);
+                                // Store the ID so we can cancel/update it later
+                                string preorderId = dr["preorder_id"].ToString();
+
+                                // 2. Add to Cart (Same logic as manual add, but with remaining price)
+                                DataTable dt = ds.Tables["dtCheckOut"];
+
+                                // Check if already in cart to prevent duplicates
+                                DataRow existingRow = dt.AsEnumerable()
+                                    .FirstOrDefault(r => r["product_id"].ToString() == productId);
+
+                                if (existingRow == null)
+                                {
+                                    DataRow row = dt.NewRow();
+                                    row["product_id"] = productId;
+                                    row["name"] = productName + " (Pickup Balance)"; // Clarity for receipt
+                                    row["qty"] = 1; // Pickups are usually 1 unique order
+                                    row["price"] = remainingPrice; // This is the 50% logic you wanted
+                                    row["discount"] = 0;
+                                    row["total"] = remainingPrice;
+                                    row["order_mode"] = "pickup"; // Mark this so Settle knows what to do!
+
+                                    // You might need to add a 'preorder_id' column to your DataTable
+                                    row["preorder_id"] = preorderId;
+
+                                    dt.Rows.Add(row);
+
+                                    // Update Total Logic
+                                    object sumObj = dt.Compute("SUM(total)", "");
+                                    lblSalesTotal.Text = (sumObj != DBNull.Value) ? Convert.ToDouble(sumObj).ToString("N2") : "0.00";
+
+                                    // 3. UI Changes
+                                    btnSetPayment.Enabled = true;
+                                    btnClearCart.Enabled = true;
+
+                                    // Make the Cancel Button Appear as requested
+                                    btnCancelPreOrder.Tag = preorderId; // Store ID in the button for easy access
+                                    btnCancelPreOrder.Visible = true;
+                                    btnCancelPreOrder.Enabled = true;
+                                    dgvBrandList.DataSource = dt;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("This pre-order is already in the cart.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Pre-order not found or already completed.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
                     }
-                    else
-                    {
-                        dr.Close();
-                        conn.Close();
-                    }
+                    conn.Close();
                 }
             }
             catch (Exception ex)
@@ -438,6 +497,37 @@ namespace POS_and_Inventory_System
         private void btnCustomer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelPreOrder_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            string sql = "UPDATE preorders SET status = 'canceled' WHERE preorder_id = @id";
+            cmd = new MySqlCommand(sql, conn);
+
+            // Safe conversion in case Tag is null
+            string id = btnCancelPreOrder.Tag != null ? btnCancelPreOrder.Tag.ToString() : "0";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            // --- THIS WAS MISSING ---
+            int rowsAffected = cmd.ExecuteNonQuery();
+            // ------------------------
+
+            conn.Close();
+
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Pre-order has been canceled.");
+            }
+            else
+            {
+                MessageBox.Show("Error: Pre-order not found or could not be updated.");
+            }
+
+            btnCancelPreOrder.Visible = false;
+            btnCancelPreOrder.Enabled = false;
+            DataTable dt = ds.Tables["dtCheckOut"];
+            dt.Clear();
         }
 
         //public void insert

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
             this.lblSalesTotal = new System.Windows.Forms.Label();
             this.lblDisplayTotal = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -63,15 +63,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvBrandList = new System.Windows.Forms.DataGridView();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_mode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dtCheckOutBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet11 = new POS_and_Inventory_System.DataSet1();
             this.dtCheckOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -79,6 +72,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
+            this.btnCancelPreOrder = new System.Windows.Forms.Button();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCheckOutBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet11 = new POS_and_Inventory_System.DataSet1();
             this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.dtCheckOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel7.SuspendLayout();
@@ -87,12 +88,12 @@
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +106,7 @@
             this.lblSalesTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblSalesTotal.Location = new System.Drawing.Point(297, 9);
             this.lblSalesTotal.Name = "lblSalesTotal";
-            this.lblSalesTotal.Size = new System.Drawing.Size(36, 17);
+            this.lblSalesTotal.Size = new System.Drawing.Size(40, 20);
             this.lblSalesTotal.TabIndex = 0;
             this.lblSalesTotal.Text = "0.00";
             // 
@@ -155,7 +156,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label6.Location = new System.Drawing.Point(1064, 249);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 17);
+            this.label6.Size = new System.Drawing.Size(134, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Payment Method";
             // 
@@ -164,7 +165,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(1067, 269);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
+            this.comboBox3.Size = new System.Drawing.Size(121, 28);
             this.comboBox3.TabIndex = 10;
             // 
             // label4
@@ -175,7 +176,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label4.Location = new System.Drawing.Point(1064, 160);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 17);
+            this.label4.Size = new System.Drawing.Size(119, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Pickup Method";
             // 
@@ -184,7 +185,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(1067, 180);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.Size = new System.Drawing.Size(121, 28);
             this.comboBox2.TabIndex = 8;
             // 
             // label1
@@ -195,7 +196,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label1.Location = new System.Drawing.Point(1064, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 17);
+            this.label1.Size = new System.Drawing.Size(130, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Purchased Type";
             // 
@@ -204,7 +205,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(1067, 101);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 6;
             // 
             // panel8
@@ -227,7 +228,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(10, 78);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(76, 25);
+            this.lblDate.Size = new System.Drawing.Size(92, 31);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "label1";
             // 
@@ -238,7 +239,7 @@
             this.lblTime.ForeColor = System.Drawing.Color.White;
             this.lblTime.Location = new System.Drawing.Point(2, 2);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(292, 73);
+            this.lblTime.Size = new System.Drawing.Size(355, 91);
             this.lblTime.TabIndex = 0;
             this.lblTime.Text = "00:00:00";
             // 
@@ -246,6 +247,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.btnCancelPreOrder);
             this.panel3.Controls.Add(this.btnNew);
             this.panel3.Controls.Add(this.btnClose);
             this.panel3.Controls.Add(this.btnSearchProd);
@@ -253,7 +255,7 @@
             this.panel3.Controls.Add(this.btnSetPayment);
             this.panel3.Location = new System.Drawing.Point(1200, 33);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(164, 171);
+            this.panel3.Size = new System.Drawing.Size(164, 214);
             this.panel3.TabIndex = 5;
             // 
             // btnNew
@@ -377,7 +379,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label8.Location = new System.Drawing.Point(9, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 17);
+            this.label8.Size = new System.Drawing.Size(93, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Sales Total";
             // 
@@ -480,7 +482,7 @@
             this.lblDateNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblDateNo.Location = new System.Drawing.Point(307, 8);
             this.lblDateNo.Name = "lblDateNo";
-            this.lblDateNo.Size = new System.Drawing.Size(112, 17);
+            this.lblDateNo.Size = new System.Drawing.Size(126, 20);
             this.lblDateNo.TabIndex = 0;
             this.lblDateNo.Text = "0000000000000";
             // 
@@ -491,7 +493,7 @@
             this.lblTransNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(113)))), ((int)(((byte)(74)))));
             this.lblTransNo.Location = new System.Drawing.Point(123, 8);
             this.lblTransNo.Name = "lblTransNo";
-            this.lblTransNo.Size = new System.Drawing.Size(112, 17);
+            this.lblTransNo.Size = new System.Drawing.Size(126, 20);
             this.lblTransNo.TabIndex = 0;
             this.lblTransNo.Text = "0000000000000";
             // 
@@ -502,7 +504,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label5.Location = new System.Drawing.Point(260, 8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 17);
+            this.label5.Size = new System.Drawing.Size(45, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "Date";
             // 
@@ -513,7 +515,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label3.Location = new System.Drawing.Point(5, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 17);
+            this.label3.Size = new System.Drawing.Size(127, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Transaction No.";
             // 
@@ -576,70 +578,28 @@
             // number
             // 
             this.number.HeaderText = "#";
+            this.number.MinimumWidth = 6;
             this.number.Name = "number";
             this.number.ReadOnly = true;
-            // 
-            // product_name
-            // 
-            this.product_name.DataPropertyName = "name";
-            this.product_name.HeaderText = "name";
-            this.product_name.Name = "product_name";
-            this.product_name.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "qty";
-            this.dataGridViewTextBoxColumn1.HeaderText = "qty";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "price";
-            this.dataGridViewTextBoxColumn2.HeaderText = "price";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "discount";
-            this.dataGridViewTextBoxColumn3.HeaderText = "discount";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "total";
-            this.dataGridViewTextBoxColumn4.HeaderText = "total";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // order_mode
             // 
             this.order_mode.DataPropertyName = "order_mode";
             this.order_mode.HeaderText = "order_mode";
+            this.order_mode.MinimumWidth = 6;
             this.order_mode.Name = "order_mode";
             this.order_mode.ReadOnly = true;
             // 
             // delete
             // 
             this.delete.HeaderText = "Delete";
+            this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.delete.Text = "delete";
             this.delete.UseColumnTextForButtonValue = true;
-            // 
-            // dtCheckOutBindingSource2
-            // 
-            this.dtCheckOutBindingSource2.DataMember = "dtCheckOut";
-            this.dtCheckOutBindingSource2.DataSource = this.dataSet11;
-            // 
-            // dataSet11
-            // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -668,7 +628,7 @@
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblName.Location = new System.Drawing.Point(65, 29);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(49, 17);
+            this.lblName.Size = new System.Drawing.Size(58, 20);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Walter";
             // 
@@ -693,7 +653,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(65, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 25);
+            this.label2.Size = new System.Drawing.Size(179, 31);
             this.label2.TabIndex = 1;
             this.label2.Text = "POS System";
             // 
@@ -704,9 +664,80 @@
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblUser.Location = new System.Drawing.Point(374, 29);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(49, 17);
+            this.lblUser.Size = new System.Drawing.Size(58, 20);
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Walter";
+            // 
+            // btnCancelPreOrder
+            // 
+            this.btnCancelPreOrder.BackColor = System.Drawing.Color.Black;
+            this.btnCancelPreOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelPreOrder.Enabled = false;
+            this.btnCancelPreOrder.FlatAppearance.BorderSize = 0;
+            this.btnCancelPreOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelPreOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelPreOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.btnCancelPreOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelPreOrder.Image")));
+            this.btnCancelPreOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelPreOrder.Location = new System.Drawing.Point(3, 170);
+            this.btnCancelPreOrder.Name = "btnCancelPreOrder";
+            this.btnCancelPreOrder.Size = new System.Drawing.Size(164, 28);
+            this.btnCancelPreOrder.TabIndex = 20;
+            this.btnCancelPreOrder.Text = "     Cancel Preorder";
+            this.btnCancelPreOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelPreOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelPreOrder.UseVisualStyleBackColor = false;
+            this.btnCancelPreOrder.Click += new System.EventHandler(this.btnCancelPreOrder_Click);
+            // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "name";
+            this.product_name.HeaderText = "name";
+            this.product_name.MinimumWidth = 6;
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "qty";
+            this.dataGridViewTextBoxColumn1.HeaderText = "qty";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "price";
+            this.dataGridViewTextBoxColumn2.HeaderText = "price";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "discount";
+            this.dataGridViewTextBoxColumn3.HeaderText = "discount";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "total";
+            this.dataGridViewTextBoxColumn4.HeaderText = "total";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dtCheckOutBindingSource2
+            // 
+            this.dtCheckOutBindingSource2.DataMember = "dtCheckOut";
+            this.dtCheckOutBindingSource2.DataSource = this.dataSet11;
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataSet1
             // 
@@ -720,7 +751,7 @@
             // 
             // frmPOS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1364, 750);
@@ -744,13 +775,13 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrandList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCheckOutBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -811,5 +842,6 @@
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.ComboBox comboBox2;
         public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.Button btnCancelPreOrder;
     }
 }
