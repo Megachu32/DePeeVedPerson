@@ -146,12 +146,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRDiscount.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="CRPreorderItem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRPreorderItem.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
