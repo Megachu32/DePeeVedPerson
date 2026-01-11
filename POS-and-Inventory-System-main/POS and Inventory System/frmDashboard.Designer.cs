@@ -395,7 +395,7 @@
             this.btnProduct.Text = "     Product";
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProduct.UseVisualStyleBackColor = false;
-            this.btnProduct.Click += new System.EventHandler(this.BtnProduct_Click);
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnDashboard
             // 
@@ -453,6 +453,7 @@
             this.printRaport.Text = "Popular print";
             this.printRaport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.printRaport.UseVisualStyleBackColor = false;
+            this.printRaport.Click += new System.EventHandler(this.printRaport_Click);
             // 
             // label1
             // 
@@ -497,7 +498,7 @@
             this.lblStockOnHand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.lblStockOnHand.Location = new System.Drawing.Point(50, 5);
             this.lblStockOnHand.Name = "lblStockOnHand";
-            this.lblStockOnHand.Size = new System.Drawing.Size(83, 39);
+            this.lblStockOnHand.Size = new System.Drawing.Size(67, 31);
             this.lblStockOnHand.TabIndex = 1;
             this.lblStockOnHand.Text = "0.00";
             // 
@@ -508,7 +509,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
             this.label8.Location = new System.Drawing.Point(53, 44);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 20);
+            this.label8.Size = new System.Drawing.Size(104, 17);
             this.label8.TabIndex = 2;
             this.label8.Text = "Stock On Hand";
             // 
@@ -594,7 +595,7 @@
             // 
             // frmDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.ControlBox = false;

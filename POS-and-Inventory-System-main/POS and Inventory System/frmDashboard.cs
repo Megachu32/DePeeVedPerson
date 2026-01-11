@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using POS_and_Inventory_System.DAL;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
@@ -111,8 +112,8 @@ namespace POS_and_Inventory_System
         }
 
 
-        private void BtnProduct_Click(object sender, EventArgs e)
-           => Util.ShowFormInPanel(new frmProductList(), pnlMain);
+        //private void BtnProduct_Click(object sender, EventArgs e)
+        //   => Util.ShowFormInPanel(new frmProductList(), pnlMain);
 
         //private void BtnVendor_Click(object sender, EventArgs e)
         //    => Util.ShowFormInPanel(new frmVendorList(), pnlMain);
@@ -137,6 +138,58 @@ namespace POS_and_Inventory_System
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void printRaport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed) conn.Open();
+
+                // Updated Query: Uses SUM(quantity) for true popularity
+                string sql = @"
+            SELECT 
+                si.product_id, 
+                p.name, 
+                COALESCE(SUM(si.quantity), 0) AS frequency
+            FROM sale_items si
+            JOIN products p ON p.product_id = si.product_id
+            GROUP BY si.product_id, p.name
+            ORDER BY frequency DESC
+            LIMIT 10";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataSet1 ds = new DataSet1();
+
+                // Fills the table "dtPopItem" exactly as named in your DataSet
+                da.Fill(ds, "dtPopItem");
+
+                if (ds.Tables["dtPopItem"].Rows.Count == 0)
+                {
+                    MessageBox.Show("No data found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                CRPopularItem report = new CRPopularItem();
+                report.SetDataSource(ds);
+
+                frmReportViewer viewer = new frmReportViewer();
+                viewer.crystalReportViewer1.ReportSource = report;
+                viewer.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
         {
 
         }
