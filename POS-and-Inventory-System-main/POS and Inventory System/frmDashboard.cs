@@ -194,6 +194,171 @@ namespace POS_and_Inventory_System
 
         }
 
+        private void btnStaff_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Open Connection
+                if (conn.State == ConnectionState.Closed) conn.Open();
+
+                // 2. The Query (Selects ALL staff first)
+                string sql = @"
+            SELECT 
+                staff_id, 
+                name, 
+                email, 
+                phone, 
+                username, 
+                role, 
+                hire_date, 
+                status 
+            FROM staff 
+            ORDER BY name ASC";
+
+                // 3. Prepare Adapter & Dataset
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataSet1 ds = new DataSet1();
+
+                // 4. Fill the table "dtStaff"
+                da.Fill(ds, "dtStaff");
+
+                if (ds.Tables["dtStaff"].Rows.Count == 0)
+                {
+                    MessageBox.Show("No staff records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // 5. Load the Report
+                CRStaff report = new CRStaff();
+                report.SetDataSource(ds);
+
+                // --- NEW STEP: Pass the Parameter ---
+                // We force it to show "active" staff. 
+                // If you want to see inactive ones, change this string to "inactive".
+                report.SetParameterValue("ActiveCheck", "active");
+
+                // 6. Show the Report
+                frmReportViewer viewer = new frmReportViewer();
+                viewer.crystalReportViewer1.ReportSource = report;
+                viewer.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading Staff Report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+        }
+
+        private void btnStockIn_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Open Connection
+                if (conn.State == ConnectionState.Closed) conn.Open();
+
+                // 2. The Query (Exactly as you provided)
+                string sql = @"
+            SELECT
+                po.customer_id AS 'customer_id',
+                p.name AS 'name',
+                po.reserved_for_pickup_until AS 'date'
+            FROM preorders po
+            JOIN products p ON p.product_id = po.product_id
+            WHERE po.status = 'order_placed'";
+
+                // 3. Prepare Adapter & Dataset
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataSet1 ds = new DataSet1();
+
+                // 4. Fill the specific table
+                // IMPORTANT: Must match "dtPreorderItems" from your screenshot exactly!
+                da.Fill(ds, "dtPreorderItems");
+
+                // 5. Check if we have records
+                if (ds.Tables["dtPreorderItems"].Rows.Count == 0)
+                {
+                    MessageBox.Show("No active preorders found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // 6. Load the Report
+                // Based on your file list, the report file is CRPreorderItem.rpt
+                CRPreorderItem report = new CRPreorderItem();
+                report.SetDataSource(ds);
+
+                // 7. Show the Report
+                frmReportViewer viewer = new frmReportViewer();
+                viewer.crystalReportViewer1.ReportSource = report;
+                viewer.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading Preorder Report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+        }
+
+        private void btnAdjust_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Open Connection
+                if (conn.State == ConnectionState.Closed) conn.Open();
+
+                // 2. The Query (Exactly as you designed it)
+                // I added 'WHERE d.status = 1' or similar if you only want active discounts, 
+                // but for now we stick to your exact logic.
+                string sql = @"
+            SELECT 
+                d.discount_id,
+                p.name,
+                p.price,
+                d.discount_percentage
+            FROM discounts d
+            JOIN products p ON p.product_id = d.product_id";
+
+                // 3. Prepare the Adapter & Dataset
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataSet1 ds = new DataSet1();
+
+                // 4. Fill the specific table "dtDiscount"
+                // (Must match the name in your Dataset schema screenshot)
+                da.Fill(ds, "dtDiscount");
+
+                // 5. Check if data exists
+                if (ds.Tables["dtDiscount"].Rows.Count == 0)
+                {
+                    MessageBox.Show("No discounted items found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // 6. Load the Report
+                // Since we renamed it back to CRDiscount.rpt, the class is CRDiscount
+                CRDiscount report = new CRDiscount();
+                report.SetDataSource(ds);
+
+                // 7. Show the Report
+                frmReportViewer viewer = new frmReportViewer();
+                viewer.crystalReportViewer1.ReportSource = report;
+                viewer.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Always close connection
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+        }
+
         private void loadDataGridView()
         {
             try

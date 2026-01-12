@@ -791,3 +791,4 @@ C:\Users\vince\OneDrive\Documents\GitHub\DaPeevedPerson\DePeeVedPerson\POS-and-I
 C:\Users\vince\OneDrive\Documents\GitHub\DaPeevedPerson\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS and .1977F62D.Up2Date
 C:\Users\vince\OneDrive\Documents\GitHub\DaPeevedPerson\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS and Inventory System.exe
 C:\Users\vince\OneDrive\Documents\GitHub\DaPeevedPerson\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS and Inventory System.pdb
+C:\Users\vince\OneDrive\Documents\GitHub\DaPeevedPerson\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\obj\Debug\POS and Inventory System.exe.config
