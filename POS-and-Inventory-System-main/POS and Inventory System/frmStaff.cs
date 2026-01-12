@@ -100,5 +100,63 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void printRaport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Open Connection
+                if (conn.State == ConnectionState.Closed) conn.Open();
+
+                // 2. The Query (Selects ALL staff first)
+                string sql = @"
+            SELECT 
+                staff_id, 
+                name, 
+                email, 
+                phone, 
+                username, 
+                role, 
+                hire_date, 
+                status 
+            FROM staff 
+            ORDER BY name ASC";
+
+                // 3. Prepare Adapter & Dataset
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataSet1 ds = new DataSet1();
+
+                // 4. Fill the table "dtStaff"
+                da.Fill(ds, "dtStaff");
+
+                if (ds.Tables["dtStaff"].Rows.Count == 0)
+                {
+                    MessageBox.Show("No staff records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // 5. Load the Report
+                CRStaff report = new CRStaff();
+                report.SetDataSource(ds);
+
+                // --- NEW STEP: Pass the Parameter ---
+                // We force it to show "active" staff. 
+                // If you want to see inactive ones, change this string to "inactive".
+                report.SetParameterValue("ActiveCheck", "active");
+
+                // 6. Show the Report
+                frmReportViewer viewer = new frmReportViewer();
+                viewer.crystalReportViewer1.ReportSource = report;
+                viewer.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading Staff Report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+        }
     }
 }

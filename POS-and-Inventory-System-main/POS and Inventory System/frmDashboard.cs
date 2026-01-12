@@ -112,8 +112,8 @@ namespace POS_and_Inventory_System
         }
 
 
-        //private void BtnProduct_Click(object sender, EventArgs e)
-        //   => Util.ShowFormInPanel(new frmProductList(), pnlMain);
+        private void btnProduct_Click(object sender, EventArgs e)
+           => Util.ShowFormInPanel(new frmProductList(), pnlMain);
 
         //private void BtnVendor_Click(object sender, EventArgs e)
         //    => Util.ShowFormInPanel(new frmVendorList(), pnlMain);
@@ -189,64 +189,64 @@ namespace POS_and_Inventory_System
             }
         }
 
-        private void btnProduct_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // 1. Open Connection
-                if (conn.State == ConnectionState.Closed) conn.Open();
+        //private void btnProduct_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        // 1. Open Connection
+        //        if (conn.State == ConnectionState.Closed) conn.Open();
 
-                // 2. The Query (Selects ALL staff first)
-                string sql = @"
-                    select
-                    p.product_id as id,
-                    p.sku as sku, 
-                    p.name as name,
-                    p.type as type,
-                    p.model as model,
-                    p.status as status,
-                    p.price as price,
-                    i.stock as stock
-                    from products as p
-                    join inventory as i on i.product_id = p.product_id
-                    order by type";
+        //        // 2. The Query (Selects ALL staff first)
+        //        string sql = @"
+        //            select
+        //            p.product_id as id,
+        //            p.sku as sku, 
+        //            p.name as name,
+        //            p.type as type,
+        //            p.model as model,
+        //            p.status as status,
+        //            p.price as price,
+        //            i.stock as stock
+        //            from products as p
+        //            join inventory as i on i.product_id = p.product_id
+        //            order by type";
 
-                // 3. Prepare Adapter & Dataset
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                DataSet1 ds = new DataSet1();
+        //        // 3. Prepare Adapter & Dataset
+        //        MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+        //        DataSet1 ds = new DataSet1();
 
-                // 4. Fill the table "dtStaff"
-                da.Fill(ds, "dtProducts");
+        //        // 4. Fill the table "dtStaff"
+        //        da.Fill(ds, "dtProducts");
 
-                if (ds.Tables["dtProducts"].Rows.Count == 0)
-                {
-                    MessageBox.Show("No staff records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+        //        if (ds.Tables["dtProducts"].Rows.Count == 0)
+        //        {
+        //            MessageBox.Show("No staff records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            return;
+        //        }
 
-                // 5. Load the Report
-                CrystalReport2 report = new CrystalReport2();
-                report.SetDataSource(ds);
+        //        // 5. Load the Report
+        //        CrystalReport2 report = new CrystalReport2();
+        //        report.SetDataSource(ds);
 
-                // --- NEW STEP: Pass the Parameter ---
-                // We force it to show "active" staff. 
-                // If you want to see inactive ones, change this string to "inactive".
-                //report.SetParameterValue("Type", "active");
+        //        // --- NEW STEP: Pass the Parameter ---
+        //        // We force it to show "active" staff. 
+        //        // If you want to see inactive ones, change this string to "inactive".
+        //        //report.SetParameterValue("Type", "active");
 
-                // 6. Show the Report
-                frmReportViewer viewer = new frmReportViewer();
-                viewer.crystalReportViewer1.ReportSource = report;
-                viewer.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading Staff Report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open) conn.Close();
-            }
-        }
+        //        // 6. Show the Report
+        //        frmReportViewer viewer = new frmReportViewer();
+        //        viewer.crystalReportViewer1.ReportSource = report;
+        //        viewer.ShowDialog();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error loading Staff Report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    finally
+        //    {
+        //        if (conn.State == ConnectionState.Open) conn.Close();
+        //    }
+        //}
 
         private void btnStaff_Click_1(object sender, EventArgs e)
         {

@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductList));
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.printRaport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.dataSet1 = new POS_and_Inventory_System.DataSet1();
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.printRaport = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductsBindingSource1)).BeginInit();
@@ -89,6 +89,29 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(983, 45);
             this.panel2.TabIndex = 3;
+            // 
+            // printRaport
+            // 
+            this.printRaport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.printRaport.BackColor = System.Drawing.Color.Black;
+            this.printRaport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.printRaport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.printRaport.FlatAppearance.BorderSize = 0;
+            this.printRaport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.printRaport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(32)))), ((int)(((byte)(59)))));
+            this.printRaport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printRaport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            this.printRaport.Image = ((System.Drawing.Image)(resources.GetObject("printRaport.Image")));
+            this.printRaport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.printRaport.Location = new System.Drawing.Point(754, 4);
+            this.printRaport.Name = "printRaport";
+            this.printRaport.Size = new System.Drawing.Size(134, 38);
+            this.printRaport.TabIndex = 13;
+            this.printRaport.Text = "Product print";
+            this.printRaport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.printRaport.UseVisualStyleBackColor = false;
+            this.printRaport.Click += new System.EventHandler(this.printRaport_Click);
             // 
             // btnAdd
             // 
@@ -331,28 +354,6 @@
             // 
             this.dtProductsBindingSource.DataMember = "dtProducts";
             this.dtProductsBindingSource.DataSource = this.dataSet1;
-            // 
-            // printRaport
-            // 
-            this.printRaport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.printRaport.BackColor = System.Drawing.Color.Black;
-            this.printRaport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.printRaport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.printRaport.FlatAppearance.BorderSize = 0;
-            this.printRaport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.printRaport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(32)))), ((int)(((byte)(59)))));
-            this.printRaport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printRaport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
-            this.printRaport.Image = ((System.Drawing.Image)(resources.GetObject("printRaport.Image")));
-            this.printRaport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.printRaport.Location = new System.Drawing.Point(754, 4);
-            this.printRaport.Name = "printRaport";
-            this.printRaport.Size = new System.Drawing.Size(134, 38);
-            this.printRaport.TabIndex = 13;
-            this.printRaport.Text = "Product print";
-            this.printRaport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.printRaport.UseVisualStyleBackColor = false;
             // 
             // frmProductList
             // 
