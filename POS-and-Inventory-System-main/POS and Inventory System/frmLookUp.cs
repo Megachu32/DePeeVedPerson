@@ -96,7 +96,7 @@ namespace POS_and_Inventory_System
         {
             if (e.KeyCode == Keys.Escape) Dispose();
         }
-
+        
         private void BtnClose_Click(object sender, EventArgs e) 
             => Dispose();
 

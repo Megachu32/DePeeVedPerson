@@ -202,12 +202,15 @@ namespace POS_and_Inventory_System
                 // --- STEP D: START TRANSACTION FOR ITEMS ---
                 DataTable dt = fpos.ds.Tables["dtCheckOut"];
 
+                //checks for 
                 bool ispreorder= false;
                 foreach (DataRow row in dt.Rows)
                 {
 
                     string productid = row["product_id"].ToString();
                     string status1 = "";
+                    string status2 = row["order_mode"].ToString();
+
 
                     // Check Product Status
                     string temp1 = @"SELECT status FROM products where product_id = @productid";
@@ -217,7 +220,7 @@ namespace POS_and_Inventory_System
                         object statusObj = pCmd.ExecuteScalar();
                         status1 = statusObj != null ? statusObj.ToString() : "";
                     }
-                    if (status1 == "incoming" && ispreorder == false)
+                    if (status1 == "incoming" && ispreorder == false && status2 != "pickup")
                     {
                         ispreorder = true;
                         frmCustomerEdit frmCustomerEdit = new frmCustomerEdit(this);
