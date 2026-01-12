@@ -575,14 +575,8 @@ C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\EnvDTE.dll
-C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
-C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\stdole.dll
-C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
-C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
-C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
-C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Microsoft.MSXML.dll
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\BouncyCastle.Cryptography.xml
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Google.Protobuf.pdb
 C:\Users\dewad\source\repos\DePeeVedPerson\POS-and-Inventory-System-main\POS and Inventory System\bin\Debug\Google.Protobuf.xml
