@@ -19,7 +19,8 @@ namespace POS_and_Inventory_System
         public string MyConnection()
         {
             //string conn = @"datasource = localhost; username = root; password = ; database = pos_inventory_db";
-            connString = @"Server=localhost; Database=db_project; User Id= root; Password= ;";
+            //connString = @"Server=localhost; Database=db_project; User Id= root; Password= ;";
+            connString = @"Server=10.147.123.202; Database=db_project; User Id= dotry; Password= nt;";
             return connString;
         }
 
